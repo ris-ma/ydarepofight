@@ -2569,15 +2569,8 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SUMMARY);
 
     // Let any Pokemon that learns Fly or Flash use it without knowing the move
-    if (CanMonLearnTMHM(&mons[slotId], ITEM_HM02_FLY - ITEM_TM01_FOCUS_PUNCH))
-    {
-        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, FIELD_MOVE_FLY + MENU_FIELD_MOVES);
-    }
-
-    if (CanMonLearnTMHM(&mons[slotId], ITEM_HM05_FLASH - ITEM_TM01_FOCUS_PUNCH))
-    {
-        AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, FIELD_MOVE_FLASH + MENU_FIELD_MOVES);
-    }
+    AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, FIELD_MOVE_FLY + MENU_FIELD_MOVES);
+    AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, FIELD_MOVE_FLASH + MENU_FIELD_MOVES);
 
     // Add field moves to action list
     for (i = 0; i < MAX_MON_MOVES; i++)
