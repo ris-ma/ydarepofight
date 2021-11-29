@@ -4826,7 +4826,7 @@ void SetMonData(struct Pokemon *mon, s32 field, const void *dataArg)
 
 void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
 {
-    u8 *data = dataArg;
+    const u8 *data = dataArg;
 
     struct PokemonSubstruct0 *substruct0 = NULL;
     struct PokemonSubstruct1 *substruct1 = NULL;
@@ -4929,27 +4929,21 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET8(substruct1->pp[field - MON_DATA_PP1]);
         break;
     case MON_DATA_HP_EV:
-        data = 0;
 	SET8(substruct2->hpEV);
         break;
     case MON_DATA_ATK_EV:
-        data = 0;
 	SET8(substruct2->attackEV);
         break;
     case MON_DATA_DEF_EV:
-        data = 0;
 	SET8(substruct2->defenseEV);
         break;
     case MON_DATA_SPEED_EV:
-	data = 0;
 	SET8(substruct2->speedEV);
         break;
     case MON_DATA_SPATK_EV:
-	data = 0;
 	SET8(substruct2->spAttackEV);
         break;
     case MON_DATA_SPDEF_EV:
-        data = 0;
 	SET8(substruct2->spDefenseEV);
         break;
     case MON_DATA_COOL:
@@ -4995,27 +4989,21 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET8(substruct3->otGender);
         break;
     case MON_DATA_HP_IV:
-        data = 31;
 	SET8(substruct3->hpIV);
         break;
     case MON_DATA_ATK_IV:
-        data = 31;
 	SET8(substruct3->attackIV)
         break;
     case MON_DATA_DEF_IV:
-        data = 31;
 	SET8(substruct3->defenseIV);		    
         break;
     case MON_DATA_SPEED_IV:
-        data = 31;
 	SET8(substruct3->speedIV);
         break;
     case MON_DATA_SPATK_IV:
-        data = 31;
 	SET8(substruct3->spAttackIV);
         break;
     case MON_DATA_SPDEF_IV:
-        data = 31;
 	SET8(substruct3->spDefenseIV);
         break;
     case MON_DATA_IS_EGG:
