@@ -3852,18 +3852,18 @@ void CalculateMonStats(struct Pokemon *mon)
 {
     s32 oldMaxHP = GetMonData(mon, MON_DATA_MAX_HP, NULL);
     s32 currentHP = GetMonData(mon, MON_DATA_HP, NULL);
-    s32 hpIV = GetMonData(mon, 31, NULL);
-    s32 hpEV = GetMonData(mon, 0, NULL);
-    s32 attackIV = GetMonData(mon, 31, NULL);
-    s32 attackEV = GetMonData(mon, 0, NULL);
-    s32 defenseIV = GetMonData(mon, 31, NULL);
-    s32 defenseEV = GetMonData(mon, 0, NULL);
-    s32 speedIV = GetMonData(mon, 31, NULL);
-    s32 speedEV = GetMonData(mon, 0, NULL);
-    s32 spAttackIV = GetMonData(mon, 31, NULL);
-    s32 spAttackEV = GetMonData(mon, 0, NULL);
-    s32 spDefenseIV = GetMonData(mon, 31, NULL);
-    s32 spDefenseEV = GetMonData(mon, 0, NULL);
+    s32 hpIV = 31;
+    s32 hpEV = 0;
+    s32 attackIV = 31;
+    s32 attackEV = 0;
+    s32 defenseIV = 31;
+    s32 defenseEV = 0;
+    s32 speedIV = 31;
+    s32 speedEV = 0;
+    s32 spAttackIV = 31;
+    s32 spAttackEV = 0;
+    s32 spDefenseIV = 31;
+    s32 spDefenseEV = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     s32 level = GetLevelFromMonExp(mon);
     s32 newMaxHP;
@@ -4929,22 +4929,22 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET8(substruct1->pp[field - MON_DATA_PP1]);
         break;
     case MON_DATA_HP_EV:
-        SET8(substruct2->hpEV);
+        boxMon->hpEV = 31;
         break;
     case MON_DATA_ATK_EV:
-        SET8(substruct2->attackEV);
+        boxMon->attackEV = 31;
         break;
     case MON_DATA_DEF_EV:
-        SET8(substruct2->defenseEV);
+        boxMon->defenseEV = 31;
         break;
     case MON_DATA_SPEED_EV:
-        SET8(substruct2->speedEV);
+        boxMon->speedEV = 31;
         break;
     case MON_DATA_SPATK_EV:
-        SET8(substruct2->spAttackEV);
+        boxMon->spAttackEV = 31;
         break;
     case MON_DATA_SPDEF_EV:
-        SET8(substruct2->spDefenseEV);
+        boxMon->spDefenseEV = 31;
         break;
     case MON_DATA_COOL:
         SET8(substruct2->cool);
@@ -4989,22 +4989,22 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET8(substruct3->otGender);
         break;
     case MON_DATA_HP_IV:
-        SET8(substruct3->hpIV);
+        boxMon->hpIV = 31;
         break;
     case MON_DATA_ATK_IV:
-        SET8(substruct3->attackIV);
+        boxMon->attackIV = 31;
         break;
     case MON_DATA_DEF_IV:
-        SET8(substruct3->defenseIV);
+        boxMon->defenseIV = 31;
         break;
     case MON_DATA_SPEED_IV:
-        SET8(substruct3->speedIV);
+        boxMon->speedIV = 31;
         break;
     case MON_DATA_SPATK_IV:
-        SET8(substruct3->spAttackIV);
+        boxMon->spAttackIV = 31;
         break;
     case MON_DATA_SPDEF_IV:
-        SET8(substruct3->spDefenseIV);
+        boxMon->spDefenseIV = 31;
         break;
     case MON_DATA_IS_EGG:
         SET8(substruct3->isEgg);
@@ -5057,13 +5057,12 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         break;
     case MON_DATA_IVS:
     {
-        u32 ivs = data[0] | (data[1] << 8) | (data[2] << 16) | (data[3] << 24);
-        substruct3->hpIV = ivs & MAX_IV_MASK;
-        substruct3->attackIV = (ivs >> 5) & MAX_IV_MASK;
-        substruct3->defenseIV = (ivs >> 10) & MAX_IV_MASK;
-        substruct3->speedIV = (ivs >> 15) & MAX_IV_MASK;
-        substruct3->spAttackIV = (ivs >> 20) & MAX_IV_MASK;
-        substruct3->spDefenseIV = (ivs >> 25) & MAX_IV_MASK;
+        boxMon->hpIV = 31;
+        boxMon->attackIV = 31;
+        boxMon->defenseIV = 31;
+        boxMon->speedIV = 31;
+        boxMon->spAttackIV = 31;
+        boxMon->spDefenseIV = 31;
         break;
     }
     default:
