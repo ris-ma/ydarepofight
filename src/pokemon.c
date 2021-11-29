@@ -4780,50 +4780,6 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
 #define SET16(lhs) (lhs) = data[0] + (data[1] << 8)
 #define SET32(lhs) (lhs) = data[0] + (data[1] << 8) + (data[2] << 16) + (data[3] << 24)
 
-void SetMonData(struct Pokemon *mon, s32 field, const void *dataArg)
-{
-    const u8 *data = dataArg;
-
-    switch (field)
-    {
-    case MON_DATA_STATUS:
-        SET32(mon->status);
-        break;
-    case MON_DATA_LEVEL:
-        SET8(mon->level);
-        break;
-    case MON_DATA_HP:
-        SET16(mon->hp);
-        break;
-    case MON_DATA_MAX_HP:
-        SET16(mon->maxHP);
-        break;
-    case MON_DATA_ATK:
-        SET16(mon->attack);
-        break;
-    case MON_DATA_DEF:
-        SET16(mon->defense);
-        break;
-    case MON_DATA_SPEED:
-        SET16(mon->speed);
-        break;
-    case MON_DATA_SPATK:
-        SET16(mon->spAttack);
-        break;
-    case MON_DATA_SPDEF:
-        SET16(mon->spDefense);
-        break;
-    case MON_DATA_MAIL:
-        SET8(mon->mail);
-        break;
-    case MON_DATA_SPECIES2:
-        break;
-    default:
-        SetBoxMonData(&mon->box, field, data);
-        break;
-    }
-}
-
 void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
 {
     const u8 *data = dataArg;
@@ -4929,22 +4885,22 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET8(substruct1->pp[field - MON_DATA_PP1]);
         break;
     case MON_DATA_HP_EV:
-	SET8(substruct2->hpEV);
+        SET8(substruct2->hpEV);
         break;
     case MON_DATA_ATK_EV:
-	SET8(substruct2->attackEV);
+        SET8(substruct2->attackEV);
         break;
     case MON_DATA_DEF_EV:
-	SET8(substruct2->defenseEV);
+        SET8(substruct2->defenseEV);
         break;
     case MON_DATA_SPEED_EV:
-	SET8(substruct2->speedEV);
+        SET8(substruct2->speedEV);
         break;
     case MON_DATA_SPATK_EV:
-	SET8(substruct2->spAttackEV);
+        SET8(substruct2->spAttackEV);
         break;
     case MON_DATA_SPDEF_EV:
-	SET8(substruct2->spDefenseEV);
+        SET8(substruct2->spDefenseEV);
         break;
     case MON_DATA_COOL:
         SET8(substruct2->cool);
@@ -4989,22 +4945,22 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET8(substruct3->otGender);
         break;
     case MON_DATA_HP_IV:
-	SET8(substruct3->hpIV);
+        SET8(substruct3->hpIV);
         break;
     case MON_DATA_ATK_IV:
-	SET8(substruct3->attackIV)
+        SET8(substruct3->attackIV);
         break;
     case MON_DATA_DEF_IV:
-	SET8(substruct3->defenseIV);		    
+        SET8(substruct3->defenseIV);
         break;
     case MON_DATA_SPEED_IV:
-	SET8(substruct3->speedIV);
+        SET8(substruct3->speedIV);
         break;
     case MON_DATA_SPATK_IV:
-	SET8(substruct3->spAttackIV);
+        SET8(substruct3->spAttackIV);
         break;
     case MON_DATA_SPDEF_IV:
-	SET8(substruct3->spDefenseIV);
+        SET8(substruct3->spDefenseIV);
         break;
     case MON_DATA_IS_EGG:
         SET8(substruct3->isEgg);
