@@ -1712,9 +1712,10 @@ void PlantBerryTree(u8 id, u8 berry, u8 stage, bool8 allowGrowth)
     tree->berry = berry;
     tree->minutesUntilNextStage = GetStageDurationByBerryType(berry);
     tree->stage = BERRY_STAGE_BERRIES;
+    tree->berryYield = CalcBerryYield(tree)
     if (stage == BERRY_STAGE_BERRIES)
     {
-        tree->berryYield = 100;
+        tree->berryYield = CalcBerryYield(tree);
         tree->minutesUntilNextStage *= 4;
     }
     
