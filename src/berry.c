@@ -1711,13 +1711,12 @@ void PlantBerryTree(u8 id, u8 berry, u8 stage, bool8 allowGrowth)
     *tree = gBlankBerryTree;
     tree->berry = berry;
     tree->minutesUntilNextStage = GetStageDurationByBerryType(berry);
-    tree->stage = stage;
+    tree->stage = BERRY_STAGE_FLOWERING;
     if (stage == BERRY_STAGE_BERRIES)
     {
         tree->berryYield = CalcBerryYield(tree);
         tree->minutesUntilNextStage *= 4;
     }
-    tree->stage = BERRY_STAGE_TALLER;
     
     // Stop growth, to keep tree at this stage until the player has seen it
     // allowGrowth is always true for berry trees the player has planted
