@@ -1258,7 +1258,6 @@ static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
             eggCycles = 220;
             SetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP, &eggCycles);
             return TRUE;
-            }
         }
     }
 
