@@ -1697,7 +1697,7 @@ void BerryTreeTimeUpdate(s32 minutes)
                     if (!BerryTreeGrow(tree))
                         break;
                     if (tree->stage == BERRY_STAGE_BERRIES)
-                        tree->minutesUntilNextStage *= 0;
+                        tree->minutesUntilNextStage *= 4;
                 }
             }
         }
@@ -1717,7 +1717,8 @@ void PlantBerryTree(u8 id, u8 berry, u8 stage, bool8 allowGrowth)
         tree->berryYield = CalcBerryYield(tree);
         tree->minutesUntilNextStage *= 4;
     }
-
+    tree->stage = BERRY_STAGE_TALLER;
+    
     // Stop growth, to keep tree at this stage until the player has seen it
     // allowGrowth is always true for berry trees the player has planted
     if (!allowGrowth)
@@ -1852,7 +1853,7 @@ static u8 GetBerryCountByBerryTreeId(u8 id)
 
 static u16 GetStageDurationByBerryType(u8 berry)
 {
-    return GetBerryInfo(berry)->stageDuration * 0;
+    return GetBerryInfo(berry)->stageDuration * 60;
 }
 
 void ObjectEventInteractionGetBerryTreeData(void)
