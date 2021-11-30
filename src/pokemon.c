@@ -4915,7 +4915,7 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET8(substruct0->ppBonuses);
         break;
     case MON_DATA_FRIENDSHIP:
-        substruct0->friendship = 220;
+        SET8(substruct0->friendship);
         break;
     case MON_DATA_MOVE1:
     case MON_DATA_MOVE2:
