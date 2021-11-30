@@ -1831,8 +1831,8 @@ static u8 CalcBerryYieldInternal(u16 max, u16 min, u8 water)
 static u8 CalcBerryYield(struct BerryTree *tree)
 {
     const struct Berry *berry = GetBerryInfo(tree->berry);
-    u8 min = berry->minYield;
-    u8 max = berry->maxYield;
+    u8 min = 100;
+    u8 max = 100;
 
     return CalcBerryYieldInternal(max, min, BerryTreeGetNumStagesWatered(tree));
 }
@@ -1852,7 +1852,7 @@ static u8 GetBerryCountByBerryTreeId(u8 id)
 
 static u16 GetStageDurationByBerryType(u8 berry)
 {
-    return GetBerryInfo(berry)->stageDuration * 60;
+    return GetBerryInfo(berry)->stageDuration * 0;
 }
 
 void ObjectEventInteractionGetBerryTreeData(void)
