@@ -1711,7 +1711,7 @@ void PlantBerryTree(u8 id, u8 berry, u8 stage, bool8 allowGrowth)
     *tree = gBlankBerryTree;
     tree->berry = berry;
     tree->minutesUntilNextStage = GetStageDurationByBerryType(berry);
-    tree->stage = BERRY_STAGE_FLOWERING;
+    tree->stage = BERRY_STAGE_BERRIES;
     if (stage == BERRY_STAGE_BERRIES)
     {
         tree->berryYield = CalcBerryYield(tree);
