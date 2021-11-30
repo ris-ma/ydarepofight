@@ -1712,13 +1712,12 @@ void PlantBerryTree(u8 id, u8 berry, u8 stage, bool8 allowGrowth)
     tree->berry = berry;
     tree->minutesUntilNextStage = GetStageDurationByBerryType(berry);
     tree->stage = BERRY_STAGE_BERRIES;
-    tree->berryYield = CalcBerryYield(tree)
     if (stage == BERRY_STAGE_BERRIES)
     {
         tree->berryYield = CalcBerryYield(tree);
         tree->minutesUntilNextStage *= 4;
     }
-    
+
     // Stop growth, to keep tree at this stage until the player has seen it
     // allowGrowth is always true for berry trees the player has planted
     if (!allowGrowth)
@@ -1840,15 +1839,7 @@ static u8 CalcBerryYield(struct BerryTree *tree)
 
 static u8 GetBerryCountByBerryTreeId(u8 id)
 {
-    struct BerryTree *tree = GetBerryTreeInfo(id);
-    const struct Berry *berry = GetBerryInfo(tree->berry);
-    u16 currentMap = gMapHeader.regionMapSectionId;
-
-    // Berries on rainy maps don't need to be watered because that made no sense
-    if (currentMap == MAPSEC_ROUTE_119 || currentMap == MAPSEC_ROUTE_120 || currentMap == MAPSEC_ROUTE_123)
-        return berry->maxYield;
-    else
-        return gSaveBlock1Ptr->berryTrees[id].berryYield;
+    return 100;
 }
 
 static u16 GetStageDurationByBerryType(u8 berry)
