@@ -25,9 +25,12 @@ OldaleTown_PokemonCenter_1F_EventScript_Gentleman:: @ 81FC028
 OldaleTown_PokemonCenter_1F_EventScript_Boy:: @ 81FC031
 	lock
 	faceplayer
-	goto_if_set FLAG_NUZLOCKE_ITEMS, OldaleTown_PokemonCenter_1F_Text_PokemonCentersAreGreat
-	setflag FLAG_NUZLOCKE_ITEMS
-	goto OldaleTown_PokemonCenter_1F_Give_Items
+	goto_if_set FLAG_NUZLOCKE_ITEMS, OldaleTown_PokemonCenter_1F_Say_PokemonCentersAreGreat @ si ce flag est set, on va au script donné
+	setflag FLAG_NUZLOCKE_ITEMS @ si le flag n'est pas set, on donne les items
+	giveitem ITEM_RARE_CANDY, 999
+	giveitem ITEM_RARE_CANDY, 999
+	giveitem ITEM_RARE_CANDY, 999
+	msgbox OldaleTown_PokemonCenter_1F_Text_Give_Items, MSGBOX_NPC @ et on appelle le text giveitems
 	release
 	end
 
@@ -50,8 +53,8 @@ OldaleTown_PokemonCenter_1F_Text_TrainersCanUsePC: @ 81FC059
 	.string "Naturally, that means you're welcome\n"
 	.string "to use it, too.$"
 
-OldaleTown_PokemonCenter_1F_Text_PokemonCentersAreGreat: @ 81FC0CD
-	.string "Enjoy!$"
+OldaleTown_PokemonCenter_1F_Text_PokemonCentersAreGreat: @ définition du message Great centers
+    .string "Enjoy$"
 
 OldaleTown_PokemonCenter_1F_Text_WirelessClubNotAvailable: @ 81FC148
 	.string "The Pokémon Wireless Club on\n"
@@ -64,10 +67,10 @@ OldaleTown_PokemonCenter_1F_Text_TradedInWirelessClub: @ 81FC1B9
 	.string "the second floor was built recently.\p"
 	.string "I traded Pokémon right away.$"
 	
-OldaleTown_PokemonCenter_1F_Give_Items: @ 81FC0CD
-	additem ITEM_RARE_CANDY, 999
-	additem ITEM_RARE_CANDY, 999
-	additem ITEM_RARE_CANDY, 999
+OldaleTown_PokemonCenter_1F_Text_Give_Items: @ définition du text giveitems
+	.string "Here are your items!$"
+
+OldaleTown_PokemonCenter_1F_Say_PokemonCentersAreGreat: @ le script donné va juste display un message, qui est défini plus bas, et laisse le joueur partir
+	msgbox OldaleTown_PokemonCenter_1F_Text_PokemonCentersAreGreat, MSGBOX_NPC @ appelle du message GreatCenters
 	release
 	end
-
