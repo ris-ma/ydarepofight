@@ -38,37 +38,37 @@ FallarborTown_Text_AnnoyingIntroPart1:
 	.string "I'm Evie, and this is my sister, Ivy.$"
 
 FallarborTown_Text_AnnoyingIntroPart2:
-	.string "Ivy: We offer special training\n"
+	.string "We offer special training\n"
 	.string "programs that will seriously beef up\l"
 	.string "your team!$"
 
 FallarborTown_Text_AnnoyingIntroPart3:
-	.string "Evie: But our services don't come cheap.\n"
+	.string "But our services don't come cheap.\n"
 	.string "Well, mine don't, at least.\p"
 	.string "You can pay Ivy with junk-$"
 
 FallarborTown_Text_AnnoyingIntroPart4:
-	.string "Ivy: Hey!\n"
+	.string "Hey!\n"
 	.string "Those Bottle Caps aren't junk!\p"
 	.string "They're highly collectable, thank\n"
 	.string "you very much!$"
 
 FallarborTown_Text_AnnoyingIntroPart5:
-	.string "Evie: Yeah, yeah, if you say so…\p"
+	.string "Yeah, yeah, if you say so…\p"
 	.string "Anyway, do you know about your Pokémon's\n"
 	.string "Effort Values, or EVs for short?$"
 
 FallarborTown_Text_AnnoyingIntroPart6:
-	.string "Ivy: OK! now, how about Individual\n"
+	.string "OK! now, how about Individual\n"
 	.string "Values, or IVs?\p"
 	.string "Do you want me to explain them?$"
 
 FallarborTown_Text_AnnoyingIntroPart7:
-	.string "Evie: Right, here's the deal. For ¥100,\n"
+	.string "Right, here's the deal. For ¥100,\n"
 	.string "I'll increase a Pokémon's EVs by one.$"
 
 FallarborTown_Text_AnnoyingIntroPart8:
-	.string "Ivy: And for one Bottle Cap, I'll change\n"
+	.string "And for one Bottle Cap, I'll change\n"
 	.string "one of a Pokémon's IVs to whatever\l"
 	.string "you want.\p"
 	.string "Also, for three Caps, I'll change all\n"
@@ -290,7 +290,7 @@ SuperTraining_Refuse::
 	end
 
 SuperTraining_Text_ChoosePokemon:
-	.string "Evie: Which Pokémon would you like me\n"
+	.string "Which Pokémon would you like me\n"
 	.string "to train?$"
 
 FallarborTown_Text_CantTrainEgg:
@@ -305,7 +305,7 @@ SuperTraining_Text_RememberEvs:
 	.string "And you remember how EVs work, right?$"
 
 FallarborTown_Text_ExplainEvs:
-	.string "Evie: EVs are part of every stat a\n"
+	.string "EVs are part of every stat a\n"
 	.string "a Pokémon has.\p"
 	.string "They can have HP EVs, Attack EVs,\n"
 	.string "Defense EVs… you get the idea.\p"
@@ -651,14 +651,14 @@ HyperTraining_EventScript_RebufferChosenMon::
 	goto FallarborTown_HyperMainMenu
 
 HyperTraining_Text_ChoosePokemon:
-	.string "Ivy: Which Pokémon needs some\n"
+	.string "Which Pokémon needs some\n"
 	.string "Hyper Training?$"
 
 HyperTraining_Text_WantMeExplainIVs:
 	.string "Would you like me to explain IVs again?$"
 
 HyperTraining_Text_ExplainIVs:
-	.string "Ivy: IVs are a hidden part of your\n"
+	.string "IVs are a hidden part of your\n"
 	.string "Pokémon's stats that can only be\l"
 	.string "changed with special training,\l"
 	.string "or raised by giving them Vitamins.\p"
