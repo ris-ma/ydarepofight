@@ -1,46 +1,15 @@
 .set LOCALID_EVIE, 1
 .set LOCALID_IVY,  2
-
+	
 FallarborTown_MoveRelearnersHouse_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, FallarborTown_MoveRelearnersHouse_OnFrame
 	.byte 0
 
+FallarborTown_MoveRelearnersHouse_OnFrame:
+	map_script_2 VAR_IVY_EVIE_HOUSE_STATE, 0, FallarborTown_EventScript_IvyEvieIntro
+	.2byte 0
+		
 FallarborTown_EventScript_IvyEvieIntro::
-	lockall
-	applymovement LOCALID_EVIE, Common_Movement_WalkInPlaceFastestDown
-	applymovement LOCALID_IVY, Common_Movement_WalkInPlaceFastestDown
-	waitmovement 0
-	playse SE_PIN
-	applymovement LOCALID_EVIE, Common_Movement_ExclamationMark
-	applymovement LOCALID_IVY, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_EVIE, Common_Movement_Delay48
-	applymovement LOCALID_IVY, Common_Movement_Delay48
-	waitmovement 0
-	applymovement LOCALID_EVIE, FallarborTown_Movement_MoveEvieDown
-	applymovement LOCALID_IVY, FallarborTown_Movement_MoveIvyDown
-	waitmovement 0	
-	msgbox FallarborTown_Text_AnnoyingIntroPart1, MSGBOX_DEFAULT
-	applymovement LOCALID_IVY, Common_Movement_WalkInPlaceFastestDown
-	msgbox FallarborTown_Text_AnnoyingIntroPart2, MSGBOX_DEFAULT
-	applymovement LOCALID_EVIE, Common_Movement_WalkInPlaceFastestDown
-	msgbox FallarborTown_Text_AnnoyingIntroPart3, MSGBOX_DEFAULT
-	applymovement LOCALID_IVY, Common_Movement_WalkInPlaceFastestDown
-	msgbox FallarborTown_Text_AnnoyingIntroPart4, MSGBOX_DEFAULT
-	applymovement LOCALID_EVIE, Common_Movement_WalkInPlaceFastestDown
-	msgbox FallarborTown_Text_AnnoyingIntroPart5, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	call_if_eq FallarborTown_Explain_EVs
-	applymovement LOCALID_IVY, Common_Movement_WalkInPlaceFastestDown
-	msgbox FallarborTown_Text_AnnoyingIntroPart6, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq HyperTraining_EventScript_Explain_IVs
-	applymovement LOCALID_EVIE, Common_Movement_WalkInPlaceFastestDown
-	msgbox FallarborTown_Text_AnnoyingIntroPart7, MSGBOX_DEFAULT
-	applymovement LOCALID_IVY, Common_Movement_WalkInPlaceFastestDown
-	msgbox FallarborTown_Text_AnnoyingIntroPart8, MSGBOX_DEFAULT
-	setvar VAR_IVY_EVIE_HOUSE_STATE, 1
-	releaseall
 	end
 
 FallarborTown_Movement_MoveEvieDown:
