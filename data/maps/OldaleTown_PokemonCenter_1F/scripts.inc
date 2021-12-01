@@ -23,7 +23,12 @@ OldaleTown_PokemonCenter_1F_EventScript_Gentleman:: @ 81FC028
 	end
 
 OldaleTown_PokemonCenter_1F_EventScript_Boy:: @ 81FC031
+	lock
+	faceplayer
+	goto_if_set FLAG_NUZLOCKE_ITEMS, ??
+	setflag FLAG_NUZLOCKE_ITEMS
 	msgbox OldaleTown_PokemonCenter_1F_Text_PokemonCentersAreGreat, MSGBOX_NPC
+	release
 	end
 
 OldaleTown_PokemonCenter_1F_EventScript_Girl:: @ 81FC03A
@@ -46,10 +51,7 @@ OldaleTown_PokemonCenter_1F_Text_TrainersCanUsePC: @ 81FC059
 	.string "to use it, too.$"
 
 OldaleTown_PokemonCenter_1F_Text_PokemonCentersAreGreat: @ 81FC0CD
-	.string "Pokémon Centers are great!\p"
-	.string "You can use their services as much\n"
-	.string "as you like, and it's all for free.\l"
-	.string "You never have to worry!$"
+	.string "Enjoy!$"
 
 OldaleTown_PokemonCenter_1F_Text_WirelessClubNotAvailable: @ 81FC148
 	.string "The Pokémon Wireless Club on\n"
@@ -61,4 +63,10 @@ OldaleTown_PokemonCenter_1F_Text_TradedInWirelessClub: @ 81FC1B9
 	.string "The Pokémon Wireless Club on\n"
 	.string "the second floor was built recently.\p"
 	.string "I traded Pokémon right away.$"
+	
+OldaleTown_PokemonCenter_1F_Give_Items: @ 81FC0CD
+	giveitem RARE_CANDY, 999
+	giveitem RARE_CANDY, 999
+	giveitem RARE_CANDY, 999
+	.string "your items are in your bag.$"
 
