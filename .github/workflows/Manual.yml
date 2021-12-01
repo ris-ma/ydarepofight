@@ -42,8 +42,14 @@ jobs:
           COMPARE: 0
         run: make -j${nproc} all
 
-      - name: Upload Artifact
+      - name: Upload gba
         uses: actions/upload-artifact@v2
         with:
           name: pokeemerald_built
           path: pokeemerald.gba
+          
+      - name: Upload map
+        uses: actions/upload-artifact@v2
+        with:
+          name: pokeemerald_map
+          path: pokeemerald.map
