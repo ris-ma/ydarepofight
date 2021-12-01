@@ -3323,7 +3323,8 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     SetBoxMonData(boxMon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
     SetBoxMonData(boxMon, MON_DATA_SPECIES, &species);
     SetBoxMonData(boxMon, MON_DATA_EXP, &gExperienceTables[gBaseStats[species].growthRate][level]);
-    SetBoxMonData(boxMon, MON_DATA_FRIENDSHIP, &gBaseStats[species].friendship);
+    value = 4;
+    SetBoxMonData(boxMon, MON_DATA_FRIENDSHIP, &value);
     value = GetCurrentRegionMapSectionId();
     SetBoxMonData(boxMon, MON_DATA_MET_LOCATION, &value);
     SetBoxMonData(boxMon, MON_DATA_MET_LEVEL, &level);
@@ -4914,7 +4915,7 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET8(substruct0->ppBonuses);
         break;
     case MON_DATA_FRIENDSHIP:
-        substruct0->friendship = 220;
+        SET8(substruct0->friendship);
         break;
     case MON_DATA_MOVE1:
     case MON_DATA_MOVE2:
