@@ -24,7 +24,6 @@ SlateportCity_NameRatersHouse_NatureChanger::
 	goto NatureChanger_2
 
 SlateportCity_NameRatersHouse_NatureChangerIntro::
-	msgbox NatureChanger_Text_Intro
 	setflag FLAG_MET_NATURE_CHANGER
 	return
 
