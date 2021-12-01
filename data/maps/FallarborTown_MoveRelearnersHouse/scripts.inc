@@ -574,12 +574,8 @@ HyperTraining_EventScript_ChangeIV31::
 	goto HyperTraining_EventScript_ChangeOneIV
 
 HyperTraining_EventScript_ChangeOneIV::
-	checkitem ITEM_BOTTLE_CAP, 1
-	compare VAR_RESULT, FALSE
-	goto_if_eq HyperTraining_EventScript_NotEnoughCaps
+	goto HyperTraining_EventScript_NotEnoughCaps
 	special ChangeChosenMonIVs
-	msgbox HyperTraining_Text_PayOneCap, MSGBOX_DEFAULT
-	removeitem ITEM_BOTTLE_CAP
 	goto HyperTraining_EventScript_DoHyperTraining
 
 HyperTraining_EventScript_ChangeHiddenPower::
@@ -675,12 +671,8 @@ HyperTraining_EventScript_ChangeHPDark::
 	goto HyperTraining_EventScript_ChangeAllIVs
 
 HyperTraining_EventScript_ChangeAllIVs::
-	checkitem ITEM_BOTTLE_CAP, 3
-	compare VAR_RESULT, FALSE
-	goto_if_eq HyperTraining_EventScript_NotEnoughCaps
+	goto HyperTraining_EventScript_NotEnoughCaps
 	special ChangeChosenMonHiddenPower
-	msgbox HyperTraining_Text_PayThreeCaps, MSGBOX_DEFAULT
-	removeitem ITEM_BOTTLE_CAP, 3
 	goto HyperTraining_EventScript_DoHyperTraining
 
 HyperTraining_EventScript_DoHyperTraining::
