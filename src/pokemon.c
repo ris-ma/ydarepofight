@@ -3366,7 +3366,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         // Set three random IVs to 31
         ShuffleStatArray(statIDs);
 
-        for (i = 0; i < 3; i++)
+        for (i = 0; i < 6; i++)
         {
             SetBoxMonData(boxMon, MON_DATA_HP_IV + statIDs[i], &maxIV);
         }
@@ -4930,22 +4930,22 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET8(substruct1->pp[field - MON_DATA_PP1]);
         break;
     case MON_DATA_HP_EV:
-        substruct2->hpEV = 0;
+        SET8(substruct2->hpEV);
         break;
     case MON_DATA_ATK_EV:
-        substruct2->attackEV = 0;
+        SET8(substruct2->attackEV);
         break;
     case MON_DATA_DEF_EV:
-        substruct2->defenseEV = 0;
+        SET8(substruct2->defenseEV);
         break;
     case MON_DATA_SPEED_EV:
-        substruct2->speedEV = 0;
+        SET8(substruct2->speedEV);
         break;
     case MON_DATA_SPATK_EV:
-        substruct2->spAttackEV = 0;
+        SET8(substruct2->spAttackEV);
         break;
     case MON_DATA_SPDEF_EV:
-        substruct2->spDefenseEV = 0;
+        SET8(substruct2->spDefenseEV);
         break;
     case MON_DATA_COOL:
         SET8(substruct2->cool);
@@ -4990,22 +4990,22 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET8(substruct3->otGender);
         break;
     case MON_DATA_HP_IV:
-        substruct3->hpIV = 31;
+        SET8(substruct3->hpIV);
         break;
     case MON_DATA_ATK_IV:
-        substruct3->attackIV = 31;
+        SET8(substruct3->attackIV);
         break;
     case MON_DATA_DEF_IV:
-        substruct3->defenseIV = 31;
+        SET8(substruct3->defenseIV);
         break;
     case MON_DATA_SPEED_IV:
-        substruct3->speedIV = 31;
+        SET8(substruct3->speedIV);
         break;
     case MON_DATA_SPATK_IV:
-        substruct3->spAttackIV = 31;
+        SET8(substruct3->spAttackIV);
         break;
     case MON_DATA_SPDEF_IV:
-        substruct3->spDefenseIV = 31;
+        SET8(substruct3->spDefenseIV);
         break;
     case MON_DATA_IS_EGG:
         SET8(substruct3->isEgg);
@@ -5058,12 +5058,13 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         break;
     case MON_DATA_IVS:
     {
-        substruct3->hpIV = 31;
-        substruct3->attackIV = 31;
-        substruct3->defenseIV = 31;
-        substruct3->speedIV = 31;
-        substruct3->spAttackIV = 31;
-        substruct3->spDefenseIV = 31;
+        u32 ivs = data[0] | (data[1] << 8) | (data[2] << 16) | (data[3] << 24);
+        substruct3->hpIV = ivs & MAX_IV_MASK;
+        substruct3->attackIV = (ivs >> 5) & MAX_IV_MASK;
+        substruct3->defenseIV = (ivs >> 10) & MAX_IV_MASK;
+        substruct3->speedIV = (ivs >> 15) & MAX_IV_MASK;
+        substruct3->spAttackIV = (ivs >> 20) & MAX_IV_MASK;
+        substruct3->spDefenseIV = (ivs >> 25) & MAX_IV_MASK;
         break;
     }
     default:
