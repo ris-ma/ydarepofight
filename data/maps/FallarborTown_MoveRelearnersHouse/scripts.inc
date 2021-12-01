@@ -245,7 +245,9 @@ FallarborTown_Text_ExplainEvs:
 	.string "but you can get creative with EVs too!$"
 
 SuperTraining_Text_TakeALookatEVs:
-	.string "Let's take a look at your {STR_VAR_1}'s EVs.$"
+	.string "OK! Again, I charge ¥100 per EV\n"
+	.string "added. Now let's take a look at your\l"
+	.string "{STR_VAR_1}'s EVs.$"
 
 SuperTraining_Text_ThisIsMonsCurrentSpread:
 	.string "This is {STR_VAR_1}'s current EV\n"
