@@ -122,8 +122,6 @@ Nature_Down_SPDEF::
 	goto Nature_Changer_Nature_Change
 
 Nature_Changer_Nature_Change::
-	removeitem ITEM_ORAN_BERRY, NATURE_CHANGER_COST
-	bufferpartymonnick 0, VAR_0x8004
 	msgbox NatureChanger_Text_SpecialPokeblock, MSGBOX_DEFAULT
 	fadescreen 1
 	special ChangePokemonNature
