@@ -25,7 +25,7 @@ OldaleTown_PokemonCenter_1F_EventScript_Gentleman:: @ 81FC028
 OldaleTown_PokemonCenter_1F_EventScript_Boy:: @ 81FC031
 	lock
 	faceplayer
-	goto_if_set FLAG_NUZLOCKE_ITEMS, ??
+	goto_if_set FLAG_NUZLOCKE_ITEMS, OldaleTown_PokemonCenter_1F_Give_Items
 	setflag FLAG_NUZLOCKE_ITEMS
 	msgbox OldaleTown_PokemonCenter_1F_Text_PokemonCentersAreGreat, MSGBOX_NPC
 	release
