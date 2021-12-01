@@ -10,6 +10,8 @@ FallarborTown_MoveRelearnersHouse_OnFrame:
 	.2byte 0
 		
 FallarborTown_EventScript_IvyEvieIntro::
+	setvar VAR_IVY_EVIE_HOUSE_STATE, 1
+	releaseall
 	end
 
 FallarborTown_Movement_MoveEvieDown:
