@@ -284,6 +284,8 @@ FallarborTown_ResetEVs::
 	
 FallarborTown_DoSuperTraining::
 	special CheckChosenMonCanGainEVs
+	compare VAR_RESULT, 0
+	goto_if_eq FallarborTown_CantExceedEVLimit
 	special IncreaseChosenMonEVs
 	bufferpartymonnick 0, VAR_0x8004
 	buffernumberstring 1, VAR_0x8007
