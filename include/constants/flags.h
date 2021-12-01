@@ -1313,7 +1313,7 @@
 #define FLAG_DEFEATED_SOOTOPOLIS_GYM                                0x4F7
 #define FLAG_DEFEATED_METEOR_FALLS_STEVEN                           0x4F8 // Unused Flag
 
-#define FLAG_NUZLOCKE_ITEMS                                         0x4F9 // Unused Flag
+#define FLAG_USED_0x4F9                                             0x4F9 // Unused Flag
 #define FLAG_UNUSED_0x4FA                                           0x4FA // Unused Flag
 
 #define FLAG_DEFEATED_ELITE_4_SIDNEY                                0x4FB
@@ -1321,7 +1321,7 @@
 #define FLAG_DEFEATED_ELITE_4_GLACIA                                0x4FD
 #define FLAG_DEFEATED_ELITE_4_DRAKE                                 0x4FE
 
-#define FLAG_USED_0x4FF                                         0x4FF // used Flag
+#define FLAG_USED_0x4FF                                             0x4FF // unused Flag
 
 // Trainer Flags
 // Trainer flags occupy 0x500 - 0x85F, the last 9 of which are unused
