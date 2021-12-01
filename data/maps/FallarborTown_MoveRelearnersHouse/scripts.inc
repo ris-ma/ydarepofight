@@ -574,7 +574,6 @@ HyperTraining_EventScript_ChangeIV31::
 	goto HyperTraining_EventScript_ChangeOneIV
 
 HyperTraining_EventScript_ChangeOneIV::
-	goto HyperTraining_EventScript_NotEnoughCaps
 	special ChangeChosenMonIVs
 	goto HyperTraining_EventScript_DoHyperTraining
 
@@ -671,7 +670,6 @@ HyperTraining_EventScript_ChangeHPDark::
 	goto HyperTraining_EventScript_ChangeAllIVs
 
 HyperTraining_EventScript_ChangeAllIVs::
-	goto HyperTraining_EventScript_NotEnoughCaps
 	special ChangeChosenMonHiddenPower
 	goto HyperTraining_EventScript_DoHyperTraining
 
