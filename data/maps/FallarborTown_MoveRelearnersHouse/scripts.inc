@@ -284,23 +284,10 @@ FallarborTown_ResetEVs::
 	
 FallarborTown_DoSuperTraining::
 	special CheckChosenMonCanGainEVs
-	compare VAR_RESULT, 0
-	goto_if_eq FallarborTown_CantExceedEVLimit
-	showmoneybox 15, 0, 0
-	buffernumberstring 2, VAR_0x8009
-	msgbox SuperTraining_ShowPrice, MSGBOX_YESNO
-	compare VAR_RESULT, 0
-	goto_if_eq FallarborTown_WontPay
-	checkmoney VAR_0x8009, 0
-	compare VAR_RESULT, 0
-	goto_if_eq FallarborTown_CantAfford
-	removemoney VAR_0x8009, 0
-	updatemoneybox 0, 0
 	special IncreaseChosenMonEVs
 	bufferpartymonnick 0, VAR_0x8004
 	buffernumberstring 1, VAR_0x8007
 	msgbox SuperTraining_Text_EVsHaveIncreased
-	hidemoneybox
 	goto FallarborTown_ChangeEV
 
 FallarborTown_CantExceedEVLimit::
@@ -764,13 +751,7 @@ HyperTraining_Text_HowCanIHelp:
 	.string "How can I help {STR_VAR_1} today?$"
 
 HyperTraining_Text_StartHyperTraining:
-	.string "Got it! Let's do some Hyper Training!\p"
-	.string "… … … … … …\n"
-	.string "… … … … … …\p"
-	.string "… … … … … …\n"
-	.string "… … … … … …\p"
-	.string "… … … … … …\n"
-	.string "… … … … … …$"
+	.string "Got it! Let's do some Hyper Training!$"
 
 HyperTraining_Text_NotEnoughCaps:
 	.string "You don't have enough Bottle Caps.$"
