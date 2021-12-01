@@ -46,6 +46,29 @@ OldaleTown_PokemonCenter_1F_EventScript_Boy:: @ 81FC031
 	additem ITEM_SITRUS_BERRY, 500
 	additem ITEM_BRIGHT_POWDER, 10
 	additem ITEM_HARD_STONE, 10
+	additem ITEM_CHERI_BERRY
+	additem ITEM_CHESTO_BERRY
+	additem ITEM_PECHA_BERRY
+	additem ITEM_RAWST_BERRY
+	additem ITEM_PERSIM_BERRY
+	additem ITEM_OCCA_BERRY
+	additem ITEM_PASSHO_BERRY
+	additem ITEM_WACAN_BERRY
+	additem ITEM_RINDO_BERRY
+	additem ITEM_YACHE_BERRY
+	additem ITEM_CHOPLE_BERRY
+	additem ITEM_KEBIA_BERRY
+	additem ITEM_SHUCA_BERRY
+	additem ITEM_COBA_BERRY
+	additem ITEM_PAYAPA_BERRY
+	additem ITEM_TANGA_BERRY
+	additem ITEM_CHARTI_BERRY
+	additem ITEM_KASIB_BERRY
+	additem ITEM_HABAN_BERRY
+	additem ITEM_COLBUR_BERRY
+	additem ITEM_BABIRI_BERRY
+	additem ITEM_CHILAN_BERRY
+	additem ITEM_ROSELI_BERRY
 	msgbox OldaleTown_PokemonCenter_1F_Text_Give_Items, MSGBOX_NPC @ et on appelle le text giveitems
 	release
 	end
