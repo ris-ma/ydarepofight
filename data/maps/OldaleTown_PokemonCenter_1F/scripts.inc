@@ -27,9 +27,9 @@ OldaleTown_PokemonCenter_1F_EventScript_Boy:: @ 81FC031
 	faceplayer
 	goto_if_set FLAG_NUZLOCKE_ITEMS, OldaleTown_PokemonCenter_1F_Say_PokemonCentersAreGreat @ si ce flag est set, on va au script donné
 	setflag FLAG_NUZLOCKE_ITEMS @ si le flag n'est pas set, on donne les items
-	giveitem ITEM_RARE_CANDY, 999
-	giveitem ITEM_RARE_CANDY, 999
-	giveitem ITEM_RARE_CANDY, 999
+	additem ITEM_RARE_CANDY, 999
+	additem ITEM_RARE_CANDY, 999
+	additem ITEM_RARE_CANDY, 999
 	msgbox OldaleTown_PokemonCenter_1F_Text_Give_Items, MSGBOX_NPC @ et on appelle le text giveitems
 	release
 	end
