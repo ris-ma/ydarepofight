@@ -1249,9 +1249,22 @@ static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
                 continue;
             if (GetMonData(&gPlayerParty[i], MON_DATA_SANITY_IS_BAD_EGG))
                 continue;
-            
-            gSpecialVar_0x8004 = i;
-            return TRUE;
+
+            eggCycles = GetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP);
+            if (eggCycles != 0)
+            {
+                if (eggCycles >= toSub)
+                    eggCycles -= toSub;
+                else
+                    eggCycles -= 1;
+
+                SetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP, &eggCycles);
+            }
+            else 
+            {
+                gSpecialVar_0x8004 = i;
+                return TRUE;
+            }
         }
     }
 
