@@ -31,21 +31,21 @@ OldaleTown_PokemonCenter_1F_EventScript_Boy:: @ 81FC031
 	additem ITEM_RARE_CANDY, 999
 	additem ITEM_RARE_CANDY, 999
 	additem ITEM_BIG_PEARL, 999
-	additem MIRACLE_SEED, 10
-	additem CHARCOAL, 10
-	additem MENTAL_HERB, 100
-	additem POWER_HERB, 100
-	additem WHITE_HERB, 100
-	additem ELECTRIC_SEED, 100
-	additem PSYCHIC_SEED, 100
-	additem GRASSY_SEED, 100
-	additem MISTY_SEED, 100
-	additem LEEK, 10
-	additem BIG_ROOT, 10
-	additem LEFTOVERS, 10
-	additem SITRUS_BERRY, 500
-	additem BRIGHT_POWDER, 10
-	additem HARD_STONE, 10
+	additem ITEM_MIRACLE_SEED, 10
+	additem ITEM_CHARCOAL, 10
+	additem ITEM_MENTAL_HERB, 100
+	additem ITEM_POWER_HERB, 100
+	additem ITEM_WHITE_HERB, 100
+	additem ITEM_ELECTRIC_SEED, 100
+	additem ITEM_PSYCHIC_SEED, 100
+	additem ITEM_GRASSY_SEED, 100
+	additem ITEM_MISTY_SEED, 100
+	additem ITEM_LEEK, 10
+	additem ITEM_BIG_ROOT, 10
+	additem ITEM_LEFTOVERS, 10
+	additem ITEM_SITRUS_BERRY, 500
+	additem ITEM_BRIGHT_POWDER, 10
+	additem ITEM_HARD_STONE, 10
 	msgbox OldaleTown_PokemonCenter_1F_Text_Give_Items, MSGBOX_NPC @ et on appelle le text giveitems
 	release
 	end
