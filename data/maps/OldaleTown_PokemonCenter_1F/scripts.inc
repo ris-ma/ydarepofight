@@ -70,7 +70,7 @@ OldaleTown_PokemonCenter_1F_Text_TrainersCanUsePC: @ 81FC059
 	.string "to use it, too.$"
 
 OldaleTown_PokemonCenter_1F_Text_PokemonCentersAreGreat: @ définition du message Great centers
-	.string "Enjoy$"
+	.string "Enjoy!$"
 
 OldaleTown_PokemonCenter_1F_Text_WirelessClubNotAvailable: @ 81FC148
 	.string "The Pokémon Wireless Club on\n"
