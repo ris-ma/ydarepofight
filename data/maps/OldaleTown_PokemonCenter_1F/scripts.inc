@@ -46,29 +46,29 @@ OldaleTown_PokemonCenter_1F_EventScript_Boy:: @ 81FC031
 	additem ITEM_SITRUS_BERRY, 500
 	additem ITEM_BRIGHT_POWDER, 10
 	additem ITEM_HARD_STONE, 10
-	additem ITEM_CHERI_BERRY
-	additem ITEM_CHESTO_BERRY
-	additem ITEM_PECHA_BERRY
-	additem ITEM_RAWST_BERRY
-	additem ITEM_PERSIM_BERRY
-	additem ITEM_OCCA_BERRY
-	additem ITEM_PASSHO_BERRY
-	additem ITEM_WACAN_BERRY
-	additem ITEM_RINDO_BERRY
-	additem ITEM_YACHE_BERRY
-	additem ITEM_CHOPLE_BERRY
-	additem ITEM_KEBIA_BERRY
-	additem ITEM_SHUCA_BERRY
-	additem ITEM_COBA_BERRY
-	additem ITEM_PAYAPA_BERRY
-	additem ITEM_TANGA_BERRY
-	additem ITEM_CHARTI_BERRY
-	additem ITEM_KASIB_BERRY
-	additem ITEM_HABAN_BERRY
-	additem ITEM_COLBUR_BERRY
-	additem ITEM_BABIRI_BERRY
-	additem ITEM_CHILAN_BERRY
-	additem ITEM_ROSELI_BERRY
+	additem ITEM_CHERI_BERRY, 100
+	additem ITEM_CHESTO_BERRY, 100
+	additem ITEM_PECHA_BERRY, 100
+	additem ITEM_RAWST_BERRY, 100
+	additem ITEM_PERSIM_BERRY, 100
+	additem ITEM_OCCA_BERRY, 100
+	additem ITEM_PASSHO_BERRY, 100
+	additem ITEM_WACAN_BERRY, 100
+	additem ITEM_RINDO_BERRY, 100
+	additem ITEM_YACHE_BERRY, 100
+	additem ITEM_CHOPLE_BERRY, 100
+	additem ITEM_KEBIA_BERRY, 100
+	additem ITEM_SHUCA_BERRY, 100
+	additem ITEM_COBA_BERRY, 100
+	additem ITEM_PAYAPA_BERRY, 100
+	additem ITEM_TANGA_BERRY, 100
+	additem ITEM_CHARTI_BERRY, 100
+	additem ITEM_KASIB_BERRY, 100
+	additem ITEM_HABAN_BERRY, 100
+	additem ITEM_COLBUR_BERRY, 100
+	additem ITEM_BABIRI_BERRY, 100
+	additem ITEM_CHILAN_BERRY, 100
+	additem ITEM_ROSELI_BERRY, 100
 	msgbox OldaleTown_PokemonCenter_1F_Text_Give_Items, MSGBOX_NPC @ et on appelle le text giveitems
 	release
 	end
