@@ -65,8 +65,8 @@ OldaleTown_PokemonCenter_1F_Text_TradedInWirelessClub: @ 81FC1B9
 	.string "I traded Pokémon right away.$"
 	
 OldaleTown_PokemonCenter_1F_Give_Items: @ 81FC0CD
-	giveitem RARE_CANDY, 999
-	giveitem RARE_CANDY, 999
-	giveitem RARE_CANDY, 999
+	giveitem ITEM_RARE_CANDY, 999
+	giveitem ITEM_RARE_CANDY, 999
+	giveitem ITEM_RARE_CANDY, 999
 	.string "your items are in your bag.$"
 
