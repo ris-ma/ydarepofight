@@ -25,9 +25,9 @@ OldaleTown_PokemonCenter_1F_EventScript_Gentleman:: @ 81FC028
 OldaleTown_PokemonCenter_1F_EventScript_Boy:: @ 81FC031
 	lock
 	faceplayer
-	goto_if_set FLAG_NUZLOCKE_ITEMS, OldaleTown_PokemonCenter_1F_Give_Items
+	goto_if_set FLAG_NUZLOCKE_ITEMS, OldaleTown_PokemonCenter_1F_Text_PokemonCentersAreGreat
 	setflag FLAG_NUZLOCKE_ITEMS
-	msgbox OldaleTown_PokemonCenter_1F_Text_PokemonCentersAreGreat, MSGBOX_NPC
+	msgbox OldaleTown_PokemonCenter_1F_Give_Items, MSGBOX_NPC
 	release
 	end
 
@@ -68,5 +68,5 @@ OldaleTown_PokemonCenter_1F_Give_Items: @ 81FC0CD
 	giveitem ITEM_RARE_CANDY, 999
 	giveitem ITEM_RARE_CANDY, 999
 	giveitem ITEM_RARE_CANDY, 999
-	.string "your items are in your bag.$"
+	.string "Your items are in your bag.$"
 
