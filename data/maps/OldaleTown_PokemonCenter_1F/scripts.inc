@@ -25,7 +25,11 @@ OldaleTown_PokemonCenter_1F_EventScript_Gentleman:: @ 81FC028
 OldaleTown_PokemonCenter_1F_EventScript_Boy:: @ 81FC031
 	lock
 	faceplayer
-	removeitem ITEM_RARE_CANDY, 5000
+	removeitem ITEM_RARE_CANDY, 999
+	removeitem ITEM_RARE_CANDY, 999
+	removeitem ITEM_RARE_CANDY, 999
+	removeitem ITEM_RARE_CANDY, 999
+	removeitem ITEM_RARE_CANDY, 999
 	additem ITEM_BIG_PEARL, 999
 	additem ITEM_MIRACLE_SEED, 10
 	additem ITEM_CHARCOAL, 10
