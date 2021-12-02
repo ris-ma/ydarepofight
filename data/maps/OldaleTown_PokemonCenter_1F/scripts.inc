@@ -25,51 +25,12 @@ OldaleTown_PokemonCenter_1F_EventScript_Gentleman:: @ 81FC028
 OldaleTown_PokemonCenter_1F_EventScript_Boy:: @ 81FC031
 	lock
 	faceplayer
-	removeitem ITEM_RARE_CANDY, 999
-	removeitem ITEM_RARE_CANDY, 999
-	removeitem ITEM_RARE_CANDY, 999
-	removeitem ITEM_RARE_CANDY, 999
-	removeitem ITEM_RARE_CANDY, 999
-	additem ITEM_BIG_PEARL, 999
-	additem ITEM_MIRACLE_SEED, 10
-	additem ITEM_CHARCOAL, 10
-	additem ITEM_MENTAL_HERB, 100
-	additem ITEM_POWER_HERB, 100
-	additem ITEM_WHITE_HERB, 100
-	additem ITEM_ELECTRIC_SEED, 100
-	additem ITEM_PSYCHIC_SEED, 100
-	additem ITEM_GRASSY_SEED, 100
-	additem ITEM_MISTY_SEED, 100
-	additem ITEM_LEEK, 10
-	additem ITEM_BIG_ROOT, 10
-	additem ITEM_LEFTOVERS, 10
-	additem ITEM_SITRUS_BERRY, 500
-	additem ITEM_BRIGHT_POWDER, 10
-	additem ITEM_HARD_STONE, 10
-	additem ITEM_CHERI_BERRY, 100
-	additem ITEM_CHESTO_BERRY, 100
-	additem ITEM_PECHA_BERRY, 100
-	additem ITEM_RAWST_BERRY, 100
-	additem ITEM_PERSIM_BERRY, 100
-	additem ITEM_OCCA_BERRY, 100
-	additem ITEM_PASSHO_BERRY, 100
-	additem ITEM_WACAN_BERRY, 100
-	additem ITEM_RINDO_BERRY, 100
-	additem ITEM_YACHE_BERRY, 100
-	additem ITEM_CHOPLE_BERRY, 100
-	additem ITEM_KEBIA_BERRY, 100
-	additem ITEM_SHUCA_BERRY, 100
-	additem ITEM_COBA_BERRY, 100
-	additem ITEM_PAYAPA_BERRY, 100
-	additem ITEM_TANGA_BERRY, 100
-	additem ITEM_CHARTI_BERRY, 100
-	additem ITEM_KASIB_BERRY, 100
-	additem ITEM_HABAN_BERRY, 100
-	additem ITEM_COLBUR_BERRY, 100
-	additem ITEM_BABIRI_BERRY, 100
-	additem ITEM_CHILAN_BERRY, 100
-	additem ITEM_ROSELI_BERRY, 100
-	msgbox OldaleTown_PokemonCenter_1F_Text_Give_Items, MSGBOX_NPC @ et on appelle le text giveitems
+	removeitem ITEM_RARE_CANDY, 600
+	removeitem ITEM_BIG_PEARL, 600
+	additem ITEM_RARE_CANDY, 500
+	additem ITEM_BIG_PEARL, 500
+	call_if_set FLAG_BADGE01_GET, Give_Cut_Items
+	call_if_set FLAG_RECEIVED_TM46, Give_Berries_Items
 	release
 	end
 
@@ -104,6 +65,80 @@ OldaleTown_PokemonCenter_1F_Text_TradedInWirelessClub: @ 81FC1B9
 	.string "the second floor was built recently.\p"
 	.string "I traded Pokémon right away.$"
 	
-OldaleTown_PokemonCenter_1F_Text_Give_Items: @ définition du text giveitems
-	.string "Here are your items!\n"
-	.string "Enjoy!$"
+Give_Cut_Items:
+	removeitem ITEM_MIRACLE_SEED, 10	
+	removeitem ITEM_CHARCOAL, 10
+	removeitem ITEM_MENTAL_HERB, 100
+	removeitem ITEM_POWER_HERB, 100
+	removeitem ITEM_WHITE_HERB, 100
+	removeitem ITEM_ELECTRIC_SEED, 100
+	removeitem ITEM_PSYCHIC_SEED, 100
+	removeitem ITEM_GRASSY_SEED, 100
+	removeitem ITEM_MISTY_SEED, 100
+	removeitem ITEM_LEEK, 10
+	removeitem ITEM_BIG_ROOT, 10
+	additem ITEM_MIRACLE_SEED, 10	
+	additem ITEM_CHARCOAL, 10
+	additem ITEM_MENTAL_HERB, 100
+	additem ITEM_POWER_HERB, 100
+	additem ITEM_WHITE_HERB, 100
+	additem ITEM_ELECTRIC_SEED, 100
+	additem ITEM_PSYCHIC_SEED, 100
+	additem ITEM_GRASSY_SEED, 100
+	additem ITEM_MISTY_SEED, 100
+	additem ITEM_LEEK, 10
+	additem ITEM_BIG_ROOT, 10
+	
+Give_Berries_Items:
+	removeitem ITEM_SITRUS_BERRY, 500
+	removeitem ITEM_BRIGHT_POWDER, 10
+	removeitem ITEM_HARD_STONE, 10
+	removeitem ITEM_CHERI_BERRY, 100
+	removeitem ITEM_CHESTO_BERRY, 100
+	removeitem ITEM_PECHA_BERRY, 100
+	removeitem ITEM_RAWST_BERRY, 100
+	removeitem ITEM_PERSIM_BERRY, 100
+	removeitem ITEM_OCCA_BERRY, 100
+	removeitem ITEM_PASSHO_BERRY, 100
+	removeitem ITEM_WACAN_BERRY, 100
+	removeitem ITEM_RINDO_BERRY, 100
+	removeitem ITEM_YACHE_BERRY, 100
+	removeitem ITEM_CHOPLE_BERRY, 100
+	removeitem ITEM_KEBIA_BERRY, 100
+	removeitem ITEM_SHUCA_BERRY, 100
+	removeitem ITEM_COBA_BERRY, 100
+	removeitem ITEM_PAYAPA_BERRY, 100
+	removeitem ITEM_TANGA_BERRY, 100
+	removeitem ITEM_CHARTI_BERRY, 100
+	removeitem ITEM_KASIB_BERRY, 100
+	removeitem ITEM_HABAN_BERRY, 100
+	removeitem ITEM_COLBUR_BERRY, 100
+	removeitem ITEM_BABIRI_BERRY, 100
+	removeitem ITEM_CHILAN_BERRY, 100
+	removeitem ITEM_ROSELI_BERRY, 100
+	additem ITEM_SITRUS_BERRY, 500
+	additem ITEM_BRIGHT_POWDER, 10
+	additem ITEM_HARD_STONE, 10
+	additem ITEM_CHERI_BERRY, 100
+	additem ITEM_CHESTO_BERRY, 100
+	additem ITEM_PECHA_BERRY, 100
+	additem ITEM_RAWST_BERRY, 100
+	additem ITEM_PERSIM_BERRY, 100
+	additem ITEM_OCCA_BERRY, 100
+	additem ITEM_PASSHO_BERRY, 100
+	additem ITEM_WACAN_BERRY, 100
+	additem ITEM_RINDO_BERRY, 100
+	additem ITEM_YACHE_BERRY, 100
+	additem ITEM_CHOPLE_BERRY, 100
+	additem ITEM_KEBIA_BERRY, 100
+	additem ITEM_SHUCA_BERRY, 100
+	additem ITEM_COBA_BERRY, 100
+	additem ITEM_PAYAPA_BERRY, 100
+	additem ITEM_TANGA_BERRY, 100
+	additem ITEM_CHARTI_BERRY, 100
+	additem ITEM_KASIB_BERRY, 100
+	additem ITEM_HABAN_BERRY, 100
+	additem ITEM_COLBUR_BERRY, 100
+	additem ITEM_BABIRI_BERRY, 100
+	additem ITEM_CHILAN_BERRY, 100
+	additem ITEM_ROSELI_BERRY, 100
