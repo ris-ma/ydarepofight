@@ -3366,7 +3366,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         // Set three random IVs to 31
         ShuffleStatArray(statIDs);
 
-        for (i = 0; i < 6; i++)
+        for (i = 0; i < 3; i++)
         {
             SetBoxMonData(boxMon, MON_DATA_HP_IV + statIDs[i], &maxIV);
         }
