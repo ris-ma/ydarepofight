@@ -232,7 +232,7 @@ Give_Cut_Items_After_Roxanne:
 	
 Give_Thief_Items_After_Thief:
 	removeitem ITEM_SITRUS_BERRY, 400
-	removeitem ITEM_LEFTOVERs, 10
+	removeitem ITEM_LEFTOVERS, 10
 	removeitem ITEM_BRIGHT_POWDER, 10
 	removeitem ITEM_HARD_STONE, 10
 	removeitem ITEM_MYSTIC_WATER, 10
@@ -241,7 +241,7 @@ Give_Thief_Items_After_Thief:
 	removeitem ITEM_SOFT_SAND, 10
 	removeitem ITEM_BLACK_BELT, 10
 	additem ITEM_SITRUS_BERRY, 400
-	additem ITEM_LEFTOVERs, 10
+	additem ITEM_LEFTOVERS, 10
 	additem ITEM_BRIGHT_POWDER, 10
 	additem ITEM_HARD_STONE, 10
 	additem ITEM_MYSTIC_WATER, 10
