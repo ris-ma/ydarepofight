@@ -229,6 +229,7 @@ Give_Cut_Items_After_Roxanne:
 	additem ITEM_BABIRI_BERRY, 100
 	additem ITEM_CHILAN_BERRY, 100
 	additem ITEM_ROSELI_BERRY, 100
+	return
 	
 Give_Thief_Items_After_Thief:
 	removeitem ITEM_SITRUS_BERRY, 400
@@ -249,6 +250,7 @@ Give_Thief_Items_After_Thief:
 	additem ITEM_POISON_BARB, 10
 	additem ITEM_SOFT_SAND, 10
 	additem ITEM_BLACK_BELT, 10
+	return
 
 
 Give_Thief_Items_After_Museum:
@@ -260,10 +262,12 @@ Give_Thief_Items_After_Museum:
 	additem ITEM_SHARP_BEAK, 10
 	additem ITEM_NEVER_MELT_ICE, 10
 	additem ITEM_TWISTED_SPOON, 10
+	return
 	
 Give_Thief_Items_After_Wattson:
 	removeitem ITEM_MAGNET, 10
 	additem ITEM_MAGNET, 10
+	return
 
 
 Give_Thief_Items_After_Flannery:
@@ -271,7 +275,9 @@ Give_Thief_Items_After_Flannery:
 	removeitem ITEM_SPELL_TAG, 10
 	additem ITEM_BLACK_GLASSES, 10
 	additem ITEM_SPELL_TAG, 10
+	return
 
 Give_Thief_Items_After_Norman:
 	removeitem ITEM_DRAGON_FANG, 10
 	additem ITEM_DRAGON_FANG, 10
+	return
