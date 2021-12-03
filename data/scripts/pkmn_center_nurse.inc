@@ -3,16 +3,6 @@ Common_EventScript_PkmnCenterNurse::
     faceplayer
     checkitem ITEM_POKE_VIAL, 1
     compare VAR_RESULT, 1
-    removeitem ITEM_RARE_CANDY, 400
-	removeitem ITEM_BIG_PEARL, 400
-	additem ITEM_RARE_CANDY, 400
-	additem ITEM_BIG_PEARL, 400
-	call_if_set FLAG_BADGE01_GET, Give_Cut_Items_After_Roxanne
-	call_if_set FLAG_RECEIVED_TM46, Give_Thief_Items_After_Thief
-	call_if_set FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS, Give_Thief_Items_After_Museum
-	call_if_set FLAG_BADGE03_GET, Give_Thief_Items_After_Wattson
-	call_if_set FLAG_BADGE04_GET, Give_Thief_Items_After_Flannery
-	call_if_set FLAG_BADGE05_GET, Give_Thief_Items_After_Norman
     goto_if_eq EventScript_PkmnCenterNurseHasVial
     msgbox gText_AreYouARookieTrainer, MSGBOX_DEFAULT
     giveitem ITEM_POKE_VIAL, 1
@@ -26,6 +16,16 @@ Common_EventScript_PkmnCenterNurse::
     end
 
 EventScript_PkmnCenterNurseHasVial::
+    removeitem ITEM_RARE_CANDY, 400
+    removeitem ITEM_BIG_PEARL, 400
+    additem ITEM_RARE_CANDY, 400
+    additem ITEM_BIG_PEARL, 400
+    call_if_set FLAG_BADGE01_GET, Give_Cut_Items_After_Roxanne
+    call_if_set FLAG_RECEIVED_TM46, Give_Thief_Items_After_Thief
+    call_if_set FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS, Give_Thief_Items_After_Museum
+    call_if_set FLAG_BADGE03_GET, Give_Thief_Items_After_Wattson
+    call_if_set FLAG_BADGE04_GET, Give_Thief_Items_After_Flannery
+    call_if_set FLAG_BADGE05_GET, Give_Thief_Items_After_Norman
     setvar VAR_0x8004, 0
     specialvar VAR_RESULT, CountPlayerTrainerStars
     compare VAR_RESULT, 4
