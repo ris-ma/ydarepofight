@@ -1,6 +1,7 @@
-name: ManualBuild
+name: CI
 
-on: workflow_dispatch
+on:
+  push:
 
 jobs:
   build:
@@ -34,12 +35,6 @@ jobs:
         working-directory: agbcc
 
       - name: Agbcc
-        run: make -j${nproc} all
-
-      - name: Modern
-        env:
-          MODERN: 1
-          COMPARE: 0
         run: make -j${nproc} all
 
       - name: Upload gba
