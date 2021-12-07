@@ -39,11 +39,11 @@ jobs:
       - name: Upload gba
         uses: actions/upload-artifact@v2
         with:
-          name: Yda_Patch
+          name: pokeemerald_built
           path: pokeemerald.gba
           
       - name: Upload map
         uses: actions/upload-artifact@v2
         with:
-          name: Yda_Patch
+          name: pokeemerald_map
           path: pokeemerald.map
