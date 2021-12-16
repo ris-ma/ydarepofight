@@ -1533,20 +1533,6 @@ static void OpenPartyMenuToChooseMon(void)
     }
 }
 
-static void OpenPartyMenuToChooseMon(void)
-{
-    if (!gPaletteFade.active)
-    {
-        u8 caseId;
-
-        gBattlerControllerFuncs[gActiveBattler] = WaitForMonSelection;
-        caseId = gTasks[gBattleControllerData[gActiveBattler]].data[0];
-        DestroyTask(gBattleControllerData[gActiveBattler]);
-        FreeAllWindowBuffers();
-        OpenPartyMenuInBattle(caseId);
-    }
-}
-
 static void WaitForMonSelection(void)
 {
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
