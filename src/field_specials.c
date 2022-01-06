@@ -5210,20 +5210,40 @@ void IncreaseChosenMonEVs (void)
     gSpecialVar_0x8007 = newEV;
 }
 
-void SetSettingsnMonStats (u8 i)
+void SetSettingsnMonStats (void)
 {
+	/*
+	SetMonData(mon, MON_DATA_HP_IV, &i); // Perfect IVs settings
+	SetMonData(mon, MON_DATA_ATK_IV, &i);
+	SetMonData(mon, MON_DATA_DEF_IV, &i);
+	SetMonData(mon, MON_DATA_SPEED_IV, &i);
+	SetMonData(mon, MON_DATA_SPATK_IV, &i);
+	SetMonData(mon, MON_DATA_SPDEF_IV, &i);
+	SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
+	SetMonData(mon, MON_DATA_FRIENDSHIP, &i);
+	SetMonData(mon, MON_DATA_COOL, &i);
+	SetMonData(mon, MON_DATA_BEAUTY, &i);
+	SetMonData(mon, MON_DATA_CUTE, &i);
+	SetMonData(mon, MON_DATA_SMART, &i);
+	SetMonData(mon, MON_DATA_TOUGH, &i);
+	SetMonData(mon, MON_DATA_SHEEN, &i);
+	*/
+	
+	u8 statToChange = VAR_0x8006;
+	u8 value = VAR_0x8007;	
+	
+	switch (statToChange)
+    	{
+    		case 0: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_HP_IV, value) // Perfect IVs settings
+        		break;
+	}
+	
 	
 }
 	
 void GetSettingsnMonStats (void)
 {
 			
-	if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES) == SPECIES_RATTATA 
-	    && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
-	{
-		gSpecialVar_0x8007 = 1;
-	}
-	gSpecialVar_0x8007 = 1;
 }
 
 // Buffers the IV of a Pokemon's stat chosen by the player.
