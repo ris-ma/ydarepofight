@@ -1069,13 +1069,15 @@ LittlerootTown_EventScript_NoPlaceForSettingsMon::
 	releaseall
 	end
 
-LittlerootTown_EventScript_EnableIVSettings::
+LittlerootTown_EventScript_DisableIVSettings::
 	setvar VAR_0x8006, 0 @ 0 for Perfect IVs settings
 	setvar VAR_0x8007, 0
+	return
 		
 LittlerootTown_EventScript_EnableIVSettings::
 	setvar VAR_0x8006, 0 @ 0 for Perfect IVs settings
 	setvar VAR_0x8007, 1
+	return
 	
 	
 LittlerootTown_EventScript_PatchSettings_1::
