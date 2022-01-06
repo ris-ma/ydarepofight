@@ -5215,16 +5215,13 @@ void SetSettingsnMonStats (u8 i)
 	
 }
 	
-u8 GetSettingsnMonStats (u8 i)
+u8 GetSettingsnMonStats (void)
 {
-	switch (i)
+			
+	if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES) == SPECIES_RATTATA 
+	    && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
 	{
-		case 0: //check if we have the correct settings mon setup
-			if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES) == SPECIES_RATTATA 
-			    && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
-			{
-				return 1;
-			}
+		return 1;
 	}
 }
 
