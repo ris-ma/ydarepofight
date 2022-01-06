@@ -5210,6 +5210,24 @@ void IncreaseChosenMonEVs (void)
     gSpecialVar_0x8007 = newEV;
 }
 
+void SetSettingsnMonStats (u8 i)
+{
+	
+}
+	
+u8 GetSettingsnMonStats (u8 i)
+{
+	switch (i)
+	{
+		case 0: //check if we have the correct settings mon setup
+			if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES) == SPECIES_RATTATA 
+			    && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
+			{
+				return 1;
+			}
+	}
+}
+
 // Buffers the IV of a Pokemon's stat chosen by the player.
 // gSpecialVar_0x8004 must be set to the party slot of the chosen Pokemon
 // gSpecialVar_0x8005 must be set to the index of the IV to be shown (0 for HP, 1 for Attack, etc.)
