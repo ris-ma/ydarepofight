@@ -1060,8 +1060,9 @@ LittlerootTown_Text_MakePlaceForSettingMon:
 LittlerootTown_EventScript_PatchSettings_1::
 	lockall
 	faceplayer
+	setvar VAR_TEMP_1, SPECIES_RATTATA
 	givemon SPECIES_RATTATA, 0, ITEM_NONE
-	compare VAR_RESULT, 1
+	compare VAR_RESULT, 2
 	goto_if_eq LittlerootTown_EventScript_NoPlaceForSettingMon
 	releaseall
 	
