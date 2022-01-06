@@ -1064,7 +1064,7 @@ LittlerootTown_EventScript_PatchSettings_1::
 	special GetSettingsnMonStats
 	setvar VAR_0x8007, 1
 	compare VAR_0x8007, 1
-	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	call_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
 	releaseall
 	
 	
