@@ -5221,9 +5221,9 @@ void GetSettingsnMonStats (void)
 	if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES) == SPECIES_RATTATA 
 	    && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
 	{
-		VarSet(VAR_RESULT, 1);
+		gSpecialVar_0x8007 = 1;
 	}
-	VarSet(VAR_RESULT, 1);
+	gSpecialVar_0x8007 = 1;
 }
 
 // Buffers the IV of a Pokemon's stat chosen by the player.
