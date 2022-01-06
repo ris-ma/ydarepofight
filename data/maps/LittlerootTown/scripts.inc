@@ -1053,7 +1053,7 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab: @ 81E8DA2
 	.string "I have something to show you.\n"
 	.string "Let's go to my Lab.$"
 	
-LittlerootTown_Text_MakePlaceForSettingsMon:
+LittlerootTown_Text_MakePlaceForSettingsMon
 	.string "Make sure the spot in your PC\n"
 	.string "box 14 row 5 column 6 is empty.$"
 
@@ -1063,14 +1063,12 @@ LittlerootTown_EventScript_NoPlaceForSettingsMon:
 	closemessage
 	releaseall
 
-LittlerootTown_EventScript_PatchSettings_1::
+LittlerootTown_EventScript_PatchSettings_1:
 	lockall
 	faceplayer
 	givemon SPECIES_RATTATA, 0, ITEM_NONE
-	special GetSettingsnMonStats
-	setvar VAR_0x8007, 1
-	compare VAR_0x8007, 1
-	call_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	compare VAR_RESULT, 1
+	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
 	releaseall
 	
 
