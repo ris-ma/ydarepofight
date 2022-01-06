@@ -5231,10 +5231,41 @@ void SetSettingsnMonStats (void)
 	
 	u8 statToChange = gSpecialVar_0x8006;
 	u8 value = gSpecialVar_0x8007;	
+	u8 i,j;
 	
 	switch (statToChange)
     	{
     		case 0: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_HP_IV, &value); // Perfect IVs settings
+			if (value == 1)
+			{
+				value = 31;
+				for (i = O; i < TOTAL_BOXES_COUNT; i++)
+				{
+					for (j = O; j < IN_BOX_COUNT; j++)
+					{
+						if (i!=TOTAL_BOXES_COUNT-1 || j!=IN_BOX_COUNT-1)
+						{
+							SetBoxMonDataAt(i, j, MON_DATA_HP_IV, &value);
+							SetBoxMonDataAt(i, j, MON_DATA_ATK_IV, &value);
+							SetBoxMonDataAt(i, j, MON_DATA_DEF_IV, &value);
+							SetBoxMonDataAt(i, j, MON_DATA_SPATK_IV, &value);
+							SetBoxMonDataAt(i, j, MON_DATA_SPDEF_IV, &value);
+							SetBoxMonDataAt(i, j, MON_DATA_SPEED_IV, &value);
+						}
+
+					}
+				}
+				for (i = O; i < PARTY_SIZE; i++)
+				{
+					SetMonData(&gPlayerParty[i], MON_DATA_HP_IV, &value);
+					SetMonData(&gPlayerParty[i], MON_DATA_ATK_IV, &value);
+					SetMonData(&gPlayerParty[i], MON_DATA_DEF_IV, &value);
+					SetMonData(&gPlayerParty[i], MON_DATA_SPATK_IV, &value);
+					SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_IV, &value);
+					SetMonData(&gPlayerParty[i], MON_DATA_SPEED_IV, &value);
+				}
+				
+			}
         		break;
 	}
 	
