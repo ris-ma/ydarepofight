@@ -1053,7 +1053,7 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab: @ 81E8DA2
 	.string "I have something to show you.\n"
 	.string "Let's go to my Lab.$"
 	
-LittlerootTown_Text_MakePlaceForSettingsMon
+LittlerootTown_Text_MakePlaceForSettingsMon:
 	.string "Make sure the spot in your PC\n"
 	.string "box 14 row 5 column 6 is empty.$"
 
