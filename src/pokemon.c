@@ -3366,10 +3366,21 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         // Set three random IVs to 31
         ShuffleStatArray(statIDs);
 
-        for (i = 0; i < 3; i++)
-        {
-            SetBoxMonData(boxMon, MON_DATA_HP_IV + statIDs[i], &maxIV);
-        }
+	if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_HP_IV) == 1)
+	{
+		for (i = 0; i < 6; i++)
+		{
+		    SetBoxMonData(boxMon, MON_DATA_HP_IV + statIDs[i], &maxIV);
+		}
+	}
+	else
+	{
+		for (i = 0; i < 3; i++)
+		{
+		    SetBoxMonData(boxMon, MON_DATA_HP_IV + statIDs[i], &maxIV);
+		}
+	}
+	
 
     }
     nature = personality % 25;
