@@ -1061,6 +1061,7 @@ LittlerootTown_EventScript_NoPlaceForSettingsMon::
 	msgbox LittlerootTown_Text_MakePlaceForSettingsMon, MSGBOX_DEFAULT
 	closemessage
 	releaseall
+	end
 
 LittlerootTown_EventScript_PatchSettings_1::
 	lockall
@@ -1069,5 +1070,6 @@ LittlerootTown_EventScript_PatchSettings_1::
 	compare VAR_RESULT, 1
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
 	releaseall
+	end
 	
 
