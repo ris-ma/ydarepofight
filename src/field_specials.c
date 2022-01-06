@@ -5239,9 +5239,9 @@ void SetSettingsnMonStats (void)
 			if (value == 1)
 			{
 				value = 31;
-				for (i = O; i < TOTAL_BOXES_COUNT; i++)
+				for (i = 0; i < TOTAL_BOXES_COUNT; i++)
 				{
-					for (j = O; j < IN_BOX_COUNT; j++)
+					for (j = 0; j < IN_BOX_COUNT; j++)
 					{
 						if (i!=TOTAL_BOXES_COUNT-1 || j!=IN_BOX_COUNT-1)
 						{
@@ -5255,7 +5255,7 @@ void SetSettingsnMonStats (void)
 
 					}
 				}
-				for (i = O; i < PARTY_SIZE; i++)
+				for (i = 0; i < PARTY_SIZE; i++)
 				{
 					SetMonData(&gPlayerParty[i], MON_DATA_HP_IV, &value);
 					SetMonData(&gPlayerParty[i], MON_DATA_ATK_IV, &value);
