@@ -1054,8 +1054,14 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab: @ 81E8DA2
 	.string "Let's go to my Lab.$"
 	
 LittlerootTown_Text_MakePlaceForSettingsMon:
-	.string "Make sure the spot in your PC\n"
-	.string "box 14 row 5 column 6 is empty.$"
+	.string "Make sure there's no Pokémon in your PC\n"
+	.string "box 14 row 5 column 6.$"
+		
+LittlerootTown_Text_ChangeIVSettings:
+	.string "Do you want to enable the perfect IVs settings?\n"
+	.string "Trainers won't be affected by this settings.$"
+
+
 
 LittlerootTown_EventScript_NoPlaceForSettingsMon::
 	msgbox LittlerootTown_Text_MakePlaceForSettingsMon, MSGBOX_DEFAULT
@@ -1063,13 +1069,29 @@ LittlerootTown_EventScript_NoPlaceForSettingsMon::
 	releaseall
 	end
 
+LittlerootTown_EventScript_EnableIVSettings::
+	setvar VAR_0x8006, 0 @ 0 for Perfect IVs settings
+	setvar VAR_0x8007, 0
+		
+LittlerootTown_EventScript_EnableIVSettings::
+	setvar VAR_0x8006, 0 @ 0 for Perfect IVs settings
+	setvar VAR_0x8007, 1
+	
+	
 LittlerootTown_EventScript_PatchSettings_1::
 	lockall
 	faceplayer
 	givemon SPECIES_RATTATA, 0, ITEM_NONE
 	compare VAR_RESULT, 1
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	msgbox LittlerootTown_EventScript_ChangeIVSettings, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableIVSettings
+	compare VAR_RESULT, NO
+	call_if_eq LittlerootTown_EventScript_DisableIVSettings
+	special SetSettingsnMonStats
 	releaseall
 	end
+	
 	
 
