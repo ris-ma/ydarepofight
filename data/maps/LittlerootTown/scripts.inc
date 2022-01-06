@@ -1052,6 +1052,21 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab: @ 81E8DA2
 	.string "but I never expected this.\p"
 	.string "I have something to show you.\n"
 	.string "Let's go to my Lab.$"
+	
+LittlerootTown_Text_MakePlaceForSettingMon:
+	.string "Make sure the spot box 14"
+	.string "Row 5 Column 6 is empty.$"
 
 LittlerootTown_EventScript_PatchSettings_1::
+	lock
+	faceplayer
 	givemon SPECIES_RATTATA, 0, ITEM_NONE
+	compare VAR_RESULT, 2
+	goto_if_eq LittlerootTown_EventScript_NoPlaceForSettingMon
+	release
+	
+	
+LittlerootTown_EventScript_NoPlaceForSettingMon::
+	msgbox LittlerootTown_Text_MakePlaceForSettingMon, MSGBOX_DEFAULT
+	closemessage
+	release
