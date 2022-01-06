@@ -1057,13 +1057,13 @@ LittlerootTown_Text_MakePlaceForSettingsMon:
 	.string "Make sure the spot in your PC\n"
 	.string "box 14 row 5 column 6 is empty.$"
 
-LittlerootTown_EventScript_NoPlaceForSettingsMon:
+LittlerootTown_EventScript_NoPlaceForSettingsMon::
 	msgbox LittlerootTown_Text_MakePlaceForSettingsMon, MSGBOX_DEFAULT
 	waitmessage
 	closemessage
 	releaseall
 
-LittlerootTown_EventScript_PatchSettings_1:
+LittlerootTown_EventScript_PatchSettings_1::
 	lockall
 	faceplayer
 	givemon SPECIES_RATTATA, 0, ITEM_NONE
