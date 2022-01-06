@@ -1086,7 +1086,7 @@ LittlerootTown_EventScript_PatchSettings_1::
 	givemon SPECIES_RATTATA, 0, ITEM_NONE
 	compare VAR_RESULT, 1
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
-	msgbox LittlerootTown_EventScript_ChangeIVSettings, MSGBOX_YESNO
+	msgbox LittlerootTown_Text_ChangeIVSettings, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	call_if_eq LittlerootTown_EventScript_EnableIVSettings
 	compare VAR_RESULT, NO
