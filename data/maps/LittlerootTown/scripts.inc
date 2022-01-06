@@ -1058,8 +1058,12 @@ LittlerootTown_Text_MakePlaceForSettingsMon:
 	.string "box 14 row 5 column 6.$"
 		
 LittlerootTown_Text_ChangeIVSettings:
-	.string "Do you want to enable the perfect IVs settings?\n"
-	.string "Trainers won't be affected by this settings.$"
+	.string "Enable perfect IVs?\n"
+	.string "Trainers won't be affected.$"
+		
+LittlerootTown_Text_WarningIVSettings:
+	.string "ARE YOU SURE?????????? The IVs of all\n"
+	.string "your existing Pokémon will be set to 31.$"
 
 
 
@@ -1068,15 +1072,46 @@ LittlerootTown_EventScript_NoPlaceForSettingsMon::
 	closemessage
 	releaseall
 	end
+	
+LittlerootTown_EventScript_HandleIVSettingsWarning::
+	msgbox LittlerootTown_Text_WarningIVSettings, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LittlerootTown_EventScript_HandleIVSettings
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableIVSettings
+	return
 
+LittlerootTown_EventScript_HandleIVSettings::
+	msgbox LittlerootTown_Text_ChangeIVSettings, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	call_if_eq LittlerootTown_EventScript_DisableIVSettings
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_HandleIVSettingsWarning
+	special SetSettingsnMonStats
+	return
+	
+	
 LittlerootTown_EventScript_DisableIVSettings::
-	setvar VAR_0x8006, 0 @ 0 for Perfect IVs settings
+	setvar VAR_0x8006, 0 
 	setvar VAR_0x8007, 0
 	return
 		
 LittlerootTown_EventScript_EnableIVSettings::
-	setvar VAR_0x8006, 0 @ 0 for Perfect IVs settings
+	setvar VAR_0x8006, 0 
 	setvar VAR_0x8007, 1
+	return
+		
+LittlerootTown_EventScript_HandleEVSettings::
+	return
+		
+LittlerootTown_EventScript_DisableEVSettings::
+	setvar VAR_0x8006, 1 
+	setvar VAR_0x8007, 1
+	return
+		
+LittlerootTown_EventScript_EnableEVSettings::
+	setvar VAR_0x8006, 1 
+	setvar VAR_0x8007, 0
 	return
 	
 	
@@ -1086,12 +1121,8 @@ LittlerootTown_EventScript_PatchSettings_1::
 	givemon SPECIES_RATTATA, 0, ITEM_NONE
 	compare VAR_RESULT, 1
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
-	msgbox LittlerootTown_Text_ChangeIVSettings, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_EnableIVSettings
-	compare VAR_RESULT, NO
-	call_if_eq LittlerootTown_EventScript_DisableIVSettings
-	special SetSettingsnMonStats
+	call LittlerootTown_EventScript_HandleIVSettings::
+	call LittlerootTown_EventScript_HandleEVSettings::
 	releaseall
 	end
 	
