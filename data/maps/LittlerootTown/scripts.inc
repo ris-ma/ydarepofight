@@ -1061,8 +1061,9 @@ LittlerootTown_EventScript_PatchSettings_1::
 	lockall
 	faceplayer
 	givemon SPECIES_RATTATA, 0, ITEM_NONE
+	special GetSettingsnMonStats, 0
 	compare VAR_RESULT, 1
-	goto_if_eq LittlerootTown_EventScript_NoPlaceForSettingsMon
+	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
 	releaseall
 	
 	
