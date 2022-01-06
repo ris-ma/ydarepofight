@@ -5229,12 +5229,12 @@ void SetSettingsnMonStats (void)
 	SetMonData(mon, MON_DATA_SHEEN, &i);
 	*/
 	
-	u8 statToChange = VAR_0x8006;
-	u8 value = VAR_0x8007;	
+	u8 statToChange = gSpecialVar_0x8006;
+	u8 value = gSpecialVar_0x8007;	
 	
 	switch (statToChange)
     	{
-    		case 0: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_HP_IV, value) // Perfect IVs settings
+    		case 0: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_HP_IV, value); // Perfect IVs settings
         		break;
 	}
 	
