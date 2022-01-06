@@ -5214,7 +5214,7 @@ void SetSettingsnMonStats (void)
 {
 	/*
 	SetMonData(mon, MON_DATA_HP_IV, &i); // Perfect IVs settings
-	SetMonData(mon, MON_DATA_ATK_IV, &i);
+	SetMonData(mon, MON_DATA_ATK_IV, &i); // EV settings
 	SetMonData(mon, MON_DATA_DEF_IV, &i);
 	SetMonData(mon, MON_DATA_SPEED_IV, &i);
 	SetMonData(mon, MON_DATA_SPATK_IV, &i);
@@ -5263,6 +5263,39 @@ void SetSettingsnMonStats (void)
 					SetMonData(&gPlayerParty[i], MON_DATA_SPATK_IV, &value);
 					SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_IV, &value);
 					SetMonData(&gPlayerParty[i], MON_DATA_SPEED_IV, &value);
+				}
+				
+			}
+        		break;
+			
+			case 1: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_ATK_IV, &value); // EV settings
+			if (value == 1)
+			{
+				value = 0;
+				for (i = 0; i < TOTAL_BOXES_COUNT; i++)
+				{
+					for (j = 0; j < IN_BOX_COUNT; j++)
+					{
+						if (i!=TOTAL_BOXES_COUNT-1 || j!=IN_BOX_COUNT-1)
+						{
+							SetBoxMonDataAt(i, j, MON_DATA_HP_EV, &value);
+							SetBoxMonDataAt(i, j, MON_DATA_ATK_EV, &value);
+							SetBoxMonDataAt(i, j, MON_DATA_DEF_EV, &value);
+							SetBoxMonDataAt(i, j, MON_DATA_SPATK_EV, &value);
+							SetBoxMonDataAt(i, j, MON_DATA_SPDEF_EV, &value);
+							SetBoxMonDataAt(i, j, MON_DATA_SPEED_EV, &value);
+						}
+
+					}
+				}
+				for (i = 0; i < PARTY_SIZE; i++)
+				{
+					SetMonData(&gPlayerParty[i], MON_DATA_HP_EV, &value);
+					SetMonData(&gPlayerParty[i], MON_DATA_ATK_EV, &value);
+					SetMonData(&gPlayerParty[i], MON_DATA_DEF_EV, &value);
+					SetMonData(&gPlayerParty[i], MON_DATA_SPATK_EV, &value);
+					SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_EV, &value);
+					SetMonData(&gPlayerParty[i], MON_DATA_SPEED_EV, &value);
 				}
 				
 			}
