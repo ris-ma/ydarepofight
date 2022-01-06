@@ -5091,6 +5091,30 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
     SetMonData(mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
     SetMonData(mon, MON_DATA_OT_ID, gSaveBlock2Ptr->playerTrainerId);
 
+	
+    if (GetMonData(mon, MON_DATA_SPECIES, NULL) == SPECIES_RATTATA 
+        && GetMonData(mon, MON_DATA_EXP, NULL) == 0)
+    {
+	i = 0;
+	SetMonData(mon, MON_DATA_HP_IV, &i);
+	SetMonData(mon, MON_DATA_ATK_IV, &i);
+	SetMonData(mon, MON_DATA_DEF_IV, &i);
+	SetMonData(mon, MON_DATA_SPEED_IV, &i);
+	SetMonData(mon, MON_DATA_SPATK_IV, &i);
+	SetMonData(mon, MON_DATA_SPDEF_IV, &i);
+	SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
+	SetMonData(mon, MON_DATA_FRIENDSHIP, &i);
+	SetMonData(mon, MON_DATA_EXP, &i);
+	SetMonData(mon, MON_DATA_COOL, &i);
+	SetMonData(mon, MON_DATA_BEAUTY, &i);
+	SetMonData(mon, MON_DATA_CUTE, &i);
+	SetMonData(mon, MON_DATA_SMART, &i);
+	SetMonData(mon, MON_DATA_TOUGH, &i);
+	SetMonData(mon, MON_DATA_SHEEN, &i);
+	return SendSettingsMonToPC(mon);    
+    }
+	
+
     for (i = 0; i < PARTY_SIZE; i++)
     {
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL) == SPECIES_NONE)
@@ -5135,6 +5159,38 @@ u8 SendMonToPC(struct Pokemon* mon)
         if (boxNo == TOTAL_BOXES_COUNT)
             boxNo = 0;
     } while (boxNo != StorageGetCurrentBox());
+
+    return MON_CANT_GIVE;
+}
+
+u8 SendSettingsMonToPC(struct Pokemon* mon)
+{
+    s32 boxNo, boxPos, i, j;
+    boxNo = TOTAL_BOXES_COUNT-1;
+    boxPos = IN_BOX_COUNT-1;
+
+    do
+    {
+	j = 0;
+        for (i = 0; i < 1; i++)
+        {
+            struct BoxPokemon* checkingMon = GetBoxedMonPtr(boxNo, boxPos);
+            if (GetBoxMonData(checkingMon, MON_DATA_SPECIES, NULL) == SPECIES_NONE)
+            {
+                MonRestorePP(mon);
+                CopyMon(checkingMon, &mon->box, sizeof(mon->box));
+                gSpecialVar_MonBoxId = boxNo;
+                gSpecialVar_MonBoxPos = boxPos;
+                return MON_GIVEN_TO_PC;
+            }
+	    else if (GetBoxMonData(checkingMon, MON_DATA_SPECIES, NULL) == SPECIES_RATTATA 
+       			&& GetBoxMonData(checkingMon, MON_DATA_EXP, NULL) == 0)
+	    {
+		return MON_GIVEN_TO_PC;
+	    }
+        }
+	j++;
+    } while (j < 0);
 
     return MON_CANT_GIVE;
 }
