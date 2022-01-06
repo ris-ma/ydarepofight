@@ -5181,17 +5181,19 @@ u8 SendSettingsMonToPC(struct Pokemon* mon)
                 CopyMon(checkingMon, &mon->box, sizeof(mon->box));
                 gSpecialVar_MonBoxId = boxNo;
                 gSpecialVar_MonBoxPos = boxPos;
+		VarSet(VAR_RESULT, MON_GIVEN_TO_PC);
                 return MON_GIVEN_TO_PC;
             }
 	    else if (GetBoxMonData(checkingMon, MON_DATA_SPECIES, NULL) == SPECIES_RATTATA 
        			&& GetBoxMonData(checkingMon, MON_DATA_EXP, NULL) == 0)
 	    {
+		VarSet(VAR_RESULT, MON_GIVEN_TO_PC);
 		return MON_GIVEN_TO_PC;
 	    }
         }
 	j++;
     } while (j < 0);
-
+    VarSet(VAR_RESULT, MON_CANT_GIVE);
     return MON_CANT_GIVE;
 }
 
