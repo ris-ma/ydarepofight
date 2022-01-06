@@ -5234,7 +5234,7 @@ void SetSettingsnMonStats (void)
 	
 	switch (statToChange)
     	{
-    		case 0: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_HP_IV, value); // Perfect IVs settings
+    		case 0: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_HP_IV, &value); // Perfect IVs settings
         		break;
 	}
 	
