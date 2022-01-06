@@ -5223,6 +5223,7 @@ u8 GetSettingsnMonStats (void)
 	{
 		return 1;
 	}
+	return 1;
 }
 
 // Buffers the IV of a Pokemon's stat chosen by the player.
