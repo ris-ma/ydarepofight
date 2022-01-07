@@ -1217,15 +1217,15 @@ LittlerootTown_EventScript_HandleShinyRate::
 LittlerootTown_EventScript_EnableShinyRate::
 	msgbox LittlerootTown_Text_ShinyRates, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	LittlerootTown_EventScript_EnableShinyRate_1
+	call_if_eq LittlerootTown_EventScript_EnableShinyRate_1
 	compare VAR_RESULT, NO
-	LittlerootTown_EventScript_EnableShinyRate_2
+	call_if_eq LittlerootTown_EventScript_EnableShinyRate_2
 	return
 
 LittlerootTown_EventScript_DisableShinyRate::
 	msgbox LittlerootTown_Text_DisableShinyRate, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	LittlerootTown_EventScript_EnableShinyRate_0
+	call_if_eq LittlerootTown_EventScript_EnableShinyRate_0
 	return
 		
 LittlerootTown_Text_DisableShinyRate:
