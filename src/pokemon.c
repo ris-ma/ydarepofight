@@ -8395,7 +8395,7 @@ u16 GetFormChangeTargetSpecies(struct Pokemon *mon, u16 method, u32 arg)
 u16 getShinyOdds(void)
 {
 	if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_DEF_IV) == 1)
-		return SHINY_ODDS_2;
+		return SHINY_ODDS_1;
 	else if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_DEF_IV) == 2)
 		return SHINY_ODDS_2;
 	else
