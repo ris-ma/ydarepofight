@@ -1064,6 +1064,14 @@ LittlerootTown_Text_ChangeIVSettings:
 LittlerootTown_Text_WarningIVSettings:
 	.string "ARE YOU SURE?????????? The IVs of all\n"
 	.string "your existing Pokémon will be set to 31.$"
+		
+LittlerootTown_Text_ChangeEVSettings:
+	.string "Disable EVs?\n"
+	.string "Trainers WILL be affected.$"
+		
+LittlerootTown_Text_WarningEVSettings:
+	.string "ARE YOU SURE?????????? The EVs of all\n"
+	.string "your existing Pokémon will be set to 0.$"
 
 
 
@@ -1100,18 +1108,32 @@ LittlerootTown_EventScript_EnableIVSettings::
 	setvar VAR_0x8006, 0 
 	setvar VAR_0x8007, 1
 	return
+
+LittlerootTown_EventScript_HandleEVSettingsWarning::
+	msgbox LittlerootTown_Text_WarningEVSettings, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LittlerootTown_EventScript_HandleEVSettings
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableEVSettings
+	return
 		
 LittlerootTown_EventScript_HandleEVSettings::
+	msgbox LittlerootTown_Text_ChangeEVSettings, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	call_if_eq LittlerootTown_EventScript_DisableEVSettings
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_HandleEVSettingsWarning
+	special SetSettingsnMonStats
 	return
 		
 LittlerootTown_EventScript_DisableEVSettings::
 	setvar VAR_0x8006, 1 
-	setvar VAR_0x8007, 1
+	setvar VAR_0x8007, 0
 	return
 		
 LittlerootTown_EventScript_EnableEVSettings::
 	setvar VAR_0x8006, 1 
-	setvar VAR_0x8007, 0
+	setvar VAR_0x8007, 1
 	return
 	
 	
