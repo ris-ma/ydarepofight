@@ -1058,14 +1058,20 @@ LittlerootTown_Text_MakePlaceForSettingsMon:
 	.string "box 14 row 5 column 6.$"
 		
 LittlerootTown_Text_ChangeIVSettings:
+	.string "Change perfect IVs settings?$"
+		
+LittlerootTown_Text_EnableIVSettings:
 	.string "Enable perfect IVs?\n"
 	.string "Trainers won't be affected.$"
 		
 LittlerootTown_Text_WarningIVSettings:
 	.string "ARE YOU SURE?????????? The IVs of all\n"
 	.string "your existing Pokémon will be set to 31.$"
-		
+
 LittlerootTown_Text_ChangeEVSettings:
+	.string "Change EVs settings?$"
+		
+LittlerootTown_Text_EnableEVSettings:
 	.string "Disable EVs?\n"
 	.string "Trainers WILL be affected.$"
 		
@@ -1090,7 +1096,7 @@ LittlerootTown_EventScript_HandleIVSettingsWarning::
 	return
 
 LittlerootTown_EventScript_HandleIVSettings::
-	msgbox LittlerootTown_Text_ChangeIVSettings, MSGBOX_YESNO
+	msgbox LittlerootTown_Text_EnableIVSettings, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	call_if_eq LittlerootTown_EventScript_DisableIVSettings
 	compare VAR_RESULT, YES
@@ -1118,7 +1124,7 @@ LittlerootTown_EventScript_HandleEVSettingsWarning::
 	return
 		
 LittlerootTown_EventScript_HandleEVSettings::
-	msgbox LittlerootTown_Text_ChangeEVSettings, MSGBOX_YESNO
+	msgbox LittlerootTown_Text_EnableEVSettings, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	call_if_eq LittlerootTown_EventScript_DisableEVSettings
 	compare VAR_RESULT, YES
@@ -1137,17 +1143,28 @@ LittlerootTown_EventScript_EnableEVSettings::
 	return
 	
 	
-LittlerootTown_EventScript_PatchSettings_1::
+LittlerootTown_EventScript_PatchSettings_PerfectIV::
 	lockall
 	faceplayer
 	givemon SPECIES_RATTATA, 0, ITEM_NONE
 	compare VAR_RESULT, 1
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
-	call LittlerootTown_EventScript_HandleIVSettings
-	call LittlerootTown_EventScript_HandleEVSettings
+	msgbox LittlerootTown_Text_ChangeIVSettings, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_HandleIVSettings
 	waitmessage
 	releaseall
 	end
 	
-	
-
+LittlerootTown_EventScript_PatchSettings_PerfectIV::
+	lockall
+	faceplayer
+	givemon SPECIES_RATTATA, 0, ITEM_NONE
+	compare VAR_RESULT, 1
+	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	msgbox LittlerootTown_Text_ChangeEVSettings, MSGBOX_YESNO
+	compare VAR_RESULT, YES	
+	call LittlerootTown_EventScript_HandleEVSettings
+	waitmessage
+	releaseall
+	end
