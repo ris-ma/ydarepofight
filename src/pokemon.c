@@ -52,10 +52,6 @@
 #include "constants/battle_config.h"
 #include "data/trainer_spreads.h"
 
-#define SHINY_RATE_BASE 64
-#define SHINY_RATE_BOOSTED_1 262
-#define SHINY_RATE_BOOSTED_2 65535
-
 	
 struct SpeciesItem
 {
@@ -3290,7 +3286,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         {
             value = Random32();
             shinyValue = HIHALF(value) ^ LOHALF(value) ^ HIHALF(personality) ^ LOHALF(personality);
-        } while (shinyValue < getShinyOdds);
+        } while (shinyValue < getShinyOdds());
     }
     else if (otIdType == OT_ID_PRESET) //Pokemon has a preset OT ID
     {
@@ -3312,7 +3308,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
                 personality = Random32();
                 shinyValue = HIHALF(value) ^ LOHALF(value) ^ HIHALF(personality) ^ LOHALF(personality);
                 rolls++;
-            } while (shinyValue >= getShinyOdds && rolls < I_SHINY_CHARM_REROLLS);
+            } while (shinyValue >= getShinyOdds() && rolls < I_SHINY_CHARM_REROLLS);
         }
     }
 
@@ -7599,7 +7595,7 @@ const u32 *GetMonSpritePalFromSpeciesAndPersonality(u16 species, u32 otId, u32 p
         return gMonPaletteTable[0].data;
 
     shinyValue = HIHALF(otId) ^ LOHALF(otId) ^ HIHALF(personality) ^ LOHALF(personality);
-    if (shinyValue < getShinyOdds)
+    if (shinyValue < getShinyOdds())
     {
         if (SpeciesHasGenderDifference[species] && GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
             return gMonShinyPaletteTableFemale[species].data;
@@ -7628,7 +7624,7 @@ const struct CompressedSpritePalette *GetMonSpritePalStructFromOtIdPersonality(u
     u32 shinyValue;
 
     shinyValue = HIHALF(otId) ^ LOHALF(otId) ^ HIHALF(personality) ^ LOHALF(personality);
-    if (shinyValue < getShinyOdds)
+    if (shinyValue < getShinyOdds())
     {
         if (SpeciesHasGenderDifference[species] && GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
             return &gMonShinyPaletteTableFemale[species];
@@ -7821,7 +7817,7 @@ bool8 IsShinyOtIdPersonality(u32 otId, u32 personality)
 {
     bool8 retVal = FALSE;
     u32 shinyValue = HIHALF(otId) ^ LOHALF(otId) ^ HIHALF(personality) ^ LOHALF(personality);
-    if (shinyValue < getShinyOdds)
+    if (shinyValue < getShinyOdds())
         retVal = TRUE;
     return retVal;
 }
