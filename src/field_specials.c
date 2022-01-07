@@ -5215,7 +5215,7 @@ void SetSettingsnMonStats (void)
 	/*
 	SetMonData(mon, MON_DATA_HP_IV, &i); // Perfect IVs settings
 	SetMonData(mon, MON_DATA_ATK_IV, &i); // EV settings
-	SetMonData(mon, MON_DATA_DEF_IV, &i);
+	SetMonData(mon, MON_DATA_DEF_IV, &i); // Shiny Rate
 	SetMonData(mon, MON_DATA_SPEED_IV, &i);
 	SetMonData(mon, MON_DATA_SPATK_IV, &i);
 	SetMonData(mon, MON_DATA_SPDEF_IV, &i);
@@ -5272,7 +5272,7 @@ void SetSettingsnMonStats (void)
 			}
         		break;
 			
-			case 1: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_ATK_IV, &value); // EV settings
+		case 1: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_ATK_IV, &value); // EV settings
 			if (value == 1)
 			{
 				value = 0;
@@ -5308,6 +5308,7 @@ void SetSettingsnMonStats (void)
 				}
 			}
         		break;
+		case 2: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_DEF_IV, &value); // Shiny Rate
 	}
 	
 	
