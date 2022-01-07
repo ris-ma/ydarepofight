@@ -1090,7 +1090,7 @@ LittlerootTown_EventScript_NoPlaceForSettingsMon::
 LittlerootTown_EventScript_HandleIVSettingsWarning::
 	msgbox LittlerootTown_Text_WarningIVSettings, MSGBOX_YESNO
 	compare VAR_RESULT, NO
-	goto_if_eq LittlerootTown_EventScript_HandleIVSettings
+	goto_if_eq LittlerootTown_EventScript_PatchSettings_PerfectIV
 	compare VAR_RESULT, YES
 	call_if_eq LittlerootTown_EventScript_EnableIVSettings
 	return
@@ -1118,7 +1118,7 @@ LittlerootTown_EventScript_EnableIVSettings::
 LittlerootTown_EventScript_HandleEVSettingsWarning::
 	msgbox LittlerootTown_Text_WarningEVSettings, MSGBOX_YESNO
 	compare VAR_RESULT, NO
-	goto_if_eq LittlerootTown_EventScript_HandleEVSettings
+	goto_if_eq LittlerootTown_EventScript_PatchSettings_DisableEV
 	compare VAR_RESULT, YES
 	call_if_eq LittlerootTown_EventScript_EnableEVSettings
 	return
