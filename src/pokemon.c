@@ -3366,7 +3366,8 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         // Set three random IVs to 31
         ShuffleStatArray(statIDs);
 
-	if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_HP_IV) == 1)
+	if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_HP_IV) == 1
+	   && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
 	{
 		for (i = 0; i < 6; i++)
 		{
@@ -4941,22 +4942,46 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET8(substruct1->pp[field - MON_DATA_PP1]);
         break;
     case MON_DATA_HP_EV:
-        SET8(substruct2->hpEV);
+	if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_ATK_IV) == 1
+	   && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
+		substruct2->hpEV = 0;
+	else
+		SET8(substruct2->hpEV);
         break;
     case MON_DATA_ATK_EV:
-        SET8(substruct2->attackEV);
+        if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_ATK_IV) == 1
+	   && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
+		substruct2->attackEV = 0;
+	else
+		SET8(substruct2->attackEV);
         break;
     case MON_DATA_DEF_EV:
-        SET8(substruct2->defenseEV);
+        if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_ATK_IV) == 1
+	   && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
+		substruct2->defenseEV = 0;
+	else
+		SET8(substruct2->defenseEV);
         break;
     case MON_DATA_SPEED_EV:
-        SET8(substruct2->speedEV);
+        if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_ATK_IV) == 1
+	   && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
+		substruct2->speedEV = 0;
+	else
+		SET8(substruct2->speedEV);
         break;
     case MON_DATA_SPATK_EV:
-        SET8(substruct2->spAttackEV);
+        if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_ATK_IV) == 1
+	   && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
+		substruct2->spAttackEV = 0;
+	else
+		SET8(substruct2->spAttackEV);
         break;
     case MON_DATA_SPDEF_EV:
-        SET8(substruct2->spDefenseEV);
+        if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_ATK_IV) == 1
+	   && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
+		substruct2->spDefenseEV = 0;
+	else
+		SET8(substruct2->spDefenseEV);
         break;
     case MON_DATA_COOL:
         SET8(substruct2->cool);
