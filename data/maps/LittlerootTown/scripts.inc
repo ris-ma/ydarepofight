@@ -1095,10 +1095,9 @@ LittlerootTown_EventScript_NoPlaceForSettingsMon::
 LittlerootTown_EventScript_HandleIVSettings::
 	msgbox LittlerootTown_Text_HandleIVSettings, MSGBOX_YESNO
 	compare VAR_RESULT, NO
-	call_if_eq LittlerootTown_EventScript_DisableIVSettings
+	goto_if_eq LittlerootTown_EventScript_DisableIVSettings
 	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_EnableIVSettings
-	return
+	goto_if_eq LittlerootTown_EventScript_EnableIVSettings
 	
 	
 LittlerootTown_EventScript_DisableIVSettings::
@@ -1108,7 +1107,8 @@ LittlerootTown_EventScript_DisableIVSettings::
 	setvar VAR_0x8006, 0 
 	setvar VAR_0x8007, 0
 	special SetSettingsnMonStats
-	return
+	releaseall
+	end
 		
 LittlerootTown_EventScript_EnableIVSettings::
 	msgbox LittlerootTown_Text_EnableIVSettings, MSGBOX_YESNO
@@ -1117,16 +1117,17 @@ LittlerootTown_EventScript_EnableIVSettings::
 	setvar VAR_0x8006, 0 
 	setvar VAR_0x8007, 1
 	special SetSettingsnMonStats
-	return
+	releaseall
+	end
 
 		
 LittlerootTown_EventScript_HandleEVSettings::
 	msgbox LittlerootTown_Text_HandleEVSettings, MSGBOX_YESNO
 	compare VAR_RESULT, NO
-	call_if_eq LittlerootTown_EventScript_DisableEVSettings
+	goto_if_eq LittlerootTown_EventScript_DisableEVSettings
 	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_EnableEVSettings
-	return
+	goto_if_eq LittlerootTown_EventScript_EnableEVSettings
+	
 		
 LittlerootTown_EventScript_DisableEVSettings::
 	msgbox LittlerootTown_Text_DisableEVSettings, MSGBOX_YESNO
@@ -1135,7 +1136,8 @@ LittlerootTown_EventScript_DisableEVSettings::
 	setvar VAR_0x8006, 1 
 	setvar VAR_0x8007, 0
 	special SetSettingsnMonStats
-	return
+	releaseall
+	end
 		
 LittlerootTown_EventScript_EnableEVSettings::
 	msgbox LittlerootTown_Text_EnableEVSettings, MSGBOX_YESNO
@@ -1144,7 +1146,8 @@ LittlerootTown_EventScript_EnableEVSettings::
 	setvar VAR_0x8006, 1 
 	setvar VAR_0x8007, 1
 	special SetSettingsnMonStats		
-	return
+	releaseall
+	end
 	
 	
 LittlerootTown_EventScript_PatchSettings_PerfectIV::
@@ -1155,7 +1158,7 @@ LittlerootTown_EventScript_PatchSettings_PerfectIV::
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
 	msgbox LittlerootTown_Text_ChangeIVSettings, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_HandleIVSettings
+	goto_if_eq LittlerootTown_EventScript_HandleIVSettings
 	waitmessage
 	releaseall
 	end
@@ -1168,6 +1171,6 @@ LittlerootTown_EventScript_PatchSettings_DisableEV::
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
 	msgbox LittlerootTown_Text_ChangeEVSettings, MSGBOX_YESNO
 	compare VAR_RESULT, YES	
-	call_if_eq LittlerootTown_EventScript_HandleEVSettings
+	goto_if_eq LittlerootTown_EventScript_HandleEVSettings
 	releaseall
 	end
