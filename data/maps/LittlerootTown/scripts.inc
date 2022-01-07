@@ -1156,11 +1156,13 @@ LittlerootTown_EventScript_DisableShinyRate::
 	setvar VAR_0x8006, 2 
 	setvar VAR_0x8007, 0
 	special SetSettingsnMonStats
+	return
 		
 LittlerootTown_EventScript_EnableShinyRate::
 	setvar VAR_0x8006, 2
 	setvar VAR_0x8007, 1
 	special SetSettingsnMonStats		
+	return
 	
 	
 LittlerootTown_EventScript_PatchSettings_PerfectIV::
