@@ -5257,13 +5257,17 @@ void SetSettingsnMonStats (void)
 				}
 				for (i = 0; i < PARTY_SIZE; i++)
 				{
-					SetMonData(&gPlayerParty[i], MON_DATA_HP_IV, &value);
-					SetMonData(&gPlayerParty[i], MON_DATA_ATK_IV, &value);
-					SetMonData(&gPlayerParty[i], MON_DATA_DEF_IV, &value);
-					SetMonData(&gPlayerParty[i], MON_DATA_SPATK_IV, &value);
-					SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_IV, &value);
-					SetMonData(&gPlayerParty[i], MON_DATA_SPEED_IV, &value);
-					//CalculateMonStats(&gPlayerParty[i]);
+					if (GetBoxMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
+					   && GetBoxMonData(&gPlayerParty[i], MON_DATA_ISEGG) == 0)
+					{
+						SetMonData(&gPlayerParty[i], MON_DATA_HP_IV, &value);
+						SetMonData(&gPlayerParty[i], MON_DATA_ATK_IV, &value);
+						SetMonData(&gPlayerParty[i], MON_DATA_DEF_IV, &value);
+						SetMonData(&gPlayerParty[i], MON_DATA_SPATK_IV, &value);
+						SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_IV, &value);
+						SetMonData(&gPlayerParty[i], MON_DATA_SPEED_IV, &value);
+						CalculateMonStats(&gPlayerParty[i]);
+					}
 				}
 			}
         		break;
@@ -5290,13 +5294,17 @@ void SetSettingsnMonStats (void)
 				}
 				for (i = 0; i < PARTY_SIZE; i++)
 				{
-					SetMonData(&gPlayerParty[i], MON_DATA_HP_EV, &value);
-					SetMonData(&gPlayerParty[i], MON_DATA_ATK_EV, &value);
-					SetMonData(&gPlayerParty[i], MON_DATA_DEF_EV, &value);
-					SetMonData(&gPlayerParty[i], MON_DATA_SPATK_EV, &value);
-					SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_EV, &value);
-					SetMonData(&gPlayerParty[i], MON_DATA_SPEED_EV, &value);
-					//CalculateMonStats(&gPlayerParty[i]);
+					if (GetBoxMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
+					   && GetBoxMonData(&gPlayerParty[i], MON_DATA_ISEGG) == 0)
+					{
+						SetMonData(&gPlayerParty[i], MON_DATA_HP_EV, &value);
+						SetMonData(&gPlayerParty[i], MON_DATA_ATK_EV, &value);
+						SetMonData(&gPlayerParty[i], MON_DATA_DEF_EV, &value);
+						SetMonData(&gPlayerParty[i], MON_DATA_SPATK_EV, &value);
+						SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_EV, &value);
+						SetMonData(&gPlayerParty[i], MON_DATA_SPEED_EV, &value);
+						CalculateMonStats(&gPlayerParty[i]);
+					}
 				}
 			}
         		break;
