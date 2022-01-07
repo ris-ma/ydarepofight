@@ -1224,7 +1224,7 @@ LittlerootTown_EventScript_PatchSettings_ShinyRate::
 	compare VAR_0x8005,1
 	call_if_eq LittlerootTown_EventScript_ShinyRate_1
 	compare VAR_0x8005,2
-	call_if_qe LittlerootTown_EventScript_ShinyRate_2
+	call_if_eq LittlerootTown_EventScript_ShinyRate_2
 	return
 	
 LittlerootTown_Text_ShinyRate_0:
