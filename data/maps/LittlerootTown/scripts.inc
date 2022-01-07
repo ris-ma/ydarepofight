@@ -1060,86 +1060,90 @@ LittlerootTown_Text_MakePlaceForSettingsMon:
 LittlerootTown_Text_ChangeIVSettings:
 	.string "Change perfect IVs settings?$"
 		
-LittlerootTown_Text_EnableIVSettings:
+LittlerootTown_Text_HandleIVSettings:
 	.string "Enable perfect IVs?\n"
 	.string "Trainers won't be affected.$"
 		
-LittlerootTown_Text_WarningIVSettings:
+LittlerootTown_Text_EnableIVSettings:
 	.string "ARE YOU SURE?????????? The IVs of all\n"
 	.string "your existing Pokémon will be set to 31.$"
+		
+LittlerootTown_Text_DisableIVSettings:
+	.string "Disable perfect IVs settings?$"
 
 LittlerootTown_Text_ChangeEVSettings:
 	.string "Change EVs settings?$"
 		
-LittlerootTown_Text_EnableEVSettings:
+LittlerootTown_Text_HandleEVSettings:
 	.string "Disable EVs?\n"
 	.string "Trainers WILL be affected.$"
 		
-LittlerootTown_Text_WarningEVSettings:
+LittlerootTown_Text_EnableEVSettings:
 	.string "ARE YOU SURE?????????? The EVs of all\n"
 	.string "your existing Pokémon will be set to 0.$"
 
-
+LittlerootTown_Text_DisableEVSettings:
+	.string "Allow EVs gain?$"
+		
 
 LittlerootTown_EventScript_NoPlaceForSettingsMon::
 	msgbox LittlerootTown_Text_MakePlaceForSettingsMon, MSGBOX_DEFAULT
-	closemessage
 	releaseall
 	end
 	
-LittlerootTown_EventScript_HandleIVSettingsWarning::
-	msgbox LittlerootTown_Text_WarningIVSettings, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq LittlerootTown_EventScript_PatchSettings_PerfectIV
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_EnableIVSettings
-	return
-
+	
 LittlerootTown_EventScript_HandleIVSettings::
-	msgbox LittlerootTown_Text_EnableIVSettings, MSGBOX_YESNO
+	msgbox LittlerootTown_Text_HandleIVSettings, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	call_if_eq LittlerootTown_EventScript_DisableIVSettings
 	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_HandleIVSettingsWarning
-	special SetSettingsnMonStats
+	call_if_eq LittlerootTown_EventScript_EnableIVSettings
 	return
 	
 	
 LittlerootTown_EventScript_DisableIVSettings::
+	msgbox LittlerootTown_Text_DisableIVSettings, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LittlerootTown_EventScript_PatchSettings_PerfectIV
 	setvar VAR_0x8006, 0 
 	setvar VAR_0x8007, 0
+	special SetSettingsnMonStats
 	return
 		
 LittlerootTown_EventScript_EnableIVSettings::
+	msgbox LittlerootTown_Text_EnableIVSettings, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LittlerootTown_EventScript_PatchSettings_PerfectIV
 	setvar VAR_0x8006, 0 
 	setvar VAR_0x8007, 1
+	special SetSettingsnMonStats
 	return
 
-LittlerootTown_EventScript_HandleEVSettingsWarning::
-	msgbox LittlerootTown_Text_WarningEVSettings, MSGBOX_YESNO
+		
+LittlerootTown_EventScript_HandleEVSettings::
+	msgbox LittlerootTown_Text_HandleEVSettings, MSGBOX_YESNO
 	compare VAR_RESULT, NO
-	goto_if_eq LittlerootTown_EventScript_PatchSettings_DisableEV
+	call_if_eq LittlerootTown_EventScript_DisableEVSettings
 	compare VAR_RESULT, YES
 	call_if_eq LittlerootTown_EventScript_EnableEVSettings
 	return
 		
-LittlerootTown_EventScript_HandleEVSettings::
-	msgbox LittlerootTown_Text_EnableEVSettings, MSGBOX_YESNO
+LittlerootTown_EventScript_DisableEVSettings::
+	msgbox LittlerootTown_Text_DisableEVSettings, MSGBOX_YESNO
 	compare VAR_RESULT, NO
-	call_if_eq LittlerootTown_EventScript_DisableEVSettings
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_HandleEVSettingsWarning
+	goto_if_eq LittlerootTown_EventScript_PatchSettings_DisableEV
+	setvar VAR_0x8006, 1 
+	setvar VAR_0x8007, 0
 	special SetSettingsnMonStats
 	return
 		
-LittlerootTown_EventScript_DisableEVSettings::
-	setvar VAR_0x8006, 1 
-	setvar VAR_0x8007, 0
-	return
-		
 LittlerootTown_EventScript_EnableEVSettings::
+	msgbox LittlerootTown_Text_EnableEVSettings, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LittlerootTown_EventScript_PatchSettings_DisableEV
 	setvar VAR_0x8006, 1 
 	setvar VAR_0x8007, 1
+	special SetSettingsnMonStats		
 	return
 	
 	
@@ -1164,7 +1168,6 @@ LittlerootTown_EventScript_PatchSettings_DisableEV::
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
 	msgbox LittlerootTown_Text_ChangeEVSettings, MSGBOX_YESNO
 	compare VAR_RESULT, YES	
-	call LittlerootTown_EventScript_HandleEVSettings
-	waitmessage
+	call_if_eq LittlerootTown_EventScript_HandleEVSettings
 	releaseall
 	end
