@@ -7816,7 +7816,8 @@ bool8 IsShinyOtIdPersonality(u32 otId, u32 personality)
 {
     bool8 retVal = FALSE;
     u32 shinyValue = HIHALF(otId) ^ LOHALF(otId) ^ HIHALF(personality) ^ LOHALF(personality);
-    if (shinyValue < SHINY_ODDS_2)
+	#define SHINY_ODDS 65535
+    if (shinyValue < SHINY_ODDS)
         retVal = TRUE;
     return retVal;
 }
