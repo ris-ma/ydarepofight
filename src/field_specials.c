@@ -5258,7 +5258,7 @@ void SetSettingsnMonStats (void)
 				for (i = 0; i < PARTY_SIZE; i++)
 				{
 					if (GetBoxMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
-					   && GetBoxMonData(&gPlayerParty[i], MON_DATA_ISEGG) == 0)
+					   && GetBoxMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_EGG)
 					{
 						SetMonData(&gPlayerParty[i], MON_DATA_HP_IV, &value);
 						SetMonData(&gPlayerParty[i], MON_DATA_ATK_IV, &value);
@@ -5295,7 +5295,7 @@ void SetSettingsnMonStats (void)
 				for (i = 0; i < PARTY_SIZE; i++)
 				{
 					if (GetBoxMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
-					   && GetBoxMonData(&gPlayerParty[i], MON_DATA_ISEGG) == 0)
+					   && GetBoxMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_EGG)
 					{
 						SetMonData(&gPlayerParty[i], MON_DATA_HP_EV, &value);
 						SetMonData(&gPlayerParty[i], MON_DATA_ATK_EV, &value);
