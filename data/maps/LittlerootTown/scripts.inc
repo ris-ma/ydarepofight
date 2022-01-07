@@ -1145,6 +1145,7 @@ LittlerootTown_EventScript_PatchSettings_1::
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
 	call LittlerootTown_EventScript_HandleIVSettings
 	call LittlerootTown_EventScript_HandleEVSettings
+	waitmessage
 	releaseall
 	end
 	
