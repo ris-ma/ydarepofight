@@ -1156,7 +1156,7 @@ LittlerootTown_EventScript_PatchSettings_PerfectIV::
 	releaseall
 	end
 	
-LittlerootTown_EventScript_PatchSettings_PerfectIV::
+LittlerootTown_EventScript_PatchSettings_DisableEV::
 	lockall
 	faceplayer
 	givemon SPECIES_RATTATA, 0, ITEM_NONE
