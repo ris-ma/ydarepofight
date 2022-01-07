@@ -1208,13 +1208,37 @@ LittlerootTown_EventScript_ShinyRate_2::
 		
 LittlerootTown_EventScript_HandleShinyRate::
 	msgbox LittlerootTown_Text_EnbableShinyRate, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableShinyRate
+	compare VAR_RESULT, NO
+	call_if_eq LittlerootTown_EventScript_DisableShinyRate
 	return
-	
 
-LittlerootTown_Text_EnbableShinyRate:
-	.string "YES: Boosted shiny rate options\n"
-	.string "NO: Disable boosted shiny rate$"	
+LittlerootTown_EventScript_EnableShinyRate::
+	msgbox LittlerootTown_Text_ShinyRates, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	LittlerootTown_EventScript_EnableShinyRate_1
+	compare VAR_RESULT, NO
+	LittlerootTown_EventScript_EnableShinyRate_2
+	return
+
+LittlerootTown_EventScript_DisableShinyRate::
+	msgbox LittlerootTown_Text_DisableShinyRate, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	LittlerootTown_EventScript_EnableShinyRate_0
+	return
 		
+LittlerootTown_Text_DisableShinyRate:
+	.string "Yes: 1/1024\n"
+	.string "No:  Cancel$"		
+
+LittlerootTown_Text_ShinyRates:
+	.string "Yes: 1/250\n"
+	.string "No:  1/100$"
+		
+LittlerootTown_Text_EnbableShinyRate:
+	.string "Yes: Boosted shiny rate options\n"
+	.string "No:  Disable boosted shiny rate$"		
 		
 LittlerootTown_EventScript_PatchSettings_ShinyRate::
 	setvar VAR_0x8006, 2
@@ -1239,7 +1263,7 @@ LittlerootTown_Text_ShinyRate_2:
 	.string "Current shiny rate: 1/100\n"
 	.string "Do you want to change this settings?$"	
 
-LittlerootTown_EventScript_DisableShinyRate::
+LittlerootTown_EventScript_EnableShinyRate_0::
 	setvar VAR_0x8006, 2 
 	setvar VAR_0x8007, 0
 	special SetSettingsnMonStats
