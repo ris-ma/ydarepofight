@@ -52,6 +52,17 @@
 #include "constants/battle_config.h"
 #include "data/trainer_spreads.h"
 
+#define SHINY_RATE_BASE 64
+#define SHINY_RATE_BOOSTED_1 262
+#define SHINY_RATE_BOOSTED_2 65535
+if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_DEF_IV) == 1)
+	#define SHINY_ODDS SHINY_RATE_BOOSTED_2
+else if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_DEF_IV) == 2)
+	#define SHINY_ODDS SHINY_RATE_BOOSTED_2
+else
+	#define SHINY_ODDS SHINY_RATE_BASE
+
+	
 struct SpeciesItem
 {
     u16 species;
