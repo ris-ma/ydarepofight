@@ -1196,8 +1196,8 @@ LittlerootTown_EventScript_PatchSettings_Others::
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
 	msgbox LittlerootTown_Text_ChangeShinyRate, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_PatchSettings_EnableShinyRate
+	call_if_eq LittlerootTown_EventScript_EnableShinyRate
 	compare VAR_RESULT, NO
-	call_if_eq LittlerootTown_EventScript_PatchSettings_DisableShinyRate
+	call_if_eq LittlerootTown_EventScript_DisableShinyRate
 	releaseall
 	end
