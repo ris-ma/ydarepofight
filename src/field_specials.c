@@ -5316,7 +5316,17 @@ void SetSettingsnMonStats (void)
 	
 void GetSettingsnMonStats (void)
 {
-			
+	u8 statToChange = gSpecialVar_0x8006;
+	
+	switch (statToChange)
+    	{
+    		case 0: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_HP_IV); // Perfect IVs settings
+			break;
+		case 1: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_ATK_IV); // EV settings
+			break;
+		case 2: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_DEF_IV); // Shiny Rate
+			break;
+	}
 }
 
 // Buffers the IV of a Pokemon's stat chosen by the player.
