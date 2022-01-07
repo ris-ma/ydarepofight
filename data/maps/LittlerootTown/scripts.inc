@@ -1068,7 +1068,7 @@ LittlerootTown_Text_HandleIVSettings:
 	.string "Trainers won't be affected.$"
 		
 LittlerootTown_Text_EnableIVSettings:
-	.string "ARE YOU SURE?????????? All your Pokémon's\n"
+	.string "ARE YOU SURE???????? All your Pokémon's\n"
 	.string "IVs will be set to 31.$"
 		
 LittlerootTown_Text_DisableIVSettings:
@@ -1082,7 +1082,7 @@ LittlerootTown_Text_HandleEVSettings:
 	.string "Trainers WILL be affected.$"
 		
 LittlerootTown_Text_EnableEVSettings:
-	.string "ARE YOU SURE?????????? All your Pokémon's\n"
+	.string "ARE YOU SURE???????? All your Pokémon's\n"
 	.string "EVs will be set to 0.$"
 
 LittlerootTown_Text_DisableEVSettings:
