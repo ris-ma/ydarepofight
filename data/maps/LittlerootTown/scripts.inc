@@ -1077,6 +1077,8 @@ LittlerootTown_Text_WarningEVSettings:
 
 LittlerootTown_EventScript_NoPlaceForSettingsMon::
 	msgbox LittlerootTown_Text_MakePlaceForSettingsMon, MSGBOX_DEFAULT
+	closemessage
+	releaseall
 	end
 	
 LittlerootTown_EventScript_HandleIVSettingsWarning::
@@ -1136,11 +1138,15 @@ LittlerootTown_EventScript_EnableEVSettings::
 	
 	
 LittlerootTown_EventScript_PatchSettings_1::
+	lockall
+	faceplayer
 	givemon SPECIES_RATTATA, 0, ITEM_NONE
 	compare VAR_RESULT, 1
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
 	call LittlerootTown_EventScript_HandleIVSettings
 	call LittlerootTown_EventScript_HandleEVSettings
+	waitmessage
+	releaseall
 	end
 	
 	
