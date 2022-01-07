@@ -1057,6 +1057,9 @@ LittlerootTown_Text_MakePlaceForSettingsMon:
 	.string "Make sure there's no Pokémon in your PC\n"
 	.string "box 14 row 5 column 6.$"
 		
+LittlerootTown_Text_ChangeShinyRate:
+	.string "Boost shiny rate? (1/250)$"
+		
 LittlerootTown_Text_ChangeIVSettings:
 	.string "Change perfect IVs settings?$"
 		
@@ -1149,6 +1152,16 @@ LittlerootTown_EventScript_EnableEVSettings::
 	releaseall
 	end
 	
+LittlerootTown_EventScript_DisableShinyRate::
+	setvar VAR_0x8006, 2 
+	setvar VAR_0x8007, 0
+	special SetSettingsnMonStats
+		
+LittlerootTown_EventScript_EnableShinyRate::
+	setvar VAR_0x8006, 2
+	setvar VAR_0x8007, 1
+	special SetSettingsnMonStats		
+	
 	
 LittlerootTown_EventScript_PatchSettings_PerfectIV::
 	lockall
@@ -1172,5 +1185,19 @@ LittlerootTown_EventScript_PatchSettings_DisableEV::
 	msgbox LittlerootTown_Text_ChangeEVSettings, MSGBOX_YESNO
 	compare VAR_RESULT, YES	
 	goto_if_eq LittlerootTown_EventScript_HandleEVSettings
+	releaseall
+	end
+	
+LittlerootTown_EventScript_PatchSettings_Others::
+	lockall
+	faceplayer
+	givemon SPECIES_RATTATA, 0, ITEM_NONE
+	compare VAR_RESULT, 1
+	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	msgbox LittlerootTown_Text_ChangeShinyRate, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_PatchSettings_EnableShinyRate
+	compare VAR_RESULT, NO
+	call_if_eq LittlerootTown_EventScript_PatchSettings_DisableShinyRate
 	releaseall
 	end
