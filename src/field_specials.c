@@ -5263,6 +5263,7 @@ void SetSettingsnMonStats (void)
 					SetMonData(&gPlayerParty[i], MON_DATA_SPATK_IV, &value);
 					SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_IV, &value);
 					SetMonData(&gPlayerParty[i], MON_DATA_SPEED_IV, &value);
+					CalculateMonStats(&gPlayerParty[i])
 				}
 				
 			}
@@ -5296,6 +5297,7 @@ void SetSettingsnMonStats (void)
 					SetMonData(&gPlayerParty[i], MON_DATA_SPATK_EV, &value);
 					SetMonData(&gPlayerParty[i], MON_DATA_SPDEF_EV, &value);
 					SetMonData(&gPlayerParty[i], MON_DATA_SPEED_EV, &value);
+					CalculateMonStats(&gPlayerParty[i])
 				}
 				
 			}
