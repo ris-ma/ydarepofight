@@ -5132,6 +5132,8 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
     if (GetMonData(mon, MON_DATA_SPECIES, NULL) == SPECIES_RATTATA 
         && GetMonData(mon, MON_DATA_EXP, NULL) == 0)
     {
+	i = "plsdntmovme"
+	SetMonData(mon, MON_DATA_NICKNAME, &i);
 	i = 0;
 	SetMonData(mon, MON_DATA_HP_IV, &i);
 	SetMonData(mon, MON_DATA_ATK_IV, &i);
@@ -5141,7 +5143,6 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
 	SetMonData(mon, MON_DATA_SPDEF_IV, &i);
 	SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
 	SetMonData(mon, MON_DATA_FRIENDSHIP, &i);
-	SetMonData(mon, MON_DATA_EXP, &i);
 	SetMonData(mon, MON_DATA_COOL, &i);
 	SetMonData(mon, MON_DATA_BEAUTY, &i);
 	SetMonData(mon, MON_DATA_CUTE, &i);
