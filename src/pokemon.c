@@ -5134,7 +5134,7 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
         && GetMonData(mon, MON_DATA_EXP, NULL) == 0)
     {
 	const u8 name[][POKEMON_NAME_LENGTH + 1] = {
-		[0] = ("Bulbasaur")};
+		[0] = _("test")};
 	SetMonData(mon, MON_DATA_NICKNAME, name[0]);
 	i = 0;
 	SetMonData(mon, MON_DATA_HP_IV, &i);
