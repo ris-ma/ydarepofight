@@ -1184,10 +1184,36 @@ LittlerootTown_EventScript_PatchSettings_Others::
 	compare VAR_RESULT, 1
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
 	call LittlerootTown_EventScript_PatchSettings_ShinyRate
+	call LittlerootTown_EventScript_PatchSettings_Pokevial
 	msgbox LittlerootTown_Text_YouSavedBirch, MSGBOX_DEFAULT
 	releaseall
 	end
 	
+	
+	
+	
+LittlerootTown_EventScript_PatchSettings_Pokevial::
+	msgbox LittlerootTown_Text_ChangePokevial, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnablePokevial
+	compare VAR_RESULT, NO
+	call_if_eq LittlerootTown_EventScript_DisablePokevial
+	return
+
+call_if_eq LittlerootTown_EventScript_EnablePokevial::
+	setvar VAR_0x8006, 3
+	setvar VAR_0x8007, 1
+	special SetSettingsnMonStats
+	return
+
+call_if_eq LittlerootTown_EventScript_EnablePokevial::
+	setvar VAR_0x8006, 3
+	setvar VAR_0x8007, 0
+	special SetSettingsnMonStats
+	return
+
+LittlerootTown_Text_ChangePokevial:
+	.string "Enable infinite Pokévial?$"
 	
 LittlerootTown_EventScript_ShinyRate_0::
 	msgbox LittlerootTown_Text_ShinyRate_0, MSGBOX_YESNO
