@@ -1212,7 +1212,7 @@ LittlerootTown_EventScript_DisablePokevial::
 	return
 
 LittlerootTown_Text_ChangePokevial:
-	.string "Enable infinite Pokévial?$"
+	.string "Enable infinite Poké Vial?$"
 	
 LittlerootTown_EventScript_ShinyRate_0::
 	msgbox LittlerootTown_Text_ShinyRate_0, MSGBOX_YESNO
