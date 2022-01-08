@@ -5216,7 +5216,7 @@ void SetSettingsnMonStats (void)
 	SetMonData(mon, MON_DATA_HP_IV, &i); // Perfect IVs settings
 	SetMonData(mon, MON_DATA_ATK_IV, &i); // EV settings
 	SetMonData(mon, MON_DATA_DEF_IV, &i); // Shiny Rate
-	SetMonData(mon, MON_DATA_SPEED_IV, &i);
+	SetMonData(mon, MON_DATA_SPEED_IV, &i); // Infinite Pokevial
 	SetMonData(mon, MON_DATA_SPATK_IV, &i);
 	SetMonData(mon, MON_DATA_SPDEF_IV, &i);
 	SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
@@ -5309,6 +5309,9 @@ void SetSettingsnMonStats (void)
 			}
         		break;
 		case 2: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_DEF_IV, &value); // Shiny Rate
+			break;
+		case 3: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPEED_IV, &value); // Infinite Pokevial
+			break;
 	}
 	
 	
@@ -5325,6 +5328,8 @@ void GetSettingsnMonStats (void)
 		case 1: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_ATK_IV); // EV settings
 			break;
 		case 2: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_DEF_IV); // Shiny Rate
+			break;
+		case 3: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPEED_IV); // Infinite Pokevial
 			break;
 	}
 }
