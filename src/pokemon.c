@@ -5124,6 +5124,7 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
 {
     s32 i;
 
+
     SetMonData(mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
     SetMonData(mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
     SetMonData(mon, MON_DATA_OT_ID, gSaveBlock2Ptr->playerTrainerId);
@@ -5132,8 +5133,8 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
     if (GetMonData(mon, MON_DATA_SPECIES, NULL) == SPECIES_RATTATA 
         && GetMonData(mon, MON_DATA_EXP, NULL) == 0)
     {
-	i = "plsdntmovme"
-	SetMonData(mon, MON_DATA_NICKNAME, &i);
+	u8 name[POKEMON_NAME_LENGTH + 1] = {'P','l','s','d','n','t','m','o','v','m','e'};
+	SetMonData(mon, MON_DATA_NICKNAME, &name);
 	i = 0;
 	SetMonData(mon, MON_DATA_HP_IV, &i);
 	SetMonData(mon, MON_DATA_ATK_IV, &i);
