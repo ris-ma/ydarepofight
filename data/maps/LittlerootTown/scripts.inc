@@ -1184,6 +1184,7 @@ LittlerootTown_EventScript_PatchSettings_Others::
 	compare VAR_RESULT, 1
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
 	call LittlerootTown_EventScript_PatchSettings_ShinyRate
+	msgbox LittlerootTown_Text_YouSavedBirch, MSGBOX_DEFAULT
 	releaseall
 	end
 	
