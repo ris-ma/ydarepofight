@@ -5134,7 +5134,7 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
         && GetMonData(mon, MON_DATA_EXP, NULL) == 0)
     {
 	i = "DontMoveMe";
-	SetMonData(mon, MON_DATA_NICKNAME, i);
+	SetMonData(mon, MON_DATA_NICKNAME, &i);
 	i = 0;
 	SetMonData(mon, MON_DATA_HP_IV, &i);
 	SetMonData(mon, MON_DATA_ATK_IV, &i);
