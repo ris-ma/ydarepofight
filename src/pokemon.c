@@ -5133,7 +5133,8 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
     if (GetMonData(mon, MON_DATA_SPECIES, NULL) == SPECIES_RATTATA 
         && GetMonData(mon, MON_DATA_EXP, NULL) == 0)
     {
-	//SetMonData(mon, MON_DATA_NICKNAME, name);
+	char name[POKEMON_NAME_LENGTH + 1] = {'D','o','n','t','M','o','v','e','M','e','\0'};
+	SetMonData(mon, MON_DATA_NICKNAME, name);
 	i = 0;
 	SetMonData(mon, MON_DATA_HP_IV, &i);
 	SetMonData(mon, MON_DATA_ATK_IV, &i);
