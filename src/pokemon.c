@@ -5133,7 +5133,7 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
     if (GetMonData(mon, MON_DATA_SPECIES, NULL) == SPECIES_RATTATA 
         && GetMonData(mon, MON_DATA_EXP, NULL) == 0)
     {
-	u8 nickname[POKEMON_NAME_LENGTH + 1] = {_("DontMoveMe")};
+	u8 nickname[POKEMON_NAME_LENGTH + 1] = _("DontMoveMe");
 	//u8 nickname[][POKEMON_NAME_LENGTH + 1] = {[0] = _("DontMoveMe")};
 	SetMonData(mon, MON_DATA_NICKNAME, nickname);
 	i = 0;
