@@ -1207,14 +1207,16 @@ LittlerootTown_EventScript_ShinyRate_2::
 	
 		
 LittlerootTown_EventScript_HandleShinyRate::
+	setvar VAR_0x8004, 0
 	msgbox LittlerootTown_Text_EnbableShinyRate, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	call_if_eq LittlerootTown_EventScript_EnableShinyRate
-	compare VAR_RESULT, NO
+	compare VAR_0x8004, 0
 	call_if_eq LittlerootTown_EventScript_DisableShinyRate
 	return
 
 LittlerootTown_EventScript_EnableShinyRate::
+	setvar VAR_0x8004, 1
 	msgbox LittlerootTown_Text_ShinyRates, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	call_if_eq LittlerootTown_EventScript_EnableShinyRate_1
