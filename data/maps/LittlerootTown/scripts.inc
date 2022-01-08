@@ -1185,7 +1185,6 @@ LittlerootTown_EventScript_PatchSettings_Others::
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
 	call LittlerootTown_EventScript_PatchSettings_ShinyRate
 	call LittlerootTown_EventScript_PatchSettings_Pokevial
-	msgbox LittlerootTown_Text_YouSavedBirch, MSGBOX_DEFAULT
 	releaseall
 	end
 	
