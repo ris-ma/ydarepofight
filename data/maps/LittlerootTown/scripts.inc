@@ -1070,7 +1070,7 @@ LittlerootTown_Text_EnableIVSettings:
 	.string "IVs will be set to 31.$"
 		
 LittlerootTown_Text_DisableIVSettings:
-	.string "Disable perfect IVs settings?$"
+	.string "Disable perfect IVs?$"
 
 LittlerootTown_Text_ChangeEVSettings:
 	.string "Change EVs settings?$"
@@ -1084,7 +1084,8 @@ LittlerootTown_Text_EnableEVSettings:
 	.string "EVs will be set to 0.$"
 
 LittlerootTown_Text_DisableEVSettings:
-	.string "Allow EVs gain?$"
+	.string "Yes: Allow EVs gain\n"
+	.string "No:  Cancel$"
 		
 
 LittlerootTown_EventScript_NoPlaceForSettingsMon::
