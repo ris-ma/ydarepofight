@@ -1206,7 +1206,7 @@ LittlerootTown_EventScript_EnablePokevial::
 	special SetSettingsnMonStats
 	return
 
-LittlerootTown_EventScript_EnablePokevial::
+LittlerootTown_EventScript_DisablePokevial::
 	setvar VAR_0x8006, 3
 	setvar VAR_0x8007, 0
 	special SetSettingsnMonStats
