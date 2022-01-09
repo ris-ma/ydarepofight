@@ -1240,13 +1240,13 @@ LittlerootTown_Text_ChangePokevialDisabled:
 
 LittlerootTown_EventScript_EnablePokevial::
 	setvar VAR_0x8006, 3 
-	setvar VAR_0x8007, 0
+	setvar VAR_0x8007, 1
 	special SetSettingsMonStats
 	return
 		
 LittlerootTown_EventScript_DisablePokevial::
 	setvar VAR_0x8006, 3
-	setvar VAR_0x8007, 1
+	setvar VAR_0x8007, 0
 	special SetSettingsMonStats
 	return
 	
