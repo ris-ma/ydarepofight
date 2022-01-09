@@ -1108,7 +1108,7 @@ LittlerootTown_EventScript_DisableIVSettings::
 	goto_if_eq LittlerootTown_EventScript_PatchSettings_PerfectIV
 	setvar VAR_0x8006, 0 
 	setvar VAR_0x8007, 0
-	special SetSettingsnMonStats
+	special SetSettingsMonStats
 	releaseall
 	end
 		
@@ -1118,7 +1118,7 @@ LittlerootTown_EventScript_EnableIVSettings::
 	goto_if_eq LittlerootTown_EventScript_PatchSettings_PerfectIV
 	setvar VAR_0x8006, 0 
 	setvar VAR_0x8007, 1
-	special SetSettingsnMonStats
+	special SetSettingsMonStats
 	releaseall
 	end
 
@@ -1137,7 +1137,7 @@ LittlerootTown_EventScript_DisableEVSettings::
 	goto_if_eq LittlerootTown_EventScript_PatchSettings_DisableEV
 	setvar VAR_0x8006, 1 
 	setvar VAR_0x8007, 0
-	special SetSettingsnMonStats
+	special SetSettingsMonStats
 	releaseall
 	end
 		
@@ -1147,7 +1147,7 @@ LittlerootTown_EventScript_EnableEVSettings::
 	goto_if_eq LittlerootTown_EventScript_PatchSettings_DisableEV
 	setvar VAR_0x8006, 1 
 	setvar VAR_0x8007, 1
-	special SetSettingsnMonStats		
+	special SetSettingsMonStats		
 	releaseall
 	end
 	
@@ -1235,13 +1235,13 @@ LittlerootTown_Text_ChangePokevialDisabled:
 LittlerootTown_EventScript_EnablePokevial::
 	setvar VAR_0x8006, 3 
 	setvar VAR_0x8007, 0
-	special SetSettingsnMonStats
+	special SetSettingsMonStats
 	return
 		
 LittlerootTown_EventScript_DisablePokevial::
 	setvar VAR_0x8006, 3
 	setvar VAR_0x8007, 1
-	special SetSettingsnMonStats
+	special SetSettingsMonStats
 	return
 	
 	
@@ -1329,7 +1329,7 @@ LittlerootTown_Text_EnbableShinyRate:
 		
 LittlerootTown_EventScript_PatchSettings_ShinyRate::
 	setvar VAR_0x8006, 2
-	special GetSettingsnMonStats
+	special GetSettingsMonStats
 	compare VAR_0x8005,1
 	call_if_lt LittlerootTown_EventScript_ShinyRate_0
 	call_if_eq LittlerootTown_EventScript_ShinyRate_1
@@ -1351,19 +1351,19 @@ LittlerootTown_Text_ShinyRate_2:
 LittlerootTown_EventScript_EnableShinyRate_0::
 	setvar VAR_0x8006, 2 
 	setvar VAR_0x8007, 0
-	special SetSettingsnMonStats
+	special SetSettingsMonStats
 	return
 		
 LittlerootTown_EventScript_EnableShinyRate_1::
 	setvar VAR_0x8006, 2
 	setvar VAR_0x8007, 1
-	special SetSettingsnMonStats
+	special SetSettingsMonStats
 	return
 
 LittlerootTown_EventScript_EnableShinyRate_2::
 	setvar VAR_0x8006, 2
 	setvar VAR_0x8007, 2
-	special SetSettingsnMonStats
+	special SetSettingsMonStats
 	return
 
 
