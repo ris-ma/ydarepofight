@@ -5210,7 +5210,7 @@ void IncreaseChosenMonEVs (void)
     gSpecialVar_0x8007 = newEV;
 }
 
-void SetSettingsnMonStats (void)
+void SetSettingsMonStats (void)
 {
 	/*
 	SetMonData(mon, MON_DATA_HP_IV, &i); // Perfect IVs settings
@@ -5317,7 +5317,7 @@ void SetSettingsnMonStats (void)
 	
 }
 	
-void GetSettingsnMonStats (void)
+void GetSettingsMonStats (void)
 {
 	u8 statToChange = gSpecialVar_0x8006;
 	
