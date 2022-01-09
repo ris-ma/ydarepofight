@@ -5218,7 +5218,7 @@ void SetSettingsMonStats (void)
 	SetMonData(mon, MON_DATA_DEF_IV, &i); // Shiny Rate
 	SetMonData(mon, MON_DATA_SPEED_IV, &i); // Infinite Pokevial
 	SetMonData(mon, MON_DATA_SPATK_IV, &i); // Items
-	SetMonData(mon, MON_DATA_SPDEF_IV, &i);
+	SetMonData(mon, MON_DATA_SPDEF_IV, &i); // Berries
 	SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
 	SetMonData(mon, MON_DATA_FRIENDSHIP, &i);
 	SetMonData(mon, MON_DATA_COOL, &i);
@@ -5314,6 +5314,8 @@ void SetSettingsMonStats (void)
 			break;
 		case 4: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPATK_IV, &value); // Items
 			break;
+		case 5: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPDEF_IV, &value); // Berries
+			break;
 	}
 	
 	
@@ -5334,6 +5336,8 @@ void GetSettingsMonStats (void)
 		case 3: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPEED_IV); // Infinite Pokevial
 			break;
 		case 4: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPATK_IV); // Items
+			break;
+		case 5: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPDEF_IV); // Berries
 			break;
 	}
 }
