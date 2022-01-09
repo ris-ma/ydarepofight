@@ -1335,7 +1335,7 @@ LittlerootTown_EventScript_ChangeItems::
 		
 LittlerootTown_Text_ChangeItems:
 	.string "Enable nurse Joy items?\n"
-	.string "Infinite Rare Candy, Bottle Cap etc...$"
+	.string "Infinite Rare Candy, Big Pearl etc...$"
 		
 LittlerootTown_Text_ChangeItemsEnabled:
 	.string "Nurse Joy items are enabled.\n"
