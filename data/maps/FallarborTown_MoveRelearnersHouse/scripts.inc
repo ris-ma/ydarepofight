@@ -255,10 +255,21 @@ FallarborTown_DoSuperTraining::
 	special CheckChosenMonCanGainEVs
 	compare VAR_RESULT, 0
 	goto_if_eq FallarborTown_CantExceedEVLimit
+	showmoneybox 15, 0, 0
+	buffernumberstring 2, VAR_0x8009
+	msgbox SuperTraining_ShowPrice, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_eq FallarborTown_WontPay
+	checkmoney VAR_0x8009, 0
+	compare VAR_RESULT, 0
+	goto_if_eq FallarborTown_CantAfford
+	removemoney VAR_0x8009, 0
+	updatemoneybox 0, 0
 	special IncreaseChosenMonEVs
 	bufferpartymonnick 0, VAR_0x8004
 	buffernumberstring 1, VAR_0x8007
 	msgbox SuperTraining_Text_EVsHaveIncreased
+	hidemoneybox
 	goto FallarborTown_ChangeEV
 
 FallarborTown_CantExceedEVLimit::
@@ -530,7 +541,12 @@ HyperTraining_EventScript_ChangeIV31::
 	goto HyperTraining_EventScript_ChangeOneIV
 
 HyperTraining_EventScript_ChangeOneIV::
+	checkitem ITEM_BOTTLE_CAP, 1
+	compare VAR_RESULT, FALSE
+	goto_if_eq HyperTraining_EventScript_NotEnoughCaps
 	special ChangeChosenMonIVs
+	msgbox HyperTraining_Text_PayOneCap, MSGBOX_DEFAULT
+	removeitem ITEM_BOTTLE_CAP
 	goto HyperTraining_EventScript_DoHyperTraining
 
 HyperTraining_EventScript_ChangeHiddenPower::
@@ -626,7 +642,12 @@ HyperTraining_EventScript_ChangeHPDark::
 	goto HyperTraining_EventScript_ChangeAllIVs
 
 HyperTraining_EventScript_ChangeAllIVs::
+	checkitem ITEM_BOTTLE_CAP, 3
+	compare VAR_RESULT, FALSE
+	goto_if_eq HyperTraining_EventScript_NotEnoughCaps
 	special ChangeChosenMonHiddenPower
+	msgbox HyperTraining_Text_PayThreeCaps, MSGBOX_DEFAULT
+	removeitem ITEM_BOTTLE_CAP, 3
 	goto HyperTraining_EventScript_DoHyperTraining
 
 HyperTraining_EventScript_DoHyperTraining::
