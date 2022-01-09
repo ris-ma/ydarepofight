@@ -1192,6 +1192,10 @@ LittlerootTown_EventScript_PatchSettings_Others::
 	
 	
 	
+	
+	
+	
+	
 			
 		
 LittlerootTown_EventScript_PatchSettings_Pokevial::
@@ -1199,6 +1203,7 @@ LittlerootTown_EventScript_PatchSettings_Pokevial::
 	special GetSettingsMonStats
 	compare VAR_0x8005, 1
 	call_if_eq LittlerootTown_EventScript_ChangePokevialEnabled
+	compare VAR_0x8005, 1
 	call_if_ne LittlerootTown_EventScript_ChangePokevialDisabled
 	return	
 	
@@ -1218,6 +1223,7 @@ LittlerootTown_EventScript_ChangePokevial::
 	msgbox LittlerootTown_Text_ChangePokevialDisabled, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	call_if_eq LittlerootTown_EventScript_EnablePokevial
+	compare VAR_RESULT, YES
 	call_if_ne LittlerootTown_EventScript_EnablePokevial
 	return
 		
@@ -1332,7 +1338,9 @@ LittlerootTown_EventScript_PatchSettings_ShinyRate::
 	special GetSettingsMonStats
 	compare VAR_0x8005,1
 	call_if_lt LittlerootTown_EventScript_ShinyRate_0
+	compare VAR_0x8005,1
 	call_if_eq LittlerootTown_EventScript_ShinyRate_1
+	compare VAR_0x8005,1
 	call_if_gt LittlerootTown_EventScript_ShinyRate_2
 	return
 	
