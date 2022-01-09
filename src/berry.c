@@ -1607,8 +1607,10 @@ void DoBerryEncounter(void)
     {
         berryStage = 3;
     }
-
-    BerryWildEncounter(Random() % 4);
+    if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPDEF_IV) == 1)
+        BerryWildEncounter(Random() % 4);
+    else
+        BerryWildEncounter(BerryStage);
 }
 
 bool8 IsPlayerFacingEmptyBerryTreePatch(void)
@@ -1711,7 +1713,10 @@ void PlantBerryTree(u8 id, u8 berry, u8 stage, bool8 allowGrowth)
     *tree = gBlankBerryTree;
     tree->berry = berry;
     tree->minutesUntilNextStage = GetStageDurationByBerryType(berry);
-    tree->stage = BERRY_STAGE_BERRIES;
+    if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPDEF_IV) == 1)
+        tree->stage = BERRY_STAGE_BERRIES;
+    else
+        tree->stage = stage;
     if (stage == BERRY_STAGE_BERRIES)
     {
         tree->berryYield = CalcBerryYield(tree);
@@ -1831,15 +1836,31 @@ static u8 CalcBerryYieldInternal(u16 max, u16 min, u8 water)
 static u8 CalcBerryYield(struct BerryTree *tree)
 {
     const struct Berry *berry = GetBerryInfo(tree->berry);
-    u8 min = 100;
-    u8 max = 100;
-
-    return 100;
+    u8 min = berry->minYield;
+    u8 max = berry->maxYield;
+    
+    if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPDEF_IV) == 1)
+        return 100;
+    else
+        return CalcBerryYieldInternal(max, min, BerryTreeGetNumStagesWatered(tree));
 }
 
 static u8 GetBerryCountByBerryTreeId(u8 id)
 {
-    return 100;
+    struct BerryTree *tree = GetBerryTreeInfo(id);
+    const struct Berry *berry = GetBerryInfo(tree->berry);
+    u16 currentMap = gMapHeader.regionMapSectionId;
+    
+    if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPDEF_IV) == 1)
+        return 100;
+    else
+    {
+        // Berries on rainy maps don't need to be watered because that made no sense
+        if (currentMap == MAPSEC_ROUTE_119 || currentMap == MAPSEC_ROUTE_120 || currentMap == MAPSEC_ROUTE_123)
+            return berry->maxYield;
+        else
+            return gSaveBlock1Ptr->berryTrees[id].berryYield;
+    }
 }
 
 static u16 GetStageDurationByBerryType(u8 berry)
