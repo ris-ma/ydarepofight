@@ -543,8 +543,8 @@ gSpecials::
 	def_special BufferChosenMonNature
 	def_special ChangeChosenMonIVs
 	def_special IncreaseChosenMonEVs
-	def_special SetSettingsnMonStats
-	def_special GetSettingsnMonStats
+	def_special SetSettingsMonStats
+	def_special GetSettingsMonStats
 	def_special BufferChosenMonIV
 	def_special BufferChosenMonEV
 	def_special BufferChosenMonAllIVs
