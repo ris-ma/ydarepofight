@@ -1613,7 +1613,7 @@ void DoBerryEncounter(void)
     if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPDEF_IV) == 1)
         berryStage = Random() % 4;
     
-    BerryWildEncounter(BerryStage);
+    BerryWildEncounter(berryStage);
 }
 
 bool8 IsPlayerFacingEmptyBerryTreePatch(void)
