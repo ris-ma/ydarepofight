@@ -1185,6 +1185,7 @@ LittlerootTown_EventScript_PatchSettings_Others::
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
 	call LittlerootTown_EventScript_PatchSettings_ShinyRate
 	call LittlerootTown_EventScript_PatchSettings_Pokevial
+	call LittlerootTown_EventScript_PatchSettings_Items
 	releaseall
 	end
 	
@@ -1194,7 +1195,94 @@ LittlerootTown_EventScript_PatchSettings_Others::
 	
 	
 	
+
+
+
+
+
+
+
+
+
+
+LittlerootTown_EventScript_PatchSettings_Items::
+	setvar VAR_0x8006, 4
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	call_if_eq LittlerootTown_EventScript_ChangeItemsEnabled
+	compare VAR_0x8005, 1
+	call_if_ne LittlerootTown_EventScript_ChangeItemsDisabled
+	return	
 	
+LittlerootTown_EventScript_ChangeItemsEnabled::
+	msgbox LittlerootTown_Text_ChangeItemsEnabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeItems
+	return
+
+LittlerootTown_EventScript_ChangeItemsDisabled::
+	msgbox LittlerootTown_Text_ChangeItemsDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeItems
+	return
+
+LittlerootTown_EventScript_ChangeItems::
+	msgbox LittlerootTown_Text_ChangeItems, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableItems
+	compare VAR_RESULT, YES
+	call_if_ne LittlerootTown_EventScript_DisableItems
+	return
+		
+LittlerootTown_Text_ChangeItems:
+	.string "Enable nurse Joy items?\n"
+	.string "Infinite Rare Candy, Bottle Cap etc...$"
+		
+LittlerootTown_Text_ChangeItemsEnabled:
+	.string "Nurse Joy items are enabled.\n"
+	.string "Do you want to change this settings?$"
+
+LittlerootTown_Text_ChangeItemsDisabled:
+	.string "Nurse Joy items are disabled.\n"
+	.string "Do you want to change this settings?$"
+
+LittlerootTown_EventScript_EnableItems::
+	setvar VAR_0x8006, 4 
+	setvar VAR_0x8007, 1
+	special SetSettingsMonStats
+	return
+		
+LittlerootTown_EventScript_DisableItems::
+	setvar VAR_0x8006, 4
+	setvar VAR_0x8007, 0
+	special SetSettingsMonStats
+	return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 			
 		
