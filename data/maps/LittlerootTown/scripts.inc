@@ -1220,11 +1220,11 @@ LittlerootTown_EventScript_ChangePokevialDisabled::
 	return
 
 LittlerootTown_EventScript_ChangePokevial::
-	msgbox LittlerootTown_Text_ChangePokevialDisabled, MSGBOX_YESNO
+	msgbox LittlerootTown_Text_ChangePokevial, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	call_if_eq LittlerootTown_EventScript_EnablePokevial
 	compare VAR_RESULT, YES
-	call_if_ne LittlerootTown_EventScript_EnablePokevial
+	call_if_ne LittlerootTown_EventScript_DisablePokevial
 	return
 		
 LittlerootTown_Text_ChangePokevial:
