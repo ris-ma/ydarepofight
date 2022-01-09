@@ -14,6 +14,8 @@
 #include "constants/event_object_movement.h"
 #include "constants/items.h"
 #include "wild_encounter.h"
+#include "pokemon.h"
+#include "pokemon_storage_system.h"
 
 static u32 GetEnigmaBerryChecksum(struct EnigmaBerry *enigmaBerry);
 static bool32 BerryTreeGrow(struct BerryTree *tree);
