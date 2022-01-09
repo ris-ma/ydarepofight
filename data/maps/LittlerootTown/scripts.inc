@@ -1191,28 +1191,86 @@ LittlerootTown_EventScript_PatchSettings_Others::
 	
 	
 	
+	
+			
+		
 LittlerootTown_EventScript_PatchSettings_Pokevial::
-	msgbox LittlerootTown_Text_ChangePokevial, MSGBOX_YESNO
+	setvar VAR_0x8006, 3
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	call_if_eq LittlerootTown_EventScript_ChangePokevialEnabled
+	call_if_ne LittlerootTown_EventScript_ChangePokevialDisabled
+	return	
+	
+LittlerootTown_EventScript_ChangePokevialEnabled::
+	msgbox LittlerootTown_Text_ChangePokevialEnabled, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_EnablePokevial
-	compare VAR_RESULT, NO
-	call_if_eq LittlerootTown_EventScript_DisablePokevial
+	call_if_eq LittlerootTown_EventScript_ChangePokevial
 	return
 
+LittlerootTown_EventScript_ChangePokevialDisabled::
+	msgbox LittlerootTown_Text_ChangePokevialDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangePokevial
+	return
+
+LittlerootTown_EventScript_ChangePokevial::
+	msgbox LittlerootTown_Text_ChangePokevialDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnablePokevial
+	call_if_ne LittlerootTown_EventScript_EnablePokevial
+	return
+		
+LittlerootTown_Text_ChangePokevial:
+	.string "Enable infinite Poké Vial?$"
+		
+LittlerootTown_Text_ChangePokevialEnabled:
+	.string "Infinite Poké Vial is enabled.\n"
+	.string "Do you want to change this settings?$"
+
+LittlerootTown_Text_ChangePokevialDisabled:
+	.string "Infinite Poké Vial is disabled.\n"
+	.string "Do you want to change this settings?$"
+
 LittlerootTown_EventScript_EnablePokevial::
+	setvar VAR_0x8006, 3 
+	setvar VAR_0x8007, 0
+	special SetSettingsnMonStats
+	return
+		
+LittlerootTown_EventScript_DisablePokevial::
 	setvar VAR_0x8006, 3
 	setvar VAR_0x8007, 1
 	special SetSettingsnMonStats
 	return
-
-LittlerootTown_EventScript_DisablePokevial::
-	setvar VAR_0x8006, 3
-	setvar VAR_0x8007, 0
-	special SetSettingsnMonStats
-	return
-
-LittlerootTown_Text_ChangePokevial:
-	.string "Enable infinite Poké Vial?$"
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 LittlerootTown_EventScript_ShinyRate_0::
 	msgbox LittlerootTown_Text_ShinyRate_0, MSGBOX_YESNO
@@ -1272,12 +1330,10 @@ LittlerootTown_Text_EnbableShinyRate:
 LittlerootTown_EventScript_PatchSettings_ShinyRate::
 	setvar VAR_0x8006, 2
 	special GetSettingsnMonStats
-	compare VAR_0x8005,0
-	call_if_eq LittlerootTown_EventScript_ShinyRate_0
 	compare VAR_0x8005,1
+	call_if_lt LittlerootTown_EventScript_ShinyRate_0
 	call_if_eq LittlerootTown_EventScript_ShinyRate_1
-	compare VAR_0x8005,2
-	call_if_eq LittlerootTown_EventScript_ShinyRate_2
+	call_if_gt LittlerootTown_EventScript_ShinyRate_2
 	return
 	
 LittlerootTown_Text_ShinyRate_0:
@@ -1309,3 +1365,7 @@ LittlerootTown_EventScript_EnableShinyRate_2::
 	setvar VAR_0x8007, 2
 	special SetSettingsnMonStats
 	return
+
+
+
+
