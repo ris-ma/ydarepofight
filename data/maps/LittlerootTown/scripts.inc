@@ -1053,11 +1053,29 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab: @ 81E8DA2
 	.string "I have something to show you.\n"
 	.string "Let's go to my Lab.$"
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 LittlerootTown_Text_MakePlaceForSettingsMon:
 	.string "Make sure there's no Pokémon in your PC\n"
 	.string "box 14 row 5 column 6.$"
 
-		
 LittlerootTown_Text_ChangeIVSettings:
 	.string "Change perfect IVs settings?$"
 		
@@ -1183,9 +1201,10 @@ LittlerootTown_EventScript_PatchSettings_Others::
 	givemon SPECIES_RATTATA, 0, ITEM_NONE
 	compare VAR_RESULT, 1
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	call LittlerootTown_EventScript_PatchSettings_Items
+	call LittlerootTown_EventScript_PatchSettings_Berries
 	call LittlerootTown_EventScript_PatchSettings_ShinyRate
 	call LittlerootTown_EventScript_PatchSettings_Pokevial
-	call LittlerootTown_EventScript_PatchSettings_Items
 	releaseall
 	end
 	
@@ -1194,6 +1213,86 @@ LittlerootTown_EventScript_PatchSettings_Others::
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+LittlerootTown_EventScript_PatchSettings_Berries::
+	setvar VAR_0x8006, 5
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	call_if_eq LittlerootTown_EventScript_ChangeBerriesEnabled
+	compare VAR_0x8005, 1
+	call_if_ne LittlerootTown_EventScript_ChangeBerriesDisabled
+	return	
+	
+LittlerootTown_EventScript_ChangeBerriesEnabled::
+	msgbox LittlerootTown_Text_ChangeBerriesEnabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeBerries
+	return
+
+LittlerootTown_EventScript_ChangeBerriesDisabled::
+	msgbox LittlerootTown_Text_ChangeBerriesDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeBerries
+	return
+
+LittlerootTown_EventScript_ChangeBerries::
+	msgbox LittlerootTown_Text_ChangeBerries, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableBerries
+	compare VAR_RESULT, YES
+	call_if_ne LittlerootTown_EventScript_DisableBerries
+	return
+		
+LittlerootTown_Text_ChangeBerries:
+	.string "Enable instant berries?$"
+		
+LittlerootTown_Text_ChangeBerriesEnabled:
+	.string "Instant berries are enabled.\n"
+	.string "Do you want to change this settings?$"
+
+LittlerootTown_Text_ChangeBerriesDisabled:
+	.string "Instant berries are disabled.\n"
+	.string "Do you want to change this settings?$"
+
+LittlerootTown_EventScript_EnableBerries::
+	setvar VAR_0x8006, 5 
+	setvar VAR_0x8007, 1
+	special SetSettingsMonStats
+	return
+		
+LittlerootTown_EventScript_DisableBerries::
+	setvar VAR_0x8006, 5
+	setvar VAR_0x8007, 0
+	special SetSettingsMonStats
+	return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 
 
