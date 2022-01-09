@@ -16,14 +16,10 @@ Common_EventScript_PkmnCenterNurse::
     end
 
 EventScript_PkmnCenterNurseHasVial::
-    call Give_Nuzlocke_Items
-    call_if_set FLAG_BADGE01_GET, Give_Cut_Items_After_Roxanne
-    call_if_set FLAG_RECEIVED_TM46, Give_Thief_Items_After_Thief
-    call_if_set FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS, Give_Thief_Items_After_Museum
-    call_if_set FLAG_BADGE03_GET, Give_Thief_Items_After_Wattson
-    call_if_set FLAG_BADGE04_GET, Give_Thief_Items_After_Flannery
-    call_if_set FLAG_BADGE05_GET, Give_Thief_Items_After_Norman
-    call_if_set FLAG_BADGE06_GET, Give_Thief_Items_After_Winoma
+    setvar VAR_0x8006, 4
+    special GetSettingsMonStats
+    compare VAR_0x8005, 1
+    call_if_eq Give_Nuzlocke_Items
     call EventScript_PkmnCenterNurse_HealPkmn
     end
 
@@ -140,6 +136,13 @@ Movement_PkmnCenterNurse_Bow:
     step_end
 
 Give_Nuzlocke_Items:
+	call_if_set FLAG_BADGE01_GET, Give_Cut_Items_After_Roxanne
+    	call_if_set FLAG_RECEIVED_TM46, Give_Thief_Items_After_Thief
+    	call_if_set FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS, Give_Thief_Items_After_Museum
+    	call_if_set FLAG_BADGE03_GET, Give_Thief_Items_After_Wattson
+    	call_if_set FLAG_BADGE04_GET, Give_Thief_Items_After_Flannery
+    	call_if_set FLAG_BADGE05_GET, Give_Thief_Items_After_Norman
+    	call_if_set FLAG_BADGE06_GET, Give_Thief_Items_After_Winoma
 	checkitem ITEM_RARE_CANDY, 400
 	compare VAR_RESULT, TRUE
 	call_if_ne ADDITEM_RARE_CANDY
