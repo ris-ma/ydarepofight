@@ -11,6 +11,7 @@
 #include "main.h"
 #include "palette.h"
 #include "pokeball.h"
+#include "pokemon.h"
 #include "sound.h"
 #include "sprite.h"
 #include "task.h"
@@ -2499,7 +2500,7 @@ void TryShinyAnimation(u8 battler, struct Pokemon *mon)
     if (IsBattlerSpriteVisible(battler))
     {
         shinyValue = HIHALF(otId) ^ LOHALF(otId) ^ HIHALF(personality) ^ LOHALF(personality);
-        if (shinyValue < SHINY_ODDS)
+        if (shinyValue < getShinyOdds)
             isShiny = TRUE;
 
         if (isShiny)
