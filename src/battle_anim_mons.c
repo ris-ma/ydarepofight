@@ -9,6 +9,8 @@
 #include "gpu_regs.h"
 #include "malloc.h"
 #include "palette.h"
+#include "pokemon_storage_system.h"
+#include "pokemon.h"
 #include "pokemon_icon.h"
 #include "sprite.h"
 #include "task.h"
