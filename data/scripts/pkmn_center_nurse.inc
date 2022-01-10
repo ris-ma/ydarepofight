@@ -28,7 +28,10 @@ EventScript_PkmnCenterNurse_Goodbye::
     return
 
 @ VAR_0x8004 is 1 when player has Gold Card; jumps are identical
-EventScript_PkmnCenterNurse_HealPkmn::
+    checkitem ITEM_RARE_CANDY, 400
+    compare VAR_RESULT, TRUE
+    call_if_ne ADDITEM_RARE_CANDY
+    EventScript_PkmnCenterNurse_HealPkmn::
     copyvar VAR_POKE_VIAL_CHARGES, VAR_POKE_VIAL_MAX_CHARGES @ refill Poke Vial
     incrementgamestat GAME_STAT_USED_POKECENTER
     call EventScript_PkmnCenterNurse_TakeAndHealPkmn
@@ -143,9 +146,6 @@ Give_Nuzlocke_Items:
     	call_if_set FLAG_BADGE04_GET, Give_Thief_Items_After_Flannery
     	call_if_set FLAG_BADGE05_GET, Give_Thief_Items_After_Norman
     	call_if_set FLAG_BADGE06_GET, Give_Thief_Items_After_Winoma
-	checkitem ITEM_RARE_CANDY, 400
-	compare VAR_RESULT, TRUE
-	call_if_ne ADDITEM_RARE_CANDY
 	checkitem ITEM_BIG_PEARL, 400
 	compare VAR_RESULT, TRUE
 	call_if_ne ADDITEM_BIG_PEARL
