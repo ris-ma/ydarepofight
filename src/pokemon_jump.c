@@ -26,6 +26,7 @@
 #include "text_window.h"
 #include "trig.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "pokemon_jump.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
