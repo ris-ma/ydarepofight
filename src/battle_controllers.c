@@ -131,7 +131,10 @@ static void InitSinglePlayerBtlControllers(void)
         }
         else
         {
-            gBattlerControllerFuncs[0] = SetControllerToPlayer;
+	    if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_BEAUTY) == 1)
+		    gBattlerControllerFuncs[0] = SetControllerToPlayerPartner;
+	    else
+		    gBattlerControllerFuncs[0] = SetControllerToPlayer;
             gBattlerPositions[0] = B_POSITION_PLAYER_LEFT;
 
             gBattlerControllerFuncs[1] = SetControllerToOpponent;
@@ -173,7 +176,12 @@ static void InitSinglePlayerBtlControllers(void)
         else if (gBattleTypeFlags & BATTLE_TYPE_WALLY_TUTORIAL)
             gBattlerControllerFuncs[0] = SetControllerToWally;
         else
-            gBattlerControllerFuncs[0] = SetControllerToPlayer;
+	{
+	    if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_BEAUTY) == 1 && gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+		gBattlerControllerFuncs[0] = SetControllerToPlayerPartner;
+	    else
+            	gBattlerControllerFuncs[0] = SetControllerToPlayer;
+	}
 
         gBattlerPositions[0] = B_POSITION_PLAYER_LEFT;
 
@@ -222,14 +230,19 @@ static void InitSinglePlayerBtlControllers(void)
     else
     {
         gBattleMainFunc = BeginBattleIntro;
-
-        gBattlerControllerFuncs[0] = SetControllerToPlayer;
+	if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_BEAUTY) == 1 && gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+		gBattlerControllerFuncs[0] = SetControllerToPlayerPartner;
+	else
+        	gBattlerControllerFuncs[0] = SetControllerToPlayer;
         gBattlerPositions[0] = B_POSITION_PLAYER_LEFT;
 
         gBattlerControllerFuncs[1] = SetControllerToOpponent;
         gBattlerPositions[1] = B_POSITION_OPPONENT_LEFT;
-
-        gBattlerControllerFuncs[2] = SetControllerToPlayer;
+	
+	if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_BEAUTY) == 1 && gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+		gBattlerControllerFuncs[2] = SetControllerToPlayerPartner;
+	else
+        	gBattlerControllerFuncs[2] = SetControllerToPlayer;
         gBattlerPositions[2] = B_POSITION_PLAYER_RIGHT;
 
         gBattlerControllerFuncs[3] = SetControllerToOpponent;
