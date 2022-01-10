@@ -1302,15 +1302,15 @@ LittlerootTown_EventScript_ChangeUniqueColor::
 	return
 		
 LittlerootTown_Text_ChangeUniqueColor:
-	.string "Enable Individually-Unique Pokémon Colors?\n"
+	.string "Enable Individually-Unique Pokémon?\n"
 	.string "All credit goes to codes for the patch.$"
 		
 LittlerootTown_Text_ChangeUniqueColorEnabled:
-	.string "Individually-Unique Pokémon Colors is enabled.\n"
+	.string "Individually-Unique Pokémon is enabled.\n"
 	.string "Do you want to change this settings?$"
 
 LittlerootTown_Text_ChangeUniqueColorDisabled:
-	.string "Individually-Unique Pokémon Colors is Disabled.\n"
+	.string "Individually-Unique Pokémon is Disabled.\n"
 	.string "Do you want to change this settings?$"
 
 LittlerootTown_EventScript_EnableUniqueColor::
