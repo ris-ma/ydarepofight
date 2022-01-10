@@ -1303,7 +1303,7 @@ LittlerootTown_EventScript_ChangeUniqueColor::
 		
 LittlerootTown_Text_ChangeUniqueColor:
 	.string "Enable Individually-Unique Pokémon Colors?\n"
-	.string "All credit goes to @codes.$"
+	.string "All credit goes to codes for the patch.$"
 		
 LittlerootTown_Text_ChangeUniqueColorEnabled:
 	.string "Individually-Unique Pokémon Colors is enabled.\n"
