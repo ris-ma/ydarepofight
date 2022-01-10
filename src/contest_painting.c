@@ -14,6 +14,8 @@
 #include "lilycove_lady.h"
 #include "palette.h"
 #include "random.h"
+#include "pokemon_storage_system.h"
+#include "pokemon.h"
 #include "scanline_effect.h"
 #include "string_util.h"
 #include "strings.h"
