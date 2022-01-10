@@ -1258,7 +1258,7 @@ LittlerootTown_EventScript_PatchSettings_UniqueColor::
 	givemon SPECIES_RATTATA, 0, ITEM_NONE
 	compare VAR_RESULT, 1
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
-	call LittlerootTown_EventScript_PatchSettings_UniqueColor
+	call LittlerootTown_EventScript_UniqueColor
 	releaseall
 	end
 	
