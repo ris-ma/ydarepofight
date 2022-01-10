@@ -23,6 +23,8 @@
 #include "string_util.h"
 #include "task.h"
 #include "text.h"
+#include "pokemon_storage_system.h"
+#include "pokemon.h"
 #include "tv.h"
 #include "scanline_effect.h"
 #include "util.h"
