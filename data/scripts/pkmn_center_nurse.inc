@@ -16,6 +16,9 @@ Common_EventScript_PkmnCenterNurse::
     end
 
 EventScript_PkmnCenterNurseHasVial::
+    checkitem ITEM_RARE_CANDY, 400
+    compare VAR_RESULT, TRUE
+    call_if_ne ADDITEM_RARE_CANDY
     setvar VAR_0x8006, 4
     special GetSettingsMonStats
     compare VAR_0x8005, 1
@@ -28,9 +31,6 @@ EventScript_PkmnCenterNurse_Goodbye::
     return
 
 @ VAR_0x8004 is 1 when player has Gold Card; jumps are identical
-    checkitem ITEM_RARE_CANDY, 400
-    compare VAR_RESULT, TRUE
-    call_if_ne ADDITEM_RARE_CANDY
     EventScript_PkmnCenterNurse_HealPkmn::
     copyvar VAR_POKE_VIAL_CHARGES, VAR_POKE_VIAL_MAX_CHARGES @ refill Poke Vial
     incrementgamestat GAME_STAT_USED_POKECENTER
