@@ -1262,10 +1262,94 @@ LittlerootTown_EventScript_PatchSettings_UniqueColor::
 	releaseall
 	end
 	
+LittlerootTown_EventScript_PatchSettings_AIcontrolled::
+	faceplayer
+	lockall
+	givemon SPECIES_RATTATA, 0, ITEM_NONE
+	compare VAR_RESULT, 1
+	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	call LittlerootTown_EventScript_AIcontrolled
+	releaseall
+	end
 	
 	
+
+
+
+
+
+
+
+
+
+
+
+
+LittlerootTown_EventScript_AIcontrolled::
+	setvar VAR_0x8006, 7
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	call_if_eq LittlerootTown_EventScript_ChangeAIcontrolledEnabled
+	compare VAR_0x8005, 1
+	call_if_ne LittlerootTown_EventScript_ChangeAIcontrolledDisabled
+	return	
 	
-	
+LittlerootTown_EventScript_ChangeAIcontrolledEnabled::
+	msgbox LittlerootTown_Text_ChangeAIcontrolledEnabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeAIcontrolled
+	return
+
+LittlerootTown_EventScript_ChangeAIcontrolledDisabled::
+	msgbox LittlerootTown_Text_ChangeAIcontrolledDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeAIcontrolled
+	return
+
+LittlerootTown_EventScript_ChangeAIcontrolled::
+	msgbox LittlerootTown_Text_ChangeAIcontrolled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableAIcontrolled
+	compare VAR_RESULT, YES
+	call_if_ne LittlerootTown_EventScript_DisableAIcontrolled
+	return
+		
+LittlerootTown_Text_ChangeAIcontrolled:
+	.string "Enable Individually-Unique Pokémon?\n"
+	.string "All credit goes to codes for the patch.$"
+		
+LittlerootTown_Text_ChangeAIcontrolledEnabled:
+	.string "Individually-Unique Pokémon is enabled.\n"
+	.string "Do you want to change this settings?$"
+
+LittlerootTown_Text_ChangeAIcontrolledDisabled:
+	.string "Individually-Unique Pokémon is Disabled.\n"
+	.string "Do you want to change this settings?$"
+
+LittlerootTown_EventScript_EnableAIcontrolled::
+	setvar VAR_0x8006, 6
+	setvar VAR_0x8007, 1
+	special SetSettingsMonStats
+	return
+		
+LittlerootTown_EventScript_DisableAIcontrolled::
+	setvar VAR_0x8006, 6
+	setvar VAR_0x8007, 0
+	special SetSettingsMonStats
+	return
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 	
@@ -1324,11 +1408,6 @@ LittlerootTown_EventScript_DisableUniqueColor::
 	setvar VAR_0x8007, 0
 	special SetSettingsMonStats
 	return
-
-
-
-
-
 
 
 
