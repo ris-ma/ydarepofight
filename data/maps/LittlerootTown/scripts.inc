@@ -1315,15 +1315,14 @@ LittlerootTown_EventScript_ChangeAIcontrolled::
 	return
 		
 LittlerootTown_Text_ChangeAIcontrolled:
-	.string "Enable Individually-Unique Pokémon?\n"
-	.string "All credit goes to codes for the patch.$"
+	.string "Enable AI controlled battles?$"
 		
 LittlerootTown_Text_ChangeAIcontrolledEnabled:
-	.string "Individually-Unique Pokémon is enabled.\n"
+	.string "AI controlled battles are enabled.\n"
 	.string "Do you want to change this settings?$"
 
 LittlerootTown_Text_ChangeAIcontrolledDisabled:
-	.string "Individually-Unique Pokémon is Disabled.\n"
+	.string "AI controlled battles are Disabled.\n"
 	.string "Do you want to change this settings?$"
 
 LittlerootTown_EventScript_EnableAIcontrolled::
