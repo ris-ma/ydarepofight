@@ -1267,6 +1267,76 @@ LittlerootTown_EventScript_PatchSettings_Others::
 	
 	
 	
+LittlerootTown_EventScript_PatchSettings_UniqueColor::
+	setvar VAR_0x8006, 6
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	call_if_eq LittlerootTown_EventScript_ChangeUniqueColorEnabled
+	compare VAR_0x8005, 1
+	call_if_ne LittlerootTown_EventScript_ChangeUniqueColorDisabled
+	return	
+	
+LittlerootTown_EventScript_ChangeUniqueColorEnabled::
+	msgbox LittlerootTown_Text_ChangeUniqueColorEnabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeUniqueColor
+	return
+
+LittlerootTown_EventScript_ChangeUniqueColorDisabled::
+	msgbox LittlerootTown_Text_ChangeUniqueColorDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeUniqueColor
+	return
+
+LittlerootTown_EventScript_ChangeUniqueColor::
+	msgbox LittlerootTown_Text_ChangeUniqueColor, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableUniqueColor
+	compare VAR_RESULT, YES
+	call_if_ne LittlerootTown_EventScript_DisableUniqueColor
+	return
+		
+LittlerootTown_Text_ChangeUniqueColor:
+	.string "Enable Individually-Unique Pokémon Colors?\n"
+	.string "All credit goes to @codes.$"
+		
+LittlerootTown_Text_ChangeUniqueColorEnabled:
+	.string "Individually-Unique Pokémon Colors is enabled.\n"
+	.string "Do you want to change this settings?$"
+
+LittlerootTown_Text_ChangeUniqueColorDisabled:
+	.string "Individually-Unique Pokémon Colors is Disabled.\n"
+	.string "Do you want to change this settings?$"
+
+LittlerootTown_EventScript_EnableUniqueColor::
+	setvar VAR_0x8006, 6
+	setvar VAR_0x8007, 1
+	special SetSettingsMonStats
+	return
+		
+LittlerootTown_EventScript_DisableUniqueColor::
+	setvar VAR_0x8006, 6
+	setvar VAR_0x8007, 0
+	special SetSettingsMonStats
+	return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1604,7 +1674,5 @@ LittlerootTown_EventScript_EnableShinyRate_2::
 	setvar VAR_0x8007, 2
 	special SetSettingsMonStats
 	return
-
-
 
 
