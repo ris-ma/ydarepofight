@@ -4095,7 +4095,10 @@ static u8 LoadMonGfxAndSprite(struct Pokemon *mon, s16 *state)
         return 0xFF;
     case 1:
         pal = GetMonSpritePalStructFromOtIdPersonality(summary->species2, summary->OTID, summary->pid);
-        LoadHueShiftedMonSpritePalette(pal, summary->pid);
+        if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_COOL) == 1)
+            LoadHueShiftedMonSpritePalette(pal, summary->pid);
+        else
+            LoadCompressedSpritePalette(pal);
         SetMultiuseSpriteTemplateToPokemon(pal->tag, 1);
         (*state)++;
         return 0xFF;
