@@ -5749,7 +5749,6 @@ bool8 DoesRotomKnowSpecialMove (void)
 void SetSpeciesAndEggMove (void)
 {
     static const u16 eggMoves[][4] = {
-	    /*
         {SPECIES_BAGON, MOVE_DRAGON_DANCE, MOVE_DRAGON_RUSH, MOVE_THRASH},
         {SPECIES_SHUPPET, MOVE_GUNK_SHOT, MOVE_DESTINY_BOND, MOVE_PHANTOM_FORCE},
         {SPECIES_SNEASEL, MOVE_FAKE_OUT, MOVE_ICICLE_CRASH, MOVE_BITE},
@@ -5767,7 +5766,7 @@ void SetSpeciesAndEggMove (void)
         {SPECIES_TAILLOW, MOVE_BOOMBURST, MOVE_BOOMBURST, MOVE_BOOMBURST},
         {SPECIES_DRATINI, MOVE_EXTREME_SPEED, MOVE_EXTREME_SPEED, MOVE_EXTREME_SPEED},
         {SPECIES_FEEBAS, MOVE_HAZE, MOVE_HYPNOSIS, MOVE_MIRROR_COAT}
-	*/
+	    /*
 	{SPECIES_BULBASAUR},
 	{SPECIES_CHARMANDER},
 	{SPECIES_SQUIRTLE},
@@ -6166,6 +6165,7 @@ void SetSpeciesAndEggMove (void)
 	{SPECIES_COSMOG},
 	{SPECIES_MAGEARNA},
 	{SPECIES_MELTAN}
+	*/
     };
     u16 numEggSpecies = ARRAY_COUNT(eggMoves);
     u16 randSpecies, randEggMove;
@@ -6182,7 +6182,6 @@ void SetSpeciesAndEggMove (void)
 // gSpecialVar_0x8006: Party slot
 void SetGiftEggMove (void)
 {
-	/*
     if (MonKnowsMove(&gPlayerParty[gSpecialVar_0x8006], MOVE_NONE))
     {
         GiveMoveToMon(&gPlayerParty[gSpecialVar_0x8006], gSpecialVar_0x8005);
@@ -6191,7 +6190,6 @@ void SetGiftEggMove (void)
     {
         SetMonMoveSlot(&gPlayerParty[gSpecialVar_0x8006], gSpecialVar_0x8005, 0);
     }
-    */
 }
 
 // Changes a chosen mon's Poke Ball to another one in the player's bag
