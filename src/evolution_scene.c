@@ -18,6 +18,7 @@
 #include "palette.h"
 #include "pokedex.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "pokemon_summary_screen.h"
 #include "scanline_effect.h"
 #include "sound.h"
