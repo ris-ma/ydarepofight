@@ -532,7 +532,8 @@ void ConditionGraphDrawMonPic(s16 index, u8 arg1)
     personality = GetBoxOrPartyMonData(boxId, monId, MON_DATA_PERSONALITY, NULL);
     LoadSpecialPokePic(&gMonFrontPicTable[species], structPtr->monPicGfx[arg1], species, personality, TRUE);
     LZ77UnCompWram(GetMonSpritePalFromSpeciesAndPersonality(species, tid, personality), structPtr->monPal[arg1]);
-    HueShiftMonPalette((u16*) structPtr->monPal[arg1], personality);
+    if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_COOL) == 1)
+        HueShiftMonPalette((u16*) structPtr->monPal[arg1], personality);
 }
 
 u16 GetMonListCount(void)
