@@ -13,6 +13,7 @@
 #include "util.h"
 #include "pokemon.h"
 #include "constants/moves.h"
+#include "pokemon_storage_system.h"
 #include "task.h"
 #include "sprite.h"
 #include "sound.h"
