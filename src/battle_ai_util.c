@@ -10,6 +10,7 @@
 #include "data.h"
 #include "item.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "random.h"
 #include "recorded_battle.h"
 #include "util.h"
