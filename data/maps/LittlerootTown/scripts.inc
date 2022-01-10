@@ -1250,8 +1250,7 @@ LittlerootTown_EventScript_PatchSettings_Others::
 	call LittlerootTown_EventScript_PatchSettings_ShinyRate
 	call LittlerootTown_EventScript_PatchSettings_Pokevial
 	releaseall
-	end
-	
+	end	
 	
 LittlerootTown_EventScript_PatchSettings_UniqueColor::
 	faceplayer
@@ -1273,9 +1272,7 @@ LittlerootTown_EventScript_PatchSettings_UniqueColor::
 	
 	
 	
-	
-	
-LittlerootTown_EventScript_PatchSettings_UniqueColor::
+LittlerootTown_EventScript_UniqueColor::
 	setvar VAR_0x8006, 6
 	special GetSettingsMonStats
 	compare VAR_0x8005, 1
