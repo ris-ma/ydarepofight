@@ -1326,13 +1326,13 @@ LittlerootTown_Text_ChangeAIcontrolledDisabled:
 	.string "Do you want to change this settings?$"
 
 LittlerootTown_EventScript_EnableAIcontrolled::
-	setvar VAR_0x8006, 6
+	setvar VAR_0x8006, 7
 	setvar VAR_0x8007, 1
 	special SetSettingsMonStats
 	return
 		
 LittlerootTown_EventScript_DisableAIcontrolled::
-	setvar VAR_0x8006, 6
+	setvar VAR_0x8006, 7
 	setvar VAR_0x8007, 0
 	special SetSettingsMonStats
 	return
