@@ -16,6 +16,7 @@
 #include "party_menu.h"
 #include "pokeblock.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "sprite.h"
 #include "string_util.h"
 #include "strings.h"
