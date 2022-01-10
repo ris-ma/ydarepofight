@@ -450,15 +450,30 @@ bool32 IsBattlerAIControlled(u32 battlerId)
 {
     switch (GetBattlerPosition(battlerId))
     {
-    case B_POSITION_PLAYER_LEFT:
-    default:
-        return FALSE;
-    case B_POSITION_OPPONENT_LEFT:
-        return TRUE;
-    case B_POSITION_PLAYER_RIGHT:
-        return ((gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER) != 0);
-    case B_POSITION_OPPONENT_RIGHT:
-        return TRUE;
+	if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_BEAUTY) == 1)
+	{
+		
+	    case B_POSITION_PLAYER_LEFT:
+	    default:
+        	return TRUE;
+    	    case B_POSITION_OPPONENT_LEFT:
+        	return TRUE;
+    	    case B_POSITION_PLAYER_RIGHT:
+        	return TRUE;
+    	    case B_POSITION_OPPONENT_RIGHT:
+        	return TRUE;
+	else
+	{
+	    case B_POSITION_PLAYER_LEFT:
+	    default:
+		return FALSE;
+	    case B_POSITION_OPPONENT_LEFT:
+		return TRUE;
+	    case B_POSITION_PLAYER_RIGHT:
+		return ((gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER) != 0);
+	    case B_POSITION_OPPONENT_RIGHT:
+		return TRUE;
+	}
     }
 }
 
