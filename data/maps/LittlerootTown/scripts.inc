@@ -1076,8 +1076,13 @@ LittlerootTown_Text_MakePlaceForSettingsMon:
 	.string "Make sure there's no Pokémon in your PC\n"
 	.string "box 14 row 5 column 6.$"
 
-LittlerootTown_Text_ChangeIVSettings:
-	.string "Change perfect IVs settings?$"
+LittlerootTown_Text_ChangeIVSettingsDisabled:
+	.string "Perfect IVs are disabled.\n"
+	.string "Do you want to change this settings?$"	
+
+LittlerootTown_Text_ChangeIVSettingsEnabled:
+	.string "Perfect IVs are enabled.\n"
+	.string "Do you want to change this settings?$"	
 		
 LittlerootTown_Text_HandleIVSettings:
 	.string "Enable perfect IVs?\n"
@@ -1090,8 +1095,13 @@ LittlerootTown_Text_EnableIVSettings:
 LittlerootTown_Text_DisableIVSettings:
 	.string "Disable perfect IVs?$"
 
-LittlerootTown_Text_ChangeEVSettings:
-	.string "Change EVs settings?$"
+LittlerootTown_Text_ChangeEVSettingsEnabled:
+	.string "EVs are disabled.\n"
+	.string "Do you want to change this settings?$"	
+
+LittlerootTown_Text_ChangeEVSettingsDisabled:
+	.string "EVs are enabled.\n"
+	.string "Do you want to change this settings?$"	
 		
 LittlerootTown_Text_HandleEVSettings:
 	.string "Disable EVs?\n"
@@ -1168,36 +1178,70 @@ LittlerootTown_EventScript_EnableEVSettings::
 	special SetSettingsMonStats		
 	releaseall
 	end
-	
-	
-LittlerootTown_EventScript_PatchSettings_PerfectIV::
-	lockall
-	faceplayer
-	givemon SPECIES_RATTATA, 0, ITEM_NONE
-	compare VAR_RESULT, 1
-	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
-	msgbox LittlerootTown_Text_ChangeIVSettings, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	goto_if_eq LittlerootTown_EventScript_HandleIVSettings
-	waitmessage
-	releaseall
-	end
-	
-LittlerootTown_EventScript_PatchSettings_DisableEV::
-	lockall
-	faceplayer
-	givemon SPECIES_RATTATA, 0, ITEM_NONE
-	compare VAR_RESULT, 1
-	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
-	msgbox LittlerootTown_Text_ChangeEVSettings, MSGBOX_YESNO
+
+LittlerootTown_EventScript_ChangeEVSettingsEnabled::
+	msgbox LittlerootTown_Text_ChangeEVSettingsEnabled, MSGBOX_YESNO
 	compare VAR_RESULT, YES	
 	goto_if_eq LittlerootTown_EventScript_HandleEVSettings
 	releaseall
 	end
 	
-LittlerootTown_EventScript_PatchSettings_Others::
-	lockall
+LittlerootTown_EventScript_ChangeEVSettingsDisabled::
+	msgbox LittlerootTown_Text_ChangeEVSettingsDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES	
+	goto_if_eq LittlerootTown_EventScript_HandleEVSettings
+	releaseall
+	end
+	
+LittlerootTown_EventScript_ChangeIVSettingsEnabled::
+	msgbox LittlerootTown_Text_ChangeIVSettingsEnabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES	
+	goto_if_eq LittlerootTown_EventScript_HandleIVSettings
+	releaseall
+	end
+	
+LittlerootTown_EventScript_ChangeIVSettingsDisabled::
+	msgbox LittlerootTown_Text_ChangeIVSettingsDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES	
+	goto_if_eq LittlerootTown_EventScript_HandleIVSettings
+	releaseall
+	end
+	
+	
+	
+LittlerootTown_EventScript_PatchSettings_PerfectIV::
 	faceplayer
+	lockall
+	givemon SPECIES_RATTATA, 0, ITEM_NONE
+	compare VAR_RESULT, 1
+	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	setvar VAR_0x8006, 0
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	goto_if_eq LittlerootTown_EventScript_ChangeIVSettingsEnabled
+	compare VAR_0x8005, 1
+	goto_if_ne LittlerootTown_EventScript_ChangeIVSettingsDisabled
+	releaseall
+	end
+	
+LittlerootTown_EventScript_PatchSettings_DisableEV::
+	faceplayer
+	lockall
+	givemon SPECIES_RATTATA, 0, ITEM_NONE
+	compare VAR_RESULT, 1
+	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	setvar VAR_0x8006, 1
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	goto_if_eq LittlerootTown_EventScript_ChangeEVSettingsEnabled
+	compare VAR_0x8005, 1
+	goto_if_ne LittlerootTown_EventScript_ChangeEVSettingsDisabled
+	releaseall
+	end
+	
+LittlerootTown_EventScript_PatchSettings_Others::
+	faceplayer
+	lockall
 	givemon SPECIES_RATTATA, 0, ITEM_NONE
 	compare VAR_RESULT, 1
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
