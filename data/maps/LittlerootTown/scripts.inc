@@ -1253,7 +1253,15 @@ LittlerootTown_EventScript_PatchSettings_Others::
 	end
 	
 	
-	
+LittlerootTown_EventScript_PatchSettings_UniqueColor::
+	faceplayer
+	lockall
+	givemon SPECIES_RATTATA, 0, ITEM_NONE
+	compare VAR_RESULT, 1
+	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	call LittlerootTown_EventScript_PatchSettings_UniqueColor
+	releaseall
+	end
 	
 	
 	
