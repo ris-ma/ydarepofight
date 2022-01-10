@@ -1751,7 +1751,10 @@ void ResetPokemonStorageSystem(void)
     for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
     {
         for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
-            ZeroBoxMonAt(boxId, boxPosition);
+        {
+            if (boxId!=TOTAL_BOXES_COUNT-1 || boxPosition!=IN_BOX_COUNT-1)
+                ZeroBoxMonAt(boxId, boxPosition);
+        }
     }
     for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
     {
