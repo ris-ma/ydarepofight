@@ -8,6 +8,7 @@
 #include "data.h"
 #include "pokemon.h"
 #include "constants/trainers.h"
+#include "pokemon_storage_system.h"
 
 // Static type declarations
 
