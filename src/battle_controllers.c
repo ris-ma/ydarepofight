@@ -8,6 +8,8 @@
 #include "cable_club.h"
 #include "link.h"
 #include "link_rfu.h"
+#include "pokemon_storage_system.h"
+#include "pokemon.h"
 #include "party_menu.h"
 #include "pokemon.h"
 #include "recorded_battle.h"
