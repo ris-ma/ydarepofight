@@ -5219,14 +5219,14 @@ void SetSettingsMonStats (void)
 	SetMonData(mon, MON_DATA_SPEED_IV, &i); // Infinite Pokevial
 	SetMonData(mon, MON_DATA_SPATK_IV, &i); // Items
 	SetMonData(mon, MON_DATA_SPDEF_IV, &i); // Berries
-	SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
-	SetMonData(mon, MON_DATA_FRIENDSHIP, &i);
-	SetMonData(mon, MON_DATA_COOL, &i);
+	SetMonData(mon, MON_DATA_COOL, &i); // Individually-Unique Pokemon Colors
 	SetMonData(mon, MON_DATA_BEAUTY, &i);
 	SetMonData(mon, MON_DATA_CUTE, &i);
 	SetMonData(mon, MON_DATA_SMART, &i);
 	SetMonData(mon, MON_DATA_TOUGH, &i);
 	SetMonData(mon, MON_DATA_SHEEN, &i);
+	SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
+	SetMonData(mon, MON_DATA_FRIENDSHIP, &i);
 	*/
 	
 	u8 statToChange = gSpecialVar_0x8006;
@@ -5316,6 +5316,8 @@ void SetSettingsMonStats (void)
 			break;
 		case 5: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPDEF_IV, &value); // Berries
 			break;
+		case 6: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_COOL, &value); // Individually-Unique Pokemon Colors
+			break;
 	}
 	
 	
@@ -5338,6 +5340,8 @@ void GetSettingsMonStats (void)
 		case 4: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPATK_IV); // Items
 			break;
 		case 5: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPDEF_IV); // Berries
+			break;
+		case 6: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_COOL); // Individually-Unique Pokemon Colors
 			break;
 	}
 }
