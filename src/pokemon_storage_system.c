@@ -1752,10 +1752,15 @@ void ResetPokemonStorageSystem(void)
     {
         for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
         {
-            if ((boxId!=TOTAL_BOXES_COUNT-1 || boxPosition!=IN_BOX_COUNT-1) 
-                && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES) == SPECIES_RATTATA 
-                && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
+            if ((boxId!=TOTAL_BOXES_COUNT-1 || boxPosition!=IN_BOX_COUNT-1)
                 ZeroBoxMonAt(boxId, boxPosition);
+            else
+            {
+                if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES) != SPECIES_RATTATA 
+                    || GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) != 0)
+                    ZeroBoxMonAt(boxId, boxPosition);
+                    
+            }
         }
     }
     for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
