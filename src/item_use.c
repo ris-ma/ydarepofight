@@ -617,6 +617,7 @@ static void Task_StandingOnHiddenItem(u8 taskId)
 
 void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
 {
+    /*
     static const u16 egglocke[][1] = {
         {SPECIES_BULBASAUR},
         {SPECIES_CHARMANDER},
@@ -1035,6 +1036,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
     GiveMonToPlayer(&mon);
     
     DestroyTask(taskId);
+    */
     /*
     if (MenuHelpers_LinkSomething() == TRUE) // link func
     {
