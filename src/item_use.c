@@ -59,6 +59,7 @@ static bool8 ItemfinderCheckForHiddenItems(const struct MapEvents *, u8);
 static u8 GetDirectionToHiddenItem(s16 distanceX, s16 distanceY);
 static void PlayerFaceHiddenItem(u8 a);
 static void CheckForHiddenItemsInMapConnection(u8 taskId);
+static void ItemUseOnFieldCB_PokeblockCase(void);
 static void Task_OpenRegisteredPokeblockCase(u8 taskId);
 static void ItemUseOnFieldCB_Bike(u8 taskId);
 static void ItemUseOnFieldCB_Rod(u8);
@@ -617,7 +618,31 @@ static void Task_StandingOnHiddenItem(u8 taskId)
 
 void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
 {
+    
+    sItemUseOnFieldCB = ItemUseOnFieldCB_PokeblockCase;
+    SetUpItemUseOnFieldCallback(taskId);
+    
     /*
+    if (MenuHelpers_LinkSomething() == TRUE) // link func
+    {
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+    else if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
+    {
+        gBagMenu->newScreenCallback = CB2_OpenPokeblockFromBag;
+        Task_FadeAndCloseBagMenu(taskId);
+    }
+    else
+    {
+        gFieldCallback = FieldCB_ReturnToFieldNoScript;
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = Task_OpenRegisteredPokeblockCase;
+    }
+    */
+}
+
+static void ItemUseOnFieldCB_PokeblockCase(void)
+{
     static const u16 egglocke[][1] = {
         {SPECIES_BULBASAUR},
         {SPECIES_CHARMANDER},
@@ -1035,25 +1060,8 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
     
     GiveMonToPlayer(&mon);
     
+    
     DestroyTask(taskId);
-    */
-    /*
-    if (MenuHelpers_LinkSomething() == TRUE) // link func
-    {
-        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
-    }
-    else if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
-    {
-        gBagMenu->newScreenCallback = CB2_OpenPokeblockFromBag;
-        Task_FadeAndCloseBagMenu(taskId);
-    }
-    else
-    {
-        gFieldCallback = FieldCB_ReturnToFieldNoScript;
-        FadeScreen(FADE_TO_BLACK, 0);
-        gTasks[taskId].func = Task_OpenRegisteredPokeblockCase;
-    }
-    */
 }
 
 static void CB2_OpenPokeblockFromBag(void)
