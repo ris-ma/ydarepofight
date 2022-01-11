@@ -1015,13 +1015,22 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
         {SPECIES_MAGEARNA},
         {SPECIES_MELTAN}
     };
+    
     u16 numEggSpecies = ARRAY_COUNT(egglocke);
+    u16 randSpecies = Random() % numEggSpecies;
     
-    ScriptGiveEgg(Random() % numEggSpecies;);
+    struct Pokemon mon;
+    u8 isEgg;
+    u8 eggCycles;
+
+    CreateEgg(&mon, randSpecies, TRUE);
+    isEgg = TRUE;
+    eggCycles = 0;
+    SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
+    SetMonData(&mon, MON_DATA_FRIENDSHIP, &eggCycles);
     
     
-    
-    
+    GiveMonToPlayer(&mon);
     
     DestroyTask(taskId);
     /*
