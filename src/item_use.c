@@ -31,6 +31,7 @@
 #include "party_menu.h"
 #include "pokeblock.h"
 #include "pokemon.h"
+#include "random.h"
 #include "script.h"
 #include "script_pokemon_util.h"
 #include "sound.h"
@@ -615,7 +616,7 @@ static void Task_StandingOnHiddenItem(u8 taskId)
 
 void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
 {
-    static const u16 egglocke[] = {
+    static const u16 egglocke[][1] = {
         {SPECIES_BULBASAUR},
         {SPECIES_CHARMANDER},
         {SPECIES_SQUIRTLE},
