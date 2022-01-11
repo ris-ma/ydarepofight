@@ -3831,15 +3831,14 @@ const struct Item gItems[] =
 
     [ITEM_POKEBLOCK_CASE] =
     {
-        .name = _("Egglocke"),
+        .name = _("{POKEBLOCK} Case"),
         .itemId = ITEM_POKEBLOCK_CASE,
         .price = 0,
         .description = sPokeblockCaseDesc,
         .importance = 1,
         .unk19 = 1,
         .pocket = POCKET_KEY_ITEMS,
-	// .type = ITEM_USE_PBLOCK_CASE,
-        .type = ITEM_USE_FIELD,
+        .type = ITEM_USE_PBLOCK_CASE,
         .fieldUseFunc = ItemUseOutOfBattle_PokeblockCase,
     },
 
