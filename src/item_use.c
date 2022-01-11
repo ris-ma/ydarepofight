@@ -9,6 +9,7 @@
 #include "bike.h"
 #include "coins.h"
 #include "data.h"
+#include "daycare.h"
 #include "event_data.h"
 #include "event_object_lock.h"
 #include "event_object_movement.h"
