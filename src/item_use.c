@@ -31,6 +31,7 @@
 #include "party_menu.h"
 #include "pokeblock.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "script.h"
 #include "script_pokemon_util.h"
 #include "sound.h"
