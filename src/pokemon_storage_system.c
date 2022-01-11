@@ -1754,7 +1754,7 @@ void ResetPokemonStorageSystem(void)
         {
             if ((boxId!=TOTAL_BOXES_COUNT-1 || boxPosition!=IN_BOX_COUNT-1) 
                 && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES) == SPECIES_RATTATA 
-                && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, EXP) == 0)
+                && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
                 ZeroBoxMonAt(boxId, boxPosition);
         }
     }
