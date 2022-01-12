@@ -620,7 +620,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
 {
     if (gPlayerPartyCount < PARTY_SIZE)
     {
-        static const u16 egglocke[][] = {
+        static const u16 egglocke[][1] = {
             {SPECIES_BULBASAUR},
             {SPECIES_CHARMANDER},
             {SPECIES_SQUIRTLE},
