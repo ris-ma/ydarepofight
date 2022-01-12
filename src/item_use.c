@@ -1022,14 +1022,13 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
         };
 
         u16 numEggSpecies = ARRAY_COUNT(egglocke);
-        //u16 randSpecies = Random(numEggSpecies);
-        u16 randSpecies = egglocke[Random(numEggSpecies)][0];
+        u16 randSpecies = Random() % numEggSpecies;
 
         struct Pokemon mon;
         u8 isEgg;
         u8 eggCycles;
 
-        CreateEgg(&mon, randSpecies, TRUE);
+        CreateEgg(&mon, egglocke[randSpecies][0], TRUE);
         isEgg = TRUE;
         eggCycles = 0;
         SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
