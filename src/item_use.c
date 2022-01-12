@@ -1045,11 +1045,11 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
     {
         if (!gTasks[taskId].tUsingRegisteredKeyItem)
         {
-            DisplayItemMessage(taskId, 1, gText_PartyIsFull, CloseItemMessage);
+            DisplayItemMessage(taskId, 1, gText_YourPartysFull, CloseItemMessage);
         }
         else
         {
-            DisplayItemMessageOnField(taskId, gText_PartyIsFull, Task_CloseCantUseKeyItemMessage);
+            DisplayItemMessageOnField(taskId, gText_YourPartysFull, Task_CloseCantUseKeyItemMessage);
         }
     }       
     
