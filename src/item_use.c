@@ -618,7 +618,7 @@ static void Task_StandingOnHiddenItem(u8 taskId)
 
 void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
 {
-    if (gPlayerPartyCount < PARTY_SIZE-1)
+    if (gPlayerPartyCount < PARTY_SIZE)
     {
         static const u16 egglocke[][1] = {
             {SPECIES_BULBASAUR},
@@ -1045,11 +1045,11 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
     {
         if (!gTasks[taskId].tUsingRegisteredKeyItem)
         {
-            DisplayItemMessage(taskId, 1, gText_YourPartysFull, CloseItemMessage);
+            DisplayItemMessage(taskId, 1, gText_YourPartysFullPause, CloseItemMessage);
         }
         else
         {
-            DisplayItemMessageOnField(taskId, gText_YourPartysFull, Task_CloseCantUseKeyItemMessage);
+            DisplayItemMessageOnField(taskId, gText_YourPartysFullPause, Task_CloseCantUseKeyItemMessage);
         }
     }       
     
