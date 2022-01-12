@@ -1070,6 +1070,7 @@ extern const u8 gText_BootedUpTM[];
 extern const u8 gText_TMHMContainedVar1[];
 extern const u8 gText_PlayerUsedVar2[];
 extern const u8 gText_RepelEffectsLingered[];
+extern const u8 gText_EggGenerated[];
 extern const u8 gText_PokeVialEmpty[];
 extern const u8 gText_UsedPokeVial[];
 extern const u8 gText_UsedVar2WildLured[];
