@@ -254,6 +254,7 @@ const u8 gText_RepelEffectsLingered[] = _("But the effects of a Repel\nlingered 
 const u8 gText_PokeVialEmpty[] = _("The Poké Vial is empty.\nRefill it at a Pokémon Center.{PAUSE_UNTIL_PRESS}");
 const u8 gText_UsedPokeVial[] = _("{PLAYER} used the Poké Vial.\nAll Pokémon were fully restored!{PAUSE_UNTIL_PRESS}");
 const u8 gText_EggGenerated[] = _("{PLAYER} found a Pokémon egg.{PAUSE_UNTIL_PRESS}");
+const u8 gText_YourPartysFullPause[] = _("Your party's full!{PAUSE_UNTIL_PRESS}");
 const u8 gText_UsedVar2WildLured[] = _("{PLAYER} used the\n{STR_VAR_2}.\pWild Pokémon will be lured.{PAUSE_UNTIL_PRESS}");
 const u8 gText_UsedVar2WildRepelled[] = _("{PLAYER} used the\n{STR_VAR_2}.\pWild Pokémon will be repelled.{PAUSE_UNTIL_PRESS}");
 const u8 gText_BoxFull[] = _("The Box is full.{PAUSE_UNTIL_PRESS}");
