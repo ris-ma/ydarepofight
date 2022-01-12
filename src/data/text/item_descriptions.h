@@ -1534,9 +1534,9 @@ static const u8 sAcroBikeDesc[] = _(
     "and wheelies.");
 
 static const u8 sPokeblockCaseDesc[] = _(
-    "A case for holding\n"
-    "{POKEBLOCK}s made with\n"
-    "a Berry Blender.");
+    "Is that a Pokémon\n"
+    "egg on the floor?\n"
+    "Nobody will know.");
 
 static const u8 sLetterDesc[] = _(
     "A letter to Steven\n"
