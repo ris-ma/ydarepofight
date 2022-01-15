@@ -1057,7 +1057,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             num += numObtLegends;
         if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_TOUGH) == 1) // Unobtainable enbaled
         {
-            num += numNonObt
+            num += numNonObt;
         }
 
         if ((Random() % num) < numObt)
