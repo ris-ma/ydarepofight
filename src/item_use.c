@@ -817,7 +817,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_STUNKY},
             {SPECIES_BRONZOR},
             {SPECIES_BONSLY},
-            {SPECIES_MIME_JR.},
+            {SPECIES_MIME_JR},
             {SPECIES_HAPPINY},
             {SPECIES_CHATOT},
             {SPECIES_SPIRITOMB},
