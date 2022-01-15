@@ -1241,16 +1241,7 @@ LittlerootTown_EventScript_PatchSettings_UniqueColor::
 	call LittlerootTown_EventScript_UniqueColor
 	releaseall
 	end
-	
-LittlerootTown_EventScript_PatchSettings_Random::
-	faceplayer
-	lockall
-	givemon SPECIES_RATTATA, 0, ITEM_NONE
-	compare VAR_RESULT, 1
-	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
-	call LittlerootTown_EventScript_PatchSettings_Legends
-	releaseall
-	end
+
 	
 LittlerootTown_EventScript_PatchSettings_AIcontrolled::
 	faceplayer
@@ -1263,6 +1254,19 @@ LittlerootTown_EventScript_PatchSettings_AIcontrolled::
 	end
 LittlerootTown_EventScript_NoPlaceForSettingsMon::
 	msgbox LittlerootTown_Text_MakePlaceForSettingsMon, MSGBOX_DEFAULT
+	releaseall
+	end
+	
+LittlerootTown_EventScript_PatchSettings_Others::
+	faceplayer
+	lockall
+	givemon SPECIES_RATTATA, 0, ITEM_NONE
+	compare VAR_RESULT, 1
+	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	call LittlerootTown_EventScript_PatchSettings_Items
+	call LittlerootTown_EventScript_PatchSettings_Berries
+	call LittlerootTown_EventScript_PatchSettings_ShinyRate
+	call LittlerootTown_EventScript_PatchSettings_Pokevial
 	releaseall
 	end
 	
@@ -1640,8 +1644,15 @@ LittlerootTown_EventScript_EnableShinyRate_2::
 
 
 
-
-
+LittlerootTown_EventScript_PatchSettings_Random::
+	faceplayer
+	lockall
+	givemon SPECIES_RATTATA, 0, ITEM_NONE
+	compare VAR_RESULT, 1
+	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	call LittlerootTown_EventScript_PatchSettings_Legends
+	releaseall
+	end
 
 LittlerootTown_Text_ChangeLegends:
 	.string "Enable Legendaries?\n"
