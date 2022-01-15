@@ -1065,7 +1065,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             randSpecies = Random() % numObt;
             CreateEgg(&mon, Obt[randSpecies][0], TRUE);
         }
-        else if ((Random() % num) < (numObt + numNonOtb) && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_TOUGH) == 1)
+        else if ((Random() % num) < (numObt + numNonObt) && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_TOUGH) == 1)
         {
             randSpecies = Random() % numNonObt;
             CreateEgg(&mon, NonObt[randSpecies][0], TRUE);
