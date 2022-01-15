@@ -5221,7 +5221,7 @@ void SetSettingsMonStats (void)
 	SetMonData(mon, MON_DATA_SPDEF_IV, &i); // Berries
 	SetMonData(mon, MON_DATA_COOL, &i); // Individually-Unique Pokemon Colors
 	SetMonData(mon, MON_DATA_BEAUTY, &i); // AI controlled patch
-	SetMonData(mon, MON_DATA_CUTE, &i);
+	SetMonData(mon, MON_DATA_CUTE, &i); // Obt
 	SetMonData(mon, MON_DATA_SMART, &i);
 	SetMonData(mon, MON_DATA_TOUGH, &i);
 	SetMonData(mon, MON_DATA_SHEEN, &i);
@@ -5320,6 +5320,8 @@ void SetSettingsMonStats (void)
 			break;
 		case 7: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_BEAUTY, &value); // AI controlled patch
 			break;
+		case 8: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_CUTE, &value); // Obt
+			break;
 	}
 	
 	
@@ -5346,6 +5348,8 @@ void GetSettingsMonStats (void)
 		case 6: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_COOL); // Individually-Unique Pokemon Colors
 			break;
 		case 7: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_BEAUTY); // AI controlled patch
+			break;
+		case 8: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_CUTE); // Obt
 			break;
 	}
 }
