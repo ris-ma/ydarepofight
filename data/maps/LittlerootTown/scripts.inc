@@ -1650,7 +1650,10 @@ LittlerootTown_EventScript_PatchSettings_Random::
 	givemon SPECIES_RATTATA, 0, ITEM_NONE
 	compare VAR_RESULT, 1
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	call LittlerootTown_EventScript_PatchSettings_Starters
 	call LittlerootTown_EventScript_PatchSettings_Legends
+	call LittlerootTown_EventScript_PatchSettings_Unobainable
+	call LittlerootTown_EventScript_PatchSettings_AltForms
 	releaseall
 	end
 
@@ -1720,9 +1723,211 @@ LittlerootTown_EventScript_DisableLegends::
 		
 		
 		
+	
 		
 		
 		
 		
 		
 		
+LittlerootTown_Text_ChangeStarters:
+	.string "Enable random starters?$"
+		
+LittlerootTown_Text_ChangeStartersEnabled:
+	.string "Random starters are enabled.\n"
+	.string "Would you like to change this settings?$"
+
+LittlerootTown_Text_ChangeStartersDisabled:
+	.string "Random starters are disabled.\n"
+	.string "Would you like to change this settings?$"
+		
+LittlerootTown_EventScript_PatchSettings_Starters::
+	setvar VAR_0x8006, 9
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	call_if_eq LittlerootTown_EventScript_ChangeStartersEnabled
+	compare VAR_0x8005, 1
+	call_if_ne LittlerootTown_EventScript_ChangeStartersDisabled
+	return	
+	
+LittlerootTown_EventScript_ChangeStartersEnabled::
+	msgbox LittlerootTown_Text_ChangeStartersEnabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeStarters
+	return
+
+LittlerootTown_EventScript_ChangeStartersDisabled::
+	msgbox LittlerootTown_Text_ChangeStartersDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeStarters
+	return
+
+LittlerootTown_EventScript_ChangeStarters::
+	msgbox LittlerootTown_Text_ChangeStarters, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableStarters
+	compare VAR_RESULT, YES
+	call_if_ne LittlerootTown_EventScript_DisableStarters
+	return
+
+LittlerootTown_EventScript_EnableStarters::
+	setvar VAR_0x8006, 9 
+	setvar VAR_0x8007, 1
+	special SetSettingsMonStats
+	return
+		
+LittlerootTown_EventScript_DisableStarters::
+	setvar VAR_0x8006, 9
+	setvar VAR_0x8007, 0
+	special SetSettingsMonStats
+	return	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+LittlerootTown_Text_ChangeUnobtainable:
+	.string "Enable unobtainable Pokémon?$"
+		
+LittlerootTown_Text_ChangeUnobtainableEnabled:
+	.string "Unobtainable Pokémon are enabled.\n"
+	.string "Would you like to change this settings?$"
+
+LittlerootTown_Text_ChangeUnobtainableDisabled:
+	.string "Unobtainable Pokémon are disabled.\n"
+	.string "Would you like to change this settings?$"
+		
+LittlerootTown_EventScript_PatchSettings_Unobtainable::
+	setvar VAR_0x8006, 10
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	call_if_eq LittlerootTown_EventScript_ChangeUnobtainableEnabled
+	compare VAR_0x8005, 1
+	call_if_ne LittlerootTown_EventScript_ChangeUnobtainableDisabled
+	return	
+	
+LittlerootTown_EventScript_ChangeUnobtainableEnabled::
+	msgbox LittlerootTown_Text_ChangeUnobtainableEnabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeUnobtainable
+	return
+
+LittlerootTown_EventScript_ChangeUnobtainableDisabled::
+	msgbox LittlerootTown_Text_ChangeUnobtainableDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeUnobtainable
+	return
+
+LittlerootTown_EventScript_ChangeUnobtainable::
+	msgbox LittlerootTown_Text_ChangeUnobtainable, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableUnobtainable
+	compare VAR_RESULT, YES
+	call_if_ne LittlerootTown_EventScript_DisableUnobtainable
+	return
+
+LittlerootTown_EventScript_EnableUnobtainable::
+	setvar VAR_0x8006, 10
+	setvar VAR_0x8007, 1
+	special SetSettingsMonStats
+	return
+		
+LittlerootTown_EventScript_DisableUnobtainable::
+	setvar VAR_0x8006, 10
+	setvar VAR_0x8007, 0
+	special SetSettingsMonStats
+	return	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+LittlerootTown_Text_ChangeAltForms:
+	.string "Enable unobtainable Pokémon?$"
+		
+LittlerootTown_Text_ChangeAltFormsEnabled:
+	.string "Unobtainable Pokémon are enabled.\n"
+	.string "Would you like to change this settings?$"
+
+LittlerootTown_Text_ChangeAltFormsDisabled:
+	.string "Unobtainable Pokémon are disabled.\n"
+	.string "Would you like to change this settings?$"
+		
+LittlerootTown_EventScript_PatchSettings_AltForms::
+	setvar VAR_0x8006, 11
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	call_if_eq LittlerootTown_EventScript_ChangeAltFormsEnabled
+	compare VAR_0x8005, 1
+	call_if_ne LittlerootTown_EventScript_ChangeAltFormsDisabled
+	return	
+	
+LittlerootTown_EventScript_ChangeAltFormsEnabled::
+	msgbox LittlerootTown_Text_ChangeAltFormsEnabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeAltForms
+	return
+
+LittlerootTown_EventScript_ChangeAltFormsDisabled::
+	msgbox LittlerootTown_Text_ChangeAltFormsDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeAltForms
+	return
+
+LittlerootTown_EventScript_ChangeAltForms::
+	msgbox LittlerootTown_Text_ChangeAltForms, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableAltForms
+	compare VAR_RESULT, YES
+	call_if_ne LittlerootTown_EventScript_DisableAltForms
+	return
+
+LittlerootTown_EventScript_EnableAltForms::
+	setvar VAR_0x8006, 11
+	setvar VAR_0x8007, 1
+	special SetSettingsMonStats
+	return
+		
+LittlerootTown_EventScript_DisableAltForms::
+	setvar VAR_0x8006, 11
+	setvar VAR_0x8007, 0
+	special SetSettingsMonStats
+	return	
