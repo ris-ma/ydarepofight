@@ -1662,11 +1662,11 @@ LittlerootTown_Text_ChangeLegends:
 	.string "This affect random starters/eggs$"
 		
 LittlerootTown_Text_ChangeLegendsEnabled:
-	.string "Legendaries are enabled.\n"
+	.string "Legendary/Mythical are enabled.\n"
 	.string "Would you like to change this settings?$"
 
 LittlerootTown_Text_ChangeLegendsDisabled:
-	.string "Legendaries are disabled.\n"
+	.string "Legendary/Mythical are disabled.\n"
 	.string "Would you like to change this settings?$"
 		
 LittlerootTown_EventScript_PatchSettings_Legends::
