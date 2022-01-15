@@ -1881,14 +1881,15 @@ LittlerootTown_EventScript_DisableUnobtainable::
 		
 		
 LittlerootTown_Text_ChangeAltForms:
-	.string "Enable unobtainable Pokémon?$"
+	.string "Enable alternate forms?\n"
+	.string "(Alolan, Galarian, cosmetic etc.)$"
 		
 LittlerootTown_Text_ChangeAltFormsEnabled:
-	.string "Unobtainable Pokémon are enabled.\n"
+	.string "Alternate forms are enabled.\n"
 	.string "Would you like to change this settings?$"
 
 LittlerootTown_Text_ChangeAltFormsDisabled:
-	.string "Unobtainable Pokémon are disabled.\n"
+	.string "Alternate forms are disabled.\n"
 	.string "Would you like to change this settings?$"
 		
 LittlerootTown_EventScript_PatchSettings_AltForms::
