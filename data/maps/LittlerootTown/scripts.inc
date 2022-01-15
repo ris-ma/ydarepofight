@@ -1242,6 +1242,16 @@ LittlerootTown_EventScript_PatchSettings_UniqueColor::
 	releaseall
 	end
 	
+LittlerootTown_EventScript_PatchSettings_Random::
+	faceplayer
+	lockall
+	givemon SPECIES_RATTATA, 0, ITEM_NONE
+	compare VAR_RESULT, 1
+	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	call LittlerootTown_EventScript_PatchSettings_Legends
+	releaseall
+	end
+	
 LittlerootTown_EventScript_PatchSettings_AIcontrolled::
 	faceplayer
 	lockall
@@ -1627,20 +1637,6 @@ LittlerootTown_EventScript_EnableShinyRate_2::
 
 
 
-
-
-
-
-
-LittlerootTown_EventScript_PatchSettings_Random::
-	faceplayer
-	lockall
-	givemon SPECIES_RATTATA, 0, ITEM_NONE
-	compare VAR_RESULT, 1
-	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
-	call LittlerootTown_EventScript_PatchSettings_Legends
-	releaseall
-	end
 
 
 
