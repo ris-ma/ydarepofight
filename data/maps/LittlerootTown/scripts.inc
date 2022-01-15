@@ -1655,7 +1655,7 @@ LittlerootTown_EventScript_PatchSettings_Random::
 	end
 
 LittlerootTown_Text_ChangeLegends:
-	.string "Enable Legendaries?\n"
+	.string "Enable Legendary/Mythical?\n"
 	.string "This affect random starters/eggs$"
 		
 LittlerootTown_Text_ChangeLegendsEnabled:
