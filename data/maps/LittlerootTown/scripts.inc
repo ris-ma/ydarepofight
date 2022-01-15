@@ -258,432 +258,6 @@ LittlerootTown_EventScript_SetRivalBirchPosForDexUpgradeFemale:: @ 81E8013
 	setobjectxy LOCALID_RIVAL, 13, 10
 	setobjectxy LOCALID_BIRCH, 14, 10
 	end
-LittlerootTown_EventScript_PatchSettings_PerfectIV::
-	faceplayer
-	lockall
-	givemon SPECIES_RATTATA, 0, ITEM_NONE
-	compare VAR_RESULT, 1
-	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
-	setvar VAR_0x8006, 0
-	special GetSettingsMonStats
-	compare VAR_0x8005, 1
-	goto_if_eq LittlerootTown_EventScript_ChangeIVSettingsEnabled
-	compare VAR_0x8005, 1
-	goto_if_ne LittlerootTown_EventScript_ChangeIVSettingsDisabled
-	releaseall
-	end
-	
-LittlerootTown_EventScript_PatchSettings_DisableEV::
-	faceplayer
-	lockall
-	givemon SPECIES_RATTATA, 0, ITEM_NONE
-	compare VAR_RESULT, 1
-	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
-	setvar VAR_0x8006, 1
-	special GetSettingsMonStats
-	compare VAR_0x8005, 1
-	goto_if_eq LittlerootTown_EventScript_ChangeEVSettingsEnabled
-	compare VAR_0x8005, 1
-	goto_if_ne LittlerootTown_EventScript_ChangeEVSettingsDisabled
-	releaseall
-	end
-	
-LittlerootTown_EventScript_PatchSettings_Others::
-	faceplayer
-	lockall
-	givemon SPECIES_RATTATA, 0, ITEM_NONE
-	compare VAR_RESULT, 1
-	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
-	call LittlerootTown_EventScript_PatchSettings_Items
-	call LittlerootTown_EventScript_PatchSettings_Berries
-	call LittlerootTown_EventScript_PatchSettings_ShinyRate
-	call LittlerootTown_EventScript_PatchSettings_Pokevial
-	releaseall
-	end	
-	
-LittlerootTown_EventScript_PatchSettings_UniqueColor::
-	faceplayer
-	lockall
-	givemon SPECIES_RATTATA, 0, ITEM_NONE
-	compare VAR_RESULT, 1
-	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
-	call LittlerootTown_EventScript_UniqueColor
-	releaseall
-	end
-	
-LittlerootTown_EventScript_PatchSettings_AIcontrolled::
-	faceplayer
-	lockall
-	givemon SPECIES_RATTATA, 0, ITEM_NONE
-	compare VAR_RESULT, 1
-	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
-	call LittlerootTown_EventScript_AIcontrolled
-	releaseall
-	end
-LittlerootTown_EventScript_NoPlaceForSettingsMon::
-	msgbox LittlerootTown_Text_MakePlaceForSettingsMon, MSGBOX_DEFAULT
-	releaseall
-	end
-	
-LittlerootTown_EventScript_HandleIVSettings::
-	msgbox LittlerootTown_Text_HandleIVSettings, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq LittlerootTown_EventScript_DisableIVSettings
-	compare VAR_RESULT, YES
-	goto_if_eq LittlerootTown_EventScript_EnableIVSettings
-	
-LittlerootTown_EventScript_DisableIVSettings::
-	msgbox LittlerootTown_Text_DisableIVSettings, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq LittlerootTown_EventScript_PatchSettings_PerfectIV
-	setvar VAR_0x8006, 0 
-	setvar VAR_0x8007, 0
-	special SetSettingsMonStats
-	releaseall
-	end
-		
-LittlerootTown_EventScript_EnableIVSettings::
-	msgbox LittlerootTown_Text_EnableIVSettings, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq LittlerootTown_EventScript_PatchSettings_PerfectIV
-	setvar VAR_0x8006, 0 
-	setvar VAR_0x8007, 1
-	special SetSettingsMonStats
-	releaseall
-	end
-		
-LittlerootTown_EventScript_HandleEVSettings::
-	msgbox LittlerootTown_Text_HandleEVSettings, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq LittlerootTown_EventScript_DisableEVSettings
-	compare VAR_RESULT, YES
-	goto_if_eq LittlerootTown_EventScript_EnableEVSettings
-		
-LittlerootTown_EventScript_DisableEVSettings::
-	msgbox LittlerootTown_Text_DisableEVSettings, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq LittlerootTown_EventScript_PatchSettings_DisableEV
-	setvar VAR_0x8006, 1 
-	setvar VAR_0x8007, 0
-	special SetSettingsMonStats
-	releaseall
-	end
-		
-LittlerootTown_EventScript_EnableEVSettings::
-	msgbox LittlerootTown_Text_EnableEVSettings, MSGBOX_YESNO
-	compare VAR_RESULT, NO
-	goto_if_eq LittlerootTown_EventScript_PatchSettings_DisableEV
-	setvar VAR_0x8006, 1 
-	setvar VAR_0x8007, 1
-	special SetSettingsMonStats		
-	releaseall
-	end
-
-LittlerootTown_EventScript_ChangeEVSettingsEnabled::
-	msgbox LittlerootTown_Text_ChangeEVSettingsEnabled, MSGBOX_YESNO
-	compare VAR_RESULT, YES	
-	goto_if_eq LittlerootTown_EventScript_HandleEVSettings
-	releaseall
-	end
-	
-LittlerootTown_EventScript_ChangeEVSettingsDisabled::
-	msgbox LittlerootTown_Text_ChangeEVSettingsDisabled, MSGBOX_YESNO
-	compare VAR_RESULT, YES	
-	goto_if_eq LittlerootTown_EventScript_HandleEVSettings
-	releaseall
-	end
-	
-LittlerootTown_EventScript_ChangeIVSettingsEnabled::
-	msgbox LittlerootTown_Text_ChangeIVSettingsEnabled, MSGBOX_YESNO
-	compare VAR_RESULT, YES	
-	goto_if_eq LittlerootTown_EventScript_HandleIVSettings
-	releaseall
-	end
-	
-LittlerootTown_EventScript_ChangeIVSettingsDisabled::
-	msgbox LittlerootTown_Text_ChangeIVSettingsDisabled, MSGBOX_YESNO
-	compare VAR_RESULT, YES	
-	goto_if_eq LittlerootTown_EventScript_HandleIVSettings
-	releaseall
-	end
-	
-LittlerootTown_EventScript_AIcontrolled::
-	setvar VAR_0x8006, 7
-	special GetSettingsMonStats
-	compare VAR_0x8005, 1
-	call_if_eq LittlerootTown_EventScript_ChangeAIcontrolledEnabled
-	compare VAR_0x8005, 1
-	call_if_ne LittlerootTown_EventScript_ChangeAIcontrolledDisabled
-	return	
-	
-LittlerootTown_EventScript_ChangeAIcontrolledEnabled::
-	msgbox LittlerootTown_Text_ChangeAIcontrolledEnabled, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_ChangeAIcontrolled
-	return
-
-LittlerootTown_EventScript_ChangeAIcontrolledDisabled::
-	msgbox LittlerootTown_Text_ChangeAIcontrolledDisabled, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_ChangeAIcontrolled
-	return
-
-LittlerootTown_EventScript_ChangeAIcontrolled::
-	msgbox LittlerootTown_Text_ChangeAIcontrolled, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_EnableAIcontrolled
-	compare VAR_RESULT, YES
-	call_if_ne LittlerootTown_EventScript_DisableAIcontrolled
-	return	
-
-LittlerootTown_EventScript_EnableAIcontrolled::
-	setvar VAR_0x8006, 7
-	setvar VAR_0x8007, 1
-	special SetSettingsMonStats
-	return
-		
-LittlerootTown_EventScript_DisableAIcontrolled::
-	setvar VAR_0x8006, 7
-	setvar VAR_0x8007, 0
-	special SetSettingsMonStats
-	return
-
-LittlerootTown_EventScript_UniqueColor::
-	setvar VAR_0x8006, 6
-	special GetSettingsMonStats
-	compare VAR_0x8005, 1
-	call_if_eq LittlerootTown_EventScript_ChangeUniqueColorEnabled
-	compare VAR_0x8005, 1
-	call_if_ne LittlerootTown_EventScript_ChangeUniqueColorDisabled
-	return	
-	
-LittlerootTown_EventScript_ChangeUniqueColorEnabled::
-	msgbox LittlerootTown_Text_ChangeUniqueColorEnabled, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_ChangeUniqueColor
-	return
-
-LittlerootTown_EventScript_ChangeUniqueColorDisabled::
-	msgbox LittlerootTown_Text_ChangeUniqueColorDisabled, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_ChangeUniqueColor
-	return
-
-LittlerootTown_EventScript_ChangeUniqueColor::
-	msgbox LittlerootTown_Text_ChangeUniqueColor, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_EnableUniqueColor
-	compare VAR_RESULT, YES
-	call_if_ne LittlerootTown_EventScript_DisableUniqueColor
-	return
-		
-LittlerootTown_EventScript_EnableUniqueColor::
-	setvar VAR_0x8006, 6
-	setvar VAR_0x8007, 1
-	special SetSettingsMonStats
-	return
-		
-LittlerootTown_EventScript_DisableUniqueColor::
-	setvar VAR_0x8006, 6
-	setvar VAR_0x8007, 0
-	special SetSettingsMonStats
-	return
-
-LittlerootTown_EventScript_PatchSettings_Berries::
-	setvar VAR_0x8006, 5
-	special GetSettingsMonStats
-	compare VAR_0x8005, 1
-	call_if_eq LittlerootTown_EventScript_ChangeBerriesEnabled
-	compare VAR_0x8005, 1
-	call_if_ne LittlerootTown_EventScript_ChangeBerriesDisabled
-	return	
-	
-LittlerootTown_EventScript_ChangeBerriesEnabled::
-	msgbox LittlerootTown_Text_ChangeBerriesEnabled, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_ChangeBerries
-	return
-
-LittlerootTown_EventScript_ChangeBerriesDisabled::
-	msgbox LittlerootTown_Text_ChangeBerriesDisabled, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_ChangeBerries
-	return
-
-LittlerootTown_EventScript_ChangeBerries::
-	msgbox LittlerootTown_Text_ChangeBerries, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_EnableBerries
-	compare VAR_RESULT, YES
-	call_if_ne LittlerootTown_EventScript_DisableBerries
-	return
-
-LittlerootTown_EventScript_EnableBerries::
-	setvar VAR_0x8006, 5 
-	setvar VAR_0x8007, 1
-	special SetSettingsMonStats
-	return
-		
-LittlerootTown_EventScript_DisableBerries::
-	setvar VAR_0x8006, 5
-	setvar VAR_0x8007, 0
-	special SetSettingsMonStats
-	return
-
-LittlerootTown_EventScript_PatchSettings_Items::
-	setvar VAR_0x8006, 4
-	special GetSettingsMonStats
-	compare VAR_0x8005, 1
-	call_if_eq LittlerootTown_EventScript_ChangeItemsEnabled
-	compare VAR_0x8005, 1
-	call_if_ne LittlerootTown_EventScript_ChangeItemsDisabled
-	return	
-	
-LittlerootTown_EventScript_ChangeItemsEnabled::
-	msgbox LittlerootTown_Text_ChangeItemsEnabled, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_ChangeItems
-	return
-
-LittlerootTown_EventScript_ChangeItemsDisabled::
-	msgbox LittlerootTown_Text_ChangeItemsDisabled, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_ChangeItems
-	return
-
-LittlerootTown_EventScript_ChangeItems::
-	msgbox LittlerootTown_Text_ChangeItems, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_EnableItems
-	compare VAR_RESULT, YES
-	call_if_ne LittlerootTown_EventScript_DisableItems
-	return
-
-LittlerootTown_EventScript_EnableItems::
-	setvar VAR_0x8006, 4 
-	setvar VAR_0x8007, 1
-	special SetSettingsMonStats
-	return
-		
-LittlerootTown_EventScript_DisableItems::
-	setvar VAR_0x8006, 4
-	setvar VAR_0x8007, 0
-	special SetSettingsMonStats
-	return			
-		
-LittlerootTown_EventScript_PatchSettings_Pokevial::
-	setvar VAR_0x8006, 3
-	special GetSettingsMonStats
-	compare VAR_0x8005, 1
-	call_if_eq LittlerootTown_EventScript_ChangePokevialEnabled
-	compare VAR_0x8005, 1
-	call_if_ne LittlerootTown_EventScript_ChangePokevialDisabled
-	return	
-	
-LittlerootTown_EventScript_ChangePokevialEnabled::
-	msgbox LittlerootTown_Text_ChangePokevialEnabled, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_ChangePokevial
-	return
-
-LittlerootTown_EventScript_ChangePokevialDisabled::
-	msgbox LittlerootTown_Text_ChangePokevialDisabled, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_ChangePokevial
-	return
-
-LittlerootTown_EventScript_ChangePokevial::
-	msgbox LittlerootTown_Text_ChangePokevial, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_EnablePokevial
-	compare VAR_RESULT, YES
-	call_if_ne LittlerootTown_EventScript_DisablePokevial
-	return
-
-LittlerootTown_EventScript_EnablePokevial::
-	setvar VAR_0x8006, 3 
-	setvar VAR_0x8007, 1
-	special SetSettingsMonStats
-	return
-		
-LittlerootTown_EventScript_DisablePokevial::
-	setvar VAR_0x8006, 3
-	setvar VAR_0x8007, 0
-	special SetSettingsMonStats
-	return
-		
-LittlerootTown_EventScript_ShinyRate_0::
-	msgbox LittlerootTown_Text_ShinyRate_0, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_HandleShinyRate
-	return
-
-LittlerootTown_EventScript_ShinyRate_1::
-	msgbox LittlerootTown_Text_ShinyRate_1, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_HandleShinyRate
-	return
-
-LittlerootTown_EventScript_ShinyRate_2::
-	msgbox LittlerootTown_Text_ShinyRate_2, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_HandleShinyRate
-	return
-	
-		
-LittlerootTown_EventScript_HandleShinyRate::
-	setvar VAR_0x8004, 0
-	msgbox LittlerootTown_Text_EnbableShinyRate, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_EnableShinyRate
-	compare VAR_0x8004, 0
-	call_if_eq LittlerootTown_EventScript_DisableShinyRate
-	return
-
-LittlerootTown_EventScript_EnableShinyRate::
-	setvar VAR_0x8004, 1
-	msgbox LittlerootTown_Text_ShinyRates, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_EnableShinyRate_1
-	compare VAR_RESULT, NO
-	call_if_eq LittlerootTown_EventScript_EnableShinyRate_2
-	return
-
-LittlerootTown_EventScript_DisableShinyRate::
-	msgbox LittlerootTown_Text_DisableShinyRate, MSGBOX_YESNO
-	compare VAR_RESULT, YES
-	call_if_eq LittlerootTown_EventScript_EnableShinyRate_0
-	return
-			
-		
-LittlerootTown_EventScript_PatchSettings_ShinyRate::
-	setvar VAR_0x8006, 2
-	special GetSettingsMonStats
-	compare VAR_0x8005,1
-	call_if_lt LittlerootTown_EventScript_ShinyRate_0
-	compare VAR_0x8005,1
-	call_if_eq LittlerootTown_EventScript_ShinyRate_1
-	compare VAR_0x8005,1
-	call_if_gt LittlerootTown_EventScript_ShinyRate_2
-	return
-	
-LittlerootTown_EventScript_EnableShinyRate_0::
-	setvar VAR_0x8006, 2 
-	setvar VAR_0x8007, 0
-	special SetSettingsMonStats
-	return
-		
-LittlerootTown_EventScript_EnableShinyRate_1::
-	setvar VAR_0x8006, 2
-	setvar VAR_0x8007, 1
-	special SetSettingsMonStats
-	return
-
-LittlerootTown_EventScript_EnableShinyRate_2::
-	setvar VAR_0x8006, 2
-	setvar VAR_0x8007, 2
-	special SetSettingsMonStats
-	return
 
 LittlerootTown_EventScript_FatMan:: @ 81E8022
 	msgbox LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_NPC
@@ -1609,5 +1183,539 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab: @ 81E8DA2
 	
 		
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+LittlerootTown_EventScript_PatchSettings_PerfectIV::
+	faceplayer
+	lockall
+	givemon SPECIES_RATTATA, 0, ITEM_NONE
+	compare VAR_RESULT, 1
+	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	setvar VAR_0x8006, 0
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	goto_if_eq LittlerootTown_EventScript_ChangeIVSettingsEnabled
+	compare VAR_0x8005, 1
+	goto_if_ne LittlerootTown_EventScript_ChangeIVSettingsDisabled
+	releaseall
+	end
+	
+LittlerootTown_EventScript_PatchSettings_DisableEV::
+	faceplayer
+	lockall
+	givemon SPECIES_RATTATA, 0, ITEM_NONE
+	compare VAR_RESULT, 1
+	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	setvar VAR_0x8006, 1
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	goto_if_eq LittlerootTown_EventScript_ChangeEVSettingsEnabled
+	compare VAR_0x8005, 1
+	goto_if_ne LittlerootTown_EventScript_ChangeEVSettingsDisabled
+	releaseall
+	end	
+	
+LittlerootTown_EventScript_PatchSettings_UniqueColor::
+	faceplayer
+	lockall
+	givemon SPECIES_RATTATA, 0, ITEM_NONE
+	compare VAR_RESULT, 1
+	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	call LittlerootTown_EventScript_UniqueColor
+	releaseall
+	end
+	
+LittlerootTown_EventScript_PatchSettings_AIcontrolled::
+	faceplayer
+	lockall
+	givemon SPECIES_RATTATA, 0, ITEM_NONE
+	compare VAR_RESULT, 1
+	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	call LittlerootTown_EventScript_AIcontrolled
+	releaseall
+	end
+LittlerootTown_EventScript_NoPlaceForSettingsMon::
+	msgbox LittlerootTown_Text_MakePlaceForSettingsMon, MSGBOX_DEFAULT
+	releaseall
+	end
+	
+LittlerootTown_EventScript_HandleIVSettings::
+	msgbox LittlerootTown_Text_HandleIVSettings, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LittlerootTown_EventScript_DisableIVSettings
+	compare VAR_RESULT, YES
+	goto_if_eq LittlerootTown_EventScript_EnableIVSettings
+	
+LittlerootTown_EventScript_DisableIVSettings::
+	msgbox LittlerootTown_Text_DisableIVSettings, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LittlerootTown_EventScript_PatchSettings_PerfectIV
+	setvar VAR_0x8006, 0 
+	setvar VAR_0x8007, 0
+	special SetSettingsMonStats
+	releaseall
+	end
+		
+LittlerootTown_EventScript_EnableIVSettings::
+	msgbox LittlerootTown_Text_EnableIVSettings, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LittlerootTown_EventScript_PatchSettings_PerfectIV
+	setvar VAR_0x8006, 0 
+	setvar VAR_0x8007, 1
+	special SetSettingsMonStats
+	releaseall
+	end
+		
+LittlerootTown_EventScript_HandleEVSettings::
+	msgbox LittlerootTown_Text_HandleEVSettings, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LittlerootTown_EventScript_DisableEVSettings
+	compare VAR_RESULT, YES
+	goto_if_eq LittlerootTown_EventScript_EnableEVSettings
+		
+LittlerootTown_EventScript_DisableEVSettings::
+	msgbox LittlerootTown_Text_DisableEVSettings, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LittlerootTown_EventScript_PatchSettings_DisableEV
+	setvar VAR_0x8006, 1 
+	setvar VAR_0x8007, 0
+	special SetSettingsMonStats
+	releaseall
+	end
+		
+LittlerootTown_EventScript_EnableEVSettings::
+	msgbox LittlerootTown_Text_EnableEVSettings, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq LittlerootTown_EventScript_PatchSettings_DisableEV
+	setvar VAR_0x8006, 1 
+	setvar VAR_0x8007, 1
+	special SetSettingsMonStats		
+	releaseall
+	end
+
+LittlerootTown_EventScript_ChangeEVSettingsEnabled::
+	msgbox LittlerootTown_Text_ChangeEVSettingsEnabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES	
+	goto_if_eq LittlerootTown_EventScript_HandleEVSettings
+	releaseall
+	end
+	
+LittlerootTown_EventScript_ChangeEVSettingsDisabled::
+	msgbox LittlerootTown_Text_ChangeEVSettingsDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES	
+	goto_if_eq LittlerootTown_EventScript_HandleEVSettings
+	releaseall
+	end
+	
+LittlerootTown_EventScript_ChangeIVSettingsEnabled::
+	msgbox LittlerootTown_Text_ChangeIVSettingsEnabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES	
+	goto_if_eq LittlerootTown_EventScript_HandleIVSettings
+	releaseall
+	end
+	
+LittlerootTown_EventScript_ChangeIVSettingsDisabled::
+	msgbox LittlerootTown_Text_ChangeIVSettingsDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES	
+	goto_if_eq LittlerootTown_EventScript_HandleIVSettings
+	releaseall
+	end
+	
+LittlerootTown_EventScript_AIcontrolled::
+	setvar VAR_0x8006, 7
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	call_if_eq LittlerootTown_EventScript_ChangeAIcontrolledEnabled
+	compare VAR_0x8005, 1
+	call_if_ne LittlerootTown_EventScript_ChangeAIcontrolledDisabled
+	return	
+	
+LittlerootTown_EventScript_ChangeAIcontrolledEnabled::
+	msgbox LittlerootTown_Text_ChangeAIcontrolledEnabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeAIcontrolled
+	return
+
+LittlerootTown_EventScript_ChangeAIcontrolledDisabled::
+	msgbox LittlerootTown_Text_ChangeAIcontrolledDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeAIcontrolled
+	return
+
+LittlerootTown_EventScript_ChangeAIcontrolled::
+	msgbox LittlerootTown_Text_ChangeAIcontrolled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableAIcontrolled
+	compare VAR_RESULT, YES
+	call_if_ne LittlerootTown_EventScript_DisableAIcontrolled
+	return	
+
+LittlerootTown_EventScript_EnableAIcontrolled::
+	setvar VAR_0x8006, 7
+	setvar VAR_0x8007, 1
+	special SetSettingsMonStats
+	return
+		
+LittlerootTown_EventScript_DisableAIcontrolled::
+	setvar VAR_0x8006, 7
+	setvar VAR_0x8007, 0
+	special SetSettingsMonStats
+	return
+
+LittlerootTown_EventScript_UniqueColor::
+	setvar VAR_0x8006, 6
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	call_if_eq LittlerootTown_EventScript_ChangeUniqueColorEnabled
+	compare VAR_0x8005, 1
+	call_if_ne LittlerootTown_EventScript_ChangeUniqueColorDisabled
+	return	
+	
+LittlerootTown_EventScript_ChangeUniqueColorEnabled::
+	msgbox LittlerootTown_Text_ChangeUniqueColorEnabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeUniqueColor
+	return
+
+LittlerootTown_EventScript_ChangeUniqueColorDisabled::
+	msgbox LittlerootTown_Text_ChangeUniqueColorDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeUniqueColor
+	return
+
+LittlerootTown_EventScript_ChangeUniqueColor::
+	msgbox LittlerootTown_Text_ChangeUniqueColor, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableUniqueColor
+	compare VAR_RESULT, YES
+	call_if_ne LittlerootTown_EventScript_DisableUniqueColor
+	return
+		
+LittlerootTown_EventScript_EnableUniqueColor::
+	setvar VAR_0x8006, 6
+	setvar VAR_0x8007, 1
+	special SetSettingsMonStats
+	return
+		
+LittlerootTown_EventScript_DisableUniqueColor::
+	setvar VAR_0x8006, 6
+	setvar VAR_0x8007, 0
+	special SetSettingsMonStats
+	return
+
+LittlerootTown_EventScript_PatchSettings_Berries::
+	setvar VAR_0x8006, 5
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	call_if_eq LittlerootTown_EventScript_ChangeBerriesEnabled
+	compare VAR_0x8005, 1
+	call_if_ne LittlerootTown_EventScript_ChangeBerriesDisabled
+	return	
+	
+LittlerootTown_EventScript_ChangeBerriesEnabled::
+	msgbox LittlerootTown_Text_ChangeBerriesEnabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeBerries
+	return
+
+LittlerootTown_EventScript_ChangeBerriesDisabled::
+	msgbox LittlerootTown_Text_ChangeBerriesDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeBerries
+	return
+
+LittlerootTown_EventScript_ChangeBerries::
+	msgbox LittlerootTown_Text_ChangeBerries, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableBerries
+	compare VAR_RESULT, YES
+	call_if_ne LittlerootTown_EventScript_DisableBerries
+	return
+
+LittlerootTown_EventScript_EnableBerries::
+	setvar VAR_0x8006, 5 
+	setvar VAR_0x8007, 1
+	special SetSettingsMonStats
+	return
+		
+LittlerootTown_EventScript_DisableBerries::
+	setvar VAR_0x8006, 5
+	setvar VAR_0x8007, 0
+	special SetSettingsMonStats
+	return
+
+LittlerootTown_EventScript_PatchSettings_Items::
+	setvar VAR_0x8006, 4
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	call_if_eq LittlerootTown_EventScript_ChangeItemsEnabled
+	compare VAR_0x8005, 1
+	call_if_ne LittlerootTown_EventScript_ChangeItemsDisabled
+	return	
+	
+LittlerootTown_EventScript_ChangeItemsEnabled::
+	msgbox LittlerootTown_Text_ChangeItemsEnabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeItems
+	return
+
+LittlerootTown_EventScript_ChangeItemsDisabled::
+	msgbox LittlerootTown_Text_ChangeItemsDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeItems
+	return
+
+LittlerootTown_EventScript_ChangeItems::
+	msgbox LittlerootTown_Text_ChangeItems, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableItems
+	compare VAR_RESULT, YES
+	call_if_ne LittlerootTown_EventScript_DisableItems
+	return
+
+LittlerootTown_EventScript_EnableItems::
+	setvar VAR_0x8006, 4 
+	setvar VAR_0x8007, 1
+	special SetSettingsMonStats
+	return
+		
+LittlerootTown_EventScript_DisableItems::
+	setvar VAR_0x8006, 4
+	setvar VAR_0x8007, 0
+	special SetSettingsMonStats
+	return			
+		
+LittlerootTown_EventScript_PatchSettings_Pokevial::
+	setvar VAR_0x8006, 3
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	call_if_eq LittlerootTown_EventScript_ChangePokevialEnabled
+	compare VAR_0x8005, 1
+	call_if_ne LittlerootTown_EventScript_ChangePokevialDisabled
+	return	
+	
+LittlerootTown_EventScript_ChangePokevialEnabled::
+	msgbox LittlerootTown_Text_ChangePokevialEnabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangePokevial
+	return
+
+LittlerootTown_EventScript_ChangePokevialDisabled::
+	msgbox LittlerootTown_Text_ChangePokevialDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangePokevial
+	return
+
+LittlerootTown_EventScript_ChangePokevial::
+	msgbox LittlerootTown_Text_ChangePokevial, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnablePokevial
+	compare VAR_RESULT, YES
+	call_if_ne LittlerootTown_EventScript_DisablePokevial
+	return
+
+LittlerootTown_EventScript_EnablePokevial::
+	setvar VAR_0x8006, 3 
+	setvar VAR_0x8007, 1
+	special SetSettingsMonStats
+	return
+		
+LittlerootTown_EventScript_DisablePokevial::
+	setvar VAR_0x8006, 3
+	setvar VAR_0x8007, 0
+	special SetSettingsMonStats
+	return
+		
+LittlerootTown_EventScript_ShinyRate_0::
+	msgbox LittlerootTown_Text_ShinyRate_0, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_HandleShinyRate
+	return
+
+LittlerootTown_EventScript_ShinyRate_1::
+	msgbox LittlerootTown_Text_ShinyRate_1, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_HandleShinyRate
+	return
+
+LittlerootTown_EventScript_ShinyRate_2::
+	msgbox LittlerootTown_Text_ShinyRate_2, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_HandleShinyRate
+	return
+	
+		
+LittlerootTown_EventScript_HandleShinyRate::
+	setvar VAR_0x8004, 0
+	msgbox LittlerootTown_Text_EnbableShinyRate, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableShinyRate
+	compare VAR_0x8004, 0
+	call_if_eq LittlerootTown_EventScript_DisableShinyRate
+	return
+
+LittlerootTown_EventScript_EnableShinyRate::
+	setvar VAR_0x8004, 1
+	msgbox LittlerootTown_Text_ShinyRates, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableShinyRate_1
+	compare VAR_RESULT, NO
+	call_if_eq LittlerootTown_EventScript_EnableShinyRate_2
+	return
+
+LittlerootTown_EventScript_DisableShinyRate::
+	msgbox LittlerootTown_Text_DisableShinyRate, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableShinyRate_0
+	return
+			
+		
+LittlerootTown_EventScript_PatchSettings_ShinyRate::
+	setvar VAR_0x8006, 2
+	special GetSettingsMonStats
+	compare VAR_0x8005,1
+	call_if_lt LittlerootTown_EventScript_ShinyRate_0
+	compare VAR_0x8005,1
+	call_if_eq LittlerootTown_EventScript_ShinyRate_1
+	compare VAR_0x8005,1
+	call_if_gt LittlerootTown_EventScript_ShinyRate_2
+	return
+	
+LittlerootTown_EventScript_EnableShinyRate_0::
+	setvar VAR_0x8006, 2 
+	setvar VAR_0x8007, 0
+	special SetSettingsMonStats
+	return
+		
+LittlerootTown_EventScript_EnableShinyRate_1::
+	setvar VAR_0x8006, 2
+	setvar VAR_0x8007, 1
+	special SetSettingsMonStats
+	return
+
+LittlerootTown_EventScript_EnableShinyRate_2::
+	setvar VAR_0x8006, 2
+	setvar VAR_0x8007, 2
+	special SetSettingsMonStats
+	return
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LittlerootTown_EventScript_PatchSettings_Random::
+	faceplayer
+	lockall
+	givemon SPECIES_RATTATA, 0, ITEM_NONE
+	compare VAR_RESULT, 1
+	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
+	call LittlerootTown_EventScript_PatchSettings_Legends
+	releaseall
+	end
+
+
+
+
+
+
+LittlerootTown_Text_ChangeLegends:
+	.string "Enable Legendaries?\n"
+	.string "This affect random starters/eggs$"
+		
+LittlerootTown_Text_ChangeLegendsEnabled:
+	.string "Legendaries are enabled.\n"
+	.string "Would you like to change this settings?$"
+
+LittlerootTown_Text_ChangeLegendsDisabled:
+	.string "Legendaries are disabled.\n"
+	.string "Would you like to change this settings?$"
+		
+LittlerootTown_EventScript_PatchSettings_Legends::
+	setvar VAR_0x8006, 8
+	special GetSettingsMonStats
+	compare VAR_0x8005, 1
+	call_if_eq LittlerootTown_EventScript_ChangeLegendsEnabled
+	compare VAR_0x8005, 1
+	call_if_ne LittlerootTown_EventScript_ChangeLegendsDisabled
+	return	
+	
+LittlerootTown_EventScript_ChangeLegendsEnabled::
+	msgbox LittlerootTown_Text_ChangeLegendsEnabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeLegends
+	return
+
+LittlerootTown_EventScript_ChangeLegendsDisabled::
+	msgbox LittlerootTown_Text_ChangeLegendsDisabled, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_ChangeLegends
+	return
+
+LittlerootTown_EventScript_ChangeLegends::
+	msgbox LittlerootTown_Text_ChangeLegends, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	call_if_eq LittlerootTown_EventScript_EnableLegends
+	compare VAR_RESULT, YES
+	call_if_ne LittlerootTown_EventScript_DisableLegends
+	return
+
+LittlerootTown_EventScript_EnableLegends::
+	setvar VAR_0x8006, 8 
+	setvar VAR_0x8007, 1
+	special SetSettingsMonStats
+	return
+		
+LittlerootTown_EventScript_DisableLegends::
+	setvar VAR_0x8006, 8
+	setvar VAR_0x8007, 0
+	special SetSettingsMonStats
+	return		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
