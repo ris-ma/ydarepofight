@@ -1010,9 +1010,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
         eggCycles = 0;
         
         if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_CUTE) == 1)
-        {
-            num = num + numObtLegends;
-        }
+            num += numObtLegends;
             
         if ((Random() % num) < numObt)
         {
