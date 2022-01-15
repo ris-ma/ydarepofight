@@ -995,15 +995,30 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_COSMOG},
             {SPECIES_MAGEARNA}           
         };
-
-        u16 numEggSpecies = ARRAY_COUNT(Obt);
-        u16 randSpecies = Random() % numEggSpecies;
-
+    
+        u16 numObt = ARRAY_COUNT(Obt);
+        u16 numObtLegends = ARRAY_COUNT(ObtLegends);
+        
+        u16 num = numObt;
+        
+        if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_CUTE) == 1)
+            num += numObtLegends  
+        
         struct Pokemon mon;
+            
+        if ((Random() % num) < numObt)
+        {
+            u16 randSpecies = Random() % numObt;
+            CreateEgg(&mon, Obt[randSpecies][0], TRUE);            
+        }
+        else
+        {
+            u16 randSpecies = Random() % numObtLegends;
+            CreateEgg(&mon, ObtLegends[randSpecies][0], TRUE);            
+        }
+
         u8 isEgg;
         u8 eggCycles;
-
-        CreateEgg(&mon, Obt[randSpecies][0], TRUE);
         isEgg = TRUE;
         eggCycles = 0;
         SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
