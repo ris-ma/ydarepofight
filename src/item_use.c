@@ -621,8 +621,8 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
     if (gPlayerPartyCount < PARTY_SIZE)
     {
         static const u16 Obt[][1] = {
-            {SPECIES_BULBASAUR},
             /*
+            {SPECIES_BULBASAUR},
             {SPECIES_CHARMANDER},
             {SPECIES_SQUIRTLE},
             {SPECIES_CATERPIE},
@@ -967,12 +967,12 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_BRUXISH},
             {SPECIES_DRAMPA},
             {SPECIES_DHELMISE},
-            {SPECIES_JANGMO_O},
             */
-            {SPECIES_MELTAN}
+            {SPECIES_JANGMO_O}
         };
         
         static const u16 ObtLegends[][1] = {
+            /*
             {SPECIES_ARTICUNO},
             {SPECIES_ZAPDOS},
             {SPECIES_MOLTRES},
@@ -995,7 +995,9 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_MELOETTA},
             {SPECIES_DIANCIE},
             {SPECIES_COSMOG},
-            {SPECIES_MAGEARNA}           
+            {SPECIES_MAGEARNA},
+            */
+            {SPECIES_MELTAN}
         };
         
         struct Pokemon mon;
