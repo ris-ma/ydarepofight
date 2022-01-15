@@ -5221,10 +5221,10 @@ void SetSettingsMonStats (void)
 	SetMonData(mon, MON_DATA_SPDEF_IV, &i); // Berries
 	SetMonData(mon, MON_DATA_COOL, &i); // Individually-Unique Pokemon Colors
 	SetMonData(mon, MON_DATA_BEAUTY, &i); // AI controlled patch
-	SetMonData(mon, MON_DATA_CUTE, &i); // Obt
-	SetMonData(mon, MON_DATA_SMART, &i);
-	SetMonData(mon, MON_DATA_TOUGH, &i);
-	SetMonData(mon, MON_DATA_SHEEN, &i);
+	SetMonData(mon, MON_DATA_CUTE, &i); // Legendary
+	SetMonData(mon, MON_DATA_SMART, &i); // Random starters
+	SetMonData(mon, MON_DATA_TOUGH, &i); // Unobtainable
+	SetMonData(mon, MON_DATA_SHEEN, &i); // Alt Forms
 	SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
 	SetMonData(mon, MON_DATA_FRIENDSHIP, &i);
 	*/
@@ -5320,7 +5320,13 @@ void SetSettingsMonStats (void)
 			break;
 		case 7: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_BEAUTY, &value); // AI controlled patch
 			break;
-		case 8: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_CUTE, &value); // Obt
+		case 8: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_CUTE, &value); // Legendary
+			break;
+		case 9: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SMART, &value); // Random starters
+			break;
+		case 10: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_TOUGH, &value); // Unobtainable
+			break;
+		case 11: SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SHEEN, &value); // Alt Forms
 			break;
 	}
 	
@@ -5349,7 +5355,13 @@ void GetSettingsMonStats (void)
 			break;
 		case 7: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_BEAUTY); // AI controlled patch
 			break;
-		case 8: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_CUTE); // Obt
+		case 8: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_CUTE); // Legendart
+			break;
+		case 9: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SMART); // Random starters
+			break;
+		case 10: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_TOUGH); // Unobtainable
+			break;
+		case 11: gSpecialVar_0x8005 = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SHEEN); // Alt Forms
 			break;
 	}
 }
