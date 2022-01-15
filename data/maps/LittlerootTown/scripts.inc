@@ -971,26 +971,26 @@ LittlerootTown_Text_EnbableShinyRate:
 
 LittlerootTown_Text_ShinyRate_0:
 	.string "Current shiny rate: 1/1024\n"
-	.string "Do you want to change this settings?$"	
+	.string "Would you like to change this settings?$"
 
 LittlerootTown_Text_ShinyRate_1:
 	.string "Current shiny rate: 1/250\n"
-	.string "Do you want to change this settings?$"	
+	.string "Would you like to change this settings?$"
 
 LittlerootTown_Text_ShinyRate_2:
 	.string "Current shiny rate: 1/100\n"
-	.string "Do you want to change this settings?$"	
+	.string "Would you like to change this settings?$"
 		
 LittlerootTown_Text_ChangePokevial:
 	.string "Enable infinite Poké Vial?$"
 		
 LittlerootTown_Text_ChangePokevialEnabled:
 	.string "Infinite Poké Vial is enabled.\n"
-	.string "Do you want to change this settings?$"
+	.string "Would you like to change this settings?$"
 
 LittlerootTown_Text_ChangePokevialDisabled:
 	.string "Infinite Poké Vial is disabled.\n"
-	.string "Do you want to change this settings?$"
+	.string "Would you like to change this settings?$"
 		
 LittlerootTown_Text_ChangeItems:
 	.string "Enable nurse Joy items?\n"
@@ -998,22 +998,22 @@ LittlerootTown_Text_ChangeItems:
 		
 LittlerootTown_Text_ChangeItemsEnabled:
 	.string "Nurse Joy items are enabled.\n"
-	.string "Do you want to change this settings?$"
+	.string "Would you like to change this settings?$"
 
 LittlerootTown_Text_ChangeItemsDisabled:
 	.string "Nurse Joy items are disabled.\n"
-	.string "Do you want to change this settings?$"
+	.string "Would you like to change this settings?$"
 
 LittlerootTown_Text_ChangeBerries:
 	.string "Enable instant berries?$"
 		
 LittlerootTown_Text_ChangeBerriesEnabled:
 	.string "Instant berries are enabled.\n"
-	.string "Do you want to change this settings?$"
+	.string "Would you like to change this settings?$"
 
 LittlerootTown_Text_ChangeBerriesDisabled:
 	.string "Instant berries are disabled.\n"
-	.string "Do you want to change this settings?$"
+	.string "Would you like to change this settings?$"
 		
 LittlerootTown_Text_ChangeUniqueColor:
 	.string "Enable Individually-Unique Pokémon?\n"
@@ -1021,22 +1021,22 @@ LittlerootTown_Text_ChangeUniqueColor:
 		
 LittlerootTown_Text_ChangeUniqueColorEnabled:
 	.string "Individually-Unique Pokémon is enabled.\n"
-	.string "Do you want to change this settings?$"
+	.string "Would you like to change this settings?$"
 
 LittlerootTown_Text_ChangeUniqueColorDisabled:
 	.string "Individually-Unique Pokémon is Disabled.\n"
-	.string "Do you want to change this settings?$"
+	.string "Would you like to change this settings?$"
 		
 LittlerootTown_Text_ChangeAIcontrolled:
 	.string "Enable AI controlled battles?$"
 		
 LittlerootTown_Text_ChangeAIcontrolledEnabled:
 	.string "AI controlled battles are enabled.\n"
-	.string "Do you want to change this settings?$"
+	.string "Would you like to change this settings?$"
 
 LittlerootTown_Text_ChangeAIcontrolledDisabled:
 	.string "AI controlled battles are Disabled.\n"
-	.string "Do you want to change this settings?$"
+	.string "Would you like to change this settings?$"
 		
 LittlerootTown_Text_MakePlaceForSettingsMon:
 	.string "Make sure there's no Pokémon in your PC\n"
@@ -1044,11 +1044,11 @@ LittlerootTown_Text_MakePlaceForSettingsMon:
 
 LittlerootTown_Text_ChangeIVSettingsDisabled:
 	.string "Perfect IVs are disabled.\n"
-	.string "Do you want to change this settings?$"	
+	.string "Would you like to change this settings?$"
 
 LittlerootTown_Text_ChangeIVSettingsEnabled:
 	.string "Perfect IVs are enabled.\n"
-	.string "Do you want to change this settings?$"	
+	.string "Would you like to change this settings?$"
 		
 LittlerootTown_Text_HandleIVSettings:
 	.string "Enable perfect IVs?\n"
@@ -1063,11 +1063,11 @@ LittlerootTown_Text_DisableIVSettings:
 
 LittlerootTown_Text_ChangeEVSettingsEnabled:
 	.string "EVs are disabled.\n"
-	.string "Do you want to change this settings?$"	
+	.string "Would you like to change this settings?$"
 
 LittlerootTown_Text_ChangeEVSettingsDisabled:
 	.string "EVs are enabled.\n"
-	.string "Do you want to change this settings?$"	
+	.string "Would you like to change this settings?$"
 		
 LittlerootTown_Text_HandleEVSettings:
 	.string "Disable EVs?\n"
