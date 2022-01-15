@@ -622,6 +622,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
     {
         static const u16 Obt[][1] = {
             {SPECIES_BULBASAUR},
+            /*
             {SPECIES_CHARMANDER},
             {SPECIES_SQUIRTLE},
             {SPECIES_CATERPIE},
@@ -967,6 +968,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_DRAMPA},
             {SPECIES_DHELMISE},
             {SPECIES_JANGMO_O},
+            */
             {SPECIES_MELTAN}
         };
         
