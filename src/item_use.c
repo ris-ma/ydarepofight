@@ -1000,9 +1000,51 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_MELTAN}
         };
         
+        static const u16 NonObt[][1] = {
+            {SPECIES_UNOWN},
+            {SPECIES_GROOKEY},
+            {SPECIES_SCORBUNNY},
+            {SPECIES_SOBBLE},
+            {SPECIES_SKWOVET},
+            {SPECIES_ROOKIDEE},
+            {SPECIES_BLIPBUG},
+            {SPECIES_NICKIT},
+            {SPECIES_GOSSIFLEUR},
+            {SPECIES_WOOLOO},
+            {SPECIES_CHEWTLE},
+            {SPECIES_YAMPER},
+            {SPECIES_ROLYCOLY},
+            {SPECIES_APPLIN},
+            {SPECIES_SILICOBRA},
+            {SPECIES_CRAMORANT},
+            {SPECIES_ARROKUDA},
+            {SPECIES_TOXEL},
+            {SPECIES_SIZZLIPEDE},
+            {SPECIES_CLOBBOPUS},
+            {SPECIES_SINISTEA},
+            {SPECIES_HATENNA},
+            {SPECIES_IMPIDIMP},
+            {SPECIES_MILCERY},
+            {SPECIES_FALINKS},
+            {SPECIES_PINCURCHIN},
+            {SPECIES_SNOM},
+            {SPECIES_STONJOURNER},
+            {SPECIES_EISCUE},
+            {SPECIES_INDEEDEE},
+            {SPECIES_MORPEKO},
+            {SPECIES_CUFANT},
+            {SPECIES_DRACOZOLT},
+            {SPECIES_ARCTOZOLT},
+            {SPECIES_DRACOVISH},
+            {SPECIES_ARCTOVISH},
+            {SPECIES_DURALUDON},
+            {SPECIES_DREEPY}
+        },
+        
         struct Pokemon mon;
         u16 numObt = ARRAY_COUNT(Obt);
         u16 numObtLegends = ARRAY_COUNT(ObtLegends);
+        u16 numNonObt = ARRAY_COUNT(NonObt);
         u16 randSpecies = 0;
         u16 num = numObt;
         
@@ -1011,13 +1053,22 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
         isEgg = TRUE;
         eggCycles = 0;
         
-        if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_CUTE) == 1)
+        if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_CUTE) == 1) // Legendary enabled
             num += numObtLegends;
-            
+        if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_TOUGH) == 1) // Unobtainable enbaled
+        {
+            num += numNonObt
+        }
+
         if ((Random() % num) < numObt)
         {
             randSpecies = Random() % numObt;
-            CreateEgg(&mon, Obt[randSpecies][0], TRUE);            
+            CreateEgg(&mon, Obt[randSpecies][0], TRUE);
+        }
+        else if ((Random() % num) < (numObt + numNonOtb) && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_TOUGH) == 1)
+        {
+            randSpecies = Random() % numNonObt;
+            CreateEgg(&mon, NonObt[randSpecies][0], TRUE);
         }
         else
         {
