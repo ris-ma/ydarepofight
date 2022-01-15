@@ -1004,6 +1004,11 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
         u16 randSpecies = 0;
         u16 num = numObt;
         
+        u8 isEgg;
+        u8 eggCycles;
+        isEgg = TRUE;
+        eggCycles = 0;
+        
         if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_CUTE) == 1)
         {
             num = num + numObtLegends;
@@ -1019,11 +1024,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             randSpecies = Random() % numObtLegends;
             CreateEgg(&mon, ObtLegends[randSpecies][0], TRUE);            
         }
-
-        u8 isEgg;
-        u8 eggCycles;
-        isEgg = TRUE;
-        eggCycles = 0;
+        
         SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
         SetMonData(&mon, MON_DATA_FRIENDSHIP, &eggCycles);
 
