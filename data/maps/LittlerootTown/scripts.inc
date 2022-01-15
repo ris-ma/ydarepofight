@@ -1652,7 +1652,7 @@ LittlerootTown_EventScript_PatchSettings_Random::
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
 	call LittlerootTown_EventScript_PatchSettings_Starters
 	call LittlerootTown_EventScript_PatchSettings_Legends
-	call LittlerootTown_EventScript_PatchSettings_Unobainable
+	call LittlerootTown_EventScript_PatchSettings_Unobtainable
 	call LittlerootTown_EventScript_PatchSettings_AltForms
 	releaseall
 	end
