@@ -620,7 +620,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
 {
     if (gPlayerPartyCount < PARTY_SIZE)
     {
-        static const u16 egglockeObt[][1] = {
+        static const u16 Obt[][1] = {
             {SPECIES_BULBASAUR},
             {SPECIES_CHARMANDER},
             {SPECIES_SQUIRTLE},
@@ -969,15 +969,41 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_JANGMO_O},
             {SPECIES_MELTAN}
         };
+        
+        static const u16 ObtLegends[][1] = {
+            {SPECIES_ARTICUNO},
+            {SPECIES_ZAPDOS},
+            {SPECIES_MOLTRES},
+            {SPECIES_MEWTWO},
+            {SPECIES_MEW},
+            {SPECIES_LUGIA},
+            {SPECIES_HO_OH},
+            {SPECIES_REGIROCK},
+            {SPECIES_REGICE},
+            {SPECIES_REGISTEEL},
+            {SPECIES_LATIAS},
+            {SPECIES_LATIOS},
+            {SPECIES_KYOGRE},
+            {SPECIES_GROUDON},
+            {SPECIES_RAYQUAZA},
+            {SPECIES_JIRACHI},
+            {SPECIES_DEOXYS},
+            {SPECIES_HEATRAN},
+            {SPECIES_REGIGIGAS},
+            {SPECIES_MELOETTA},
+            {SPECIES_DIANCIE},
+            {SPECIES_COSMOG},
+            {SPECIES_MAGEARNA}           
+        };
 
-        u16 numEggSpecies = ARRAY_COUNT(egglockeObt);
+        u16 numEggSpecies = ARRAY_COUNT(Obt);
         u16 randSpecies = Random() % numEggSpecies;
 
         struct Pokemon mon;
         u8 isEgg;
         u8 eggCycles;
 
-        CreateEgg(&mon, egglockeObt[randSpecies][0], TRUE);
+        CreateEgg(&mon, Obt[randSpecies][0], TRUE);
         isEgg = TRUE;
         eggCycles = 0;
         SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
