@@ -997,7 +997,8 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_COSMOG},
             {SPECIES_MAGEARNA}           
         };
-    
+        
+        struct Pokemon mon;
         u16 numObt = ARRAY_COUNT(Obt);
         u16 numObtLegends = ARRAY_COUNT(ObtLegends);
         u16 randSpecies = 0;
@@ -1007,8 +1008,6 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
         {
             num = num + numObtLegends;
         }
-        
-        struct Pokemon mon;
             
         if ((Random() % num) < numObt)
         {
