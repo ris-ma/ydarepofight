@@ -1039,7 +1039,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_ARCTOVISH},
             {SPECIES_DURALUDON},
             {SPECIES_DREEPY}
-        },
+        };
         
         struct Pokemon mon;
         u16 numObt = ARRAY_COUNT(Obt);
