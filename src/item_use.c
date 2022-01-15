@@ -1004,7 +1004,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
         u16 num = numObt;
         
         if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_CUTE) == 1)
-            num += numObtLegends;
+            num = num + numObtLegends;
         
         struct Pokemon mon;
             
