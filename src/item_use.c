@@ -635,7 +635,6 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_SANDSHREW},
             {SPECIES_SANDSHREW_ALOLAN},
             {SPECIES_NIDORAN_F},
-            {SPECIES_NIDORAN_F},
             {SPECIES_NIDORAN_M},
             {SPECIES_CLEFFA},
             {SPECIES_VULPIX},
