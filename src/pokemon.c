@@ -8407,8 +8407,6 @@ u16 getShinyOdds(void)
 u16 getRandomSpecies(void)
 {
 	static const u16 Obt[][1] = {
-            {SPECIES_MEOWTH}
-            /*
             {SPECIES_BULBASAUR},
             {SPECIES_CHARMANDER},
             {SPECIES_SQUIRTLE},
@@ -8755,12 +8753,9 @@ u16 getRandomSpecies(void)
             {SPECIES_DRAMPA},
             {SPECIES_DHELMISE},
             {SPECIES_JANGMO_O}
-            */
         };
 	      
         static const u16 ObtLegends[][1] = {
-            {SPECIES_ARTICUNO}
-            /*
             {SPECIES_ARTICUNO},
             {SPECIES_ZAPDOS},
             {SPECIES_MOLTRES},
@@ -8785,12 +8780,9 @@ u16 getRandomSpecies(void)
             {SPECIES_COSMOG},
             {SPECIES_MAGEARNA},
             {SPECIES_MELTAN}
-            */
         };
         
         static const u16 NonObt[][1] = {
-            {SPECIES_INDEEDEE}
-            /*
             {SPECIES_UNOWN},
             {SPECIES_GROOKEY},
             {SPECIES_SCORBUNNY},
@@ -8829,12 +8821,9 @@ u16 getRandomSpecies(void)
             {SPECIES_ARCTOVISH},
             {SPECIES_DURALUDON},
             {SPECIES_DREEPY}
-            */
         };
         
         static const u16 NonObtLegends[][1] = {
-            {SPECIES_SILVALLY}
-            /*
             {SPECIES_RAIKOU},
             {SPECIES_ENTEI},
             {SPECIES_SUICUNE},
@@ -8898,7 +8887,6 @@ u16 getRandomSpecies(void)
             {SPECIES_GLASTRIER},
             {SPECIES_SPECTRIER},
             {SPECIES_CALYREX}
-            */
         };
         
         
