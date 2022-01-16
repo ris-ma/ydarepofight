@@ -1123,6 +1123,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
         u16 randSpecies = 0;
         u16 num = numObt;
         u16 Rand = 0;
+        u16 Species = 0;
         
         u8 isEgg;
         u8 eggCycles;
@@ -1149,28 +1150,30 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
         if (Rand < numObt)
         {
             randSpecies = Random() % numObt;
-            randSpecies = Obt[randSpecies][0];
+            Species = Obt[randSpecies][0];
         }
         else if (Rand < (numObt + numNonObt) && NonObtEnabled == 1) // Unobtainable enbaled
         {
             randSpecies = Random() % numNonObt;
-            randSpecies = NonObt[randSpecies][0];
+            Species = NonObt[randSpecies][0];
         }
         else if (Rand < (numObt + numNonObt + numNonObtLegends) && NonObtLegendsEnabled == 1) // Unobtainable&Legendary enbaled
         {
             randSpecies = Random() % numNonObtLegends;
-            randSpecies = NonObtLegends[randSpecies][0];
+            Species = NonObtLegends[randSpecies][0];
         }
         else if (ObtLegendsEnabled == 1)
         {
             randSpecies = Random() % numObtLegends;
-            randSpecies = ObtLegends[randSpecies][0];
+            Species = ObtLegends[randSpecies][0];
         }
         else
         {
             randSpecies = Random() % numObt;
-            randSpecies = Obt[randSpecies][0];
+            Species = Obt[randSpecies][0];
         }
+        
+        CreateEgg(&mon, Species, TRUE);
         
         SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
         SetMonData(&mon, MON_DATA_FRIENDSHIP, &eggCycles);
