@@ -621,6 +621,8 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
     if (gPlayerPartyCount < PARTY_SIZE)
     {
         static const u16 Obt[][1] = {
+            {SPECIES_MEOWTH}
+            /*
             {SPECIES_BULBASAUR},
             {SPECIES_CHARMANDER},
             {SPECIES_SQUIRTLE},
@@ -967,9 +969,12 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_DRAMPA},
             {SPECIES_DHELMISE},
             {SPECIES_JANGMO_O}
+            */
         };
         
         static const u16 ObtLegends[][1] = {
+            {SPECIES_ARTICUNO}
+            /*
             {SPECIES_ARTICUNO},
             {SPECIES_ZAPDOS},
             {SPECIES_MOLTRES},
@@ -994,9 +999,11 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_COSMOG},
             {SPECIES_MAGEARNA},
             {SPECIES_MELTAN}
+            */
         };
         
         static const u16 NonObt[][1] = {
+            {SPECIES_INDEEDEE}
             /*
             {SPECIES_UNOWN},
             {SPECIES_GROOKEY},
@@ -1040,6 +1047,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
         };
         
         static const u16 NonObtLegends[][1] = {
+            {SPECIES_SILVALLY}
             /*
             {SPECIES_RAIKOU},
             {SPECIES_ENTEI},
@@ -1116,15 +1124,21 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
         u8 ObtLegendsEnabled = 0;
         u8 NonObtEnabled = 0;
         u8 NonObtLegendsEnabled = 0;
+        u8 altForms = 0
         u16 randSpecies = 0;
-        u16 num = numObt;
         u16 Rand = 0;
-        u16 Species = 0;
+        u16 species = 0;
         
         u8 isEgg;
         u8 eggCycles;
         isEgg = TRUE;
         eggCycles = 0;
+        u8 countAltForms = 0;
+        
+        
+        
+        
+        u16 num = numObt;
         
         if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_CUTE) == 1) // Legendary enabled
         {
@@ -1141,35 +1155,74 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
                 NonObtLegendsEnabled = 1;
             }
         }
+        if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SHEEN) == 1) // Alt Forms enbaled
+            altForms = 1;
+            
+            
         
         Rand = Random() % num;
         if (Rand < numObt)
         {
             randSpecies = Random() % numObt;
-            Species = Obt[randSpecies][0];
+            species = Obt[randSpecies][0];
         }
         else if (Rand < (numObt + numNonObt) && NonObtEnabled == 1) // Unobtainable enbaled
         {
             randSpecies = Random() % numNonObt;
-            Species = NonObt[randSpecies][0];
+            species = NonObt[randSpecies][0];
         }
         else if (Rand < (numObt + numNonObt + numNonObtLegends) && NonObtLegendsEnabled == 1) // Unobtainable&Legendary enbaled
         {
             randSpecies = Random() % numNonObtLegends;
-            Species = NonObtLegends[randSpecies][0];
+            species = NonObtLegends[randSpecies][0];
         }
         else if (ObtLegendsEnabled == 1)
         {
             randSpecies = Random() % numObtLegends;
-            Species = ObtLegends[randSpecies][0];
+            species = ObtLegends[randSpecies][0];
         }
         else
         {
             randSpecies = Random() % numObt;
-            Species = Obt[randSpecies][0];
+            species = Obt[randSpecies][0];
         }
         
-        CreateEgg(&mon, Species, TRUE);
+        
+        if (altForms == 1)
+        {
+            if (species == SPECIES_MEOWTH && NonObtEnabled != 1) // SPECIES_MEOWTH_GALARIAN exception
+            {
+                if (Random() % 2 == 1)
+                    species =  SPECIES_MEOWTH_ALOLAN;
+            }
+            else if (species == SPECIES_NECROZMA) // SPECIES_NECROZMA_ULTRA exception
+            {
+                Rand = Random() % 3;
+                if (Rand == 1)
+                    species = SPECIES_NECROZMA_DUSK_MANE;
+                else if (Rand == 2)
+                    species = SPECIES_NECROZMA_DAWN_WINGS;
+            }
+            else if (species = SPECIES_RATTATA || species = SPECIES_SANDSHREW || species = SPECIES_VULPIX || species = SPECIES_DIGLETT || species = SPECIES_MEOWTH || 
+                    species = SPECIES_GEODUDE || species = SPECIES_GRIMER || species = SPECIES_PUMPKABOO || species = SPECIES_ORICORIO || 
+                     ((species = SPECIES_PONYTA || species = SPECIES_SLOWPOKE || species = SPECIES_FARFETCHD || species = SPECIES_CORSOLA || species = SPECIES_ZIGZAGOON || 
+                      species = SPECIES_SHELLOS || species = SPECIES_BASCULIN || species = SPECIES_DARUMAKA || species = SPECIES_YAMASK 
+                       || species = SPECIES_STUNFISK || species = SPECIES_SINISTEA || species = SPECIES_INDEEDEE) && NonObtEnabled == 1) || 
+                     ((species = SPECIES_ARTICUNO || species = SPECIES_ZAPDOS || species = SPECIES_MOLTRES || species = SPECIES_GIRATINA || species = SPECIES_SHAYMIN || 
+                      species = SPECIES_ARCEUS || species = SPECIES_TORNADUS || species = SPECIES_THUNDURUS || species = SPECIES_LANDORUS || species = SPECIES_KYUREM || 
+                      species = SPECIES_KELDEO || species = SPECIES_HOOPA || species = SPECIES_SILVALLY || species = SPECIES_MAGEARNA || species = SPECIES_CALYREX)
+                      && NonObtLegendsEnabled == 1))
+            {
+                for (countAltForms = 0; gFormSpeciesIdTables[species][countAltForms] != FORM_SPECIES_END; countAltForms++)
+                {
+                }
+                randSpecies = Random() % countAltForms;
+                species = gFormSpeciesIdTables[species][randSpecies];
+            }
+        }
+        
+        
+        CreateEgg(&mon, species, TRUE);
         
         SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
         SetMonData(&mon, MON_DATA_FRIENDSHIP, &eggCycles);
