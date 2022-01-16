@@ -8902,7 +8902,6 @@ u16 getRandomSpecies(void)
         };
         
         
-        struct Pokemon mon;
         u16 numObt = ARRAY_COUNT(Obt);
         u16 numObtLegends = ARRAY_COUNT(ObtLegends);
         u16 numNonObt = ARRAY_COUNT(NonObt);
