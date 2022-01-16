@@ -1001,6 +1001,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
         };
         
         static const u16 NonObt[][1] = {
+            /*
             {SPECIES_UNOWN},
             {SPECIES_GROOKEY},
             {SPECIES_SCORBUNNY},
@@ -1038,15 +1039,90 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_DRACOVISH},
             {SPECIES_ARCTOVISH},
             {SPECIES_DURALUDON},
+            */
             {SPECIES_DREEPY}
         };
+        
+        static const u16 NonObtLegends[][1] = {
+            /*
+            {SPECIES_RAIKOU},
+            {SPECIES_ENTEI},
+            {SPECIES_SUICUNE},
+            {SPECIES_CELEBI},
+            {SPECIES_UXIE},
+            {SPECIES_MESPRIT},
+            {SPECIES_AZELF},
+            {SPECIES_DIALGA},
+            {SPECIES_PALKIA},
+            {SPECIES_GIRATINA},
+            {SPECIES_CRESSELIA},
+            {SPECIES_PHIONE},
+            {SPECIES_MANAPHY},
+            {SPECIES_DARKRAI},
+            {SPECIES_SHAYMIN},
+            {SPECIES_ARCEUS},
+            {SPECIES_VICTINI},
+            {SPECIES_COBALION},
+            {SPECIES_TERRAKION},
+            {SPECIES_VIRIZION},
+            {SPECIES_TORNADUS},
+            {SPECIES_THUNDURUS},
+            {SPECIES_RESHIRAM},
+            {SPECIES_ZEKROM},
+            {SPECIES_LANDORUS},
+            {SPECIES_KYUREM},
+            {SPECIES_KELDEO},
+            {SPECIES_GENESECT},
+            {SPECIES_XERNEAS},
+            {SPECIES_YVELTAL},
+            {SPECIES_ZYGARDE},
+            {SPECIES_HOOPA},
+            {SPECIES_VOLCANION},
+            {SPECIES_TYPE_NULL},
+            {SPECIES_SILVALLY},
+            {SPECIES_TAPU_KOKO},
+            {SPECIES_TAPU_LELE},
+            {SPECIES_TAPU_BULU},
+            {SPECIES_TAPU_FINI},
+            {SPECIES_NIHILEGO},
+            {SPECIES_BUZZWOLE},
+            {SPECIES_PHEROMOSA},
+            {SPECIES_XURKITREE},
+            {SPECIES_CELESTEELA},
+            {SPECIES_KARTANA},
+            {SPECIES_GUZZLORD},
+            {SPECIES_NECROZMA},
+            {SPECIES_MARSHADOW},
+            {SPECIES_POIPOLE},
+            {SPECIES_NAGANADEL},
+            {SPECIES_STAKATAKA},
+            {SPECIES_BLACEPHALON},
+            {SPECIES_ZERAORA},
+            {SPECIES_ZACIAN},
+            {SPECIES_ZAMAZENTA},
+            {SPECIES_ETERNATUS},
+            {SPECIES_KUBFU},
+            {SPECIES_ZARUDE},
+            {SPECIES_REGIELEKI},
+            {SPECIES_REGIDRAGO},
+            {SPECIES_GLASTRIER},
+            {SPECIES_SPECTRIER},
+            */
+            {SPECIES_CALYREX}
+        };
+        
         
         struct Pokemon mon;
         u16 numObt = ARRAY_COUNT(Obt);
         u16 numObtLegends = ARRAY_COUNT(ObtLegends);
         u16 numNonObt = ARRAY_COUNT(NonObt);
+        u16 numNonObtLegends = ARRAY_COUNT(NonObtLegends);
+        u8 ObtLegendsEnabled = 0;
+        u8 NonObtEnabled = 0;
+        u8 NonObtLegendsEnabled = 0;
         u16 randSpecies = 0;
         u16 num = numObt;
+        u16 Rand = 0;
         
         u8 isEgg;
         u8 eggCycles;
@@ -1054,26 +1130,41 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
         eggCycles = 0;
         
         if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_CUTE) == 1) // Legendary enabled
+        {
             num += numObtLegends;
+            ObtLegendsEnabled = 1;
+        }
         if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_TOUGH) == 1) // Unobtainable enbaled
         {
             num += numNonObt;
+            NonObtEnabled = 1;
+            if (ObtLegendsEnabled == 1)
+            {
+                num += numNonObtLegends
+                NonObtLegendsEnabled = 1;
+            }
         }
-
-        if ((Random() % num) < numObt)
+        
+        Rand = Random() % num;
+        if (Rand < numObt)
         {
             randSpecies = Random() % numObt;
             CreateEgg(&mon, Obt[randSpecies][0], TRUE);
         }
-        else if ((Random() % num) < (numObt + numNonObt) && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_TOUGH) == 1)
+        else if (Rand < (numObt + numNonObt) && NonObtEnabled == 1) // Unobtainable enbaled
         {
             randSpecies = Random() % numNonObt;
             CreateEgg(&mon, NonObt[randSpecies][0], TRUE);
         }
-        else
+        else if (Rand < (numObt + numNonObt + numNonObtLegends) && NonObtLegendsEnabled == 1) // Unobtainable&Legendary enbaled
+        {
+            randSpecies = Random() % numNonObtLegends;
+            CreateEgg(&mon, NonObtLegends[randSpecies][0], TRUE);
+        }
+        else // Legendaries
         {
             randSpecies = Random() % numObtLegends;
-            CreateEgg(&mon, ObtLegends[randSpecies][0], TRUE);            
+            CreateEgg(&mon, ObtLegends[randSpecies][0], TRUE);
         }
         
         SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
