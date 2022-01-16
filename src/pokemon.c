@@ -8917,13 +8917,6 @@ u16 getRandomSpecies(void)
         u16 species = 0;
         u8 countAltForms = 0;
         
-        u8 isEgg;
-        u8 eggCycles;
-        isEgg = TRUE;
-        eggCycles = 0;
-
-        
-        
         
         
         
