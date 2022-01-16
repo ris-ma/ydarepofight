@@ -19,6 +19,7 @@
 #include "field_player_avatar.h"
 #include "field_screen_effect.h"
 #include "field_weather.h"
+#include "form_species_tables.h"
 #include "item.h"
 #include "item_menu.h"
 #include "item_use.h"
@@ -1124,21 +1125,22 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
         u8 ObtLegendsEnabled = 0;
         u8 NonObtEnabled = 0;
         u8 NonObtLegendsEnabled = 0;
-        u8 altForms = 0
+        u16 num = numObt;
+        u8 altForms = 0;
         u16 randSpecies = 0;
         u16 Rand = 0;
         u16 species = 0;
+        u8 countAltForms = 0;
         
         u8 isEgg;
         u8 eggCycles;
         isEgg = TRUE;
         eggCycles = 0;
-        u8 countAltForms = 0;
+
         
         
         
         
-        u16 num = numObt;
         
         if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_CUTE) == 1) // Legendary enabled
         {
