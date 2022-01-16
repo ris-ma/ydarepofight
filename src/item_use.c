@@ -50,6 +50,7 @@
 
 
 #include "data/pokemon/form_species_table_pointers.h"
+#define FORM_SPECIES_END (0xffff)
 
 static void SetUpItemUseCallback(u8 taskId);
 static void FieldCB_UseItemOnField(void);
