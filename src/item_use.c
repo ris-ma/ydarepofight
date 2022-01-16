@@ -1161,10 +1161,15 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             randSpecies = Random() % numNonObtLegends;
             CreateEgg(&mon, NonObtLegends[randSpecies][0], TRUE);
         }
-        else // Legendaries
+        else if (ObtLegendsEnabled == 1)
         {
             randSpecies = Random() % numObtLegends;
             CreateEgg(&mon, ObtLegends[randSpecies][0], TRUE);
+        }
+        else
+        {
+            randSpecies = Random() % numObt;
+            CreateEgg(&mon, Obt[randSpecies][0], TRUE);
         }
         
         SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
