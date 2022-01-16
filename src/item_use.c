@@ -49,8 +49,17 @@
 #include "constants/songs.h"
 
 
+#include "data/pokemon/tmhm_learnsets.h"
+#include "data/pokemon/trainer_class_lookups.h"
+#include "data/pokemon/experience_tables.h"
+#include "data/pokemon/base_stats.h"
+#include "data/pokemon/level_up_learnsets.h"
+#include "data/pokemon/evolution.h"
+#include "data/pokemon/level_up_learnset_pointers.h"
+#include "data/pokemon/form_species_tables.h"
 #include "data/pokemon/form_species_table_pointers.h"
-#define FORM_SPECIES_END (0xffff)
+#include "data/pokemon/form_change_tables.h"
+#include "data/pokemon/form_change_table_pointers.h"
 
 static void SetUpItemUseCallback(u8 taskId);
 static void FieldCB_UseItemOnField(void);
