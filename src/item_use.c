@@ -1207,15 +1207,15 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
                 else if (Rand == 2)
                     species = SPECIES_NECROZMA_DAWN_WINGS;
             }
-            else if (species = SPECIES_RATTATA || species = SPECIES_SANDSHREW || species = SPECIES_VULPIX || species = SPECIES_DIGLETT || species = SPECIES_MEOWTH || 
-                    species = SPECIES_GEODUDE || species = SPECIES_GRIMER || species = SPECIES_PUMPKABOO || species = SPECIES_ORICORIO || 
-                     ((species = SPECIES_PONYTA || species = SPECIES_SLOWPOKE || species = SPECIES_FARFETCHD || species = SPECIES_CORSOLA || species = SPECIES_ZIGZAGOON || 
-                      species = SPECIES_SHELLOS || species = SPECIES_BASCULIN || species = SPECIES_DARUMAKA || species = SPECIES_YAMASK 
-                       || species = SPECIES_STUNFISK || species = SPECIES_SINISTEA || species = SPECIES_INDEEDEE) && NonObtEnabled == 1) || 
-                     ((species = SPECIES_ARTICUNO || species = SPECIES_ZAPDOS || species = SPECIES_MOLTRES || species = SPECIES_GIRATINA || species = SPECIES_SHAYMIN || 
-                      species = SPECIES_ARCEUS || species = SPECIES_TORNADUS || species = SPECIES_THUNDURUS || species = SPECIES_LANDORUS || species = SPECIES_KYUREM || 
-                      species = SPECIES_KELDEO || species = SPECIES_HOOPA || species = SPECIES_SILVALLY || species = SPECIES_MAGEARNA || species = SPECIES_CALYREX)
-                      && NonObtLegendsEnabled == 1))
+            else if (species == SPECIES_RATTATA || species == SPECIES_SANDSHREW || species == SPECIES_VULPIX || species == SPECIES_DIGLETT || species == SPECIES_MEOWTH || 
+                    species == SPECIES_GEODUDE || species == SPECIES_GRIMER || species == SPECIES_PUMPKABOO || species == SPECIES_ORICORIO || 
+                     (species == SPECIES_PONYTA || species == SPECIES_SLOWPOKE || species == SPECIES_FARFETCHD || species == SPECIES_CORSOLA || species == SPECIES_ZIGZAGOON || 
+                      species == SPECIES_SHELLOS || species == SPECIES_BASCULIN || species == SPECIES_DARUMAKA || species == SPECIES_YAMASK 
+                       || species == SPECIES_STUNFISK || species == SPECIES_SINISTEA || species == SPECIES_INDEEDEE) && NonObtEnabled == 1 || 
+                     (species == SPECIES_ARTICUNO || species == SPECIES_ZAPDOS || species == SPECIES_MOLTRES || species == SPECIES_GIRATINA || species == SPECIES_SHAYMIN || 
+                      species == SPECIES_ARCEUS || species == SPECIES_TORNADUS || species == SPECIES_THUNDURUS || species == SPECIES_LANDORUS || species == SPECIES_KYUREM || 
+                      species == SPECIES_KELDEO || species == SPECIES_HOOPA || species == SPECIES_SILVALLY || species == SPECIES_MAGEARNA || species == SPECIES_CALYREX)
+                      && NonObtLegendsEnabled == 1)
             {
                 for (countAltForms = 0; gFormSpeciesIdTables[species][countAltForms] != FORM_SPECIES_END; countAltForms++)
                 {
