@@ -1140,7 +1140,7 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             NonObtEnabled = 1;
             if (ObtLegendsEnabled == 1)
             {
-                num += numNonObtLegends
+                num += numNonObtLegends;
                 NonObtLegendsEnabled = 1;
             }
         }
