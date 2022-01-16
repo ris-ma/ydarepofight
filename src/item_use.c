@@ -621,6 +621,12 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
 {
     if (gPlayerPartyCount < PARTY_SIZE)
     {
+        u8 isEgg;
+        u8 eggCycles;
+        isEgg = TRUE;
+        eggCycles = 0;
+        
+        
         CreateEgg(&mon, getRandomSpecies(), TRUE);
         
         SetMonData(&mon, MON_DATA_IS_EGG, &isEgg);
