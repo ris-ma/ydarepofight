@@ -49,6 +49,7 @@
 #include "constants/songs.h"
 
 #include "data/pokemon/form_species_tables.h"
+#include "data/pokemon/form_species_table_pointers.h"
 
 static void SetUpItemUseCallback(u8 taskId);
 static void FieldCB_UseItemOnField(void);
