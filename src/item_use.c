@@ -621,6 +621,9 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
 {
     if (gPlayerPartyCount < PARTY_SIZE)
     {
+        
+        struct Pokemon mon;
+        
         u8 isEgg;
         u8 eggCycles;
         isEgg = TRUE;
