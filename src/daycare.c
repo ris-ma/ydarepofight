@@ -1264,29 +1264,28 @@ static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
 
                 SetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP, &eggCycles);
             }
-            /*
             else 
             {
                 gSpecialVar_0x8004 = i;
                 return TRUE;
             }
-            */
         }
-       else
+    }
+    else
+    {
+        for (i = 0; i < gPlayerPartyCount; i++)
         {
-            for (i = 0; i < gPlayerPartyCount; i++)
+            if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
+                continue;
+            if (GetMonData(&gPlayerParty[i], MON_DATA_SANITY_IS_BAD_EGG))
+                continue;
+            
+            eggCycles = GetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP);
+            if (eggCycles == 0)
             {
-                if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
-                    continue;
-                if (GetMonData(&gPlayerParty[i], MON_DATA_SANITY_IS_BAD_EGG))
-                    continue;
-
-                eggCycles = GetMonData(&gPlayerParty[i], MON_DATA_FRIENDSHIP);
-                if (eggCycles == 0)
-                {
-                    gSpecialVar_0x8004 = i;
-                    return TRUE;
-                }
+                gSpecialVar_0x8004 = i;
+                return TRUE;
+            }
         }
     }
 
