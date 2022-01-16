@@ -621,7 +621,6 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
     if (gPlayerPartyCount < PARTY_SIZE)
     {
         static const u16 Obt[][1] = {
-            /*
             {SPECIES_BULBASAUR},
             {SPECIES_CHARMANDER},
             {SPECIES_SQUIRTLE},
@@ -967,12 +966,10 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_BRUXISH},
             {SPECIES_DRAMPA},
             {SPECIES_DHELMISE},
-            */
             {SPECIES_JANGMO_O}
         };
         
         static const u16 ObtLegends[][1] = {
-            /*
             {SPECIES_ARTICUNO},
             {SPECIES_ZAPDOS},
             {SPECIES_MOLTRES},
@@ -996,7 +993,6 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_DIANCIE},
             {SPECIES_COSMOG},
             {SPECIES_MAGEARNA},
-            */
             {SPECIES_MELTAN}
         };
         
@@ -1039,8 +1035,8 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_DRACOVISH},
             {SPECIES_ARCTOVISH},
             {SPECIES_DURALUDON},
-            */
             {SPECIES_DREEPY}
+            */
         };
         
         static const u16 NonObtLegends[][1] = {
@@ -1107,8 +1103,8 @@ void ItemUseOutOfBattle_PokeblockCase(u8 taskId)
             {SPECIES_REGIDRAGO},
             {SPECIES_GLASTRIER},
             {SPECIES_SPECTRIER},
-            */
             {SPECIES_CALYREX}
+            */
         };
         
         
