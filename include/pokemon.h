@@ -459,4 +459,5 @@ u8 GetFormIdFromFormSpeciesId(u16 formSpeciesId);
 u16 GetFormChangeTargetSpecies(struct Pokemon *mon, u16 method, u32 arg);
 u8 GetLevelCap(void);
 u16 getShinyOdds(void);
+u16 getRandomSpecies(void);
 #endif // GUARD_POKEMON_H
