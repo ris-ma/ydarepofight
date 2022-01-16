@@ -1273,6 +1273,7 @@ static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
     }
     else
     {
+        u32 eggCycles;
         for (i = 0; i < gPlayerPartyCount; i++)
         {
             if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG))
