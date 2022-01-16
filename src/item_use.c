@@ -19,7 +19,6 @@
 #include "field_player_avatar.h"
 #include "field_screen_effect.h"
 #include "field_weather.h"
-#include "form_species_tables.h"
 #include "item.h"
 #include "item_menu.h"
 #include "item_use.h"
@@ -48,6 +47,8 @@
 #include "constants/item_effects.h"
 #include "constants/items.h"
 #include "constants/songs.h"
+
+#include "data/pokemon/form_species_tables.h"
 
 static void SetUpItemUseCallback(u8 taskId);
 static void FieldCB_UseItemOnField(void);
