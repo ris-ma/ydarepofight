@@ -546,6 +546,7 @@ gSpecials::
 	def_special SetSettingsMonStats
 	def_special GetSettingsMonStats
 	def_special GenerateRandomStarters
+	def_speical DeleteRandomStarters
 	def_special BufferChosenMonIV
 	def_special BufferChosenMonEV
 	def_special BufferChosenMonAllIVs
