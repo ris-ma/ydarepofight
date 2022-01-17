@@ -279,7 +279,6 @@ LittlerootTown_EventScript_Twin:: @ 81E8034
 	end
 
 LittlerootTown_EventScript_GoSaveBirch:: @ 81E805D
-	special GenerateRandomStarters
 	special GetPlayerBigGuyGirlString
 	msgbox LittlerootTown_Text_CanYouGoSeeWhatsHappening, MSGBOX_DEFAULT
 	closemessage
@@ -394,6 +393,7 @@ LittlerootTown_Movement_TwinReturnRight: @ 81E8118
 
 LittlerootTown_EventScript_GoSaveBirchTrigger:: @ 81E811F
 	lockall
+	special GenerateRandomStarters
 	applymovement LOCALID_TWIN, Common_Movement_WalkInPlaceFastestRight
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFastestLeft
