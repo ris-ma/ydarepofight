@@ -545,6 +545,7 @@ gSpecials::
 	def_special IncreaseChosenMonEVs
 	def_special SetSettingsMonStats
 	def_special GetSettingsMonStats
+	def_special GenerateRandomStarters
 	def_special BufferChosenMonIV
 	def_special BufferChosenMonEV
 	def_special BufferChosenMonAllIVs
