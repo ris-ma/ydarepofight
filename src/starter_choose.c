@@ -399,27 +399,34 @@ u16 GetStarterPokemon(u16 chosenStarterId)
 {
     if (chosenStarterId > STARTER_MON_COUNT)
         chosenStarterId = 0;
-    switch (gSpecialVar_0x800A)
+    if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SMART) != 1)
     {
-    case 0:
-        return sStarterMonHoenn[chosenStarterId];
-    case 1:
-        return sStarterMonKanto[chosenStarterId];
-    case 2:
-        return sStarterMonJohto[chosenStarterId];
-    case 3:
-        return sStarterMonHoenn[chosenStarterId];
-    case 4:
-        return sStarterMonSinnoh[chosenStarterId];
-    case 5:
-        return sStarterMonUnova[chosenStarterId];
-    case 6:
-        return sStarterMonKalos[chosenStarterId];
-    case 7:
-        return sStarterMonAlola[chosenStarterId];
-    default:
-        return sStarterMonHoenn[chosenStarterId];
-    } 
+        switch (gSpecialVar_0x800A)
+        {
+        case 0:
+            return sStarterMonHoenn[chosenStarterId];
+        case 1:
+            return sStarterMonKanto[chosenStarterId];
+        case 2:
+            return sStarterMonJohto[chosenStarterId];
+        case 3:
+            return sStarterMonHoenn[chosenStarterId];
+        case 4:
+            return sStarterMonSinnoh[chosenStarterId];
+        case 5:
+            return sStarterMonUnova[chosenStarterId];
+        case 6:
+            return sStarterMonKalos[chosenStarterId];
+        case 7:
+            return sStarterMonAlola[chosenStarterId];
+        default:
+            return sStarterMonHoenn[chosenStarterId];
+        }
+    }
+    else
+    {
+        return GetBoxMonDataAt(0, chosenStarterId, MON_DATA_SPECIES);
+    }
 }
 
 static void VblankCB_StarterChoose(void)
