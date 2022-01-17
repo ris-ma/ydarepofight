@@ -41,7 +41,6 @@ Route101_EventScript_StartBirchRescue:: @ 81EBCDE
 	msgbox Route101_Text_PleaseHelp, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_ROUTE101_STATE, 2
-	special DeleteRandomStarters
 	releaseall
 	end
 
@@ -249,6 +248,7 @@ Route101_EventScript_BirchsBag:: @ 81EBE16
 	call_if_eq Route101_EventScript_HideBrendanInBedroom
 	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 255, 6, 5
 	waitstate
+	special DeleteRandomStarters
 	release
 	end
 
