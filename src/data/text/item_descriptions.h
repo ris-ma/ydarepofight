@@ -1536,7 +1536,7 @@ static const u8 sAcroBikeDesc[] = _(
 static const u8 sPokeblockCaseDesc[] = _(
     "Is that a Pokémon\n"
     "egg on the floor?\n"
-    "Nobody will know.");
+    "Better pick it up!");
 
 static const u8 sLetterDesc[] = _(
     "A letter to Steven\n"
