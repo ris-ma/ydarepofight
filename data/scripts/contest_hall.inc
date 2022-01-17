@@ -1487,8 +1487,6 @@ LilycoveCity_ContestLobby_Text_ReceptionDontHavePokeblockCase: @ 827ADA7
 	.string "with this!$"
 
 LilycoveCity_ContestLobby_Text_NowThatWeveClearedThatUp: @ 827AE47
-	.string "Okay, now that we've cleared that\n"
-	.string "up…\p"
 	.string "Hello!\p"
 	.string "This is the reception counter for\n"
 	.string "Pokémon Contests.$"
