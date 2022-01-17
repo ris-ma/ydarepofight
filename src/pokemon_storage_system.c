@@ -1745,8 +1745,6 @@ static s16 StorageSystemGetNextMonIndex(struct BoxPokemon *box, s8 startIdx, u8 
 
 void ResetPokemonStorageSystem(void)
 {
-    
-    struct Pokemon mon;
     u16 boxId, boxPosition;
     
     SetCurrentBox(0);
