@@ -5366,12 +5366,12 @@ void GetSettingsMonStats (void)
 	}
 }
 
-void GenerateRandomStarters (void)
+void DeleteRandomStarters (void)
 {
     ResetPokemonStorageSystem(); // Delete the 3 random starters
 }
 
-void DeleteRandomStarters (void)
+void GenerateRandomStarters (void)
 {
     struct Pokemon mon;
 	
