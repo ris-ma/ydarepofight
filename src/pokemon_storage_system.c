@@ -1745,8 +1745,10 @@ static s16 StorageSystemGetNextMonIndex(struct BoxPokemon *box, s8 startIdx, u8 
 
 void ResetPokemonStorageSystem(void)
 {
+    
+    struct Pokemon mon;
     u16 boxId, boxPosition;
-
+    
     SetCurrentBox(0);
     for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
     {
@@ -1770,6 +1772,12 @@ void ResetPokemonStorageSystem(void)
         SetBoxWallpaper(boxId, boxId % (MAX_DEFAULT_WALLPAPER + 1));
 
     ResetWaldaWallpaper();
+    
+    for (boxPosition = 0; boxPosition < 3; boxPosition++) // Generate 3 random Pokémon for the Random starters option
+    {
+        CreateMon(&mon, getRandomSpecies(), 0, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+        SendMonToPC(mon);
+    }
 }
 
 
