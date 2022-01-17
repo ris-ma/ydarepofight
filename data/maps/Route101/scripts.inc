@@ -219,7 +219,6 @@ Route101_EventScript_RouteSign:: @ 81EBE0D
 	end
 
 Route101_EventScript_BirchsBag:: @ 81EBE16
-	special DeleteRandomStarters
 	lock
 	faceplayer
 	setflag FLAG_SYS_POKEMON_GET
