@@ -8783,6 +8783,7 @@ u16 getRandomSpecies(void)
         };
         
         static const u16 NonObt[][1] = {
+		/*
             {SPECIES_UNOWN},
             {SPECIES_GROOKEY},
             {SPECIES_SCORBUNNY},
@@ -8821,9 +8822,11 @@ u16 getRandomSpecies(void)
             {SPECIES_ARCTOVISH},
             {SPECIES_DURALUDON},
             {SPECIES_DREEPY}
+	    */
         };
         
         static const u16 NonObtLegends[][1] = {
+		/*
             {SPECIES_RAIKOU},
             {SPECIES_ENTEI},
             {SPECIES_SUICUNE},
@@ -8887,6 +8890,7 @@ u16 getRandomSpecies(void)
             {SPECIES_GLASTRIER},
             {SPECIES_SPECTRIER},
             {SPECIES_CALYREX}
+	    */
         };
         
         
