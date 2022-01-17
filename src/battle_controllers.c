@@ -46,7 +46,10 @@ void HandleLinkBattleSetup(void)
 void SetUpBattleVarsAndBirchZigzagoon(void)
 {
     s32 i;
-
+	
+    ResetPokemonStorageSystem(); // Delete the 3 random starters
+	    
+	    
     gBattleMainFunc = BeginBattleIntroDummy;
 
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
