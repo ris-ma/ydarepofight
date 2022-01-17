@@ -5074,6 +5074,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
     }
     else
     {
+        PartyMenuTryEvolution(taskId);
         cannotUseEffect = TRUE;
     }
     PlaySE(SE_SELECT);
