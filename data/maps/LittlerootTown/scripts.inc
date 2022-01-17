@@ -279,6 +279,7 @@ LittlerootTown_EventScript_Twin:: @ 81E8034
 	end
 
 LittlerootTown_EventScript_GoSaveBirch:: @ 81E805D
+	special GenerateRandomStarters
 	special GetPlayerBigGuyGirlString
 	msgbox LittlerootTown_Text_CanYouGoSeeWhatsHappening, MSGBOX_DEFAULT
 	closemessage
