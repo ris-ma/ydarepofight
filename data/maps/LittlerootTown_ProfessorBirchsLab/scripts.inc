@@ -122,6 +122,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GiveStarterEvent:: @ 81F9DDB
 	waitmessage
 	playfanfare MUS_OBTAIN_ITEM
 	waitfanfare
+	special DeleteRandomStarters
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_WhyNotGiveNicknameToMon, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq LittlerootTown_ProfessorBirchsLab_EventScript_NicknameStarter
