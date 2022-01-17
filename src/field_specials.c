@@ -5368,6 +5368,11 @@ void GetSettingsMonStats (void)
 
 void GenerateRandomStarters (void)
 {
+    ResetPokemonStorageSystem(); // Delete the 3 random starters
+}
+
+void DeleteRandomStarters (void)
+{
     struct Pokemon mon;
 	
     u8 boxPosition = 0;
