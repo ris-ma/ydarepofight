@@ -219,6 +219,7 @@ Route101_EventScript_RouteSign:: @ 81EBE0D
 	end
 
 Route101_EventScript_BirchsBag:: @ 81EBE16
+	special DeleteRandomStarters
 	lock
 	faceplayer
 	setflag FLAG_SYS_POKEMON_GET
@@ -248,7 +249,6 @@ Route101_EventScript_BirchsBag:: @ 81EBE16
 	call_if_eq Route101_EventScript_HideBrendanInBedroom
 	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 255, 6, 5
 	waitstate
-	special DeleteRandomStarters
 	release
 	end
 
