@@ -952,7 +952,9 @@ LittlerootTown_EventScript_SetReceivedRunningShoes:: @ 81E8686
 LittlerootTown_EventScript_GiveRunningShoes:: @ 81E8693
 	msgbox LittlerootTown_Text_WearTheseRunningShoes, MSGBOX_DEFAULT
 	giveitem ITEM_OLD_ROD
+	giveitem ITEM_POKEBLOCK_CASE
 	setflag FLAG_RECEIVED_OLD_ROD
+	setflag FLAG_RECEIVED_POKEBLOCK_CASE
 	msgbox LittlerootTown_Text_ComeHomeIfAnythingHappens, MSGBOX_DEFAULT
 	closemessage
 	delay 30
@@ -1105,7 +1107,7 @@ LittlerootTown_Text_WearTheseRunningShoes: @ 81E87F0
 	.string "You're your father's child, all right.\n"
 	.string "You look good together with Pokémon!\p"
 	.string "Here, honey! If you're going out on an\n"
-	.string "adventure, take Dad's old Fishing Rod.\p"
+	.string "adventure, take Dad's old stuff.\p"
 	.string "He never uses it anyway!$"
 
 LittlerootTown_Text_ComeHomeIfAnythingHappens: @ 81E8A03
@@ -1653,7 +1655,7 @@ LittlerootTown_EventScript_PatchSettings_Random::
 	goto_if_ne LittlerootTown_EventScript_NoPlaceForSettingsMon
 	call LittlerootTown_EventScript_PatchSettings_Starters
 	call LittlerootTown_EventScript_PatchSettings_Legends
-	call LittlerootTown_EventScript_PatchSettings_Unobtainable
+	@call LittlerootTown_EventScript_PatchSettings_Unobtainable
 	call LittlerootTown_EventScript_PatchSettings_AltForms
 	releaseall
 	end
