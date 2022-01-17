@@ -131,14 +131,9 @@ static const u16 sStarterMonJohto[STARTER_MON_COUNT] =
 
 static const u16 sStarterMonHoenn[STARTER_MON_COUNT] =
 {
-    /*
     SPECIES_TREECKO,
     SPECIES_TORCHIC,
     SPECIES_MUDKIP,
-    */
-    GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES),
-    GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES),
-    GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES),
 };
 
 static const u16 sStarterMonSinnoh[STARTER_MON_COUNT] =
