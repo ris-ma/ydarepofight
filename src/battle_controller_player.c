@@ -271,7 +271,7 @@ static void HandleInputChooseAction(void)
     }
     else if (JOY_NEW(L_BUTTON))
     {
-        gBattlerControllerFuncs[gActiveBattler] = CompleteOnBattlerSpriteCallbackDummy;
+        gBattlerControllerFuncs[gActiveBattler] = CompleteWhenChoseItem;
         BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 0x10, RGB_BLACK);
         FreeAllWindowBuffers();
         ShowPokemonSummaryScreen(SUMMARY_MODE_LOCK_MOVES, gEnemyParty, 0, CalculateEnemyPartyCount() - 1, CB2_SetUpReshowBattleScreenAfterMenu);
