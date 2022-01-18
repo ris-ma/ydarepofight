@@ -16,6 +16,9 @@ Common_EventScript_PkmnCenterNurse::
     end
 
 EventScript_PkmnCenterNurseHasVial::
+    checkitem ITEM_POKEBLOCK_CASE, 1
+    compare VAR_RESULT, TRUE
+    call_if_ne ADDITEM_POKEBLOCK_CASE
     checkitem ITEM_RARE_CANDY, 400
     compare VAR_RESULT, TRUE
     call_if_ne ADDITEM_RARE_CANDY
@@ -333,6 +336,10 @@ Give_Thief_Items_After_Winoma:
 	checkitem ITEM_PP_MAX, 50
 	compare VAR_RESULT, TRUE
 	call_if_ne ADDITEM_PP_MAX
+	return
+
+ADDITEM_POKEBLOCK_CASE:
+	additem ITEM_POKEBLOCK_CASE, 1
 	return
 
 ADDITEM_RARE_CANDY:
