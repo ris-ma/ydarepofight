@@ -16,9 +16,7 @@ Common_EventScript_PkmnCenterNurse::
     end
 
 EventScript_PkmnCenterNurseHasVial::
-    checkitem ITEM_POKEBLOCK_CASE, 1
-    compare VAR_RESULT, TRUE
-    call_if_ne ADDITEM_POKEBLOCK_CASE
+    call_if_set FLAG_RECEIVED_OLD_ROD, Give_Pokeblock_Case
     checkitem ITEM_RARE_CANDY, 400
     compare VAR_RESULT, TRUE
     call_if_ne ADDITEM_RARE_CANDY
@@ -140,7 +138,15 @@ Movement_PkmnCenterNurse_Bow:
     nurse_joy_bow
     delay_4
     step_end
-
+    
+    
+Give_Pokeblock_Case:
+	checkitem ITEM_POKEBLOCK_CASE, 1
+	compare VAR_RESULT, TRUE
+	call_if_ne ADDITEM_POKEBLOCK_CASE
+	return
+	
+	
 Give_Nuzlocke_Items:
 	call_if_set FLAG_BADGE01_GET, Give_Cut_Items_After_Roxanne
     	call_if_set FLAG_RECEIVED_TM46, Give_Thief_Items_After_Thief
