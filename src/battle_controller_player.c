@@ -242,10 +242,8 @@ static void HandleInputChooseAction(void)
     if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES) == SPECIES_RATTATA && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0 
     && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_FRIENDSHIP) == 1)
     {
+        PlayerHandleChooseAction();
         value = 0;
-        PlayerHandleChooseAction();
-        PlayerHandleChooseAction();
-        PlayerHandleChooseAction();
         SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_FRIENDSHIP, &value); 
     }
     
