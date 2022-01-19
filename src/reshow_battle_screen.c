@@ -166,6 +166,9 @@ static void CB2_ReshowBattleScreenAfterMenu(void)
         sub_805EF14();
         break;
     }
+    if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES) == SPECIES_RATTATA 
+            && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
+        SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_FRIENDSHIP, 1);
     gBattleScripting.reshowMainState++;
 }
 
