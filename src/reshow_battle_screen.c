@@ -42,6 +42,7 @@ void ReshowBattleScreenAfterMenu(void)
 
 static void CB2_ReshowBattleScreenAfterMenu(void)
 {
+    u8 value = 0;
     switch (gBattleScripting.reshowMainState)
     {
     case 0:
@@ -168,7 +169,10 @@ static void CB2_ReshowBattleScreenAfterMenu(void)
     }
     if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES) == SPECIES_RATTATA 
             && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
-        SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_FRIENDSHIP, 1);
+    {
+        value = 1;
+        SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_FRIENDSHIP, &value);
+    }
     gBattleScripting.reshowMainState++;
 }
 
