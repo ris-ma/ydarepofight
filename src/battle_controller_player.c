@@ -19,6 +19,7 @@
 #include "party_menu.h"
 #include "pokeball.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "pokemon_summary_screen.h"
 #include "random.h"
 #include "recorded_battle.h"
