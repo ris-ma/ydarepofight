@@ -3,6 +3,7 @@
 #include "battle.h"
 #include "palette.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "main.h"
 #include "scanline_effect.h"
 #include "text.h"
