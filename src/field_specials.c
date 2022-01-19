@@ -5226,7 +5226,7 @@ void SetSettingsMonStats (void)
 	SetMonData(mon, MON_DATA_TOUGH, &i); // Unobtainable
 	SetMonData(mon, MON_DATA_SHEEN, &i); // Alt Forms
 	SetMonData(mon, MON_DATA_ABILITY_NUM, &i);
-	SetMonData(mon, MON_DATA_FRIENDSHIP, &i);
+	SetMonData(mon, MON_DATA_FRIENDSHIP, &i); // Summary screen
 	*/
 	
 	u8 statToChange = gSpecialVar_0x8006;
