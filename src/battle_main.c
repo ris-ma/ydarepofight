@@ -2018,8 +2018,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                     SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
                     SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
                 }
-                // Set max friendship if trainer mon knows Return
-                if (MonKnowsMove(&party[i], MOVE_RETURN))
+                // Set max friendship if trainer mon knows Return /  Added Veevee Volley and Pika Papow to the list
+                if (MonKnowsMove(&party[i], MOVE_RETURN) || MonKnowsMove(&party[i], MOVE_VEEVEE_VOLLEY) || MonKnowsMove(&party[i], MOVE_PIKA_PAPOW))
                 {
                     friendship = MAX_FRIENDSHIP;
                     SetMonData(&party[i], MON_DATA_FRIENDSHIP, &friendship);
