@@ -161,6 +161,7 @@ LittlerootTown_EventScript_GoInsideWithMom:: @ 81E7F17
 	delay 10
 	applymovement LOCALID_MOM, LittlerootTown_Movement_MomApproachPlayerAtTruck
 	waitmovement 0
+	givemon SPECIES_RATTATA, 0, ITEM_NONE
 	msgbox LittlerootTown_Text_OurNewHomeLetsGoInside, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_MOM, LittlerootTown_Movement_MomApproachDoor
