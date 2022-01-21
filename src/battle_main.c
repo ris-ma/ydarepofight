@@ -5510,7 +5510,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Normal, Type Two: Fairy, Result: Normal, Ground, Rock, Fairy - Score: 657
 		{0}, {18}, {0, 4, 5, 18},
-	}
+	},
 	{//Type One: Fighting, Type Two: Normal, Result: Normal, Fighting, Ground, Ice - Score: 662
 		{1}, {0}, {0, 1, 4, 15},
 	},
