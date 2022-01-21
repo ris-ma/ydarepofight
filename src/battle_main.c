@@ -1,4 +1,3 @@
-#include <string.h>
 #include "global.h"
 #include "battle.h"
 #include "battle_anim.h"
@@ -1990,7 +1989,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 {
                     level = level + partyData[i].lvl;
                 }
-		if (strcmp(gTrainers[trainerNum].trainerName, "Oldplayer"))
+		if (gTrainers[trainerNum].aiFlags == AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_CHECK_FOE | RANDOM)
 			CreateMon(&party[i], i+2, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 		else
                 	CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
