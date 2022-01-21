@@ -1886,6 +1886,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     u8 friendship;
     u8 difficultySetting = gSaveBlock2Ptr->gameDifficulty;
     	
+    u16 test = 1,
 	
 	
 	
@@ -2477,6 +2478,7 @@ static const u16 oldPlayerTypeMove [][2][3] =
 			    SetMonData(&party[i], MON_DATA_MOVE1 + j, &oldPlayerTypeMove[oldPlayerMoveTypeArrays[gBaseStats[partyData[i].species].type1*19+gBaseStats[partyData[i].species].type2][j]][0][0]);
 			    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
 			}
+			SetMonData(&party[i], MON_DATA_MOVE1 + j+1, &test);
 		}
 		else
 		{
