@@ -62,6 +62,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
+#include "constants/opponents.h"
 #include "constants/spreads.h"
 #include "cable_club.h"
 
@@ -1989,7 +1990,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 {
                     level = level + partyData[i].lvl;
                 }
-		if (trainerNum == 2000)
+		if (trainerNum == TRAINER_OLDPLAYER)
 			CreateMon(&party[i], i+2, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 		else
                 	CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
