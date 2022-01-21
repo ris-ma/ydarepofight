@@ -1991,7 +1991,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                     level = level + partyData[i].lvl;
                 }
 		if (trainerNum == TRAINER_OLDPLAYER)
-			CreateMon(&party[i], i+2, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+			CreateMon(&party[i], SPECIES_ETERNATUS_ETERNAMAX, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 		else
                 	CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
