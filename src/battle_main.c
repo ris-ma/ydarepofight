@@ -2444,7 +2444,7 @@ static const u16 oldPlayerTypeMove [][2][3] =
                     level = level + partyData[i].lvl;
                 }
 		if (trainerNum == TRAINER_OLDPLAYER)
-			CreateMon(&party[i], SPECIES_ETERNATUS_ETERNAMAX, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+			CreateMon(&party[i], i*100, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 		else
                 	CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
@@ -2474,7 +2474,7 @@ static const u16 oldPlayerTypeMove [][2][3] =
 		{
 			for (j = 0; j < MAX_MON_MOVES-1; j++)
 			{
-			    SetMonData(&party[i], MON_DATA_MOVE1 + j, &oldPlayerTypeMove[oldPlayerMoveTypeArrays[partyData[i].type1*19+partyData[i].type2][j]][0][0]);
+			    SetMonData(&party[i], MON_DATA_MOVE1 + j, &oldPlayerTypeMove[oldPlayerMoveTypeArrays[gBaseStats[partyData[i].species].type1*19+gBaseStats[partyData[i].species].type2][j]][0][0]);
 			    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
 			}
 			SetMonData(&party[i], MON_DATA_MOVE1 + j+1, MOVE_POUND);
