@@ -1885,7 +1885,9 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     u8 friendship;
     u8 difficultySetting = gSaveBlock2Ptr->gameDifficulty;
 	
-    u16 test[11] = _("Oldplayer");
+    u16 test[20] = _("Oldplayer");
+    u16 test2[20] = gTrainers[trainerNum].trainerName;	
+	
 
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
@@ -1990,7 +1992,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 {
                     level = level + partyData[i].lvl;
                 }
-		if (gTrainers[trainerNum].trainerName == test)
+		if (test2 == test)
 			CreateMon(&party[i], i+2, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 		else
                 	CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
