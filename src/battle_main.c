@@ -1885,7 +1885,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     u8 friendship;
     u8 difficultySetting = gSaveBlock2Ptr->gameDifficulty;
 	
-    u16 test = _("Oldplayer");
+    u16 test[11] = _("Oldplayer");
 
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
