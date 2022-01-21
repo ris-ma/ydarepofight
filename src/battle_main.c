@@ -5567,7 +5567,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Fighting, Type Two: Fairy, Result: Fighting, Ground, Rock, Fairy - Score: 706
 		{1}, {18}, {1, 4, 5, 18},
-	}
+	},
 	{//Type One: Flying, Type Two: Normal, Result: Normal, Flying, Ground, Ice - Score: 651
 		{2}, {0}, {0, 2, 4, 15},
 	},
@@ -5624,7 +5624,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Flying, Type Two: Fairy, Result: Flying, Ground, Rock, Fairy - Score: 686
 		{2}, {18}, {2, 4, 5, 18},
-	}
+	},
 	{//Type One: Poison, Type Two: Normal, Result: Normal, Poison, Ground, Rock - Score: 622
 		{3}, {0}, {0, 3, 4, 5},
 	},
@@ -5681,7 +5681,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Poison, Type Two: Fairy, Result: Poison, Ground, Rock, Fairy - Score: 679
 		{3}, {18}, {3, 4, 5, 18},
-	}
+	},
 	{//Type One: Ground, Type Two: Normal, Result: Normal, Ground, Rock, Ice - Score: 669
 		{4}, {0}, {0, 4, 5, 15},
 	},
@@ -5738,7 +5738,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Ground, Type Two: Fairy, Result: Ground, Rock, Ice, Fairy - Score: 711
 		{4}, {18}, {4, 5, 15, 18},
-	}
+	},
 	{//Type One: Rock, Type Two: Normal, Result: Normal, Ground, Rock, Ice - Score: 669
 		{5}, {0}, {0, 4, 5, 15},
 	},
@@ -5795,7 +5795,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Rock, Type Two: Fairy, Result: Ground, Rock, Ice, Fairy - Score: 711
 		{5}, {18}, {4, 5, 15, 18},
-	}
+	},
 	{//Type One: Bug, Type Two: Normal, Result: Normal, Ground, Rock, Bug - Score: 637
 		{6}, {0}, {0, 4, 5, 6},
 	},
@@ -5852,7 +5852,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Bug, Type Two: Fairy, Result: Ground, Rock, Bug, Fairy - Score: 689
 		{6}, {18}, {4, 5, 6, 18},
-	}
+	},
 	{//Type One: Ghost, Type Two: Normal, Result: Normal, Ground, Ghost, Ice - Score: 625
 		{7}, {0}, {0, 4, 7, 15},
 	},
@@ -5909,7 +5909,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Ghost, Type Two: Fairy, Result: Ground, Rock, Ghost, Fairy - Score: 681
 		{7}, {18}, {4, 5, 7, 18},
-	}
+	},
 	{//Type One: Steel, Type Two: Normal, Result: Normal, Ground, Steel, Ice - Score: 647
 		{8}, {0}, {0, 4, 8, 15},
 	},
@@ -5966,7 +5966,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Steel, Type Two: Fairy, Result: Ground, Steel, Ice, Fairy - Score: 685
 		{8}, {18}, {4, 8, 15, 18},
-	}
+	},
 	{//Type One: 9, Type Two: Normal, Result: Normal, Normal, Normal, Normal - Score: 0
 		{9}, {0}, {0, 0, 0, 0},
 	},
@@ -6023,7 +6023,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: 9, Type Two: Fairy, Result: Normal, Normal, Normal, Normal - Score: 0
 		{9}, {18}, {0, 0, 0, 0},
-	}
+	},
 	{//Type One: Fire, Type Two: Normal, Result: Normal, Ground, Fire, Ice - Score: 665
 		{10}, {0}, {0, 4, 10, 15},
 	},
@@ -6080,7 +6080,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Fire, Type Two: Fairy, Result: Ground, Fire, Ice, Fairy - Score: 705
 		{10}, {18}, {4, 10, 15, 18},
-	}
+	},
 	{//Type One: Water, Type Two: Normal, Result: Normal, Ground, Rock, Water - Score: 615
 		{11}, {0}, {0, 4, 5, 11},
 	},
@@ -6137,7 +6137,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Water, Type Two: Fairy, Result: Ground, Rock, Water, Fairy - Score: 680
 		{11}, {18}, {4, 5, 11, 18},
-	}
+	},
 	{//Type One: Grass, Type Two: Normal, Result: Normal, Ground, Rock, Grass - Score: 630
 		{12}, {0}, {0, 4, 5, 12},
 	},
@@ -6194,7 +6194,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Grass, Type Two: Fairy, Result: Ground, Rock, Grass, Fairy - Score: 691
 		{12}, {18}, {4, 5, 12, 18},
-	}
+	},
 	{//Type One: Electric, Type Two: Normal, Result: Normal, Ground, Fire, Electric - Score: 626
 		{13}, {0}, {0, 4, 10, 13},
 	},
@@ -6251,7 +6251,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Electric, Type Two: Fairy, Result: Ground, Fire, Electric, Fairy - Score: 687
 		{13}, {18}, {4, 10, 13, 18},
-	}
+	},
 	{//Type One: Psychic, Type Two: Normal, Result: Normal, Ground, Psychic, Ice - Score: 616
 		{14}, {0}, {0, 4, 14, 15},
 	},
@@ -6308,7 +6308,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Psychic, Type Two: Fairy, Result: Ground, Rock, Psychic, Fairy - Score: 663
 		{14}, {18}, {4, 5, 14, 18},
-	}
+	},
 	{//Type One: Ice, Type Two: Normal, Result: Normal, Ground, Rock, Ice - Score: 669
 		{15}, {0}, {0, 4, 5, 15},
 	},
@@ -6365,7 +6365,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Ice, Type Two: Fairy, Result: Ground, Rock, Ice, Fairy - Score: 711
 		{15}, {18}, {4, 5, 15, 18},
-	}
+	},
 	{//Type One: Dragon, Type Two: Normal, Result: Normal, Ground, Fire, Dragon - Score: 607
 		{16}, {0}, {0, 4, 10, 16},
 	},
@@ -6422,7 +6422,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Dragon, Type Two: Fairy, Result: Ground, Rock, Dragon, Fairy - Score: 657
 		{16}, {18}, {4, 5, 16, 18},
-	}
+	},
 	{//Type One: Dark, Type Two: Normal, Result: Normal, Ground, Ice, Dark - Score: 621
 		{17}, {0}, {0, 4, 15, 17},
 	},
@@ -6479,7 +6479,7 @@ static const u16 oldPlayerMoveTypeArrays[][1][1][4] = {
 	},
 	{//Type One: Dark, Type Two: Fairy, Result: Ground, Rock, Dark, Fairy - Score: 681
 		{17}, {18}, {4, 5, 17, 18},
-	}
+	},
 	{//Type One: Fairy, Type Two: Normal, Result: Normal, Ground, Rock, Fairy - Score: 657
 		{18}, {0}, {0, 4, 5, 18},
 	},
