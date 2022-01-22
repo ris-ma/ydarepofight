@@ -5932,6 +5932,8 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 	
 	if ((spAtk * 3) > (atk * 4))
 		split = 1;
+	else if ((atk * 3) > (spAtk * 4))
+		split = 0;
 	else if (randomValue < chanceValue)
 		split = 0;
 	else 
