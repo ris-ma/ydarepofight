@@ -5919,13 +5919,14 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 	u8 type1 = gBaseStats[species].type1;
 	u8 type2 = gBaseStats[species].type2;
 	u16 moveTypeArraysID = (type1 * 19) + type2;
-	u8 type = oldPlayerMoveTypeArrays[moveTypeArraysID][i];
 	u8 randomMove = Random() % 3;
 	u8 split = 0;
 	u32 caster = 1;
 	
-	u16 randomValue = Random() % 1000;
-	u32 chanceValue = (caster * 500 * atk * atk *atk) / (caster * spAtk * spAtk * spAtk);
+	
+	u8 type = 0;
+	u16 randomValue = 0;
+	u32 chanceValue = 0;
 	
 	if (i == MAX_MON_MOVES - 1)
 	{
@@ -5960,6 +5961,9 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 	}
 	else
 	{
+		type = oldPlayerMoveTypeArrays[moveTypeArraysID][i];
+		randomValue = Random() % 1000;
+		chanceValue = (caster * 500 * atk * atk *atk) / (caster * spAtk * spAtk * spAtk);
 		if (atk > spAtk)
 		{
             		chanceValue = (caster * 500 * spAtk * spAtk *spAtk) / (caster * atk * atk * atk);
