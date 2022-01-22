@@ -2029,7 +2029,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 			{
 			    test = selectMoves(species, j, GetMonData(&party[i], MON_DATA_ATK, NULL), GetMonData(&party[i], MON_DATA_SPATK, NULL));		
 			    SetMonData(&party[i], MON_DATA_MOVE1 + j, &test);
-			    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
+			    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[GetMonData(&party[i], MON_DATA_MOVE1 + j, NULL)].pp);
 			}
 			test = 1;
 			SetMonData(&party[i], MON_DATA_MOVE4, &test);
