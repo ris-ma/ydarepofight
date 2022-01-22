@@ -1895,7 +1895,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 	    {3},
 	    {4},
 	    {5},
-	    {6},
+	    {6}
     }; 
 	
 
