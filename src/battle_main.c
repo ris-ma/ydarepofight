@@ -5960,14 +5960,26 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 	}
 	else
 	{
-		if ((spAtk * 3) > (atk * 4))
-			split = 1;
-		else if ((atk * 3) > (spAtk * 4))
-			split = 0;
-		else if (randomValue < chanceValue)
-			split = 0;
-		else 
-			split = 1;
+		if (atk > spAtk)
+		{
+            		chanceValue = (caster * 500 * spAtk * spAtk *spAtk) / (caster * atk * atk * atk);
+            		if ((atk * 3) > (spAtk * 4))
+                		split = 0;
+            		else if (randomValue < chanceValue)
+                		split = 1;
+            		else
+                		split = 0;
+        	}
+		else
+		{
+            		chanceValue = (caster * 500 * atk * atk *atk) / (caster * spAtk * spAtk * spAtk);
+            		if ((spAtk * 3) > (atk * 4))
+                		split = 1;
+            		else if (randomValue < chanceValue)
+                		split = 0;
+            		else 
+                		split = 1;
+        	}  
 	}
 	
 	return oldPlayerTypeMove[type][split][randomMove];
