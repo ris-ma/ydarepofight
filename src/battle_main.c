@@ -2025,7 +2025,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 		{
 			for (j = 0; j < MAX_MON_MOVES - 1; j++)
 			{
-			    test = selectMoves(partyData[i].species);		
+			    test = selectMoves(partyData[i].species, j);		
 			    SetMonData(&party[i], MON_DATA_MOVE1 + j, &test);
 			    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
 			}
