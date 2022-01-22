@@ -5468,11 +5468,12 @@ void SetTotemBoost(void)
 }
 
 
-u16 selectMoves (u16 species)
+u16 selectMoves (u16 species, u8 i)
 {
 	u8 type1 = gBaseStats[species].type1;
 	u8 type2 = gBaseStats[species].type2;
 	u16 moveTypeArraysID = (type1 * 19) + type2;
+	u8 type = oldPlayerMoveTypeArrays[moveTypeArraysID][i];
 	//&oldPlayerTypeMove[oldPlayerMoveTypeArrays[gBaseStats[partyData[i].species].type1*19+gBaseStats[partyData[i].species].type2]
 	
 	
@@ -5923,5 +5924,5 @@ u16 selectMoves (u16 species)
 	};
 	
 	
-	return oldPlayerTypeMove[moveTypeArraysID][0][0];
+	return oldPlayerTypeMove[type][0][0];
 }
