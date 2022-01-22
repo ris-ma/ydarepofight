@@ -1886,7 +1886,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     u8 friendship;
     u8 difficultySetting = gSaveBlock2Ptr->gameDifficulty;
     	
-    u16 test = 1;
+    u16 move = 1;
     u16 species = 1;
 	
 
@@ -2025,15 +2025,12 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 		    
 		if (trainerNum == TRAINER_OLDPLAYER)
 		{
-			for (j = 0; j < MAX_MON_MOVES - 1; j++)
+			for (j = 0; j < MAX_MON_MOVES; j++)
 			{
-			    test = selectMoves(species, j, GetMonData(&party[i], MON_DATA_ATK, NULL), GetMonData(&party[i], MON_DATA_SPATK, NULL));		
-			    SetMonData(&party[i], MON_DATA_MOVE1 + j, &test);
+			    move = selectMoves(species, j, GetMonData(&party[i], MON_DATA_ATK, NULL), GetMonData(&party[i], MON_DATA_SPATK, NULL));		
+			    SetMonData(&party[i], MON_DATA_MOVE1 + j, &move);
 			    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[GetMonData(&party[i], MON_DATA_MOVE1 + j, NULL)].pp);
 			}
-			test = 1;
-			SetMonData(&party[i], MON_DATA_MOVE4, &test);
-			SetMonData(&party[i], MON_DATA_PP4, &gBattleMoves[partyData[i].moves[3]].pp);
 		}
 		else
 		{
@@ -5930,16 +5927,48 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 	u16 randomValue = Random() % 1000;
 	u32 chanceValue = (caster * 500 * atk * atk *atk) / (caster * spAtk * spAtk * spAtk);
 	
-	if ((spAtk * 3) > (atk * 4))
-		split = 1;
-	else if ((atk * 3) > (spAtk * 4))
-		split = 0;
-	else if (randomValue < chanceValue)
-		split = 0;
-	else 
-		split = 1;
-	
-	
+	if (i == MAX_MON_MOVES - 1)
+	{
+		if (type1 == TYPE_NORMAL || type2 == TYPE_NORMAL)
+			return MOVE_EXTREME_SPEED;
+		else if (type1 == TYPE_DARK || type2 == TYPE_DARK)
+			return MOVE_SUCKER_PUNCH;
+		else if (type1 == TYPE_BUG || type2 == TYPE_BUG)
+			return MOVE_U_TURN ;
+		else if (type1 == TYPE_ELECTRIC || type2 == TYPE_ELECTRIC)
+			return MOVE_VOLT_SWITCH ;
+		else if (type1 == TYPE_WATER || type2 == TYPE_WATER)
+			if (atk > spAtk)
+				return MOVE_AQUA_JET;
+			else
+				return MOVE_WATER_SHURIKEN;
+		else if (type1 == TYPE_FIGHTING || type2 == TYPE_FIGHTING)
+			if (atk > spAtk)
+				return MOVE_MACH_PUNCH;
+			else
+				return MOVE_VACUUM_WAVE;
+		else if (type1 == TYPE_STEEL || type2 == TYPE_STEEL)
+			return MOVE_BULLET_PUNCH;
+		else if (type1 == TYPE_ICE || type2 == TYPE_ICE)
+			return MOVE_ICE_SHARD;
+		else if (type1 == TYPE_ROCK || type2 == TYPE_ROCK)
+			return MOVE_ACCELEROCK;
+		else if (type1 == TYPE_GHOST || type2 == TYPE_GHOST)
+			return MOVE_SHADOW_SNEAK;	
+		else
+			return MOVE_EXTREME_SPEED;
+	}
+	else
+	{
+		if ((spAtk * 3) > (atk * 4))
+			split = 1;
+		else if ((atk * 3) > (spAtk * 4))
+			split = 0;
+		else if (randomValue < chanceValue)
+			split = 0;
+		else 
+			split = 1;
+	}
 	
 	return oldPlayerTypeMove[type][split][randomMove];
 }
