@@ -1887,8 +1887,15 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     u8 difficultySetting = gSaveBlock2Ptr->gameDifficulty;
     	
     u16 test = 1;
-	
-	
+    static const u16 species [][1] = 
+    {
+	    {1},
+	    {2},
+	    {3},
+	    {4},
+	    {5},
+	    {6},
+    }; 
 	
 
     if (trainerNum == TRAINER_SECRET_BASE)
@@ -1995,7 +2002,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                     level = level + partyData[i].lvl;
                 }
 		if (trainerNum == TRAINER_OLDPLAYER)
-			partyData[i].species = i+1;
+			CreateMon(&party[i], species[i], level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 		else
                 	CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 
@@ -2025,7 +2032,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 		{
 			for (j = 0; j < MAX_MON_MOVES - 1; j++)
 			{
-			    test = selectMoves(partyData[i].species, j);		
+			    test = selectMoves(species[i], j);		
 			    SetMonData(&party[i], MON_DATA_MOVE1 + j, &test);
 			    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
 			}
