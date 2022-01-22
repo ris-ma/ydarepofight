@@ -5921,5 +5921,5 @@ u16 selectMoves (u16 species)
 	};
 	
 	
-	return *oldPlayerTypeMove[moveTypeArraysID][0][0];
+	return oldPlayerTypeMove[moveTypeArraysID][0][0];
 }
