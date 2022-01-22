@@ -2020,27 +2020,25 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 }
 
                 CalculateMonStats(&party[i]); // called twice; fix in future
-                /*
+		    
 		if (trainerNum == TRAINER_OLDPLAYER)
 		{
 			for (j = 0; j < MAX_MON_MOVES - 1; j++)
 			{
-			    SetMonData(&party[i], MON_DATA_MOVE1 + j, &oldPlayerTypeMove[oldPlayerMoveTypeArrays[partyData[i].species.type1*19+partyData[i].species.type2][j]][0][0]);
+			    SetMonData(&party[i], MON_DATA_MOVE1 + j, &selectMoves(partyData[i].species));
 			    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
 			}
-			SetMonData(&party[i], MON_DATA_MOVE1 + j+1, &test);
-			test = j+1;
-			SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[test]].pp);
+			SetMonData(&party[i], MON_DATA_MOVE4, &test);
+			SetMonData(&party[i], MON_DATA_PP4, &gBattleMoves[partyData[i].moves[3]].pp);
 		}
 		else
-		*/
-		//{
+		{
 			for (j = 0; j < MAX_MON_MOVES; j++)
 			{
 			    SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
 			    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
 			}
-		//}
+		}
                 // Set max friendship if trainer mon knows Return /  Added Veevee Volley and Pika Papow to the list
                 if (MonKnowsMove(&party[i], MOVE_RETURN) || MonKnowsMove(&party[i], MOVE_VEEVEE_VOLLEY) || MonKnowsMove(&party[i], MOVE_PIKA_PAPOW))
                 {
