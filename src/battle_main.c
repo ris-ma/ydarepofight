@@ -120,6 +120,7 @@ static void HandleEndTurn_BattleLost(void);
 static void HandleEndTurn_RanFromBattle(void);
 static void HandleEndTurn_MonFled(void);
 static void HandleEndTurn_FinishBattle(void);
+static u8 getRole(u16 species);
 
 // EWRAM vars
 EWRAM_DATA u16 gBattle_BG0_X = 0;
@@ -5988,3 +5989,26 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 	
 	return oldPlayerTypeMove[type][split][randomMove];
 }
+
+
+static u8 getRole (u16 species)
+{
+	u16 max = 0;
+	u16 atk = gBaseStats[species].baseAttack
+	u16 spAtk = gBaseStats[species].baseSpAttack		
+	u16 def = gBaseStats[species].baseDefense
+	u16 spDef = gBaseStats[species].baseSpDefense
+	u16 HP = gBaseStats[species].baseHP
+		
+		
+		
+	if (atk >= spAtk)
+		max = atk;
+	else
+		max = spAtk;
+	
+	if ((max * 3) > ((def + spDef + HP) * 1))
+		return 0;
+	else
+		return 1;	
+};
