@@ -2004,7 +2004,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 }
 		if (trainerNum == TRAINER_OLDPLAYER)
 		{
-			species = randomParty[i];
+			species = &randomParty[i];
 			CreateMon(&party[i], species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 		}
 		else
