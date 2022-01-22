@@ -5994,11 +5994,11 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 static u8 getRole (u16 species)
 {
 	u16 max = 0;
-	u16 atk = gBaseStats[species].baseAttack
-	u16 spAtk = gBaseStats[species].baseSpAttack		
-	u16 def = gBaseStats[species].baseDefense
-	u16 spDef = gBaseStats[species].baseSpDefense
-	u16 HP = gBaseStats[species].baseHP
+	u16 atk = gBaseStats[species].baseAttack;
+	u16 spAtk = gBaseStats[species].baseSpAttack;
+	u16 def = gBaseStats[species].baseDefense;
+	u16 spDef = gBaseStats[species].baseSpDefense;
+	u16 HP = gBaseStats[species].baseHP;
 		
 		
 		
