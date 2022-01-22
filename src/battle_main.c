@@ -5921,6 +5921,7 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 	u8 type2 = gBaseStats[species].type2;
 	u16 moveTypeArraysID = (type1 * 19) + type2;
 	u8 randomMove = Random() % 3;
+	u8 role = getRole(species);
 	u8 split = 0;
 	u32 caster = 1;
 	
