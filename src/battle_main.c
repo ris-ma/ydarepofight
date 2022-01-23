@@ -5988,6 +5988,7 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 	u8 type1 = gBaseStats[species].type1;
 	u8 type2 = gBaseStats[species].type2;
 	u8 role = getRole(species);	
+	u8 typeUtilityMove = 50;
 	u16 ID = (type1 * 19) + type2;
 	
 	
@@ -6068,7 +6069,44 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 				else
 					return MOVE_RECOVER;					
 			case 2:
-				return MOVE_EXTREME_SPEED;
+				if ((Random() % 100) < 16) 
+					return MOVE_REST;
+				else if ((Random() % 100)  < typeUtilityMove)
+				{
+					if (type1 == TYPE_BUG || type2 == TYPE_BUG)
+						return MOVE_DEFEND_ORDER;
+					else if (type1 == TYPE_ELECTRIC || type2 == TYPE_ELECTRIC)
+						return MOVE_NUZZLE;
+					else if (type1 == TYPE_FIRE || type2 == TYPE_FIRE)
+						return MOVE_WILL_O_WISP;
+					else if (type1 == TYPE_GRASS || type2 == TYPE_GRASS)
+						return MOVE_LEECH_SEED;
+					else if (type1 == TYPE_POISON || type2 == TYPE_POISON)
+						return MOVE_TOXIC;
+					else if (type1 == TYPE_FIGHTING || type2 == TYPE_FIGHTING)
+						return MOVE_COUNTER;
+					else if (type1 == TYPE_PSYCHIC || type2 == TYPE_PSYCHIC)
+						return MOVE_MIRROR_COAT;
+				}
+				else
+				{
+					static const u16 randomUtilityMove [][1] = 
+					{
+						{MOVE_TOXIC},
+						{MOVE_WILL_O_WISP},
+						{MOVE_SPORE},
+						{MOVE_NUZZLE},
+						{MOVE_TEETER_DANCE},
+						{MOVE_CONFUSE_RAY},
+						{MOVE_DEFEND_ORDER},
+						{MOVE_ACID_ARMOR},
+						{MOVE_AMNESIA},
+						{MOVE_COUNTER},
+						{MOVE_MIRROR_COAT}
+					};
+					return randomUtilityMove[Random() % ARRAY_COUNT(randomUtilityMove)];
+					
+				}
 			case 3:
 				return MOVE_EXTREME_SPEED;
 		}
