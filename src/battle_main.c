@@ -2005,7 +2005,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 			//CreateMon(&party[i], species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 			
 			restore1 = gSpecialVar_0x8005;
-			gSpecialVar_0x8005 = 1141592654; // ABSOLUTELY RANDOM, ALLOW MON LEVEL > 100
+			gSpecialVar_0x8005 = 2654; // ABSOLUTELY RANDOM, ALLOW MON LEVEL > 100
 			
 			restore2 = gSpecialVar_0x8006;
 			gSpecialVar_0x8006 = 200;
