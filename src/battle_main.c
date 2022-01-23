@@ -6090,7 +6090,7 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 				}
 				else
 				{
-					const const u16 randomUtilityMove [11][1] = 
+					const u16 randomUtilityMove [11][1] = 
 					{
 						[0] = {MOVE_TOXIC},
 						[1] = {MOVE_WILL_O_WISP},
