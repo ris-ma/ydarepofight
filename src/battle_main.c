@@ -6037,7 +6037,8 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 
 			return MOVE_EXTREME_SPEED;
 		}
-		return getStabMove(ID, i, atk, spAtk);
+		return MOVE_SHADOW_SNEAK;
+		//return getStabMove(ID, i, atk, spAtk);
 	}
 	else // Bulky
 	{
