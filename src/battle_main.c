@@ -5959,19 +5959,20 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 			priorityMove = MOVE_ACCELEROCK;
 		else if (type1 == TYPE_GHOST || type2 == TYPE_GHOST)
 			priorityMove = MOVE_SHADOW_SNEAK;	
-		else
-		{	
-			for (j = 0; j < MAX_MON_MOVES - 1; j++)
-			{
-				if (oldPlayerMoveTypeArrays[moveTypeArraysID][j] == TYPE_DARK)
-					return MOVE_EXTREME_SPEED;
-				else if (oldPlayerMoveTypeArrays[moveTypeArraysID][j] == TYPE_NORMAL)
-					return MOVE_SUCKER_PUNCH;
-			}
-			if (Random() % 2 == 0)
-				priorityMove = MOVE_SUCKER_PUNCH;
+		
+		for (j = 0; j < MAX_MON_MOVES - 1; j++)
+		{
+			if (oldPlayerMoveTypeArrays[moveTypeArraysID][j] == TYPE_DARK)
+				return MOVE_EXTREME_SPEED;
+			else if (oldPlayerMoveTypeArrays[moveTypeArraysID][j] == TYPE_NORMAL)
+				return MOVE_SUCKER_PUNCH;
 			else
-				priorityMove = MOVE_EXTREME_SPEED;
+			{
+				if (Random() % 2 == 0)
+					priorityMove = MOVE_SUCKER_PUNCH;
+				else
+					priorityMove = MOVE_EXTREME_SPEED;
+			}
 		}
 		return priorityMove;
 	}
