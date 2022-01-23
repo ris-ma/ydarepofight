@@ -2035,7 +2035,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 			}
 			if (GetMonData(&party[i], MON_DATA_MOVE2, NULL) == MOVE_REST)
 			{
-			    move = MOVE_REST;
+			    move = MOVE_SLEEP_TALK;
 			    SetMonData(&party[i], MON_DATA_MOVE3, &move);
 			    SetMonData(&party[i], MON_DATA_PP3, &gBattleMoves[move].pp);
 			}			
