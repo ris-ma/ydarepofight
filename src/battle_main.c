@@ -6042,7 +6042,7 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 			case 0:
 				return getStabMove(ID, i, atk, spAtk);
 			case 1:
-				if (type1 == TYPE_BUG || type2 == BUG)
+				if (type1 == TYPE_BUG || type2 == TYPE_BUG)
 					return MOVE_HEAL_ORDER;
 				else if ((type1 == TYPE_GROUND || type2 == TYPE_GROUND) || (type1 == TYPE_ROCK || type2 == TYPE_ROCK) 
 					|| (type1 == TYPE_FIRE || type2 == TYPE_FIRE))
