@@ -6090,6 +6090,7 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 				}
 				else
 				{
+					u16 move = 1;
 					static const u16 randomUtilityMove [][1] = 
 					{
 						{MOVE_TOXIC},
@@ -6104,7 +6105,8 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 						{MOVE_COUNTER},
 						{MOVE_MIRROR_COAT}
 					};
-					return randomUtilityMove[Random() % ARRAY_COUNT(randomUtilityMove)];
+					move = Random() % ARRAY_COUNT(randomUtilityMove);
+					return randomUtilityMove[move];
 					
 				}
 			case 3:
