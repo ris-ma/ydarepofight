@@ -5487,7 +5487,7 @@ static u8 getRole (u16 species)
 	else
 		max = spAtk;
 	
-	if ((max * 3) > ((def + spDef + HP) * 1))
+	if ((max * 3) >= ((def + spDef + HP) * 0.9))
 		return 0;
 	else
 		return 1;	
@@ -6105,7 +6105,7 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 				}
 				return randomUtilityMove[Random() % ARRAY_COUNT(randomUtilityMove)][0];
 			case 3:
-				return MOVE_EXTREME_SPEED;
+				return MOVE_SEISMIC_TOSS;
 		}
 	}
 }
