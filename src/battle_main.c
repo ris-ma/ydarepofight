@@ -5916,7 +5916,7 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 	    }
 	};
 	
-	
+	u8 j = 0;
 	u8 type1 = gBaseStats[species].type1;
 	u8 type2 = gBaseStats[species].type2;
 	u16 moveTypeArraysID = (type1 * 19) + type2;
@@ -5924,9 +5924,9 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 	u8 role = getRole(species);
 	u8 split = 0;
 	u32 caster = 1;
+	u8 type = oldPlayerMoveTypeArrays[moveTypeArraysID][i];
 	
 	
-	u8 type = 0;
 	u16 randomValue = 0;
 	u32 chanceValue = 0;
 	
@@ -5959,11 +5959,24 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 		else if (type1 == TYPE_GHOST || type2 == TYPE_GHOST)
 			return MOVE_SHADOW_SNEAK;	
 		else
+		{	
+			for (j = 0; j < MAX_MON_MOVES - 1; j++)
+			{
+				if (oldPlayerMoveTypeArrays[moveTypeArraysID][j] == TYPE_DARK)
+					return MOVE_EXTREME_SPEED;
+				else if (oldPlayerMoveTypeArrays[moveTypeArraysID][j] == TYPE_NORMAL)
+					return MOVE_SUCKER_PUNCH;
+			}
+			if (Random() % 2 == 0)
+				return MOVE_EXTREME_SPEED;
+			else
+				return MOVE_SUCKER_PUNCH;
+			
 			return MOVE_EXTREME_SPEED;
+		}
 	}
 	else
 	{
-		type = oldPlayerMoveTypeArrays[moveTypeArraysID][i];
 		randomValue = Random() % 1000;
 		chanceValue = (caster * 500 * atk * atk *atk) / (caster * spAtk * spAtk * spAtk);
 		if (atk > spAtk)
