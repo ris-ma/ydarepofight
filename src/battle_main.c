@@ -1892,6 +1892,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     u16 move = 1;
     u16 species = 1;
     u16 heldItem = ITEM_NONE;
+    u32 restore1 = 0;
+    u16 restore2 = 0;
 	
 
     if (trainerNum == TRAINER_SECRET_BASE)
@@ -2001,7 +2003,19 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 		{
 			species = Random() % 500;
 			//CreateMon(&party[i], species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
-			CreateMon(&party[i], species, 255, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+			
+			restore1 = gSpecialVar_0x8005;
+			gSpecialVar_0x8005 = 3141592654; // ABSOLUTELY RANDOM, ALLOW MON LEVEL > 100
+			
+			restore2 = gSpecialVar_0x8006;
+			gSpecialVar_0x8006 = 200;
+			
+			CreateMon(&party[i], species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+			
+			gSpecialVar_0x8005 = restore1;
+			
+			gSpecialVar_0x8006 = restore2;
+			
 			heldItem = getHeldItem(species);
 			SetMonData(&party[i], MON_DATA_HELD_ITEM, &heldItem);
                 	SetMonData(&party[i], MON_DATA_ABILITY_NUM, &partyData[i].ability);
