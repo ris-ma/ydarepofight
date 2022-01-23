@@ -3950,7 +3950,7 @@ u8 GetLevelFromMonExp(struct Pokemon *mon)
     u32 exp = GetMonData(mon, MON_DATA_EXP, NULL);
     s32 level = 1;
     
-    if (gSpecialVar_0x8005 == 1141592654)
+    if (gSpecialVar_0x8005 == 2654)
     {
 	    return gSpecialVar_0x8006;
     }
