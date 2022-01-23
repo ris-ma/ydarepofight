@@ -5960,7 +5960,6 @@ static u16 getStabMove (u16 ID, u8 i, u16 atk, u16 spAtk)
 	if (i > 2)
 		i = randomMove;
 	
-	moveType = oldPlayerMoveTypeArrays[ID][i];
 	
 	if (atk > spAtk)
 	{
@@ -5983,7 +5982,13 @@ static u16 getStabMove (u16 ID, u8 i, u16 atk, u16 spAtk)
 			split = 1;
 	}  
 	
-	return oldPlayerTypeMove[moveType][split][randomMove];
+	if (i == -1)
+		return oldPlayerTypeMove[ID][split][randomMove];
+	else
+	{
+		moveType = oldPlayerMoveTypeArrays[ID][i];
+		return oldPlayerTypeMove[moveType][split][randomMove];
+	}
 };
 
 
@@ -6066,7 +6071,7 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 		switch (i)
 		{
 			case 0:
-				return getStabMove(ID, i, atk, spAtk);
+				return getStabMove(type1, -1, atk, spAtk);
 			case 1:
 				if ((Random() % 100) < 16) 
 					return MOVE_REST;
