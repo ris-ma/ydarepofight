@@ -5957,10 +5957,6 @@ static u16 getStabMove (u16 ID, u8 i, u16 atk, u16 spAtk)
 	u16 randomValue = Random() % 1000;
 	u32 chanceValue = (caster * 500 * atk * atk *atk) / (caster * spAtk * spAtk * spAtk);
 	
-	if (i > 2)
-		i = randomMove;
-	
-	
 	if (atk > spAtk)
 	{
 		chanceValue = (caster * 500 * spAtk * spAtk *spAtk) / (caster * atk * atk * atk);
@@ -5982,7 +5978,7 @@ static u16 getStabMove (u16 ID, u8 i, u16 atk, u16 spAtk)
 			split = 1;
 	}  
 	
-	if (i == -1)
+	if (i >= 3)
 		return oldPlayerTypeMove[ID][split][randomMove];
 	else
 	{
@@ -6071,7 +6067,7 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 		switch (i)
 		{
 			case 0:
-				return getStabMove(type1, -1, atk, spAtk);
+				return getStabMove(type1, 3, atk, spAtk);
 			case 1:
 				if ((Random() % 100) < 16) 
 					return MOVE_REST;
