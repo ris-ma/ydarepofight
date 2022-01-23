@@ -5511,7 +5511,7 @@ static u8 getRole (u16 species)
 
 static u16 getHeldItem (u16 species)
 {
-	if (getRole == 0)
+	if (getRole(species) == 0)
 		return ITEM_NONE;
 	else
 	{
