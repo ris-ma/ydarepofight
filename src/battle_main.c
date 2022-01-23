@@ -6069,6 +6069,20 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 				else
 					return MOVE_RECOVER;					
 			case 2:
+				const u16 randomUtilityMove [11][1] = 
+				{
+					[0] = {MOVE_TOXIC},
+					[1] = {MOVE_WILL_O_WISP},
+					[2] = {MOVE_SPORE},
+					[3] = {MOVE_NUZZLE},
+					[4] = {MOVE_TEETER_DANCE},
+					[5] = {MOVE_CONFUSE_RAY},
+					[6] = {MOVE_DEFEND_ORDER},
+					[7] = {MOVE_ACID_ARMOR},
+					[8] = {MOVE_AMNESIA},
+					[9] = {MOVE_COUNTER},
+					[10] = {MOVE_MIRROR_COAT},
+				};
 				if ((Random() % 100) < 16) 
 					return MOVE_REST;
 				if ((Random() % 100)  < typeUtilityMove)
@@ -6088,20 +6102,6 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 					else if (type1 == TYPE_PSYCHIC || type2 == TYPE_PSYCHIC)
 						return MOVE_MIRROR_COAT;
 				}
-				const u16 randomUtilityMove [11][1] = 
-				{
-					[0] = {MOVE_TOXIC},
-					[1] = {MOVE_WILL_O_WISP},
-					[2] = {MOVE_SPORE},
-					[3] = {MOVE_NUZZLE},
-					[4] = {MOVE_TEETER_DANCE},
-					[5] = {MOVE_CONFUSE_RAY},
-					[6] = {MOVE_DEFEND_ORDER},
-					[7] = {MOVE_ACID_ARMOR},
-					[8] = {MOVE_AMNESIA},
-					[9] = {MOVE_COUNTER},
-					[10] = {MOVE_MIRROR_COAT},
-				};
 				return randomUtilityMove[Random() % ARRAY_COUNT(randomUtilityMove)][0];
 			case 3:
 				return MOVE_EXTREME_SPEED;
