@@ -6090,7 +6090,21 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 				}
 				else
 				{
-					u16 move = 1;
+					const const u16 randomUtilityMove [11][1] = 
+					{
+						[0] = {MOVE_TOXIC},
+						[1] = {MOVE_WILL_O_WISP},
+						[2] = {MOVE_SPORE},
+						[3] = {MOVE_NUZZLE},
+						[4] = {MOVE_TEETER_DANCE},
+						[5] = {MOVE_CONFUSE_RAY},
+						[6] = {MOVE_DEFEND_ORDER},
+						[7] = {MOVE_ACID_ARMOR},
+						[8] = {MOVE_AMNESIA},
+						[9] = {MOVE_COUNTER},
+						[10] = {MOVE_MIRROR_COAT},
+					};
+					/*
 					static const u16 randomUtilityMove [][1] = 
 					{
 						{MOVE_TOXIC},
@@ -6105,9 +6119,18 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 						{MOVE_COUNTER},
 						{MOVE_MIRROR_COAT}
 					};
-					move = Random() % ARRAY_COUNT(randomUtilityMove);
-					return randomUtilityMove[move];
-					
+					*/
+					return randomUtilityMove[Random() % ARRAY_COUNT(randomUtilityMove)][0];
+					/*
+					switch (randomUtility)
+					{
+						case 0:
+							return MOVE_TOXIC;
+						case 1:
+							return MOVE_WILL_O_WISP;
+						case 2;
+					}
+					*/
 				}
 			case 3:
 				return MOVE_EXTREME_SPEED;
