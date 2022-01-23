@@ -1891,6 +1891,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     	
     u16 move = 1;
     u16 species = 1;
+    u16 heldItem = ITEM_NONE;
 	
 
     if (trainerNum == TRAINER_SECRET_BASE)
