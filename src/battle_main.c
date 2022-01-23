@@ -6071,7 +6071,7 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 			case 2:
 				if ((Random() % 100) < 16) 
 					return MOVE_REST;
-				else if ((Random() % 100)  < typeUtilityMove)
+				if ((Random() % 100)  < typeUtilityMove)
 				{
 					if (type1 == TYPE_BUG || type2 == TYPE_BUG)
 						return MOVE_DEFEND_ORDER;
@@ -6088,50 +6088,21 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 					else if (type1 == TYPE_PSYCHIC || type2 == TYPE_PSYCHIC)
 						return MOVE_MIRROR_COAT;
 				}
-				else
+				const u16 randomUtilityMove [11][1] = 
 				{
-					const u16 randomUtilityMove [11][1] = 
-					{
-						[0] = {MOVE_TOXIC},
-						[1] = {MOVE_WILL_O_WISP},
-						[2] = {MOVE_SPORE},
-						[3] = {MOVE_NUZZLE},
-						[4] = {MOVE_TEETER_DANCE},
-						[5] = {MOVE_CONFUSE_RAY},
-						[6] = {MOVE_DEFEND_ORDER},
-						[7] = {MOVE_ACID_ARMOR},
-						[8] = {MOVE_AMNESIA},
-						[9] = {MOVE_COUNTER},
-						[10] = {MOVE_MIRROR_COAT},
-					};
-					/*
-					static const u16 randomUtilityMove [][1] = 
-					{
-						{MOVE_TOXIC},
-						{MOVE_WILL_O_WISP},
-						{MOVE_SPORE},
-						{MOVE_NUZZLE},
-						{MOVE_TEETER_DANCE},
-						{MOVE_CONFUSE_RAY},
-						{MOVE_DEFEND_ORDER},
-						{MOVE_ACID_ARMOR},
-						{MOVE_AMNESIA},
-						{MOVE_COUNTER},
-						{MOVE_MIRROR_COAT}
-					};
-					*/
-					return randomUtilityMove[Random() % ARRAY_COUNT(randomUtilityMove)][0];
-					/*
-					switch (randomUtility)
-					{
-						case 0:
-							return MOVE_TOXIC;
-						case 1:
-							return MOVE_WILL_O_WISP;
-						case 2;
-					}
-					*/
-				}
+					[0] = {MOVE_TOXIC},
+					[1] = {MOVE_WILL_O_WISP},
+					[2] = {MOVE_SPORE},
+					[3] = {MOVE_NUZZLE},
+					[4] = {MOVE_TEETER_DANCE},
+					[5] = {MOVE_CONFUSE_RAY},
+					[6] = {MOVE_DEFEND_ORDER},
+					[7] = {MOVE_ACID_ARMOR},
+					[8] = {MOVE_AMNESIA},
+					[9] = {MOVE_COUNTER},
+					[10] = {MOVE_MIRROR_COAT},
+				};
+				return randomUtilityMove[Random() % ARRAY_COUNT(randomUtilityMove)][0];
 			case 3:
 				return MOVE_EXTREME_SPEED;
 		}
