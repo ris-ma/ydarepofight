@@ -3969,8 +3969,15 @@ u8 GetLevelFromBoxMonExp(struct BoxPokemon *boxMon)
     u32 exp = GetBoxMonData(boxMon, MON_DATA_EXP, NULL);
     s32 level = 1;
 
-    while (level <= MAX_LEVEL && gExperienceTables[gBaseStats[species].growthRate][level] <= exp)
-        level++;
+    if (gSpecialVar_0x8005 == 2654)
+    {
+	    return gSpecialVar_0x8006;
+    }
+    else
+    {
+	    while (level <= MAX_LEVEL && gExperienceTables[gBaseStats[species].growthRate][level] <= exp)
+		level++;
+    }
 
     return level - 1;
 }
