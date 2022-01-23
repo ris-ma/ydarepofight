@@ -2010,7 +2010,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 			restore2 = gSpecialVar_0x8006;
 			gSpecialVar_0x8006 = 200;
 			
-			CreateMon(&party[i], species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+			CreateMon(&party[i], species, gSpecialVar_0x8006, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 			
 			gSpecialVar_0x8005 = restore1;
 			
