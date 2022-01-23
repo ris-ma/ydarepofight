@@ -6042,7 +6042,27 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 			case 0:
 				return getStabMove(ID, i, atk, spAtk);
 			case 1:
-				return MOVE_EXTREME_SPEED;
+				if (type1 == TYPE_BUG || type2 == BUG)
+					return MOVE_HEAL_ORDER;
+				else if ((type1 == TYPE_GROUND || type2 == TYPE_GROUND) || (type1 == TYPE_ROCK || type2 == TYPE_ROCK) 
+					|| (type1 == TYPE_FIRE || type2 == TYPE_FIRE))
+					return MOVE_SHORE_UP;
+				else if (type1 == TYPE_FLYING || type2 == TYPE_FLYING)
+					return MOVE_ROOST;
+				else if ((type1 == TYPE_GRASS || type2 == TYPE_GRASS) || (type1 == TYPE_FAIRY || type2 == TYPE_FAIRY))
+					return MOVE_SYNTHESIS;
+				else if (type1 == TYPE_NORMAL || type2 == TYPE_NORMAL)
+					return MOVE_SOFT_BOILED;
+				else if ((type1 == TYPE_PSYCHIC || type2 == TYPE_PSYCHIC) || (type1 == TYPE_WATER || type2 == TYPE_WATER) 
+					|| (type1 == TYPE_ELECTRIC || type2 == TYPE_ELECTRIC) || (type1 == TYPE_ICE || type2 == TYPE_ICE)
+					|| (type1 == TYPE_GHOST || type2 == TYPE_GHOST))
+					return MOVE_RECOVER;
+				else if ((type1 == TYPE_STEEL || type2 == TYPE_STEEL) || (type1 == TYPE_FIGHTING || type2 == TYPE_FIGHTING)
+					|| (type1 == TYPE_POISON || type2 == TYPE_POISON) || (type1 == TYPE_DARK || type2 == TYPE_DARK)
+					|| (type1 == TYPE_DRAGON || type2 == TYPE_DRAGON))
+					return MOVE_SLACK_OFF;
+				else
+					return MOVE_RECOVER;					
 			case 2:
 				return MOVE_EXTREME_SPEED;
 			case 3:
