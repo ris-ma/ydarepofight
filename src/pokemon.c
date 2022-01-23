@@ -3949,9 +3949,16 @@ u8 GetLevelFromMonExp(struct Pokemon *mon)
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     u32 exp = GetMonData(mon, MON_DATA_EXP, NULL);
     s32 level = 1;
-
-    while (level <= MAX_LEVEL && gExperienceTables[gBaseStats[species].growthRate][level] <= exp)
-        level++;
+    
+    if (gSpecialVar_0x8005 == 3141592654)
+    {
+	    return gSpecialVar_0x8006;
+    }
+    else
+    {
+	    while (level <= MAX_LEVEL && gExperienceTables[gBaseStats[species].growthRate][level] <= exp)
+		level++;
+    }
 
     return level - 1;
 }
