@@ -2033,6 +2033,12 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 			    SetMonData(&party[i], MON_DATA_MOVE1 + j, &move);
 			    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[GetMonData(&party[i], MON_DATA_MOVE1 + j, NULL)].pp);
 			}
+			if (GetMonData(&party[i], MON_DATA_MOVE2, NULL) == MOVE_REST)
+			{
+			    move = MOVE_REST;
+			    SetMonData(&party[i], MON_DATA_MOVE3, &move);
+			    SetMonData(&party[i], MON_DATA_PP3, &gBattleMoves[move].pp);
+			}			
 		}
 		else
 		{
@@ -6062,6 +6068,8 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 			case 0:
 				return getStabMove(ID, i, atk, spAtk);
 			case 1:
+				if ((Random() % 100) < 16) 
+					return MOVE_REST;
 				if (type1 == TYPE_BUG || type2 == TYPE_BUG)
 					return MOVE_HEAL_ORDER;
 				else if ((type1 == TYPE_GROUND || type2 == TYPE_GROUND) || (type1 == TYPE_ROCK || type2 == TYPE_ROCK) 
@@ -6084,8 +6092,6 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 				else
 					return MOVE_RECOVER;					
 			case 2:
-				if ((Random() % 100) < 16) 
-					return MOVE_REST;
 				if ((Random() % 100)  < typeUtilityMove)
 				{
 					if (type1 == TYPE_BUG || type2 == TYPE_BUG)
