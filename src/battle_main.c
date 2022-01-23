@@ -2002,7 +2002,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 			species = Random() % 500;
 			CreateMon(&party[i], species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 			heldItem = getHeldItem(species);
-			SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
+			SetMonData(&party[i], MON_DATA_HELD_ITEM, &heldItem);
                 	SetMonData(&party[i], MON_DATA_ABILITY_NUM, &partyData[i].ability);
 		}
 		else
