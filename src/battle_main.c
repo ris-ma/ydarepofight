@@ -5988,7 +5988,7 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 	u8 type1 = gBaseStats[species].type1;
 	u8 type2 = gBaseStats[species].type2;
 	u8 role = getRole(species);	
-	u8 ID = (type1 * 19) + type2;
+	u16 ID = (type1 * 19) + type2;
 	
 	
 	if (role == 0) // Damage Dealer
