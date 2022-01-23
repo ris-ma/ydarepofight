@@ -5917,6 +5917,7 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 	};
 	
 	u8 j = 0;
+	u16 priorityMove = MOVE_EXTREME_SPEED;
 	u8 type1 = gBaseStats[species].type1;
 	u8 type2 = gBaseStats[species].type2;
 	u16 moveTypeArraysID = (type1 * 19) + type2;
@@ -5933,31 +5934,31 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 	if (i == MAX_MON_MOVES - 1)
 	{
 		if (type1 == TYPE_NORMAL || type2 == TYPE_NORMAL)
-			return MOVE_EXTREME_SPEED;
+			priorityMove = MOVE_EXTREME_SPEED;
 		else if (type1 == TYPE_DARK || type2 == TYPE_DARK)
-			return MOVE_SUCKER_PUNCH;
+			priorityMove = MOVE_SUCKER_PUNCH;
 		else if (type1 == TYPE_BUG || type2 == TYPE_BUG)
-			return MOVE_U_TURN ;
+			priorityMove = MOVE_U_TURN ;
 		else if (type1 == TYPE_ELECTRIC || type2 == TYPE_ELECTRIC)
-			return MOVE_VOLT_SWITCH ;
+			priorityMove = MOVE_VOLT_SWITCH ;
 		else if (type1 == TYPE_WATER || type2 == TYPE_WATER)
 			if (atk > spAtk)
-				return MOVE_AQUA_JET;
+				priorityMove = MOVE_AQUA_JET;
 			else
-				return MOVE_WATER_SHURIKEN;
+				priorityMove = MOVE_WATER_SHURIKEN;
 		else if (type1 == TYPE_FIGHTING || type2 == TYPE_FIGHTING)
 			if (atk > spAtk)
-				return MOVE_MACH_PUNCH;
+				priorityMove = MOVE_MACH_PUNCH;
 			else
-				return MOVE_VACUUM_WAVE;
+				priorityMove = MOVE_VACUUM_WAVE;
 		else if (type1 == TYPE_STEEL || type2 == TYPE_STEEL)
-			return MOVE_BULLET_PUNCH;
+			priorityMove = MOVE_BULLET_PUNCH;
 		else if (type1 == TYPE_ICE || type2 == TYPE_ICE)
-			return MOVE_ICE_SHARD;
+			priorityMove = MOVE_ICE_SHARD;
 		else if (type1 == TYPE_ROCK || type2 == TYPE_ROCK)
-			return MOVE_ACCELEROCK;
+			priorityMove = MOVE_ACCELEROCK;
 		else if (type1 == TYPE_GHOST || type2 == TYPE_GHOST)
-			return MOVE_SHADOW_SNEAK;	
+			priorityMove = MOVE_SHADOW_SNEAK;	
 		else
 		{	
 			for (j = 0; j < MAX_MON_MOVES - 1; j++)
@@ -5968,12 +5969,11 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 					return MOVE_SUCKER_PUNCH;
 			}
 			if (Random() % 2 == 0)
-				return MOVE_EXTREME_SPEED;
+				priorityMove = MOVE_SUCKER_PUNCH;
 			else
-				return MOVE_SUCKER_PUNCH;
-			
-			return MOVE_EXTREME_SPEED;
+				priorityMove = MOVE_EXTREME_SPEED;
 		}
+		return priorityMove;
 	}
 	else
 	{
