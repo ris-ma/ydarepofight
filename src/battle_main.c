@@ -5943,7 +5943,7 @@ static u16 getStabMove (u16 ID, u8 i, u16 atk, u16 spAtk)
 	    }
 	};
 	
-	u8 moveType = oldPlayerMoveTypeArrays[ID][i];
+	u8 moveType = 0;
 	u8 randomMove = Random() % 3;
 	
 	u8 split = 0;
@@ -5951,6 +5951,10 @@ static u16 getStabMove (u16 ID, u8 i, u16 atk, u16 spAtk)
 	u16 randomValue = Random() % 1000;
 	u32 chanceValue = (caster * 500 * atk * atk *atk) / (caster * spAtk * spAtk * spAtk);
 	
+	if (i > 2)
+		i = randomMove;
+	
+	moveType = oldPlayerMoveTypeArrays[ID][i];
 	
 	if (atk > spAtk)
 	{
@@ -6035,7 +6039,7 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 		}
 		return getStabMove(ID, i, atk, spAtk);
 	}
-	else
+	else // Bulky
 	{
 		switch (i)
 		{
@@ -6068,6 +6072,5 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 			case 3:
 				return MOVE_EXTREME_SPEED;
 		}
-		
 	}
 }
