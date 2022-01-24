@@ -6154,8 +6154,8 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 
 static u8 scaleLevel(u16 species)
 {
-	targetBST = calcBST(SPECIES_MEW, 100);
-	level = 100;
+	u16 targetBST = calcBST(SPECIES_MEW, 100);
+	u8 level = 100;
 	while ((calcBST(species, level) < targetBST) && level < 255)
 	{
 		level++;
