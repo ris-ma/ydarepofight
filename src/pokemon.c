@@ -3864,6 +3864,7 @@ static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon)
 
 void CalculateMonStats(struct Pokemon *mon)
 {
+    u8 allowLevelOverCap = GetMonData(mon, MON_DATA_LEVEL, NULL);
     s32 oldMaxHP = GetMonData(mon, MON_DATA_MAX_HP, NULL);
     s32 currentHP = GetMonData(mon, MON_DATA_HP, NULL);
     s32 hpIV = GetMonData(mon, MON_DATA_HP_IV, NULL);
@@ -3882,7 +3883,8 @@ void CalculateMonStats(struct Pokemon *mon)
     s32 level = GetLevelFromMonExp(mon);
     s32 newMaxHP;
 
-	level = GetMonData(mon, MON_DATA_LEVEL, NULL);
+    if (allowLevelOverCap > 100)
+	    level = allowLevelOverCap;
     SetMonData(mon, MON_DATA_LEVEL, &level);
 
     if (species == SPECIES_SHEDINJA)
