@@ -123,8 +123,9 @@ static void HandleEndTurn_FinishBattle(void);
 static u8 getRole(u16 species);
 static u16 getStabMove (u16 ID, u8 i, u16 atk, u16 spAtk);
 static u16 getHeldItem (u16 species);
-static u16 calcBST(u16 species, u8 level);
-static u8 scaleLevel(u16 species);
+static u16 getAverageBSTEnemyParty(void);
+static u8 getNewPokemonLevel(u16 species, u8 currentPokemonLevel);
+
 
 // EWRAM vars
 EWRAM_DATA u16 gBattle_BG0_X = 0;
@@ -2001,7 +2002,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 		if (trainerNum == TRAINER_OLDPLAYER)
 		{
 			species = Random() % 500;
-			CreateMon(&party[i], species, scaleLevel(species), 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+			CreateMon(&party[i], species, getNewPokemonLevel(species, level), 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 			heldItem = getHeldItem(species);
 			SetMonData(&party[i], MON_DATA_HELD_ITEM, &heldItem);
                 	SetMonData(&party[i], MON_DATA_ABILITY_NUM, &partyData[i].ability);
@@ -6152,32 +6153,124 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 
 
 
-static u8 scaleLevel(u16 species)
+
+
+
+
+
+
+
+
+static u16 getAverageBSTEnemyParty(void)
 {
-	u16 targetBST = calcBST(SPECIES_MEW, 100);
-	u8 level = 100;
-	while ((calcBST(species, level) < targetBST) && level < 255)
+	u8 i = 0;
+	u16 sum = 0;
+	u8 count = 0;
+	for (i = 0; i < PARTY_SIZE; i++)
 	{
-		level++;
-		
+		if (GetBoxMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
+		&& GetBoxMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_EGG)
+		{
+			sum += GetTotalBaseStat(GetBoxMonData(&gPlayerParty[i], MON_DATA_SPECIES));
+			count++;
+		}
 	}
-	return level;
+        //sum the base stat totals of all the pokemons in the enemy party and divide by the amount of pokemon in the enemy party
+        return sum/count;
 };
 
-static u16 calcBST(u16 species, u8 level)
+static u8 getNewPokemonLevel(u16 species, u8 currentPokemonLevel)
 {
-	u8 iv = 31;
-	u8 ev = 0;
+        u16 baseStatTotalToScaleTo = 0;
+        u16 scaledStat = -1;
+        u16 currentPokemonBaseStat = -1; // unused??
 	
-	s32 n = 2 * gBaseStats[species].baseHP + iv;
-        u16 HP = (((n + ev / 4) * level) / 100) + level + 10;
+	u8 EV = 80;
+        u8 EV_DISABLED = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_ATK_IV); // EV settings, 1 == disabled
 	
-	u16 atk = (((2 * gBaseStats[species].baseAttack + iv + ev / 4) * level) / 100) + 5;
-	u16 spAtk = (((2 * gBaseStats[species].baseSpAttack + iv + ev / 4) * level) / 100) + 5;
-	u16 def = (((2 * gBaseStats[species].baseDefense + iv + ev / 4) * level) / 100) + 5;
-	u16 spDef = (((2 * gBaseStats[species].baseSpDefense + iv + ev / 4) * level) / 100) + 5;
-	u16 speed = (((2 * gBaseStats[species].baseSpeed + iv + ev / 4) * level) / 100) + 5;
+        u16 scaledHp = 0;
+        u16 scaledAtk = 0;
+        u16 scaledDef = 0;
+        u16 scaledSpA = 0;
+        u16 scaledSpD = 0;
+        u16 scaledSpeed = 0;
 	
-	return HP + atk + spAtk + def + spDef + speed;
+	s32 HP = gBaseStats[species].baseHP;
+	u16 Atk = gBaseStats[species].baseAttack;
+	u16 SpA = gBaseStats[species].baseSpAttack;
+	u16 Def = gBaseStats[species].baseDefense;
+	u16 SpD = gBaseStats[species].baseSpDefense;
+	u16 Speed = gBaseStats[species].baseSpeed;
+        
+        u16 baseStatTotalCurrentPokemon = 0;
+        u16 scaledToBaseStatsRealStatsSum = 0;
+        u16 newLevel = 255;
+        u16 start = 1;
+        u16 mid = 0;
+        u16 end = 255;
+        u16 scaledToDesiredBaseStatsWithLevelSum = 0;
 	
-};
+	if(EV_DISABLED == 1)
+		EV = 0;
+
+        if(GetTotalBaseStat(SPECIES_MEW) > baseStatTotalToScaleTo)
+		baseStatTotalToScaleTo = GetTotalBaseStat(SPECIES_MEW);
+        if(GetTotalBaseStat(SPECIES_DRAGONITE) > baseStatTotalToScaleTo)
+		baseStatTotalToScaleTo = GetTotalBaseStat(SPECIES_DRAGONITE);
+        if(GetTotalBaseStat(SPECIES_MELMETAL) > baseStatTotalToScaleTo)
+		baseStatTotalToScaleTo = GetTotalBaseStat(SPECIES_MELMETAL);
+        if(getAverageBSTEnemyParty() > baseStatTotalToScaleTo)
+		baseStatTotalToScaleTo = getAverageBSTEnemyParty();
+	
+        baseStatTotalCurrentPokemon = GetTotalBaseStat(species);
+
+        if(baseStatTotalCurrentPokemon < baseStatTotalToScaleTo) 
+	{
+            scaledHp = (Hp * baseStatTotalToScaleTo) / baseStatTotalCurrentPokemon;
+            scaledAtk = (Atk * baseStatTotalToScaleTo) / baseStatTotalCurrentPokemon;
+            scaledDef = (Def * baseStatTotalToScaleTo) / baseStatTotalCurrentPokemon;
+            scaledSpA = (SpA * baseStatTotalToScaleTo) / baseStatTotalCurrentPokemon;
+            scaledSpD = (SpD * baseStatTotalToScaleTo) / baseStatTotalCurrentPokemon;
+            scaledSpeed = (Speed * baseStatTotalToScaleTo) / baseStatTotalCurrentPokemon;
+        }
+	else
+	{
+            scaledHp = Hp;
+            scaledAtk = Atk;
+            scaledDef = Def;
+            scaledSpA = SpA;
+            scaledSpD = SpD;
+            scaledSpeed = Speed;
+        }
+	
+        scaledToBaseStatsRealStatsSum += (((2 * scaledHp + 31 + EV / 4) * currentPokemonLevel) / 100) + currentPokemonLevel + 10;
+        scaledToBaseStatsRealStatsSum += (((((2 * scaledAtk + 31 + EV / 4) * currentPokemonLevel) / 100) + 5)*110)/100;
+        scaledToBaseStatsRealStatsSum += (((((2 * scaledDef + 31 + EV / 4) * currentPokemonLevel) / 100) + 5)*110)/100;
+        scaledToBaseStatsRealStatsSum += (((((2 * scaledSpA + 31 + EV / 4) * currentPokemonLevel) / 100) + 5)*110)/100;
+        scaledToBaseStatsRealStatsSum += (((((2 * scaledSpD + 31 + EV / 4) * currentPokemonLevel) / 100) + 5)*110)/100;
+        scaledToBaseStatsRealStatsSum += (((((2 * scaledSpeed + 31 + EV / 4) * currentPokemonLevel) / 100) + 5)*110)/100;
+        
+        while(start <= end)
+	{
+            mid = (start + end) / 2;
+            scaledToDesiredBaseStatsWithLevelSum = 0;
+
+            scaledToDesiredBaseStatsWithLevelSum += (((2 * Hp + 31 + EV / 4) * mid) / 100) + mid + 10;
+            scaledToDesiredBaseStatsWithLevelSum += (((2 * Atk + 31 + EV / 4) * mid) / 100) + 5;
+            scaledToDesiredBaseStatsWithLevelSum += (((2 * Def + 31 + EV / 4) * mid) / 100) + 5;
+            scaledToDesiredBaseStatsWithLevelSum += (((2 * SpA + 31 + EV / 4) * mid) / 100) + 5;
+            scaledToDesiredBaseStatsWithLevelSum += (((2 * SpD + 31 + EV / 4) * mid) / 100) + 5;
+            scaledToDesiredBaseStatsWithLevelSum += (((2 * Speed + 31 + EV / 4) * mid) / 100) + 5;
+		    
+            if (scaledToDesiredBaseStatsWithLevelSum <= scaledToBaseStatsRealStatsSum) 
+	    {
+                start = mid + 1;
+            }
+	    else 
+	    {
+                newLevel = mid-1;
+                end = mid - 1;
+            }
+        }
+	return newLevel;
+}
