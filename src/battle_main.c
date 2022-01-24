@@ -35,6 +35,7 @@
 #include "pokeball.h"
 #include "pokedex.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "random.h"
 #include "recorded_battle.h"
 #include "roamer.h"
@@ -6195,7 +6196,7 @@ static u8 getNewPokemonLevel(u16 species, u8 currentPokemonLevel)
         u16 scaledSpD = 0;
         u16 scaledSpeed = 0;
 	
-	s32 HP = gBaseStats[species].baseHP;
+	s32 Hp = gBaseStats[species].baseHP;
 	u16 Atk = gBaseStats[species].baseAttack;
 	u16 SpA = gBaseStats[species].baseSpAttack;
 	u16 Def = gBaseStats[species].baseDefense;
