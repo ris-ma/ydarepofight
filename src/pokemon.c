@@ -4822,7 +4822,10 @@ void SetMonData(struct Pokemon *mon, s32 field, const void *dataArg)
         SET32(mon->status);
         break;
     case MON_DATA_LEVEL:
-        SET8(mon->level);
+	if (gSpecialVar_0x8005 == 2654)
+		mon->level = gSpecialVar_0x8006;
+	else		    
+        	SET8(mon->level);
         break;
     case MON_DATA_HP:
         SET16(mon->hp);
