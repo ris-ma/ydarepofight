@@ -3882,7 +3882,7 @@ void CalculateMonStats(struct Pokemon *mon)
     s32 level = GetLevelFromMonExp(mon);
     s32 newMaxHP;
 
-	level = GetMonData(mon, MON_DATA_LEVEL, NULL)
+	level = GetMonData(mon, MON_DATA_LEVEL, NULL);
     SetMonData(mon, MON_DATA_LEVEL, &level);
 
     if (species == SPECIES_SHEDINJA)
