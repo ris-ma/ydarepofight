@@ -1895,7 +1895,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     	
     u16 move = 1;
     u16 species = 1;
-    u16 heldItem = ITEM_NONE;	
+    u16 heldItem = ITEM_NONE;
+    u8 ability = 0;
 
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
@@ -2006,7 +2007,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 			CreateMon(&party[i], species, getNewPokemonLevel(species, level), 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 			heldItem = getHeldItem(species);
 			SetMonData(&party[i], MON_DATA_HELD_ITEM, &heldItem);
-                	SetMonData(&party[i], MON_DATA_ABILITY_NUM, &partyData[i].ability);
+			ability = Random() % 3;
+                	SetMonData(&party[i], MON_DATA_ABILITY_NUM, &ability);
 		}
 		else
 		{
@@ -5515,8 +5517,19 @@ static u8 getRole (u16 species)
 
 static u16 getHeldItem (u16 species)
 {
+	u16 hp = gBaseStats[species].baseHP;
+	u16 atk = gBaseStats[species].baseAttack;
+	u16 spAtk = gBaseStats[species].baseSpAttack;
+	u16 def = gBaseStats[species].baseDefense;
+	u16 spDef = gBaseStats[species].baseSpDefense;
+	u16 speed = gBaseStats[species].baseSpeed;
+	
 	if (getRole(species) == 0)
-		return ITEM_NONE;
+		if ((9 * max(atk, spAtk)) > (4 * max(hp, def, spDef)))
+			return ITEM_FOCUS_SASH;
+		if ((spDef + def + hp) >= (speed + atk + spAtk) && spDef >= max(def, hp))
+		    return ITEM_ASSAULT_VEST;
+		return ITEM_LIFE_ORB;
 	else
 	{
 		if (gBaseStats[species].type1 == TYPE_POISON || gBaseStats[species].type2 == TYPE_POISON)
