@@ -3882,10 +3882,6 @@ void CalculateMonStats(struct Pokemon *mon)
     s32 level = GetLevelFromMonExp(mon);
     s32 newMaxHP;
 	
-    if (gSpecialVar_0x8005 == 2654)
-    {
-	    level = gSpecialVar_0x8006;
-    }
     SetMonData(mon, MON_DATA_LEVEL, &level);
 
     if (species == SPECIES_SHEDINJA)
@@ -3953,16 +3949,9 @@ u8 GetLevelFromMonExp(struct Pokemon *mon)
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
     u32 exp = GetMonData(mon, MON_DATA_EXP, NULL);
     s32 level = 1;
-    
-    if (gSpecialVar_0x8005 == 2654)
-    {
-	    return gSpecialVar_0x8006;
-    }
-    else
-    {
-	    while (level <= MAX_LEVEL && gExperienceTables[gBaseStats[species].growthRate][level] <= exp)
-		level++;
-    }
+	
+    while (level <= MAX_LEVEL && gExperienceTables[gBaseStats[species].growthRate][level] <= exp)
+	level++;
 
     return level - 1;
 }
@@ -3972,16 +3961,9 @@ u8 GetLevelFromBoxMonExp(struct BoxPokemon *boxMon)
     u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES, NULL);
     u32 exp = GetBoxMonData(boxMon, MON_DATA_EXP, NULL);
     s32 level = 1;
-
-    if (gSpecialVar_0x8005 == 2654)
-    {
-	    return gSpecialVar_0x8006;
-    }
-    else
-    {
-	    while (level <= MAX_LEVEL && gExperienceTables[gBaseStats[species].growthRate][level] <= exp)
-		level++;
-    }
+	
+    while (level <= MAX_LEVEL && gExperienceTables[gBaseStats[species].growthRate][level] <= exp)
+	level++;
 
     return level - 1;
 }
@@ -4821,11 +4803,8 @@ void SetMonData(struct Pokemon *mon, s32 field, const void *dataArg)
     case MON_DATA_STATUS:
         SET32(mon->status);
         break;
-    case MON_DATA_LEVEL:
-	if (gSpecialVar_0x8005 == 2654)
-		mon->level = gSpecialVar_0x8006;
-	else		    
-        	SET8(mon->level);
+    case MON_DATA_LEVEL:	    
+        SET8(mon->level);
         break;
     case MON_DATA_HP:
         SET16(mon->hp);
@@ -4943,10 +4922,7 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET16(substruct0->heldItem);
         break;
     case MON_DATA_EXP:
-	if (gSpecialVar_0x8005 == 2654)
-		substruct0->experience = 2000000;
-	else
-        	SET32(substruct0->experience);
+        SET32(substruct0->experience);
         break;
     case MON_DATA_PP_BONUSES:
         SET8(substruct0->ppBonuses);
