@@ -5523,6 +5523,18 @@ static u16 getHeldItem (u16 species)
 	u16 def = gBaseStats[species].baseDefense;
 	u16 spDef = gBaseStats[species].baseSpDefense;
 	u16 speed = gBaseStats[species].baseSpeed;
+	u16 maxOffense = 0;
+	u16 maxDefense = 0;
+	
+	if (atk > spAtk)
+		maxOffense = atk;
+	else
+		maxOffense = spAtk;
+	
+	if (def > hp)
+		maxDefense = def;
+	else
+		maxDefense = hp;
 	
 	if (getRole(species) == 0)
 		if ((9 * max(atk, spAtk)) > (4 * max(hp, def, spDef)))
