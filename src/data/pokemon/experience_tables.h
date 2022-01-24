@@ -15,7 +15,7 @@
     :(n <= 36) ? ((n + 14)           * CUBE(n) / 50)        \
     :            (((n / 2) + 32)     * CUBE(n) / 50)
 
-const u32 gExperienceTables[][MAX_LEVEL + 2] =
+const u32 gExperienceTables[][MAX_LEVEL + 1] =
 {
     { // Medium Fast
         0, // 0
@@ -119,7 +119,6 @@ const u32 gExperienceTables[][MAX_LEVEL + 2] =
         EXP_MEDIUM_FAST(98),
         EXP_MEDIUM_FAST(99),
         EXP_MEDIUM_FAST(100),
-        EXP_MEDIUM_FAST(101),
     },
     { // Erratic
         0, // 0
@@ -223,7 +222,6 @@ const u32 gExperienceTables[][MAX_LEVEL + 2] =
         EXP_ERRATIC(98),
         EXP_ERRATIC(99),
         EXP_ERRATIC(100),
-        EXP_ERRATIC(101),
     },
     { // Fluctuating
         0, // 0
@@ -327,7 +325,6 @@ const u32 gExperienceTables[][MAX_LEVEL + 2] =
         EXP_FLUCTUATING(98),
         EXP_FLUCTUATING(99),
         EXP_FLUCTUATING(100),
-        EXP_FLUCTUATING(101),
     },
     { // Medium Slow
         0, // 0
@@ -431,7 +428,6 @@ const u32 gExperienceTables[][MAX_LEVEL + 2] =
         EXP_MEDIUM_SLOW(98),
         EXP_MEDIUM_SLOW(99),
         EXP_MEDIUM_SLOW(100),
-        EXP_MEDIUM_SLOW(101),
     },
     { // Fast
         0, // 0
@@ -535,7 +531,6 @@ const u32 gExperienceTables[][MAX_LEVEL + 2] =
         EXP_FAST(98),
         EXP_FAST(99),
         EXP_FAST(100),
-        EXP_FAST(101),
     },
     { // Slow
         0, // 0
@@ -639,7 +634,6 @@ const u32 gExperienceTables[][MAX_LEVEL + 2] =
         EXP_SLOW(98),
         EXP_SLOW(99),
         EXP_SLOW(100),
-        EXP_SLOW(101),
     },
     { // Medium Fast copy 2 (unused? to-do: investigate)
         0, // 0
@@ -743,7 +737,6 @@ const u32 gExperienceTables[][MAX_LEVEL + 2] =
         EXP_MEDIUM_FAST(98),
         EXP_MEDIUM_FAST(99),
         EXP_MEDIUM_FAST(100),
-        EXP_MEDIUM_FAST(101),
     },
     { // Medium Fast copy 3 (unused? to-do: investigate)
         0, // 0
@@ -847,6 +840,5 @@ const u32 gExperienceTables[][MAX_LEVEL + 2] =
         EXP_MEDIUM_FAST(98),
         EXP_MEDIUM_FAST(99),
         EXP_MEDIUM_FAST(100),
-        EXP_MEDIUM_FAST(101),
     }
 };
