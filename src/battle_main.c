@@ -123,6 +123,8 @@ static void HandleEndTurn_FinishBattle(void);
 static u8 getRole(u16 species);
 static u16 getStabMove (u16 ID, u8 i, u16 atk, u16 spAtk);
 static u16 getHeldItem (u16 species);
+static u16 calcBST(u16 species, u8 level);
+static u8 scaleLevel(u16 species);
 
 // EWRAM vars
 EWRAM_DATA u16 gBattle_BG0_X = 0;
@@ -1999,8 +2001,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 		if (trainerNum == TRAINER_OLDPLAYER)
 		{
 			species = Random() % 500;
-			level = 106;
-			CreateMon(&party[i], species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+			CreateMon(&party[i], species, scaleLevel(species), 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 			heldItem = getHeldItem(species);
 			SetMonData(&party[i], MON_DATA_HELD_ITEM, &heldItem);
                 	SetMonData(&party[i], MON_DATA_ABILITY_NUM, &partyData[i].ability);
@@ -6148,3 +6149,35 @@ u16 selectMoves (u16 species, u8 i, u16 atk, u16 spAtk)
 		}
 	}
 }
+
+
+
+static u8 scaleLevel(u16 species)
+{
+	targetBST = calcBST(SPECIES_MEW, 100);
+	level = 100;
+	while ((calcBST(species, level) < targetBST) && level < 255)
+	{
+		level++;
+		
+	}
+	return level;
+};
+
+static u16 calcBST(u16 species, u8 level)
+{
+	u8 iv = 31;
+	u8 ev = 0;
+	
+	s32 n = 2 * gBaseStats[species].baseHP + iv;
+        u16 HP = (((n + ev / 4) * level) / 100) + level + 10;
+	
+	u16 atk = (((2 * gBaseStats[species].baseAttack + iv + ev / 4) * level) / 100) + 5;
+	u16 spAtk = (((2 * gBaseStats[species].baseSpAttack + iv + ev / 4) * level) / 100) + 5;
+	u16 def = (((2 * gBaseStats[species].baseDefense + iv + ev / 4) * level) / 100) + 5;
+	u16 spDef = (((2 * gBaseStats[species].baseSpDefense + iv + ev / 4) * level) / 100) + 5;
+	u16 speed = (((2 * gBaseStats[species].baseSpeed + iv + ev / 4) * level) / 100) + 5;
+	
+	return HP + atk + spAtk + def + spDef + speed;
+	
+};
