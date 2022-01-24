@@ -4943,7 +4943,10 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         SET16(substruct0->heldItem);
         break;
     case MON_DATA_EXP:
-        SET32(substruct0->experience);
+	if (gSpecialVar_0x8005 == 2654)
+		substruct0->experience = 2000000;
+	else
+        	SET32(substruct0->experience);
         break;
     case MON_DATA_PP_BONUSES:
         SET8(substruct0->ppBonuses);
