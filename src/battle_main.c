@@ -5537,11 +5537,13 @@ static u16 getHeldItem (u16 species)
 		maxDefense = hp;
 	
 	if (getRole(species) == 0)
+	{
 		if ((9 * maxOffense) > (4 * (hp, def, spDef)))
 			return ITEM_FOCUS_SASH;
 		if ((spDef + def + hp) >= (speed + atk + spAtk) && (spDef >= maxDefense)*0.8)
 		    return ITEM_ASSAULT_VEST;
 		return ITEM_LIFE_ORB;
+	}
 	else
 	{
 		if (gBaseStats[species].type1 == TYPE_POISON || gBaseStats[species].type2 == TYPE_POISON)
