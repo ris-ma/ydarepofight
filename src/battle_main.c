@@ -7207,7 +7207,7 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		else if (rand == 7)
 			species = SPECIES_SYLVEON;
 	}
-	if (species == SPECIES_ARTICUNO && i == 5}
+	if (species == SPECIES_ARTICUNO && i == 5)
 	{
 		rand = Random() % 3;
 		if (rand == 1)
@@ -7215,7 +7215,7 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		else if (rand == 2)
 			species = SPECIES_MOLTRES;
 	}
-	if (species == SPECIES_ARTICUNO_GALARIAN && i == 5}
+	if (species == SPECIES_ARTICUNO_GALARIAN && i == 5)
 	{
 		rand = Random() % 3;
 		if (rand == 1)
