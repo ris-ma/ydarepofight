@@ -6867,5 +6867,5 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 
 static void generateOldplayerTeam (struct Pokemon *mon)
 {
-	GiveMonToPlayer(&mon);	
+	GiveMonToPlayer(mon);	
 };
