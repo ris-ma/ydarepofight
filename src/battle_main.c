@@ -6719,7 +6719,7 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		//  {SPECIES_FURFROU_PHARAOH_TRIM}, //1127 (Furfrou) BST: [472]
 
 		{SPECIES_MEOWSTIC}, //678 (Meowstic) BST: [506]
-		{SPECIES_AEGISLASH}, //681 (Aegislash) BST: [500]
+		{SPECIES_AEGISLASH_BLADE}, //681 (Aegislash) BST: [500]
 		{SPECIES_AROMATISSE}, //683 (Aromatisse) BST: [462]
 		{SPECIES_SLURPUFF}, //685 (Slurpuff) BST: [480]
 		{SPECIES_MALAMAR}, //687 (Malamar) BST: [482]
