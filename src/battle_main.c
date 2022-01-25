@@ -6845,16 +6845,168 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		{SPECIES_DARMANITAN_GALARIAN}, //983 (Darmanitan) BST: [480]
 		{SPECIES_STUNFISK_GALARIAN} //985 (Stunfisk) BST: [471]
 	};
-	u16 countArray = ARRAY_COUNT(OldplayerGeneralSpeciesArray);
-	u16 rand = Random() % countArray;
-	u16 species = OldplayerGeneralSpeciesArray[rand][0];
+	
+	
+	static const u16 OldplayerMegaSpeciesArray [][1] =
+	{
+		{SPECIES_MEW}, //151 (Mew) BST: [600]
+		{SPECIES_MEWTWO}, //150 (Mewtwo) BST: [680]
+		//  {SPECIES_MEWTWO_MEGA_X}, //912 (Mewtwo) BST: [780]
+		//  {SPECIES_MEWTWO_MEGA_Y}, //913 (Mewtwo) BST: [780]
+		{SPECIES_LUGIA}, //249 (Lugia) BST: [680]
+		{SPECIES_HO_OH}, //250 (Ho-Oh) BST: [680]
+		{SPECIES_CELEBI}, //251 (Celebi) BST: [600]
+		{SPECIES_LATIAS}, //380 (Latias) BST: [600]
+		//  {SPECIES_LATIAS_MEGA}, //937 (Latias) BST: [700]
+		{SPECIES_LATIOS}, //381 (Latios) BST: [600]
+		//  {SPECIES_LATIOS_MEGA}, //938 (Latios) BST: [700]
+		{SPECIES_GROUDON}, //not final evo
+		//  {SPECIES_GROUDON_PRIMAL}, //948 (Groudon) BST: [770]
+		{SPECIES_KYOGRE}, //not final evo
+		//  {SPECIES_KYOGRE_PRIMAL}, //947 (Kyogre) BST: [770]
+		{SPECIES_RAYQUAZA}, //not final evo
+		//  {SPECIES_RAYQUAZA_MEGA}, //946 (Rayquaza) BST: [780]
+		{SPECIES_JIRACHI}, //385 (Jirachi) BST: [600]
+		{SPECIES_DEOXYS}, //386 (Deoxys) BST: [600]
+	    	//  {SPECIES_DEOXYS_ATTACK}, //1031 (Deoxys) BST: [600]
+		//  {SPECIES_DEOXYS_DEFENSE}, //1032 (Deoxys) BST: [600]
+		//  {SPECIES_DEOXYS_SPEED}, //1033 (Deoxys) BST: [600]
+		{SPECIES_DIALGA}, //483 (Dialga) BST: [680]
+		{SPECIES_PALKIA}, //484 (Palkia) BST: [680]
+		{SPECIES_GIRATINA}, //487 (Giratina) BST: [680]
+		//  {SPECIES_GIRATINA_ORIGIN}, //1046 (Giratina) BST: [680]
+		{SPECIES_MANAPHY}, //490 (Manaphy) BST: [600]
+		{SPECIES_DARKRAI}, //491 (Darkrai) BST: [600]
+		{SPECIES_SHAYMIN}, //492 (Shaymin) BST: [600]
+		//  {SPECIES_SHAYMIN_SKY}, //1047 (Shaymin) BST: [600]
+		{SPECIES_ARCEUS}, //493 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_FIGHTING}, //1048 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_FLYING}, //1049 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_POISON}, //1050 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_GROUND}, //1051 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_ROCK}, //1052 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_BUG}, //1053 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_GHOST}, //1054 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_STEEL}, //1055 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_FIRE}, //1056 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_WATER}, //1057 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_GRASS}, //1058 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_ELECTRIC}, //1059 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_PSYCHIC}, //1060 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_ICE}, //1061 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_DRAGON}, //1062 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_DARK}, //1063 (Arceus) BST: [720]
+		//  {SPECIES_ARCEUS_FAIRY}, //1064 (Arceus) BST: [720]	
+		{SPECIES_VICTINI}, //494 (Victini) BST: [600]
+		{SPECIES_RESHIRAM}, //643 (Reshiram) BST: [680]
+		{SPECIES_ZEKROM}, //644 (Zekrom) BST: [680]
+		{SPECIES_KYUREM}, //646 (Kyurem) BST: [660]
+		//  {SPECIES_KYUREM_WHITE}, //1077 (Kyurem) BST: [700]
+		//  {SPECIES_KYUREM_BLACK}, //1078 (Kyurem) BST: [700]	
+		{SPECIES_MELOETTA}, //648 (Meloetta) BST: [600]
+		//  {SPECIES_MELOETTA_PIROUETTE}, //1080 (Meloetta) BST: [600]
+		{SPECIES_GENESECT}, //649 (Genesect) BST: [600]
+		//  {SPECIES_GENESECT_DOUSE_DRIVE}, //1081 (Genesect) BST: [600]
+		//  {SPECIES_GENESECT_SHOCK_DRIVE}, //1082 (Genesect) BST: [600]
+		//  {SPECIES_GENESECT_BURN_DRIVE}, //1083 (Genesect) BST: [600]
+		//  {SPECIES_GENESECT_CHILL_DRIVE}, //1084 (Genesect) BST: [600]
+		{SPECIES_XERNEAS}, //716 (Xerneas) BST: [680]
+		{SPECIES_YVELTAL}, //717 (Yveltal) BST: [680]
+		{SPECIES_ZYGARDE}, //718 (Zygarde) BST: [600]
+		//  {SPECIES_ZYGARDE_COMPLETE}, //1140 (Zygarde) BST: [708]
+		{SPECIES_DIANCIE}, //719 (Diancie) BST: [600]
+		//  {SPECIES_DIANCIE_MEGA}, //945 (Diancie) BST: [700]
+		{SPECIES_HOOPA}, //720 (Hoopa) BST: [600]
+		//  {SPECIES_HOOPA_UNBOUND}, //1141 (Hoopa) BST: [680]
+		{SPECIES_VOLCANION}, //721 (Volcanion) BST: [600]
+		{SPECIES_SOLGALEO}, //791 (Solgaleo) BST: [680]
+		{SPECIES_LUNALA}, //792 (Lunala) BST: [680]
+		{SPECIES_NECROZMA}, //800 (Necrozma) BST: [600]
+		//  {SPECIES_NECROZMA_DUSK_MANE}, //1180 (Necrozma) BST: [680]
+		//  {SPECIES_NECROZMA_DAWN_WINGS}, //1181 (Necrozma) BST: [680]
+		//  {SPECIES_NECROZMA_ULTRA}, //1182 (Necrozma) BST: [754]
+		{SPECIES_MAGEARNA}, //801 (Magearna) BST: [600]
+		//  {SPECIES_MAGEARNA_ORIGINAL_COLOR}, //1183 (Magearna) BST: [600]
+		{SPECIES_MARSHADOW}, //802 (Marshadow) BST: [600]
+		{SPECIES_ZERAORA}, //807 (Zeraora) BST: [600]
+		{SPECIES_MELMETAL}, //809 (Melmetal) BST: [600]
+
+		//Megas
+		{SPECIES_VENUSAUR_MEGA}, //899 (Venusaur) BST: [625]
+		{SPECIES_CHARIZARD_MEGA_X}, //900 (Charizard) BST: [634]
+		{SPECIES_CHARIZARD_MEGA_Y}, //901 (Charizard) BST: [634]
+		{SPECIES_BLASTOISE_MEGA}, //902 (Blastoise) BST: [630]
+		{SPECIES_BEEDRILL_MEGA}, //903 (Beedrill) BST: [525]
+		{SPECIES_PIDGEOT_MEGA}, //904 (Pidgeot) BST: [594]
+		{SPECIES_ALAKAZAM_MEGA}, //905 (Alakazam) BST: [600]
+		{SPECIES_SLOWBRO_MEGA}, //906 (Slowbro) BST: [590]
+		{SPECIES_GENGAR_MEGA}, //907 (Gengar) BST: [600]
+		{SPECIES_KANGASKHAN_MEGA}, //908 (Kangaskhan) BST: [590]
+		{SPECIES_PINSIR_MEGA}, //909 (Pinsir) BST: [600]
+		{SPECIES_GYARADOS_MEGA}, //910 (Gyarados) BST: [640]
+		{SPECIES_AERODACTYL_MEGA}, //911 (Aerodactyl) BST: [615]
+		{SPECIES_AMPHAROS_MEGA}, //914 (Ampharos) BST: [610]
+		{SPECIES_STEELIX_MEGA}, //915 (Steelix) BST: [630]
+		{SPECIES_SCIZOR_MEGA}, //916 (Scizor) BST: [600]
+		{SPECIES_HERACROSS_MEGA}, //917 (Heracross) BST: [600]
+		{SPECIES_HOUNDOOM_MEGA}, //918 (Houndoom) BST: [610]
+		{SPECIES_TYRANITAR_MEGA}, //919 (Tyranitar) BST: [700]
+		{SPECIES_SCEPTILE_MEGA}, //920 (Sceptile) BST: [630]
+		{SPECIES_BLAZIKEN_MEGA}, //921 (Blaziken) BST: [630]
+		{SPECIES_SWAMPERT_MEGA}, //922 (Swampert) BST: [635]
+		{SPECIES_GARDEVOIR_MEGA}, //923 (Gardevoir) BST: [633]
+		{SPECIES_SABLEYE_MEGA}, //924 (Sableye) BST: [510]
+		{SPECIES_MAWILE_MEGA}, //925 (Mawile) BST: [510]
+		{SPECIES_AGGRON_MEGA}, //926 (Aggron) BST: [630]
+		{SPECIES_MEDICHAM_MEGA}, //927 (Medicham) BST: [510]
+		{SPECIES_MANECTRIC_MEGA}, //928 (Manectric) BST: [595]
+		{SPECIES_SHARPEDO_MEGA}, //929 (Sharpedo) BST: [580]
+		{SPECIES_CAMERUPT_MEGA}, //930 (Camerupt) BST: [600]
+		{SPECIES_ALTARIA_MEGA}, //931 (Altaria) BST: [610]
+		{SPECIES_BANETTE_MEGA}, //932 (Banette) BST: [585]
+		{SPECIES_ABSOL_MEGA}, //933 (Absol) BST: [585]
+		{SPECIES_GLALIE_MEGA}, //934 (Glalie) BST: [600]
+		{SPECIES_SALAMENCE_MEGA}, //935 (Salamence) BST: [700]
+		{SPECIES_METAGROSS_MEGA}, //936 (Metagross) BST: [700]
+		{SPECIES_LOPUNNY_MEGA}, //939 (Lopunny) BST: [600]
+		{SPECIES_GARCHOMP_MEGA}, //940 (Garchomp) BST: [700]
+		{SPECIES_LUCARIO_MEGA}, //941 (Lucario) BST: [625]
+		{SPECIES_ABOMASNOW_MEGA}, //942 (Abomasnow) BST: [614]
+		{SPECIES_GALLADE_MEGA}, //943 (Gallade) BST: [633]
+		{SPECIES_AUDINO_MEGA}, //944 (Audino) BST: [585]
+		{SPECIES_MILOTIC_MEGA}, //1207 (Milotic) BST: [640]
+		{SPECIES_BUTTERFREE_MEGA}, //1208 (Butterfree) BST: [525]
+		{SPECIES_MACHAMP_MEGA}, //1209 (Machamp) BST: [605]
+		{SPECIES_KINGLER_MEGA}, //1210 (Kingler) BST: [600]
+		{SPECIES_LAPRAS_MEGA}, //1211 (Lapras) BST: [645]
+		{SPECIES_FLYGON_MEGA}, //1212 (Flygon) BST: [640]
+		{SPECIES_KINGDRA_MEGA}, //1213 (Kingdra) BST: [640]
+	};
+	
+	u16 countArrayGeneral = ARRAY_COUNT(OldplayerGeneralSpeciesArray);
+	u16 countArrayMega = ARRAY_COUNT(OldplayerMegaSpeciesArray);
+	u16 rand = 0;
+	u16 species = 0;
 	u8 countAltForms = 0;
 	
+	if (i < 4)
+	{
+		rand = Random() % countArrayGeneral;
+		species = OldplayerGeneralSpeciesArray[rand][0];
+	}
+	else
+	{
+		rand = Random() % countArrayMega;
+		species = OldplayerMegaSpeciesArray[rand][0];
+	}
 	
 	if (species == SPECIES_WORMADAM || species == SPECIES_GASTRODON || species == SPECIES_ROTOM || species == SPECIES_BASCULIN || species == SPECIES_SAWSBUCK || 
 	   species == SPECIES_TORNADUS || species == SPECIES_THUNDURUS || species == SPECIES_LANDORUS || species == SPECIES_KELDEO || species == SPECIES_VIVILLON || 
 	   species == SPECIES_FLORGES || species == SPECIES_FURFROU || species == SPECIES_GOURGEIST || species == SPECIES_ORICORIO || species == SPECIES_LYCANROC || 
-	   species == SPECIES_TOXTRICITY || species == SPECIES_SILVALLY)
+	   species == SPECIES_TOXTRICITY || species == SPECIES_MEWTWO || species == SPECIES_LATIAS || species == SPECIES_LATIOS || species == SPECIES_GROUDON || 
+	   species == SPECIES_KYOGRE || species == SPECIES_RAYQUAZA || species == SPECIES_DEOXYS || species == SPECIES_GIRATINA || species == SPECIES_SHAYMIN || 
+	   species == SPECIES_ARCEUS || species == SPECIES_KYUREM || species == SPECIES_MELOETTA || species == SPECIES_GENESECT || species == SPECIES_ZYGARDE || 
+	   species == SPECIES_DIANCIE || species == SPECIES_HOOPA || species == SPECIES_NECROZMA)
 	{
 		species = getRandomFormSpeciesId(species);
 	}
