@@ -6497,8 +6497,6 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		{SPECIES_REGIROCK}, //377 (Regirock) BST: [580]
 		{SPECIES_REGICE}, //378 (Regice) BST: [580]
 		{SPECIES_REGISTEEL}, //379 (Registeel) BST: [580]
-		{SPECIES_LATIAS}, //380 (Latias) BST: [600]
-		{SPECIES_LATIOS}, //381 (Latios) BST: [600]
 		//Gen 4 start
 		{SPECIES_TORTERRA}, //389 (Torterra) BST: [534]
 		{SPECIES_INFERNAPE}, //392 (Infernape) BST: [534]
