@@ -6984,7 +6984,7 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 	};
 	
 	
-	static const u16 OldplayerMegaSpeciesArray [][1] =
+	static const u16 OldplayerFavoriteSpeciesArray [][1] =
 	{
 		    //Starters
 		{SPECIES_VENUSAUR}, //3 (Venusaur) BST: [525]
@@ -7022,7 +7022,8 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		{SPECIES_KOMMO_O}, //784 (Kommo-o) BST: [600]
 		{SPECIES_DRAGAPULT}, //887 (Dragapult) BST: [600]
 		//Pikachu Clones:
-		2 x {SPECIES_PACHIRISU}, //417 (Pachirisu) BST: [455]
+		{SPECIES_PACHIRISU}, //417 (Pachirisu) BST: [455]
+		{SPECIES_PACHIRISU}, //417 (Pachirisu) BST: [455]
 		//  {SPECIES_EMOLGA}, //587 (Emolga) BST: [468]
 		//  {SPECIES_DEDENNE}, //702 (Dedenne) BST: [471]
 		//  {SPECIES_TOGEDEMARU}, //777 (Togedemaru) BST: [475]
@@ -7049,10 +7050,11 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		{SPECIES_ARCANINE}, //59 (Arcanine) BST: [555]
 		{SPECIES_GOLEM}, //76 (Golem) BST: [520]
 		{SPECIES_GENGAR}, //94 (Gengar) BST: [500]
-	    {SPECIES_STARMIE}, //121 (Starmie) BST: [520]
+	   	{SPECIES_STARMIE}, //121 (Starmie) BST: [520]
 		{SPECIES_GYARADOS}, //130 (Gyarados) BST: [540]
 
-		2 x {SPECIES_VAPOREON}, //134 (Vaporeon) BST: [525]
+		{SPECIES_VAPOREON}, //134 (Vaporeon) BST: [525]
+		{SPECIES_VAPOREON}, //134 (Vaporeon) BST: [525]
 		//  {SPECIES_JOLTEON}, //135 (Jolteon) BST: [525]
 		//  {SPECIES_FLAREON}, //136 (Flareon) BST: [525]
 		//  {SPECIES_ESPEON}, //196 (Espeon) BST: [525]
@@ -7082,7 +7084,8 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		{SPECIES_MILOTIC}, //350 (Milotic) BST: [540]
 		{SPECIES_DUSCLOPS}, //356 (Dusclops) BST: [???]
 
-	    2 x {SPECIES_REGIROCK}, //377 (Regirock) BST: [580]
+	    	{SPECIES_REGIROCK}, //377 (Regirock) BST: [580]
+		{SPECIES_REGIROCK}, //377 (Regirock) BST: [580]
 		//  {SPECIES_REGICE}, //378 (Regice) BST: [580]
 		//  {SPECIES_REGISTEEL}, //379 (Registeel) BST: [580]
 		//  {SPECIES_REGIELEKI}, //894 (Regieleki) BST: [580]
@@ -7141,6 +7144,7 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 	
 	u16 countArrayGeneral = ARRAY_COUNT(OldplayerGeneralSpeciesArray);
 	u16 countArrayMega = ARRAY_COUNT(OldplayerMegaSpeciesArray);
+	u16 countArrayFavorite = ARRAY_COUNT(OldplayerFavoriteSpeciesArray);
 	u16 rand = 0;
 	u16 species = 0;
 	u8 countAltForms = 0;
@@ -7150,22 +7154,90 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		rand = Random() % countArrayGeneral;
 		species = OldplayerGeneralSpeciesArray[rand][0];
 	}
-	else
+	else if (i == 5)
 	{
 		rand = Random() % countArrayMega;
 		species = OldplayerMegaSpeciesArray[rand][0];
 	}
+	else
+	{
+		rand = Random() % countArrayFavorite;
+		species = OldplayerFavoriteSpeciesArray[rand][0];
+	}
 	
+	
+	
+	if (species == SPECIES_PACHIRISU)
+	{
+		rand = Random() % 4;
+		if (rand == 1)
+			species = SPECIES_EMOLGA;
+		else if (rand == 2)
+			species = SPECIES_DEDENNE;
+		else if (rand == 3)
+			species = SPECIES_TOGEDEMARU;
+	}
+	if (species == SPECIES_REGIROCK)
+	{
+		rand = Random() % 5;
+		if (rand == 1)
+			species = SPECIES_REGICE;
+		else if (rand == 2)
+			species = SPECIES_REGISTEEL;
+		else if (rand == 3)
+			species = SPECIES_REGIELEKI;
+		else if (rand == 4)
+			species = SPECIES_REGIDRAGO;
+	}
+	if (species == SPECIES_VAPOREON)
+	{
+		rand = Random() % 8;
+		if (rand == 1)
+			species = SPECIES_JOLTEON;
+		else if (rand == 2)
+			species = SPECIES_FLAREON;
+		else if (rand == 3)
+			species = SPECIES_ESPEON;
+		else if (rand == 4)
+			species = SPECIES_UMBREON;
+		else if (rand == 5)
+			species = SPECIES_LEAFEON;
+		else if (rand == 6)
+			species = SPECIES_GLACEON;
+		else if (rand == 7)
+			species = SPECIES_SYLVEON;
+	}
+	if (species == SPECIES_ARTICUNO}
+	{
+		rand = Random() % 3;
+		if (rand == 1)
+			species = SPECIES_ZAPDOS;
+		else if (rand == 2)
+			species = SPECIES_MOLTRES;
+	}
+	if (species == SPECIES_ARTICUNO_GALARIAN}
+	{
+		rand = Random() % 3;
+		if (rand == 1)
+			species = SPECIES_ZAPDOS_GALARIAN;
+		else if (rand == 2)
+			species = SPECIES_MOLTRES_GALARIAN;
+	}
+	if (species == SPECIES_UXIE)
+		if (Random() % 2 == 0)
+			species = SPECIES_AZELF;
 	if (species == SPECIES_ZYGARDE)
 		if (Random() % 2 == 0)
 			species = SPECIES_ZYGARDE_COMPLETE;
+	    
+	    
 	if (species == SPECIES_WORMADAM || species == SPECIES_GASTRODON || species == SPECIES_ROTOM || species == SPECIES_BASCULIN || species == SPECIES_SAWSBUCK || 
 	   species == SPECIES_TORNADUS || species == SPECIES_THUNDURUS || species == SPECIES_LANDORUS || species == SPECIES_KELDEO || species == SPECIES_VIVILLON || 
 	   species == SPECIES_FLORGES || species == SPECIES_FURFROU || species == SPECIES_GOURGEIST || species == SPECIES_ORICORIO || species == SPECIES_LYCANROC || 
 	   species == SPECIES_TOXTRICITY || species == SPECIES_MEWTWO || species == SPECIES_LATIAS || species == SPECIES_LATIOS || species == SPECIES_GROUDON || 
 	   species == SPECIES_KYOGRE || species == SPECIES_RAYQUAZA || species == SPECIES_DEOXYS || species == SPECIES_GIRATINA || species == SPECIES_SHAYMIN || 
 	   species == SPECIES_ARCEUS || species == SPECIES_KYUREM || species == SPECIES_MELOETTA || species == SPECIES_GENESECT || species == SPECIES_DIANCIE || 
-	   species == SPECIES_HOOPA || species == SPECIES_NECROZMA)
+	   species == SPECIES_HOOPA || species == SPECIES_NECROZMA || species == SPECIES_PIKACHU || species == SPECIES_RAICHU || species == SPECIES_ROTOM)
 	{
 		species = getRandomFormSpeciesId(species);
 	}
