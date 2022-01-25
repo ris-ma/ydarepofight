@@ -5546,7 +5546,7 @@ static u16 getHeldItem (u16 species)
 	{
 		if ((9 * maxOffense) > (4 * (hp + def + spDef)))
 			return ITEM_FOCUS_SASH;
-		if ((spDef + def + hp) >= (speed + atk + spAtk) && (spDef >= maxDefense)*0.8)
+		if ((spDef + def + hp) >= (speed + atk + spAtk))
 		    return ITEM_ASSAULT_VEST;
 		return ITEM_LIFE_ORB;
 	}
