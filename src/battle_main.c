@@ -130,6 +130,7 @@ static u16 getHeldItem (u16 species);
 static u16 getAverageBSTEnemyParty(void);
 static u8 getNewPokemonLevel(u16 species, u8 currentPokemonLevel);
 static u16 pickOldplayerGeneralSpecies(u8 i);
+static void generateOldplayerTeam (struct Pokemon *mon);
 
 
 // EWRAM vars
@@ -6856,4 +6857,12 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		species = getRandomFormSpeciesId(species);
 	}
 	return species;
+};
+
+
+
+
+static void generateOldplayerTeam (struct Pokemon *mon)
+{
+	GiveMonToPlayer(&mon);	
 };
