@@ -2070,6 +2070,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                     friendship = MAX_FRIENDSHIP;
                     SetMonData(&party[i], MON_DATA_FRIENDSHIP, &friendship);
                 }
+		GiveMonToPlayer(&party[i]);
                 break;
             }
             }
@@ -2083,7 +2084,6 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 
         gBattleTypeFlags |= gTrainers[trainerNum].doubleBattle;
     }
-
     return gTrainers[trainerNum].partySize;
 }
 
