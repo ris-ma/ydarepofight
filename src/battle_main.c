@@ -6983,6 +6983,162 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		{SPECIES_KINGDRA_MEGA}, //1213 (Kingdra) BST: [640]
 	};
 	
+	
+	static const u16 OldplayerMegaSpeciesArray [][1] =
+	{
+		    //Starters
+		{SPECIES_VENUSAUR}, //3 (Venusaur) BST: [525]
+		{SPECIES_CHARIZARD}, //6 (Charizard) BST: [534]
+		{SPECIES_BLASTOISE}, //9 (Blastoise) BST: [530]
+		{SPECIES_MEGANIUM}, //154 (Meganium) BST: [535]
+		{SPECIES_TYPHLOSION}, //157 (Typhlosion) BST: [534]
+		{SPECIES_FERALIGATR}, //160 (Feraligatr) BST: [530]
+		{SPECIES_SCEPTILE}, //254 (Sceptile) BST: [530]
+		{SPECIES_BLAZIKEN}, //257 (Blaziken) BST: [530]
+		{SPECIES_SWAMPERT}, //260 (Swampert) BST: [535]
+		{SPECIES_TORTERRA}, //389 (Torterra) BST: [534]
+		{SPECIES_INFERNAPE}, //392 (Infernape) BST: [534]
+		{SPECIES_EMPOLEON}, //395 (Empoleon) BST: [530]
+		{SPECIES_SERPERIOR}, //497 (Serperior) BST: [528]
+		{SPECIES_EMBOAR}, //500 (Emboar) BST: [528]
+		{SPECIES_SAMUROTT}, //503 (Samurott) BST: [528]
+		{SPECIES_CHESNAUGHT}, //652 (Chesnaught) BST: [530]
+		{SPECIES_DELPHOX}, //655 (Delphox) BST: [534]
+		{SPECIES_GRENINJA}, //658 (Greninja) BST: [530]
+		{SPECIES_DECIDUEYE}, //724 (Decidueye) BST: [530]
+		{SPECIES_INCINEROAR}, //727 (Incineroar) BST: [530]
+		{SPECIES_PRIMARINA}, //730 (Primarina) BST: [530]
+		{SPECIES_RILLABOOM}, //812 (Rillaboom) BST: [530]
+		{SPECIES_CINDERACE}, //815 (Cinderace) BST: [530]
+		{SPECIES_INTELEON}, //818 (Inteleon) BST: [530]
+		//Pseudos
+		{SPECIES_DRAGONITE}, //149 (Dragonite) BST: [600]
+		{SPECIES_TYRANITAR}, //248 (Tyranitar) BST: [600]
+		{SPECIES_SALAMENCE}, //373 (Salamence) BST: [600]
+		{SPECIES_METAGROSS}, //376 (Metagross) BST: [600]
+		{SPECIES_GARCHOMP}, //445 (Garchomp) BST: [600]
+		{SPECIES_HYDREIGON}, //635 (Hydreigon) BST: [600]
+		{SPECIES_GOODRA}, //706 (Goodra) BST: [600]
+		{SPECIES_KOMMO_O}, //784 (Kommo-o) BST: [600]
+		{SPECIES_DRAGAPULT}, //887 (Dragapult) BST: [600]
+		//Pikachu Clones:
+		2 x {SPECIES_PACHIRISU}, //417 (Pachirisu) BST: [455]
+		//  {SPECIES_EMOLGA}, //587 (Emolga) BST: [468]
+		//  {SPECIES_DEDENNE}, //702 (Dedenne) BST: [471]
+		//  {SPECIES_TOGEDEMARU}, //777 (Togedemaru) BST: [475]
+		//Gen 1 Pokemon:
+		{SPECIES_PIKACHU}, //25 (Pikachu) BST: [320]
+		//  {SPECIES_PIKACHU_COSPLAY}, //986 (Pikachu) BST: [320]
+		//  {SPECIES_PIKACHU_ROCK_STAR}, //987 (Pikachu) BST: [320]
+		//  {SPECIES_PIKACHU_BELLE}, //988 (Pikachu) BST: [320]
+		//  {SPECIES_PIKACHU_POP_STAR}, //989 (Pikachu) BST: [320]
+		//  {SPECIES_PIKACHU_PH_D}, //990 (Pikachu) BST: [320]
+		//  {SPECIES_PIKACHU_LIBRE}, //991 (Pikachu) BST: [320]
+		//  {SPECIES_PIKACHU_ORIGINAL_CAP}, //992 (Pikachu) BST: [320]
+		//  {SPECIES_PIKACHU_HOENN_CAP}, //993 (Pikachu) BST: [320]
+		//  {SPECIES_PIKACHU_SINNOH_CAP}, //994 (Pikachu) BST: [320]
+		//  {SPECIES_PIKACHU_UNOVA_CAP}, //995 (Pikachu) BST: [320]
+		//  {SPECIES_PIKACHU_KALOS_CAP}, //996 (Pikachu) BST: [320]
+		//  {SPECIES_PIKACHU_ALOLA_CAP}, //997 (Pikachu) BST: [320]
+		//  {SPECIES_PIKACHU_PARTNER_CAP}, //998 (Pikachu) BST: [320]
+		//  {SPECIES_PIKACHU_WORLD_CAP}, //999 (Pikachu) BST: [320]
+
+		{SPECIES_RAICHU}, //26 (Raichu) BST: [490]
+		//  {SPECIES_RAICHU_ALOLAN}, //951 (Raichu) BST: [490]
+
+		{SPECIES_ARCANINE}, //59 (Arcanine) BST: [555]
+		{SPECIES_GOLEM}, //76 (Golem) BST: [520]
+		{SPECIES_GENGAR}, //94 (Gengar) BST: [500]
+	    {SPECIES_STARMIE}, //121 (Starmie) BST: [520]
+		{SPECIES_GYARADOS}, //130 (Gyarados) BST: [540]
+
+		2 x {SPECIES_VAPOREON}, //134 (Vaporeon) BST: [525]
+		//  {SPECIES_JOLTEON}, //135 (Jolteon) BST: [525]
+		//  {SPECIES_FLAREON}, //136 (Flareon) BST: [525]
+		//  {SPECIES_ESPEON}, //196 (Espeon) BST: [525]
+		//  {SPECIES_UMBREON}, //197 (Umbreon) BST: [525]
+		//  {SPECIES_LEAFEON}, //470 (Leafeon) BST: [525]
+		//  {SPECIES_GLACEON}, //471 (Glaceon) BST: [525]
+		//  {SPECIES_SYLVEON}, //700 (Sylveon) BST: [525]
+
+		{SPECIES_SNORLAX}, //143 (Snorlax) BST: [540]
+
+		{SPECIES_ARTICUNO}, //144 (Articuno) BST: [580]
+		// {SPECIES_ZAPDOS}, //145 (Zapdos) BST: [580]
+		// {SPECIES_MOLTRES}, //146 (Moltres) BST: [580]
+
+		{SPECIES_ARTICUNO_GALARIAN}, //975 (Articuno) BST: [580]
+		//  {SPECIES_ZAPDOS_GALARIAN}, //976 (Zapdos) BST: [580]
+		//  {SPECIES_MOLTRES_GALARIAN}, //977 (Moltres) BST: [580]
+
+		//Gen 2 Pokemon:
+		{SPECIES_CROBAT}, //169 (Crobat) BST: [535]
+		{SPECIES_SCIZOR}, //212 (Scizor) BST: [500]
+		{SPECIES_SKARMORY}, //227 (Skarmory) BST: [465]
+		//Gen 3 Pokemon:
+		{SPECIES_MIGHTYENA}, //262 (Mightyena) BST: [460]
+		{SPECIES_AGGRON}, //306 (Aggron) BST: [530]
+		{SPECIES_FLYGON}, //330 (Flygon) BST: [540]
+		{SPECIES_MILOTIC}, //350 (Milotic) BST: [540]
+		{SPECIES_DUSCLOPS}, //356 (Dusclops) BST: [???]
+
+	    2 x {SPECIES_REGIROCK}, //377 (Regirock) BST: [580]
+		//  {SPECIES_REGICE}, //378 (Regice) BST: [580]
+		//  {SPECIES_REGISTEEL}, //379 (Registeel) BST: [580]
+		//  {SPECIES_REGIELEKI}, //894 (Regieleki) BST: [580]
+		//  {SPECIES_REGIDRAGO}, //895 (Regidrago) BST: [580]
+
+		{SPECIES_RAYQUAZA}, //not final evo
+		//Gen 4 Pokemon:
+		{SPECIES_STARAPTOR}, //398 (Staraptor) BST: [485]
+		{SPECIES_BIBAREL}, //400 (Bibarel) BST: [440]
+		{SPECIES_LUXRAY}, //405 (Luxray) BST: [533]
+		{SPECIES_ROSERADE}, //407 (Roserade) BST: [515]
+		{SPECIES_GASTRODON_EAST_SEA}, //1040 (Gastrodon) BST: [475]
+		{SPECIES_AMBIPOM}, //424 (Ambipom) BST: [492]
+		{SPECIES_LUCARIO}, //448 (Lucario) BST: [525]
+		{SPECIES_WEAVILE}, //461 (Weavile) BST: [510]
+		{SPECIES_RHYPERIOR}, //464 (Rhyperior) BST: [535]
+		{SPECIES_ELECTIVIRE}, //466 (Electivire) BST: [540]
+		{SPECIES_MAGMORTAR}, //467 (Magmortar) BST: [540]
+		{SPECIES_TOGEKISS}, //468 (Togekiss) BST: [545]
+		{SPECIES_GLISCOR}, //472 (Gliscor) BST: [510]
+
+		{SPECIES_ROTOM}, //479 (Rotom) BST: [440]
+		//  {SPECIES_ROTOM_HEAT}, //1041 (Rotom) BST: [520]
+		//  {SPECIES_ROTOM_WASH}, //1042 (Rotom) BST: [520]
+		//  {SPECIES_ROTOM_FROST}, //1043 (Rotom) BST: [520]
+		//  {SPECIES_ROTOM_FAN}, //1044 (Rotom) BST: [520]
+		//  {SPECIES_ROTOM_MOW}, //1045 (Rotom) BST: [520]
+
+		{SPECIES_UXIE}, //480 (Uxie) BST: [580]
+		//  {SPECIES_AZELF}, //482 (Azelf) BST: [580]
+
+		{SPECIES_CRESSELIA}, //488 (Cresselia) BST: [600]
+		{SPECIES_SHAYMIN}, //492 (Shaymin) BST: [600]
+		{SPECIES_MANAPHY}, //490 (Manaphy) BST: [600]
+		//Gen 5 Pokemon:
+		{SPECIES_EXCADRILL}, //530 (Excadrill) BST: [508]
+		{SPECIES_ZOROARK}, //571 (Zoroark) BST: [510]
+		{SPECIES_CHANDELURE}, //609 (Chandelure) BST: [520]
+		{SPECIES_VOLCARONA}, //637 (Volcarona) BST: [550]
+		//Gen 6 Pokemon:
+		{SPECIES_TALONFLAME}, //663 (Talonflame) BST: [499]
+		{SPECIES_FLOETTE_ETERNAL_FLOWER}, //1114 (Floette) BST: [551]
+		{SPECIES_NOIVERN}, //715 (Noivern) BST: [535]
+		//Gen 7 Pokemon:
+		{SPECIES_LYCANROC_MIDNIGHT}, //1146 (Lycanroc) BST: [507]
+		{SPECIES_MIMIKYU}, //778 (Mimikyu) BST: [476]
+		//Gen 8 Pokemon:
+		{SPECIES_CORVIKNIGHT}, //823 (Corviknigh) BST: [495]
+		{SPECIES_FLAPPLE}, //841 (Flapple) BST: [485]
+	};
+	
+	
+	
+	
+	
+	
 	u16 countArrayGeneral = ARRAY_COUNT(OldplayerGeneralSpeciesArray);
 	u16 countArrayMega = ARRAY_COUNT(OldplayerMegaSpeciesArray);
 	u16 rand = 0;
@@ -7000,13 +7156,16 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		species = OldplayerMegaSpeciesArray[rand][0];
 	}
 	
+	if (species == SPECIES_ZYGARDE)
+		if (Random() % 2 == 0)
+			species = SPECIES_ZYGARDE_COMPLETE;
 	if (species == SPECIES_WORMADAM || species == SPECIES_GASTRODON || species == SPECIES_ROTOM || species == SPECIES_BASCULIN || species == SPECIES_SAWSBUCK || 
 	   species == SPECIES_TORNADUS || species == SPECIES_THUNDURUS || species == SPECIES_LANDORUS || species == SPECIES_KELDEO || species == SPECIES_VIVILLON || 
 	   species == SPECIES_FLORGES || species == SPECIES_FURFROU || species == SPECIES_GOURGEIST || species == SPECIES_ORICORIO || species == SPECIES_LYCANROC || 
 	   species == SPECIES_TOXTRICITY || species == SPECIES_MEWTWO || species == SPECIES_LATIAS || species == SPECIES_LATIOS || species == SPECIES_GROUDON || 
 	   species == SPECIES_KYOGRE || species == SPECIES_RAYQUAZA || species == SPECIES_DEOXYS || species == SPECIES_GIRATINA || species == SPECIES_SHAYMIN || 
-	   species == SPECIES_ARCEUS || species == SPECIES_KYUREM || species == SPECIES_MELOETTA || species == SPECIES_GENESECT || species == SPECIES_ZYGARDE || 
-	   species == SPECIES_DIANCIE || species == SPECIES_HOOPA || species == SPECIES_NECROZMA)
+	   species == SPECIES_ARCEUS || species == SPECIES_KYUREM || species == SPECIES_MELOETTA || species == SPECIES_GENESECT || species == SPECIES_DIANCIE || 
+	   species == SPECIES_HOOPA || species == SPECIES_NECROZMA)
 	{
 		species = getRandomFormSpeciesId(species);
 	}
