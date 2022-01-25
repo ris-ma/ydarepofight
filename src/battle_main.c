@@ -6854,7 +6854,7 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 	if (species == SPECIES_WORMADAM || species == SPECIES_GASTRODON || species == SPECIES_ROTOM || species == SPECIES_BASCULIN || species == SPECIES_SAWSBUCK || 
 	   species == SPECIES_TORNADUS || species == SPECIES_THUNDURUS || species == SPECIES_LANDORUS || species == SPECIES_KELDEO || species == SPECIES_VIVILLON || 
 	   species == SPECIES_FLORGES || species == SPECIES_FURFROU || species == SPECIES_GOURGEIST || species == SPECIES_ORICORIO || species == SPECIES_LYCANROC || 
-	   species == SPECIES_TOXTRICITY)
+	   species == SPECIES_TOXTRICITY || species == SPECIES_SILVALLY)
 	{
 		species = getRandomFormSpeciesId(species);
 	}
