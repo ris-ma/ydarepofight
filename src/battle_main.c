@@ -67,6 +67,16 @@
 #include "constants/spreads.h"
 #include "cable_club.h"
 
+
+
+
+#include "data/pokemon/form_species_tables.h"
+#include "data/pokemon/form_species_table_pointers.h"
+#include "data/pokemon/form_change_tables.h"
+#include "data/pokemon/form_change_table_pointers.h"
+
+
+
 extern struct MusicPlayerInfo gMPlayInfo_SE1;
 extern struct MusicPlayerInfo gMPlayInfo_SE2;
 
