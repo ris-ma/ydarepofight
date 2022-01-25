@@ -69,10 +69,6 @@
 
 
 
-#include "data/pokemon/form_species_tables.h"
-#include "data/pokemon/form_species_table_pointers.h"
-
-
 
 extern struct MusicPlayerInfo gMPlayInfo_SE1;
 extern struct MusicPlayerInfo gMPlayInfo_SE2;
@@ -6860,11 +6856,7 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 	   species == SPECIES_FLORGES || species == SPECIES_FURFROU || species == SPECIES_GOURGEIST || species == SPECIES_ORICORIO || species == SPECIES_LYCANROC || 
 	   species == SPECIES_TOXTRICITY)
 	{
-		for (countAltForms = 0; gFormSpeciesIdTables[species][countAltForms] != FORM_SPECIES_END; countAltForms++)
-                {
-                }
-                rand = Random() % countAltForms;
-                species = gFormSpeciesIdTables[species][rand];
+		species = getRandomFormSpeciesId(species);
 	}
 	return species;
 };
