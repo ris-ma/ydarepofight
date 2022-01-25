@@ -2008,9 +2008,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 		if (trainerNum == TRAINER_OLDPLAYER)
 		{
 			species = pickOldplayerGeneralSpecies(i);
-			level = 90; // debug purposes, delete later
-			CreateMon(&party[i], species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0); // debug purposes, delete later
-			//CreateMon(&party[i], species, getNewPokemonLevel(species, level), 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+			CreateMon(&party[i], species, getNewPokemonLevel(species, level), 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 			heldItem = getHeldItem(species);
 			SetMonData(&party[i], MON_DATA_HELD_ITEM, &heldItem);
 			ability = Random() % 3;
@@ -2072,7 +2070,6 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                     friendship = MAX_FRIENDSHIP;
                     SetMonData(&party[i], MON_DATA_FRIENDSHIP, &friendship);
                 }
-		    SendMonToPC(&party[i]);
                 break;
             }
             }
