@@ -8909,7 +8909,6 @@ u16 getRandomSpecies(void)
         u16 randSpecies = 0;
         u16 Rand = 0;
         u16 species = 0;
-        u8 countAltForms = 0;
         
         
         
@@ -8987,12 +8986,23 @@ u16 getRandomSpecies(void)
                       species == SPECIES_KELDEO || species == SPECIES_HOOPA || species == SPECIES_SILVALLY || species == SPECIES_MAGEARNA || species == SPECIES_CALYREX)
                       && NonObtLegendsEnabled == 1))
             {
-                for (countAltForms = 0; gFormSpeciesIdTables[species][countAltForms] != FORM_SPECIES_END; countAltForms++)
-                {
-                }
-                randSpecies = Random() % countAltForms;
-                species = gFormSpeciesIdTables[species][randSpecies];
+		    randSpecies = getRandomFormSpeciesId(species);
+		    species = randSpecies;
             }
         }
+	return species;
+}
+
+u16 getRandomFormSpeciesId(u16 species)
+{
+	u8 countAltForms = 0;
+	u8 rand = 0;
+	
+	for (countAltForms = 0; gFormSpeciesIdTables[species][countAltForms] != FORM_SPECIES_END; countAltForms++)
+	{
+	}
+		rand = Random() % countAltForms;
+		species = gFormSpeciesIdTables[species][rand];
+	
 	return species;
 }
