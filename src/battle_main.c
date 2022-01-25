@@ -2007,8 +2007,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 }
 		if (trainerNum == TRAINER_OLDPLAYER)
 		{
-			species = Random() % 500;
-			CreateMon(&party[i], pickOldplayerGeneralSpecies(i), getNewPokemonLevel(species, level), 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+			species = pickOldplayerGeneralSpecies(i);
+			CreateMon(&party[i], species, getNewPokemonLevel(species, level), 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 			heldItem = getHeldItem(species);
 			SetMonData(&party[i], MON_DATA_HELD_ITEM, &heldItem);
 			ability = Random() % 3;
