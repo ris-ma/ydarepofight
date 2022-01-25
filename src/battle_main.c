@@ -69,11 +69,7 @@
 
 
 
-
 #include "data/pokemon/form_species_tables.h"
-#include "data/pokemon/form_species_table_pointers.h"
-#include "data/pokemon/form_change_tables.h"
-#include "data/pokemon/form_change_table_pointers.h"
 
 
 
