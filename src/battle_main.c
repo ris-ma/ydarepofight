@@ -7167,7 +7167,7 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 	
 	
 	
-	if (species == SPECIES_PACHIRISU)
+	if (species == SPECIES_PACHIRISU && i == 5)
 	{
 		rand = Random() % 4;
 		if (rand == 1)
@@ -7177,7 +7177,7 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		else if (rand == 3)
 			species = SPECIES_TOGEDEMARU;
 	}
-	if (species == SPECIES_REGIROCK)
+	if (species == SPECIES_REGIROCK && i == 5)
 	{
 		rand = Random() % 5;
 		if (rand == 1)
@@ -7189,7 +7189,7 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		else if (rand == 4)
 			species = SPECIES_REGIDRAGO;
 	}
-	if (species == SPECIES_VAPOREON)
+	if (species == SPECIES_VAPOREON && i == 5)
 	{
 		rand = Random() % 8;
 		if (rand == 1)
@@ -7207,7 +7207,7 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		else if (rand == 7)
 			species = SPECIES_SYLVEON;
 	}
-	if (species == SPECIES_ARTICUNO}
+	if (species == SPECIES_ARTICUNO && i == 5}
 	{
 		rand = Random() % 3;
 		if (rand == 1)
@@ -7215,7 +7215,7 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		else if (rand == 2)
 			species = SPECIES_MOLTRES;
 	}
-	if (species == SPECIES_ARTICUNO_GALARIAN}
+	if (species == SPECIES_ARTICUNO_GALARIAN && i == 5}
 	{
 		rand = Random() % 3;
 		if (rand == 1)
@@ -7223,7 +7223,7 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 		else if (rand == 2)
 			species = SPECIES_MOLTRES_GALARIAN;
 	}
-	if (species == SPECIES_UXIE)
+	if (species == SPECIES_UXIE && i == 5)
 		if (Random() % 2 == 0)
 			species = SPECIES_AZELF;
 	if (species == SPECIES_ZYGARDE)
