@@ -130,7 +130,6 @@ static u16 getHeldItem (u16 species);
 static u16 getAverageBSTEnemyParty(void);
 static u8 getNewPokemonLevel(u16 species, u8 currentPokemonLevel);
 static u16 pickOldplayerGeneralSpecies(u8 i);
-static void generateOldplayerTeam (struct Pokemon *mon);
 
 
 // EWRAM vars
@@ -2073,7 +2072,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                     friendship = MAX_FRIENDSHIP;
                     SetMonData(&party[i], MON_DATA_FRIENDSHIP, &friendship);
                 }
-		generateOldplayerTeam(&party[i]);
+		    SendMonToPC(&party[i]);
                 break;
             }
             }
@@ -6862,10 +6861,3 @@ static u16 pickOldplayerGeneralSpecies(u8 i)
 	return species;
 };
 
-
-
-
-static void generateOldplayerTeam (struct Pokemon *mon)
-{
-	GiveMonToPlayer(mon);	
-};
