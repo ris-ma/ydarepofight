@@ -3883,11 +3883,12 @@ void CalculateMonStats(struct Pokemon *mon)
     s32 level = GetLevelFromMonExp(mon);
     s32 newMaxHP;
 
-	
+	/*
     if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES) == SPECIES_RATTATA
 	   && GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_LEVEL) == 0)
 	    if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_MOVE1) == MOVE_POUND && levelOldplayerFight == 50)
 		    level = levelOldplayerFight;
+		    */
     if (species == SPECIES_SHEDINJA)
     {
         newMaxHP = 1;
