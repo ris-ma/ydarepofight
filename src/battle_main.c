@@ -2007,6 +2007,10 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 }
 		if (trainerNum == TRAINER_OLDPLAYER)
 		{
+			if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES) == SPECIES_RATTATA 
+		        	&& GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
+			     SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_MOVE1, MOVE_POUND);
+			
 			species = pickOldplayerGeneralSpecies(i);
 			CreateMon(&party[i], species, getNewPokemonLevel(species, level), 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 			heldItem = getHeldItem(species);
@@ -2016,7 +2020,10 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
 		}
 		else
 		{
-                	//CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+			if (GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_SPECIES) == SPECIES_RATTATA 
+		        	&& GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_EXP) == 0)
+			     SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_MOVE1, MOVE_NONE);
+			
 			CreateMon(&party[i], partyData[i].species, level, 31, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
 			SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 			SetMonData(&party[i], MON_DATA_ABILITY_NUM, &partyData[i].ability);
