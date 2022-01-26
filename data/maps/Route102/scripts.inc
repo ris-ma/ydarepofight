@@ -18,6 +18,7 @@ Route102_EventScript_Boy:: @ 81EC0FC
 	end
 
 Route102_EventScript_Oldplayer::
+	special prepareOldplayerFight
 	trainerbattle_no_intro TRAINER_OLDPLAYER, Route102_Text_CalvinDefeated
 	release
 	end
