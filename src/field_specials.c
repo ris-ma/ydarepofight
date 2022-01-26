@@ -6013,7 +6013,6 @@ u16 GetMysteryGiftSpecies (void)
 
 u8 prepareOldplayerFight (void)
 {
-	/*
 	u8 i = 0;
 	u16 value = 0;
 	
@@ -6040,5 +6039,4 @@ u8 prepareOldplayerFight (void)
 			CalculateMonStats(&gPlayerParty[i]);
 		}
 	}
-	*/
 }
