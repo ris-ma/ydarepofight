@@ -9021,7 +9021,7 @@ u16 getRandomSpecies(void)
 	return species;
 }
 
-u16 getRandomFormSpeciesId(u16 species)
+u16 getRandomFormSpeciesId (u16 species)
 {
 	u8 countAltForms = 0;
 	u8 rand = 0;
@@ -9033,4 +9033,24 @@ u16 getRandomFormSpeciesId(u16 species)
 		species = gFormSpeciesIdTables[species][rand];
 	
 	return species;
+}
+
+
+
+void endOldplayerBattle (void)
+{
+	u8 i = 0;
+	u8 value = MOVE_NONE;
+	
+	SetBoxMonDataAt(TOTAL_BOXES_COUNT-1, IN_BOX_COUNT-1, MON_DATA_MOVE1, &value);
+	
+	for (i = 0; i < PARTY_SIZE; i++)
+	{
+		value = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, (IN_BOX_COUNT-2) - i, MON_DATA_LEVEL)
+		SetMonData(&gPlayerParty[i], MON_DATA_LEVEL, &value);
+		value = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, (IN_BOX_COUNT-2) - i, MON_DATA_EXP)
+		SetMonData(&gPlayerParty[i], MON_DATA_EXP, &value);
+		CalculateMonStats(gPlayerParty[i]);
+		ZeroBoxMonAt(TOTAL_BOXES_COUNT-1, (IN_BOX_COUNT-2) - i);
+	}	
 }
