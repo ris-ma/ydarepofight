@@ -9037,7 +9037,7 @@ u16 getRandomFormSpeciesId (u16 species)
 
 
 
-void endOldplayerBattle (void)
+void endOldplayerBattle(void)
 {
 	u8 i = 0;
 	u8 value = MOVE_NONE;
