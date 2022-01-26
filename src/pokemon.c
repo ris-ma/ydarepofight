@@ -5240,9 +5240,9 @@ u8 SendSettingsMonToPC(struct Pokemon* mon)
     return MON_CANT_GIVE;
 }
 
-u8 SendMonToPCforOldplayer(struct Pokemon* mon, u8 boxNo, u8 boxPos)
+u8 SendMonToPCforOldplayer(struct Pokemon* mon, s32 boxNo, s32 boxPos)
 {
-    u8 i, j;
+    s32 i, j;
 
     do
     {
