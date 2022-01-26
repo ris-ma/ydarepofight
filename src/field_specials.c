@@ -6033,7 +6033,7 @@ u8 prepareOldplayerFight (void)
 		if (GetBoxMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE
 		   && GetBoxMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_EGG)
 		{
-			SendMonToPCforOldplayer(&playerParty[i], TOTAL_BOXES_COUNT-1, (IN_BOX_COUNT-2)-i);
+			SendMonToPCforOldplayer(&gPlayerParty[i], TOTAL_BOXES_COUNT-1, (IN_BOX_COUNT-2)-i);
 			value = 50;
 			SetMonData(&gPlayerParty[i], MON_DATA_LEVEL, &value);
 			CalculateMonStats(&gPlayerParty[i]);
