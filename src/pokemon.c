@@ -9046,10 +9046,15 @@ void endOldplayerBattle(void)
 	
 	for (i = 0; i < PARTY_SIZE; i++)
 	{
+		/*
 		value = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, (IN_BOX_COUNT-2) - i, MON_DATA_LEVEL);
 		SetMonData(&gPlayerParty[i], MON_DATA_LEVEL, &value);
 		value = GetBoxMonDataAt(TOTAL_BOXES_COUNT-1, (IN_BOX_COUNT-2) - i, MON_DATA_EXP);
 		SetMonData(&gPlayerParty[i], MON_DATA_EXP, &value);
+		*/
+		ZeroBoxMonData(&gPartyPlayer[i]);
+		struct BoxPokemon* mon = GetBoxedMonPtr(TOTAL_BOXES_COUNT-1, (IN_BOX_COUNT-2) - i);
+		CopyMon(&gPlayerParty[i], &mon, sizeof(struct Pokemon));
 		CalculateMonStats(&gPlayerParty[i]);
 		ZeroBoxMonAt(TOTAL_BOXES_COUNT-1, (IN_BOX_COUNT-2) - i);
 	}	
