@@ -9055,7 +9055,7 @@ void endOldplayerBattle(void)
 		*/
 		ZeroMonData(&gPlayerParty[i]);
 		mon = GetBoxedMonPtr(TOTAL_BOXES_COUNT-1, (IN_BOX_COUNT-2) - i);
-		CopyMon(&gPlayerParty[i], mon, sizeof(struct Pokemon));
+		CopyMon(&gPlayerParty[i], mon, sizeof(*mon));
 		CalculateMonStats(&gPlayerParty[i]);
 		ZeroBoxMonAt(TOTAL_BOXES_COUNT-1, (IN_BOX_COUNT-2) - i);
 	}	
